@@ -16,7 +16,7 @@ class User
     public function register(Request $request){
         // return "test";
         $data = $request->param();//接收所有传过来的post值
-        $wxcode=$data['code'];
+        $wxcode =$request->param("code");
         $openid=openid($wxcode);
         $scene=$request->param("scene");
         $time =date('Y-m-d H:i:s',time());//获取当前时间
@@ -24,9 +24,9 @@ class User
         if($dbnum==null){
                 $channel=$data["channel"];
                 $master_id=$data["master_id"];
-                $dbdata = ['id'=>'','openid' =>$openid,'channel' => $channel,'scene' => $scene,'score' => 0,'tributu' => 0,'master_id' => $master_id,'create_time' =>$time ,'updata_time' =>$time];
+                $dbdata = ['id'=>'','openid' =>$openid,'channel' => $channel,'scene' => $scene,'score' => 0,'tribute' => 0,'master_id' => $master_id,'create_time' =>$time ,'updata_time' =>$time];
                 $userId= db('user')->insertGetId($dbdata);//返回自增ID
-                $userdata=['id'=>$userId,'openid' =>$openid,'channel' => $channel,'scene' => $scene,'score' => 0,'tributu' => 0,'master_id' => $master_id,'create_time' =>$time ,'updata_time' =>$time];
+                $userdata=['id'=>$userId,'openid' =>$openid,'channel' => $channel,'scene' => $scene,'score' => 0,'tribute' => 0,'master_id' => $master_id,'create_time' =>$time ,'updata_time' =>$time];
                 $state=['state'   => '200','message'  => "注册成功" ];
                 $resdata=array_merge($state,array('userdata'=>$userdata));
                 return $resdata;
