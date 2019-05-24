@@ -1,0 +1,162 @@
+<view>
+
+<view class='top' bindtap='havecode' style="background-image: url('http://littlebox.luojiaming.vip/yello.jpg');background-size: cover" >
+<view class='user'>
+
+<view class='userAvatar'  >
+<open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
+</view>
+
+<view class='username' >
+<view class='userNickName' >
+<open-data type="userNickName" ></open-data>
+</view>
+<view class='id' >
+<text>ID:{{userid}}</text></view>
+</view>
+<!--
+<view  class='mypageshare' >
+<button open-type='share' >邀请好友</button>
+</view>-->
+
+</view>
+</view>
+
+<view  wx:if="{{kongzhi}}"   class='score'  >
+<view  class='score_text' >
+<text>当前共有：{{userscore}}</text>
+<image   src='../../images/coin.png' ></image>
+</view>
+<view class='score_button' >
+<button bindtap='duihuan' >立即兑换</button>
+</view>
+</view>
+
+
+
+<view wx:if="{{kongzhi}}"   class='Disaggregation' bindtap='jump'  data-jump='/pages/my/score_detailed/score_detailed' >
+<view><image   src='../../images/coin.png' ></image></view>
+<view  class='Disaggregation_text' ><text>金币明细</text></view>
+<view class='Disaggregation_icon' ><image   src='../../images/jiantou.png' ></image></view>
+</view>
+
+
+<!--<view   wx:if="{{kongzhi}}"  class='Disaggregation'  bindtap='jump'  data-jump='/pages/my/apprentice_center/apprentice_center' >
+<view><image   src='../../images/Apprentice.png' ></image></view>
+<view  class='Disaggregation_text' ><text>好友中心</text></view>
+<view class='Disaggregation_icon' ><image   src='../../images/jiantou.png' ></image></view>
+</view>-->
+
+<view   wx:if="{{kongzhi}}"  class='Disaggregation'  bindtap='jump'  data-jump='../../pages/erweima/erweima' >
+<view><image   src='../../images/Apprentice.png' ></image></view>
+<view  class='Disaggregation_text' ><text>我的邀请码</text></view>
+<view class='Disaggregation_icon' ><image   src='../../images/jiantou.png' ></image></view>
+</view>
+
+
+
+<view  class='Disaggregation'  bindtap='kefu' >
+<view><image   src='../../images/kefu.png' ></image></view>
+<view  class='Disaggregation_text' ><text>联系客服</text></view>
+<view class='Disaggregation_icon' ><image   src='../../images/jiantou.png' ></image></view>
+</view> 
+
+<view  wx:if="{{kongzhi}}"  class='Disaggregation'  bindtap='imagebig' >
+<view><image   src='../../images/gongzhonghao.png' ></image></view>
+<view  class='Disaggregation_text' ><text>关注公众号</text></view>
+<view class='Disaggregation_icon' ><image   src='../../images/jiantou.png' ></image></view>
+</view> 
+
+<!-- <view class='my_bottom'>
+<text>-----kaming网络科技有限公司-----</text>
+</view>-->
+
+</view>
+
+
+  <!--广点通广告-->
+<ad   capture-bind:tap="dianjiadceshi"   unit-id="adunit-c062080ba074a99f"></ad>
+
+  <!--小盟广告-->
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+
+<!--<view  class='index_ad'>
+<view><ad   capture-bind:tap="dianjiadceshi"   class='index_ad_tx' unit-id="adunit-c78278ac2ba70663"></ad> </view>
+</view>-->
+
+
+<!-- <wxf class="wxf" id="HwFkJWKBOI" res="{{adHwFkJWKBOI}}"></wxf>-->
+
+
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->
+
+
+
+
+
+
+
+<form bindsubmit="submitForm"  wx:if="{{tankuang}}"      report-submit>
+  <view  class='tankuang'>
+     
+     <view  class='mysterious'>
+    <!--推荐弹框背景-->
+    <!-- <view class='beijing'   style="background-image: url('http://littlebox.luojiaming.vip/image/my/tankuang/my_tankuang_box.png');background-size: cover "  >
+    </view> -->
+    <view  class='mysterious_box_tips' >
+    <text>恭喜你！获得神秘礼包</text>
+    </view>
+
+    <view  class='mysterious_box'>
+    <image   src='http://littlebox.luojiaming.vip/image/my/tankuang/my_tankuang_box.png' ></image>
+    </view>
+
+  
+<view class='box_content'>
+<image   src='http://littlebox.luojiaming.vip/image/my/tankuang/my_tankuang_button.png' ></image>
+</view>
+
+<!-- <view style="opacity: 0"  > -->
+
+<view  class='mysterious_ad'   style="opacity: 0"  wx:if="{{tankuangadtype}}"    >
+<view   class='videoad'   bindtap='shipinguanggao'    data-name="video"></view>
+</view>
+
+<view  class='mysterious_ad'   style="opacity: 0"  wx:else >
+<ad  capture-bind:tap="dianjiadceshi"  binderror="adfail"   data-name="adunit-81fba4cf0b8f6623"  unit-id="adunit-81fba4cf0b8f6623"></ad>
+</view>
+
+
+
+ <!-- 关闭按钮--> 
+<view   bindtap='closetankuang'  class='closetankuang'>
+    <image src='../../images/close.png' ></image>
+</view>
+
+</view>
+
+  </view>
+</form>

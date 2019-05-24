@@ -1,0 +1,291 @@
+page{
+  background-color: #E0E0E0;
+  height:100%;
+
+}
+
+.top{
+  height: 240rpx;
+  width: 100%;
+
+}
+.user{
+  height: 240rpx;
+  display: flex;
+   flex-direction:row;
+   justify-content:space-around;
+}
+.userAvatar{
+   display: flex;
+   flex-direction:row;
+   justify-content:space-around;
+   align-items:center;
+  color: #fff;
+}
+.userAvatarurl{
+overflow:hidden;  
+display: block;   
+width: 160rpx;  
+height: 160rpx; 
+border-radius: 50%; 
+border: 2px solid #fff;  
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.username{
+display: flex;
+flex-direction: column;
+justify-content:space-around;
+align-items: left;
+flex-shrink: 0;
+flex-basis: 400rpx;
+}
+.userNickName{
+  display: flex;
+  position:relative;
+  font-size: 45rpx;
+  right:30rpx;  
+  top:25rpx; 
+  color: #ffffff;
+}
+
+.id{
+  display: flex;
+  position:relative;
+  font-size: 40rpx;
+  right:30rpx; 
+  bottom: 10rpx;
+  color: #ffffff;
+
+}
+
+.mypageshare{
+  position: fixed;
+  margin-top: 90rpx;
+  margin-left: 32%;
+}
+.mypageshare button{
+  background-color: #ffa042;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70rpx;
+  width: 200rpx;
+  font-size: 35rpx;
+}
+
+
+
+.score{
+  margin-bottom: 8rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-around;
+  text-align: center;
+  align-items:center;
+  background-color: #ffffff;
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.score_text{
+  display: flex;
+  align-items:center;
+  font-size: 40rpx;
+}
+
+.score_text image{
+  height: 50rpx;
+  width: 50rpx;
+  
+
+}
+
+.score_button button{
+  background-color:  #ffa042;
+  color: #ffffff;
+  display: flex;
+  align-items:center;
+  height: 70rpx;
+  width: 190rpx;
+  font-size: 30rpx;
+}
+
+
+
+
+
+
+
+.Disaggregation{
+  border-radius: 10rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-around;
+  text-align: center;
+  align-items:center;
+  background-color: #ffffff;
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 5rpx;
+}
+
+.Disaggregation image {
+  height: 80rpx;
+  width: 80rpx;
+
+}
+
+.Disaggregation_text{
+  display: flex;
+  align-items:center;
+  font-size: 35rpx;
+  position:relative;
+  right: 110rpx;
+  bottom: 8rpx;
+}
+
+.Disaggregation_icon image{
+  height: 60rpx;
+  width: 60rpx;
+ 
+}
+
+.my_bottom{
+   display: flex;
+  align-items:center;
+  justify-content:center;
+  margin-top: 15rpx;
+  color: #808080;
+  font-size: 35rpx;
+}
+
+
+
+/* 下面是广告 */
+.index_ad{
+  display:flex; 
+   justify-content:center; 
+   align-items:center;
+   margin-top: 30rpx;
+}
+
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}
+
+.index_ad_tx{
+  border-radius: 20rpx;
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+  margin-bottom: 50rpx;
+}
+
+
+
+
+
+/*弹框*/
+.tankuang {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  
+}
+
+.beijing {
+  width: 100%;
+  height: 800rpx;
+
+}
+
+.mysterious{
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: 100rpx;
+  
+}
+.mysterious_box_tips{
+  width: 100%;
+  height: 100rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-bottom: -100rpx;
+  margin-left: 30rpx;
+
+}
+.mysterious_box_tips{
+  font-size: 50rpx;
+  color: #fff;
+  font-weight: 800;
+  
+}
+
+.mysterious_box{
+  width: 100%;
+  height: 800rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.mysterious_box image{
+  width: 700rpx;
+  height: 700rpx;
+}
+.videoad{
+   width: 300rpx;
+  height: 400rpx;
+}
+
+
+.box_content{
+  width: 100%;
+  height: 200rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: -180rpx;
+}
+.box_content image{
+  width: 400rpx;
+  height: 150rpx;
+}
+
+.closetankuang{
+  width: 100%;
+  height: 100rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: -700rpx;
+  margin-left: 580rpx;
+
+}
+.closetankuang image{
+  width: 70rpx;
+  height: 70rpx;
+}
+
+
+.mysterious_ad{
+  margin-top: -200rpx;
+}

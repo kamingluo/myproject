@@ -1,0 +1,197 @@
+/* pages/sign/sign.wxss */
+.top{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #ff6609;
+}
+
+.red{
+  margin-top: 10%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+.clickred{
+  height: 900rpx;
+  width: 640rpx;
+  opacity: 0;
+}
+
+.red_background{
+  width: 100%;
+  height: 500%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+.red_sign{
+   width: 620rpx;
+  height: 900rpx;
+  border-radius: 50rpx;
+  
+}
+.sign_explain{
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: -570rpx;
+}
+.sign_explain_text1{
+  color: rgb(216, 202, 7);
+  font-size: 60rpx;
+  font-weight: 700;
+}
+.sign_explain_text2{
+  color: rgb(216, 202, 7);
+  font-size: 40rpx;
+  margin-top: 30rpx;
+}
+
+
+
+.share{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+
+.box_content_button::after {
+  border: none;
+}
+
+.box_content_button {
+  background-color:#ff6609;
+  color: #A0522D;
+  height: 100rpx;
+  width: 420rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+  background-size: 400rpx 100rpx;
+  font-weight: 800;
+}
+
+
+
+
+
+/*弹框*/
+.tankuang {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.beijing {
+  width: 100%;
+  height: 800rpx;
+}
+
+.result{
+   display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: 80rpx;
+
+}
+.blessing text{
+font-size: 55rpx;
+color: red;
+}
+.reward{
+  margin-top: 10rpx;
+}
+.reward text{
+  font-size: 140rpx;
+  color: #ffa042;
+  font-weight: 800;
+  
+}
+.reward image{
+  width: 90rpx;
+  height: 90rpx;
+  margin-top: 15rpx;
+}
+
+.tixiantips{
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+   font-size: 30rpx;
+  color: red;
+  margin-top: 10rpx;
+
+}
+
+.adtips{
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  font-size: 40rpx;
+   color: #ffa042;
+  font-weight: 800;
+  margin-top: 120rpx;
+
+}
+
+
+
+
+/* 下面是广告 */
+.gdt{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+
+}
+.gdtadimg{
+  display: flex;
+  border-radius: 25rpx;
+}
+
+
+
+
+.closetankuang{
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: 77rpx;
+
+}
+
+.fork {
+  height: 70rpx;
+  width: 70rpx;
+  
+}
+
+
+
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}

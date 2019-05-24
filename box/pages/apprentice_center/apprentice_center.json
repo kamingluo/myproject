@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "好友中心",
+  "usingComponents":{
+  "xm-ad": "/components/xmAD/xmAD" 
+}
+}

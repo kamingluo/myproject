@@ -1,0 +1,100 @@
+
+<view>
+
+<view wx:if="{{length == 999999}}" > 
+
+<view  class='default' >
+<form  bindsubmit="submitForm" report-submit  >
+<view><image   src='http://littlebox.luojiaming.vip/image/jpe/default/default.png' ></image></view>
+<view><text>你还没有邀请的好友呢</text></view>
+<view><button form-type="submit"  open-type="share" >点击立即邀请好友</button></view>
+</form>
+</view>
+
+</view>
+
+
+
+
+<view wx:elif="{{length >= 0}}" class='highest' >
+
+<form  bindsubmit="submitForm" report-submit  >
+<view  class='highest_background'  >
+
+<image  wx:if="{{kongzhi}}"   src='http://littlebox.luojiaming.vip/image/jpg/share/8cfc41536dcd95fa99d443c123a1fae.png' ></image>
+<image  wx:else   src='http://littlebox.luojiaming.vip/1545117136%281%29.jpg' ></image>
+<view class='highest_text' >
+<view wx:if="{{kongzhi}}" >
+<view  ><text>邀 请 好 友 点 点 点 </text></view>
+<view class='highest_text_2'  ><text>大家一起赚赚赚</text></view>
+<view class='highest_text_3'  ><text>邀请成功即送{{jifen}}金币</text></view>
+</view>
+<view class='highest_button'  ><button form-type="submit"  animation='{{attentionAnim}}' open-type="share">点击立即邀请</button></view>
+</view>
+<view>
+</view>
+</view>
+</form>
+ 
+<view>
+<view class='middle' >
+<text decode="{{true}}"> 已邀请:</text><text decode="{{true}}" >&nbsp;{{length}}&nbsp;</text><image   src='../../../images/haoyou.png' ></image>
+<text decode="{{true}}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已获得奖励:</text>  <text decode="{{true}}" >&nbsp;{{pay_tribute}}&nbsp; </text><image   src='../../../images/coin.png' ></image>
+</view>
+</view>
+ 
+
+
+<view  wx:if="{{kongzhi}}" class='explain'  >
+
+<view class='explain_top_text' >
+<text>邀友福利-拿到手软</text>
+</view>
+
+<view  class='explain_shuoming'>
+<view>
+<image   src='../../../images/liwu.png' ></image>
+</view>
+
+<view  class='explain_shuoming2'>
+<text class='explain_shuoming3'>邀请的新用户即将成为你的好友\n</text>
+<text>邀请成功即送{{jifen}}金币\n</text>
+<text>好友每次收益送你额外20%的奖励</text>
+</view>
+
+
+</view>
+
+
+</view>
+
+
+
+
+ <view class='top'>
+<view class='top_explain' ><text>好友编号</text></view>
+<view class='top_score' ><text>累计奖励</text></view>
+<view class='top_time' ><text>邀请时间</text></view>
+</view>
+
+
+
+<view>
+<view class="bootm" wx:for="{{ListArr}}" wx:key="item"  >
+<view class='bootm_explain' ><text>{{item.id}}</text></view>
+<view class='bootm_score' ><text>{{item.pay_tribute}}</text></view>
+<view class='bootm_time' ><text>{{item.create_time}}</text></view>
+</view> 
+</view> 
+ <view class='bootm_text'>
+ <text>---快去邀请更多的朋友吧---</text>
+ </view>
+</view>
+
+
+
+<view wx:else> 3 </view>
+
+
+
+</view>

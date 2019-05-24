@@ -1,0 +1,98 @@
+<view  style="background-image: url('http://littlebox.luojiaming.vip/image/default/432236081616257323.png');background-size: cover;background-repeat:round">
+
+<view  wx:if="{{kongzhi}}"  >
+<view  class='score'  >
+<view  class='score_text' >
+<text>共有：{{score}}  </text>
+<image   src='../../images/coin.png' ></image>
+</view>
+<view  class='score_text' >
+<text>可兑：{{money}}元</text>
+</view>
+</view>
+
+
+<view class='alipay_view' >
+<view class='alipay' > <input  placeholder="请输入支付宝姓名" bindinput="getInput_name" ></input></view>
+<view class='alipay' ><input  placeholder="请输入支付宝账号"   bindinput="getInput_id"  ></input></view>
+</view>
+
+
+<view class='tips'>
+<text>请选择兑换金额:</text>
+</view>
+
+
+<view class='top'>
+
+<view  class='cash_top'style="background-color:{{backgroundcolor1}}" bindtap='change1' >
+<view >
+<text style="color:{{color1}}" >2 元</text>
+</view>
+</view>
+
+
+<view  class='cash_top'style="background-color:{{backgroundcolor2}}" bindtap='change2' >
+<view >
+<text style="color:{{color2}}" >5 元</text>
+</view>
+</view>
+
+
+<view  class='cash_top'style="background-color:{{backgroundcolor3}}" bindtap='change3' >
+<view >
+<text style="color:{{color3}}" >10 元</text>
+</view>
+</view>
+
+</view>
+<view class='top'>
+
+<view  class='cash_top'style="background-color:{{backgroundcolor4}}" bindtap='change4' >
+<view >
+<text style="color:{{color4}}" >20 元</text>
+</view>
+</view>
+
+
+<view  class='cash_top'style="background-color:{{backgroundcolor5}}" bindtap='change5' >
+<view >
+<text style="color:{{color5}}" >50 元</text>
+</view>
+</view>
+
+
+<view  class='cash_top'style="background-color:{{backgroundcolor6}}" bindtap='change6' >
+<view >
+<text style="color:{{color6}}" >100 元</text>
+</view>
+</view>
+
+</view>
+
+ <form  bindsubmit="submitForm" report-submit  >
+<view class='forward'>
+<view class='forward_clik'><button  bindtap='put_forward' form-type="submit"  >立即兑换</button></view>
+<view class='forward_shar' ><button  open-type="share"  form-type="submit"  >分享继续赚</button></view>
+
+</view>
+ </form>
+<view class='exchange_tips'>
+
+<view>
+<text>兑换规则与注意：</text>
+</view>
+
+<view class='exchange_tips_view2' >
+<text>1. 1000金币=1元，最低兑换2元/次\n</text>
+<text>2. 客服人员将在2个工作日内完成兑换发放\n</text>
+<text>3. 请确认输入的支付宝信息正确，否则将转账失败\n</text>
+<text>4. 最终解释权归《点点好玩》所有</text>
+</view>
+
+</view>
+
+</view>
+
+
+</view>

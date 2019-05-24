@@ -1,0 +1,41 @@
+<!--pages/index/index.wxml-->
+
+<view class="container" bindtap='havecode' >
+  <image class="bgPic" wx:if="{{bgPic}}" src="{{bgPic}}"></image>
+  <view class="emptyBg" wx:else></view>
+</view>
+<ad unit-id="adunit-81fba4cf0b8f6623"></ad>
+<view class="btnContainer">
+  <button data-way="avatar" open-type="getUserInfo" bind:tap="getAvatar">使用本微信头像</button>
+  <button data-way="camera" bind:tap="chooseImage">使用相机</button>
+  <button data-way="album" bind:tap="chooseImage">相册选择</button>
+  <button bind:tap="nextPage" disabled="{{!picChoosed}}">下一步</button>
+</view>
+
+  <!--小盟广告-->
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->

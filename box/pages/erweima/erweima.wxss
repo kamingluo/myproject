@@ -1,0 +1,36 @@
+/* pages/erweima/erweima.wxss */
+.imageurl{
+    display: flex;
+margin-top: 10%;
+  justify-content:space-around;
+  text-align: center;
+  align-items:center;
+}
+
+
+.imageurl image{
+  background-color: #ffffff;
+  border-radius: 30rpx;
+  height: 750rpx;
+  width: 650rpx;
+ box-shadow:1px 1px 1px 3px #D3D3D3;
+}
+
+
+.buttonclass{
+  display: flex;
+ margin-top: 5%;
+  justify-content:space-around;
+  text-align: center;
+  align-items:center;
+}
+
+
+.anniu1{
+  background-color: greenyellow;
+
+}
+.anniu2{
+  background-color: red;
+  color: white;
+}

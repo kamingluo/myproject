@@ -1,0 +1,78 @@
+/* pages/index/index.wxss */
+.btnZoom{
+  position: relative;
+  width:100%;
+  height:300px;
+}
+button{
+  margin: 10px 20px 0px 20px;
+}
+.container{
+  width:100%;
+  height:300px;
+}
+.bgPic,.emptyBg{
+  height:300px;
+  width:300px;
+}
+.emptyBg{
+  border: 2px solid;
+}
+.kefu{
+  position: fixed;
+  top: 600rpx;
+  right: 0rpx;
+  z-index: 999;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+
+/* kefu */
+.yaoqing{
+  position: fixed;
+  top: 900rpx;
+  right: 0rpx;
+
+}
+.yaoqing button{
+position: absolute;
+width: 120rpx;
+height: 120rpx;
+opacity:0;
+z-index:9999;
+}
+
+
+.yaoqing image{
+width: 120rpx;
+height: 120rpx;
+right: 0;
+}
+
+
+/* 下面是广告 */
+.index_ad{
+  
+  display:flex; 
+   justify-content:center; 
+   align-items:center;
+   margin-top: 20rpx;
+}
+
+
+.index_ad_tx{
+  border-radius: 20rpx;
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+  margin-bottom: 10rpx;
+}
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}

@@ -1,0 +1,15 @@
+
+<view class='kefu2'>
+<text>扫码添加微信在线客服</text>
+</view>
+<view  class='kefu' bindtap='imagebig' >
+<image src='http://littlebox.luojiaming.vip/image/my/kefu/575442952488421322.jpg' ></image>
+</view>
+
+<view class='kefu3'>
+<button type='default' session-from='{"nickName":"{{userInfo.nickName}}","avatarUrl":"{{userInfo.avatarUrl}}"}' open-type="contact" >点击咨询小程序在线客服</button>
+</view>
+
+<view  class='kefu4' >
+<text>注意：小程序在线客服只回答简单的操作问题，如数据有误，提现到账等问题请添加微信客服说明。  小程序上架，资源合作等也请添加微信客服。</text>
+</view>

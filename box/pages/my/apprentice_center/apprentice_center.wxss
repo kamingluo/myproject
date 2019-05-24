@@ -1,0 +1,267 @@
+
+page{
+  background-color: #D3D3D3;
+  height:100%;
+
+}
+
+
+
+
+.default{
+  display: flex;
+   flex-direction: column;
+   justify-content:center; 
+   text-align: center;
+   background-color: #ffffff;
+   height: 100%;
+}
+.default image {
+  height: 450rpx;
+  width: 500rpx;
+  margin-bottom: 30rpx;
+}
+.default text{
+  color: #9d9d9d;
+}
+.default button{
+  background-color: red;
+  color: #ffffff;
+  margin-top: 30rpx;
+  height: 100rpx;
+  width: 450rpx;
+}
+
+
+.highest{
+  background-color:#D3D3D3;
+}
+
+.highest_background image{
+ width: 100%;
+ height: 600rpx;
+ 
+}
+.highest_text{
+  font-weight: bold ;
+  font-style: oblique;
+  position :absolute;
+  top: 20rpx;
+  left: 15%;
+  font-size: 65rpx;
+  color: #ffffff;
+}
+.highest_text_2{
+  position :absolute;
+  font-size: 50rpx;
+  right: 130rpx;
+  margin-top: 35rpx;
+}
+
+
+.highest_text_3{
+  position :absolute;
+  font-size: 30rpx;
+  right: 130rpx;
+  margin-top: 150rpx;
+}
+
+
+
+
+.highest_button{
+   position :absolute;
+  margin-top: 220rpx;
+  height: 45rpx;
+  width: 280rpx;
+  left: 140rpx;
+}
+.highest_button button{
+  box-shadow:1px 4px 1px 4px #FF6347;
+  background-color: red;
+  font-size: 30rpx;
+  color: #ffffff;
+}
+
+
+
+
+.middle{
+  display: flex;
+  align-items:center;
+  height: 120rpx;
+  width: 100%;
+  background-color: #ffffff;
+  justify-content:center; 
+  font-size: 42rpx;
+  margin-bottom: 10rpx;
+}
+.middle image{
+  height: 50rpx;
+  width: 50rpx;
+}
+
+
+.explain{
+  font-weight: bold ;
+  
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items:center;
+  height: 220rpx;
+  width: 100%;
+  background-color: #ffffff;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.explain_top_text{
+  color: #FF8C00;
+}
+
+
+
+
+.explain_shuoming{
+  margin-top: 10rpx;
+   display: flex;
+  align-items:center;
+  justify-content:center;
+  width: 80%;
+  height: 130rpx;
+  background-color: #ffffff;
+border-radius: 30rpx;
+ box-shadow:1px 1px 2px 3px #D3D3D3;
+  
+
+}
+.explain image{
+  height: 110rpx;
+  width: 110rpx;
+}
+
+.explain_shuoming2{
+  font-size: 27rpx;
+  margin-left: 20rpx;
+}
+.explain_shuoming3{
+   font-size: 30rpx;
+   color: red;
+}
+
+
+
+
+
+
+
+.top{
+  display: flex;
+  flex-direction:row;
+  justify-content:center; 
+  align-items: center;
+  text-align: center;
+  font-size: 32rpx;
+  
+
+}
+
+.top_explain{
+  border-right: 1rpx solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #46a3ff;
+  width: 35%;
+  height: 90rpx;
+  color: #ffffff;
+}
+
+.top_score{
+   border-right: 1rpx solid #ffffff;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #46a3ff;
+   width: 25%;
+   height: 90rpx;
+   color: #ffffff;
+   
+}
+
+.top_time{
+  border-right: 1rpx solid #ffffff;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #46a3ff;
+   width: 40%;
+   height: 90rpx;
+   color: #ffffff;
+}
+
+
+
+.bootm{
+  display: flex;
+  flex-direction:row;
+  justify-content:center; 
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5rpx;
+}
+
+
+.bootm_explain{
+  border-right: 1rpx solid #E0E0E0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 35%;
+  height: 90rpx;
+  color: #000000;
+  font-size: 32rpx;
+}
+
+.bootm_score{
+   border-right: 1rpx solid #E0E0E0;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+   width: 25%;
+   height: 90rpx;
+   color: #000000;
+   font-size: 32rpx;
+   
+}
+
+.bootm_time{
+  border-right: 1rpx solid #E0E0E0;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+   width: 40%;
+   height: 90rpx;
+   color: #000000;
+   font-size: 30rpx;
+}
+
+.tips{
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  
+}
+
+
+.bootm_text{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #696969;
+}

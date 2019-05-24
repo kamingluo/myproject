@@ -1,0 +1,211 @@
+<!--index.wxml-->
+<view class="hide{{showView?'show':''}}">
+  <view class='collection'>
+    <text space="nbsp">        点击   </text>
+    <image class='spot' src='../../images/spot.png'></image>
+    <image class='spots' src='../../images/spot.png'></image>
+    <image class='spot' src='../../images/spot.png'></image>
+    <text>“添加到我的小程序” </text>
+    <image class='arrow' src='../../images/Arrow.png'></image>
+    <text decode="{{true}}">&ensp;&ensp;&ensp;&ensp;</text>
+    <image class='fork' src='../../images/fork.png' bindtap="onChangeShowState"></image>
+  </view>
+</view>
+
+
+
+<!-- 今日推荐 -->
+<view  style="background-image: url('http://qiniu.luojiaming.vip/index.png');background-size: cover;background-repeat:round">
+  <view class="todayList ">
+    <form bindsubmit="submitForm" report-submit wx:for="{{todayListArr}}" wx:key="item" data-id="{{item.id}}" data-url="{{item.url}}">
+      <view class="todayItem " data-id="{{item.id}}" data-url="{{item.url}}" data-type="{{item.type}}" bindtap='activity'>
+        <image src="{{item.img}}" mode="aspectFill" form-type="submit" />
+        <text wx:if="{{msad}}">{{item.name}}</text>
+      </view>
+    </form>
+</view>
+</view>
+
+<view wx:if="{{indexadall}}">
+
+
+<!--官方广告-->
+<view  class='gdt' wx:if="{{indexgdtad}}" >
+<view class="gdtad">
+<view style="background-image: url('{{indexgdtadimg}}');background-size: contain;background-repeat:round"  class='gdtadimg' >
+<view style="opacity: 0"  >
+<ad  capture-bind:tap="dianjiadceshi"   data-name="adunit-81fba4cf0b8f6623"  unit-id="adunit-81fba4cf0b8f6623"></ad>
+</view>
+</view>
+</view>
+</view>
+
+</view>
+
+
+
+<view wx:if="{{indexadall}}">
+<!--视频广告-->
+<view >
+<view class="shipin"  wx:if="{{indexvideoad}}">
+<view style="background-image: url('{{indexvideoadimg}}');background-size: contain;background-repeat:round"  class='gdtadimg' >
+<button style="opacity: 0"  class='shipinad' bindtap='shipinguanggao' >shipinguanggao</button>
+</view>
+</view>
+</view>
+</view>
+
+
+<!--banner推荐-->
+<view>
+<view  wx:for="{{iconListArr}}"  wx:key="item" >
+<view class="middlebanner"  bindtap='youxi' data-id="{{item.id}}" data-name="{{item.name}}" data-score="{{item.score}}" data-app-id="{{item.appid}}" data-path="{{item.Jump}}" data-extra-data="{{item.extradata}}" data-version="{{item.version}}"  >
+ <image   src="{{item.imgurl}}" />
+</view>
+</view>
+</view>
+
+
+
+
+
+  <!--盒子-->
+  <view wx:for="{{boxlist}}" wx:key="item">
+    <form bindsubmit="submitForm" report-submit>
+      <view>
+        <view bindtap='youxi' class='box_content' target="miniProgram" open-type="navigate" data-id="{{item.id}}" data-name="{{item.name}}" data-score="{{item.score}}" data-app-id="{{item.appid}}" data-path="{{item.Jump}}" data-extra-data="{{item.extradata}}"
+          data-version="{{item.version}}" hover-class="none">
+          <view class='box_content_image'>
+            <image class='box_content_img' src="{{item.imgurl}}" />
+          </view>
+          <view class='box_content_introduce'>
+            <view>
+              <text class='box_content_introduce_name'>{{item.name}}</text>
+            </view>
+            <view class='box_content_introduce_describe'>
+              <text>{{item.describe}}</text>
+            </view>
+            <view>
+              <text class='box_content_introduce_lable'>已有 <text class="box_content_introduce_lable.import">{{item.lable}}+人</text> 在玩 </text>
+            </view>
+          </view>
+
+          <view class='box_content_Jump'>
+            <button class='box_content_button' form-type="submit"  style="background-image:url(http://littlebox.luojiaming.vip/button.png);" >{{item.button_text}}</button>
+          </view>
+        </view>
+        
+      </view>
+    </form>
+  </view>
+ <view>
+
+
+ <!--<view class="todayTitle" style="min-height: 5rpx;"></view>  这是一条灰色的线  -->   
+
+
+
+
+
+
+  <!--微量 banner⼴告，按需引⼊ -->
+<view wx:for="{{wladlist}}" wx:key="item">
+<view  class='weiliang'>
+<view class="wl_banner"><!-- 可在此设置字体和背景颜⾊ -->
+ <wl-ad data-id="{{wlad.ad.banner[item]}}" adData="{{wlad.adData}}" bindclick="wladClick" 
+bindclose="wladClose"
+ class="wl_component">
+ </wl-ad>
+</view>
+</view>
+
+</view>
+
+
+  <!--小盟广告-->
+<view class='xmadcenter' >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+
+
+   <!--广点通中间 -->
+<ad  class="index_ad_tx" capture-bind:tap="dianjiadceshi"  data-name="adunit-c44caa90db2decb5"  unit-id="adunit-c44caa90db2decb5"></ad>
+
+
+
+  <view class='end'>
+    <text>-------更多精彩敬请期待--------</text>
+  </view>
+
+ <view wx:if="{{msad}}" > 
+ <official-account></official-account><!--扫码关注公众号组件-->  
+ </view>
+
+<!--关注公众号引导-->
+<!-- <view  wx:else  bindtap='imagebig' class='explain'  >
+<view class='explain_top_text' >
+<text>关注公众号-获取更多好玩</text>
+</view>
+<view  class='explain_shuoming'>
+<view>
+<image   src='http://littlebox.luojiaming.vip/1545118935%281%29.jpg' ></image>
+</view>
+<view  class='explain_shuoming2'>
+<text class='explain_shuoming3'>kaming_001\n</text>
+<text>分享有趣的事情，好玩的东西\n</text>
+<button>点击关注</button>
+</view>
+</view>
+</view> -->
+
+</view>
+
+
+
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->
+
+
+
+<form bindsubmit="submitForm" report-submit>
+  <view wx:if="{{tankuangzhanshi}}" class='tankuang'>
+    <!--推荐弹框-->
+    <view class='beijing'>
+     <view class='tankuangname'>
+  <text>{{tankuangdata.name}}</text>
+  </view>
+      <view>
+        <image src="{{tankuangdata.imgurl}}" />
+      </view>
+      <view class='tankuangjieshao'>
+        <text>{{tankuangdata.describe}}</text>
+      </view>
+      <view class='tankuanganniu'>
+        <button class='tankuanganniu1' bindtap='youxi' form-type="submit" data-id="{{tankuangdata.id}}" data-name="{{tankuangdata.name}}" data-score="{{tankuangdata.score}}" data-app-id="{{tankuangdata.appid}}" data-path="{{tankuangdata.Jump}}" data-extra-data="{{tankuangdata.extradata}}"
+          data-version="{{tankuangdata.version}}"   style="background-image:url(http://littlebox.luojiaming.vip/button.png);"  >{{tankuangdata.button_text}}</button>
+        <text class='tankuanganniu2'    data-id="{{tankuangdata.id}}" data-name="{{tankuangdata.name}}" data-score="{{tankuangdata.score}}" data-app-id="{{tankuangdata.appid}}" data-path="{{tankuangdata.Jump}}" data-extra-data="{{tankuangdata.extradata}}"
+          data-version="{{tankuangdata.version}}"        bindtap='colsetankuang'>放弃奖励</text>
+      </view>
+    </view>
+  </view>
+</form>

@@ -1,0 +1,6 @@
+.anniu::after {
+  border: none;
+}
+.anniu{
+  margin-left: 20rpx;
+}

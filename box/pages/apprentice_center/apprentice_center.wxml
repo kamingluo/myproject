@@ -1,0 +1,121 @@
+
+<view>
+
+<view wx:if="{{length == 999999}}" > 
+
+<view  class='default' >
+<form  bindsubmit="submitForm" report-submit  >
+<view><image   src='http://littlebox.luojiaming.vip/default.png' ></image></view>
+<view><text>你还没有邀请的好友呢</text></view>
+<view><button form-type="submit" animation='{{attentionAnim}}'  open-type="share" >点击立即邀请好友</button></view>
+</form>
+</view>
+
+</view>
+
+
+
+
+<view wx:elif="{{length >= 0}}" class='highest' >
+
+<form  bindsubmit="submitForm" report-submit  >
+<view  class='highest_background'  >
+
+<image  wx:if="{{kongzhi}}"   src='http://littlebox.luojiaming.vip/images/apprentice/banner%E8%83%8C%E6%99%AF.png' ></image>
+<image  wx:else   src='http://littlebox.luojiaming.vip/312b5a6ca86a90186affcaffabae248.png' ></image>
+<view class='highest_text' >
+<view wx:if="{{kongzhi}}" >
+<view  ><text>邀 请 好 友 点 点 点 </text></view>
+<view class='highest_text_2'  ><text>大家一起赚赚赚</text></view>
+<view class='highest_text_3'  ><text>邀请成功即送{{jifen}}金币</text></view>
+</view>
+<view class='highest_button' wx:if="{{kongzhi}}"  ><button form-type="submit"  animation='{{attentionAnim}}' open-type="share">点击立即邀请</button></view>
+</view>
+<view>
+</view>
+</view>
+</form>
+ 
+<view  wx:if="{{kongzhi}}"  >
+<view class='middle' >
+<text decode="{{true}}"> 已邀:</text><text decode="{{true}}" >&nbsp;{{length}}&nbsp;</text><image   src='../../images/haoyou.png' ></image>
+<text decode="{{true}}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已获奖励:</text>  <text decode="{{true}}" >&nbsp;{{pay_tribute}}&nbsp; </text><image   src='../../images/coin.png' ></image>
+</view>
+</view>
+ 
+
+
+<view  wx:if="{{kongzhi}}"  class='explain'  >
+<view class='explain_top_text' >
+<text>邀友福利-拿到手软</text>
+</view>
+<view  class='explain_shuoming'>
+<view>
+<image   src='../../images/liwu.png' ></image>
+</view>
+<view  class='explain_shuoming2'>
+<text class='explain_shuoming3'>邀请的新用户即将成为你的好友\n</text>
+<text>邀请成功即送{{jifen}}金币\n</text>
+<text>好友每次收益送你额外20%的奖励</text>
+</view>
+</view>
+</view>
+
+
+
+
+ <view wx:if="{{kongzhi}}"   class='top'>
+<view class='top_explain' ><text>好友编号</text></view>
+<view class='top_score' ><text>累计奖励</text></view>
+<view class='top_time' ><text>邀请时间</text></view>
+</view>
+
+
+
+<view>
+<view class="bootm" wx:for="{{ListArr}}" wx:key="item"  >
+<view class='bootm_explain' ><text>{{item.id}}</text></view>
+<view class='bootm_score' ><text>{{item.pay_tribute}}</text></view>
+<view class='bootm_time' ><text>{{item.create_time}}</text></view>
+</view> 
+</view> 
+ <view class='bootm_text'>
+ <text>---快去邀请更多的朋友吧---</text>
+ </view>
+</view>
+
+
+
+<view wx:else> 3 </view>
+
+
+
+</view>
+
+  
+
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->

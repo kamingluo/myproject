@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "有一点好玩",
+  "usingComponents":{
+  "wl-ad":"/components/wlAD/wlAD",
+  "xm-ad": "/components/xmAD/xmAD" 
+}
+}
+

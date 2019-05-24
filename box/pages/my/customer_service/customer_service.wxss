@@ -1,0 +1,30 @@
+/* pages/my/customer_service/customer_service.wxss */
+.kefu{
+  margin-top: 80rpx;
+  display: flex;
+  justify-content:center;
+}
+.kefu image{
+  width: 600rpx;
+  height: 600rpx;
+}
+.kefu2{
+  font-size: 50rpx;
+  position:absolute;
+  top: 40rpx;
+  left: 140rpx;
+}
+
+.kefu3 button{
+  width: 600rpx;
+  background-color: greenyellow;
+
+}
+
+.kefu4{
+  width: 90%;
+   display: flex;
+  justify-content:center;
+  margin-left: 5%;
+  margin-top: 30rpx;
+}

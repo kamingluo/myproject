@@ -1,0 +1,407 @@
+/**index.wxss  **/
+
+.shipin{
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  height: 170rpx;
+}
+.shipinad{
+  width: 100%;
+  height: 170rpx;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.collection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  height: 65rpx;
+  background-color: #ffe153;
+}
+
+.spot {
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.spots {
+  height: 35rpx;
+  width: 35rpx;
+}
+
+.arrow {
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.fork {
+  height: 32rpx;
+  width: 32rpx;
+  align-content: right;
+}
+
+/**今日推荐**/
+
+.todayList {
+  text-align: center;
+  width: 760rpx;
+  box-sizing: border-box;
+  /* padding-right:-14rpx; */
+  flex-direction: row;
+  padding: 10rpx;
+  margin-bottom: -20rpx;
+}
+
+.todayList:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.todayItem:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.todayItem {
+  border-radius: 30rpx;
+  width: 347rpx;
+  height: auto;
+  padding: 14rpx;
+  padding-bottom: 0;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  /* float:left;  */
+  display: inline-block;
+  margin-right: 14rpx;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.todayItem image {
+  border-radius: 20rpx;
+  width: 320rpx;
+  height: 320rpx;
+}
+
+.todayItem text {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #636363;
+  font-size: 35rpx;
+}
+
+/* 下面是广告 */
+.gdt{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.gdtad{
+  display: flex;
+  padding: 0px;
+  margin-bottom: 1%;
+}
+.gdtadimg{
+  display: flex;
+  border-radius: 25rpx;
+}
+
+.index_ad_tx {
+  border-radius: 25rpx;
+  display: flex;
+  margin-top: 10rpx;
+  margin-bottom: 15rpx;
+}
+
+/* 下面是中间banner */
+.middlebanner{
+  border-radius: 25rpx;
+  display: flex;
+  margin-top: 10rpx;
+  margin-bottom: 15rpx;
+  margin-left: 6%;
+}
+.middlebanner image{
+   border-radius: 25rpx;
+  width: 92%;
+  height: 220rpx;
+}
+
+/* 下面是盒子  */
+
+.box_content {
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 1.5%;
+  height: 180rpx;
+  display: flex;
+  border-radius: 20rpx;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 1px 1px 1px 2px rgb(238, 195, 3), 0 0 8px 0 rgba(0, 0, 0, 0.04);
+}
+
+.box_content_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_content_img {
+  border-radius: 50%;
+  height: 140rpx;
+  width: 140rpx;
+}
+
+.box_content_introduce {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-basis: 350rpx;
+  justify-content: center;
+  align-items: left;
+}
+
+.box_content_introduce_name {
+  font-size: 37rpx;
+}
+
+.box_content_introduce_describe {
+  display: -webkit-box;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #6c6c6c;
+}
+
+.box_content_introduce_lable {
+  font-size: 25rpx;
+}
+
+.box_content_introduce_lable.import {
+  font-size: 27rpx;
+  color: red;
+}
+
+.box_content_Jump {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box_content_button::after {
+  border: none;
+}
+
+.box_content_button {
+  background-color: #ffffff;
+  color: #A0522D;
+  height: 80rpx;
+  width: 210rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  background-size: 210rpx 80rpx;
+}
+.box_content_link {
+  width: 100%;
+  min-height: 60rpx;
+  text-align: center;
+  color: red;
+}
+
+.weiliang {
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 1.5%;
+  border-radius: 30rpx;
+ box-shadow: 1px 1px 1px 2px rgb(238, 195, 3), 0 0 8px 0 rgba(0, 0, 0, 0.04);
+}
+
+.xmadcenter {
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 1.5%;
+  border-radius: 30rpx;
+}
+
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}
+
+.end {
+  font-size: 30rpx;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.tankuang {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beijing {
+  background-color: #fff;
+  border-radius: 30rpx;
+  box-shadow: 1px 1px 1px 3px #d3d3d3;
+  width: 600rpx;
+  height: 800rpx;
+}
+.tankuangname{
+  font-weight: 600;
+  color: #ffa042;
+   margin-top: 3%;
+  margin-bottom: 2%;
+  font-size: 38rpx;
+  align-content: center;
+  text-align: center;
+}
+
+
+.tankuangjieshao {
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  font-size: 38rpx;
+  margin-left: 15%;
+  width: 580rpx;
+  text-align: left;
+}
+
+.tankuang image {
+  margin-top: 5%;
+  width: 380rpx;
+  height: 380rpx;
+  margin-left: 120rpx;
+  left: 80rpx;
+   border-radius: 30rpx;
+}
+
+.tankuanganniu button {
+  margin-top: 40rpx;
+  width: 450rpx;
+  height: 100rpx;
+}
+
+.tankuanganniu1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80rpx;
+  background-color: #ffffff;
+  color: #A0522D;
+  font-size: 37rpx;
+  background-size: 450rpx 100rpx;
+  padding: 0;
+}
+.tankuanganniu1::after {
+  border: none;
+}
+
+.tankuanganniu2 {
+  font-size: 25rpx;
+  color: rgb(92, 89, 89);
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 关注引导  */
+
+.explain {
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  height: 220rpx;
+  width: 100%;
+  background-color: #fff;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.explain_top_text {
+  color: #ff8c00;
+}
+
+.explain_shuoming {
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  height: 150rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  box-shadow: 1px 1px 2px 3px #d3d3d3;
+}
+
+.explain image {
+  display: flex;
+  border-radius: 50%;
+  height: 130rpx;
+  width: 130rpx;
+}
+
+.explain_shuoming2 {
+  font-size: 27rpx;
+  margin-left: 20rpx;
+}
+
+.explain_shuoming3 {
+  font-size: 30rpx;
+  color: red;
+}
+
+.explain_shuoming2 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  background-color: #00db00;
+  height: 60rpx;
+  width: 200rpx;
+}

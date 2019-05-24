@@ -1,0 +1,11 @@
+<!--pages/erweima/erweima.wxml-->
+
+<view class='imageurl' >
+ <image  src="{{imageurl}}"  />
+</view>
+
+<view class='buttonclass'  >
+<button  wx:if="{{anniu}}"   bindtap='generate'   class='anniu1'  >  点击生成专属邀请二维码  </button>
+ <button   wx:else    bindtap='xiazai'  class='anniu2'  >点击弹出图片并长按保存二维码</button>
+</view>
+

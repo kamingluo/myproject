@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/maozi/index",
+    "pages/kongbai/kongbai",
+    "pages/index/index",
+    "pages/game/game",
+    "pages/sign/sign",
+    "pages/apprentice_center/apprentice_center",
+    "pages/my/my",
+    "pages/exchange/exchange",
+    "pages/my/score_detailed/score_detailed",
+    "pages/my/apprentice_center/apprentice_center",
+    "pages/my/customer_service/customer_service",
+    "pages/logs/logs",
+    "pages/erweima/erweima",
+    "pages/imageeditor/imageeditor",
+    "pages/combine/combine",
+    "pages/xmadPage/copyInfo",
+    "pages/xmadPage/sell",
+    "pages/xmadPage/collect"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffd306",
+    "navigationBarTitleText": "有一点好玩",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#d0d0d0",
+    "selectedColor": "#ffa042",
+    "backgaoundColor": "#ffd306",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/config/index.png",
+        "selectedIconPath": "images/config/sindex.png"
+      },
+      {
+        "pagePath": "pages/apprentice_center/apprentice_center",
+        "text": "我的好友",
+        "iconPath": "images/config/friend.png",
+        "selectedIconPath": "images/config/sfriend.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/config/my.png",
+        "selectedIconPath": "images/config/smy.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxc335c3cf09a7a39c",
+    "wx9e2e322626d29451",
+    "wxf05af6e753b47fd0",
+    "wxf1f0d92f69dd80db",
+    "wxa47bf5fe7f026481",
+    "wxe58cc7eeb8ee8363",
+    "wx6d4c99c28644165b"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "我们得获取你的位置提供更好的服务"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

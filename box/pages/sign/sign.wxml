@@ -1,0 +1,127 @@
+<!--pages/sign/sign.wxml-->
+<view class='top' >
+
+<view class='red'>
+<view  class='red_background'  style="background-image: url('http://qiniu.luojiaming.vip/image/box/sign/c5bf8fc3b5b772979435542f3d4a58c.png');background-size: cover "   >
+
+ <form bindsubmit="submitForm" report-submit>
+
+<view  wx:if="{{signing}}"   class='red_sign'  style="background-image: url('http://littlebox.luojiaming.vip/333.gif');background-size: cover " >
+
+
+<view>
+<button   form-type="submit" bindtap='startSign' class='clickred' >拆红包</button>
+</view>
+
+
+<view  class='sign_explain'  >
+<view class='sign_explain_text1' > <text>拆红包拿大礼</text></view>
+<view class='sign_explain_text2' ><text>每天都可以拿哦！</text></view>
+</view>
+</view>
+
+
+<view  wx:else class='red_sign'  style="background-image: url('http://littlebox.luojiaming.vip/4444.png');background-size: cover " >
+
+<button  form-type="submit"  bindtap='alreadyclick'  class='clickred' >已经拆红包</button>
+
+<view  class='sign_explain'  >
+<view class='sign_explain_text1' > <text>今日已经拿红包</text></view>
+<view class='sign_explain_text2' ><text>明天再来吧！</text></view>
+</view>
+</view>
+
+</form>
+
+
+</view>
+</view>
+
+<form bindsubmit="submitForm"  wx:if="{{share}}"    report-submit>
+<view class='share'>
+<button class='box_content_button' form-type="submit"  open-type="share" style="background-image:url(http://littlebox.luojiaming.vip/button.png);background-size: cover " >邀请好友拿奖励</button>
+</view>
+</form>
+
+
+</view >
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->
+
+
+
+
+
+
+
+
+
+
+
+<form bindsubmit="submitForm"  wx:if="{{tankuang}}"      report-submit>
+  <view  class='tankuang'>
+    <!--推荐弹框-->
+    <view class='beijing'   style="background-image: url('http://littlebox.luojiaming.vip/image/sign/daily_red_pack_opened_bg.png');background-size: cover "  >
+
+    <view  class='result' >
+    <view class='blessing'  >
+    <text>恭喜！你获得了</text>
+    </view>
+    <view class='reward'  >
+    <text>{{rewardcons}}</text><image   src='../../images/coin.png' ></image>
+    </view>
+    </view>
+
+
+    <view   class='tixiantips'>
+    <view><text>金币已到你的账户，可用于提现</text></view>
+    </view>
+ 
+
+    <view  wx:if="{{indexgdtad}}"   >
+    <view  class='adtips'><text>体验游戏，拿金币大礼！</text></view>
+    </view>
+
+
+ <!--官方广告-->
+<view>
+<view  class='gdt' wx:if="{{indexgdtad}}" >
+<view >
+<view style="background-image: url('{{indexgdtadimg}}');background-size: contain;background-repeat:round"  class='gdtadimg' >
+<view style="opacity: 0"  >
+<ad  capture-bind:tap="dianjiadceshi"   data-name="adunit-b0c3c1159f0fc541"  unit-id="adunit-b0c3c1159f0fc541"></ad>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+ <view   bindtap='closetankuang'  class='closetankuang'>
+    <view><image class='fork' src='../../images/close.png' ></image></view>
+</view>
+
+  
+    </view>
+  </view>
+</form>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "帽子制作",
+  "usingComponents":{
+  "xm-ad": "/components/xmAD/xmAD" 
+}
+}
