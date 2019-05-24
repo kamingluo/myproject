@@ -1,0 +1,26 @@
+.yemian{
+  margin-top: 20%;
+  text-align: center;
+}
+.shuoming{
+  margin-top: 30%;
+  font-size: 50rpx;
+
+}
+.yemian_2{
+  margin-top: 10%;
+
+}
+button{
+  width: 80%;
+  background-color: greenyellow;
+  
+}
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}

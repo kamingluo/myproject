@@ -1,0 +1,132 @@
+/*@import 'stylesheet.wxss';*/
+@import 'font-awesome.min.wxss';
+page {
+  height: 100%;
+}
+.back {
+  background-color: white;
+  padding:0 20rpx;  
+}
+.container {
+  font-size: 30rpx;
+}
+
+.mine_head {
+  width: 100%;
+  text-align: center;
+  box-sizing:border-box;
+  background-color: #ffffff;
+  font-size: 30rpx;
+}
+
+.mine_icon {
+  width: 100%;
+  display: flex;
+  padding: 38rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.mine_icon view{
+  flex: 1;
+}
+
+.mine_icon .fa {
+  width: 100%;
+}
+
+.mine_icon view text {
+  display: inline-block;
+  padding: 15rpx 0;
+}
+
+.flex-item {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.mylist {
+  margin-bottom: 2rpx;
+}
+
+.fa-angle-right {
+  float: right;
+  margin-right: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.list_top {
+  margin-top: 8%;
+  margin-bottom: 20rpx;
+}
+.list_down {
+  margin-bottom: 20rpx;
+}
+
+
+
+.footbar text {
+  flex: 1;
+  text-align: center;
+}
+
+.copyright {
+  display: flex;
+}
+.copyright .line {
+  flex: 1;
+  height: 2rpx;
+  background-color: #F4F4F8;
+  margin-top: 22rpx;
+}
+
+.copyright  {
+  flex: 0 0 500rpx;
+  font-size: 26rpx;
+  border: none;
+  margin-top: 12rpx;
+}
+
+.center{
+  flex: 0 0 500rpx;
+  font-size: 35rpx;
+  border: none;
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+
+}
+
+.touxiang{
+  margin-left:30%;
+  height: 100rpx;
+  width: 100rpx;
+}
+.topimg{width: 274rpx;height: 274rpx}
+.mingzi{
+  color: #000000;
+  font-size: 40rpx;
+   position:fixed;/* 悬浮固定 */
+   top: 10rpx;
+}
+.fenxiang{
+  background-color: green;
+}
+.shijian{
+  position:fixed;/* 悬浮固定 */
+   top: 10rpx;
+   right: 1rpx;
+   font-size: 35rpx;
+}
+
+
+
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}

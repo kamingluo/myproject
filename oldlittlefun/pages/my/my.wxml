@@ -1,0 +1,124 @@
+  <scroll-view   bindtouchmove='Adhide'  >
+<view class="mine_head">
+<view class='mingzi' bindtap='testclick' ><open-data type="userNickName"  ></open-data></view>
+<view   class='shijian' > <text>{{time}}</text></view>
+
+
+
+
+
+
+  <!--   <view class="service_list back">
+    <view class="mine_icon">
+      <view>
+        <a class="fa fa-credit-card fa-2x"></a>
+        <text>待付款</text>
+      </view>
+      <view>
+        <a class="fa fa-user-circle-o fa-2x"></a>
+        <text>待成团</text>
+      </view>
+      <view>
+        <a class="fa fa-bus fa-2x"></a>
+        <text>待收货</text>
+      </view>
+      <view>
+        <a class="fa fa-jpy fa-2x "></a>
+        <text>退款/售后</text>
+      </view>
+    </view>
+  </view>-->
+
+  <view class="list_top">
+  <image src='../../images/erweima.jpg'  class='topimg' mode='aspectFill'  ></image>
+
+    <!-- <view class="my-item mylist back">
+      <view class="myitem-name flex-item">
+        <text>积分明细</text>
+        <text class="fa fa-angle-right fa-2x"></text>
+      </view>
+    </view>-->
+    <view class="my-item mylist back">
+      <view class="myitem-name flex-item" bindtap='duihuanliebiao' >
+        <text>积分兑好礼</text>
+        <text class="fa fa-angle-right fa-2x"></text>
+      </view>
+    </view>
+    <view class="my-item mylist back">
+      <view class="myitem-name flex-item" bindtap='qiandao' >
+        <text>签到赚积分</text>
+        <text class="fa fa-angle-right fa-2x"></text>
+      </view>
+    </view>
+     <view class="my-item mylist back">
+      <view class="myitem-name flex-item" bindtap='hezuo' >
+        <text>游戏推荐</text>
+        <text class="fa fa-angle-right fa-2x"></text>
+      </view>
+    </view>
+  </view>
+
+  <view class="list_down">
+    <view class="my-item mylist back">
+      <view class="myitem-name flex-item"  bindtap='kefuzhongxin'  >
+        <text>客服中心</text>
+        <text class="fa fa-angle-right fa-2x"></text>
+      </view>
+    </view>
+    <view class="my-item mylist back">
+      <view class="myitem-name flex-item" >
+        <button  class='fenxiang'  open-type='share'   >分享马上赚积分>>></button>
+      </view>
+    </view>
+  </view>
+  <wxf class="wxf" id="HwFkJWKBOI" res="{{adHwFkJWKBOI}}"></wxf>
+
+  
+<view  class="xm_fixed" bindtap='Clickads' data-type="fixed" ><!-- 小盟浮窗广告-->
+<xm-ad class="xm_component" data-id="{{xmad.ad.fixed}}"  bindclick='appoIntView'  bindclose='xmadClose'  adData="{{xmad.adData}}" >
+</xm-ad>
+</view>
+
+  <!--<view class="footer back">
+
+    <view class="copyright">
+      <text class="line"></text>
+      <text class="center">--kaming网络科技有限公司--</text>
+      <text class="line"></text>
+    </view>
+  </view>-->
+
+  <ad unit-id="adunit-e890f62be8c8507b"></ad>
+
+  <view  class="xm_banner"  style="width:100%" bindtap='Clickads' data-type="banner"  ><!-- 小盟banner广告-->
+<view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view>
+
+
+
+</scroll-view>
+
+
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->

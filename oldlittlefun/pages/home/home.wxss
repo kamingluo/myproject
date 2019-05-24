@@ -1,0 +1,67 @@
+/* pages/home/home.wxss */
+/*page{background: #00103d}  原始的背景色 */
+page{background: #00103d}
+.topimg{width: 100%;height: 274rpx}
+.hrefs{display: flex;padding: 40rpx 120rpx;width:100%;box-sizing: border-box}
+.hrefs navigator{display: inline-block;width: 140rpx;height: 120rpx;}
+.hrefs navigator:first-child{margin-right: 190rpx}
+.hrefs navigator image{width:100%;height: 100%}
+.games{padding: 0 20rpx;width: 100%;box-sizing: border-box}
+.games navigator{margin-bottom: 24rpx}
+.games image{width: 100%;height: 244rpx}
+.currentScore{position: absolute;top:6rpx;right: 3%;color: #fff}
+.xin{width: 40rpx;height:40rpx;vertical-align: middle;margin-right: 8rpx}
+.currentScore text{vertical-align: middle;font-size: 30rpx}
+
+.swiperClass {
+  margin: 0;
+  margin-top: 10px;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+image.active {
+  transform: none;
+  transition: all 0.2s ease-in 0s;
+}  
+image.quiet {
+  transform: scale(0.8333333);
+  transition: all 0.2s ease-in 0s;
+}
+.fenxiang{
+  position:fixed;/* 悬浮固定 */
+  top: 860rpx;
+  right: -35rpx;
+  width: 190rpx;
+  height: 70rpx;
+  font-size: 25rpx;
+   border-radius:0px 30px 0px 26px;
+  text-align: center; 
+  background-image: linear-gradient(#00aeae, #ebd3e8); 
+  color:#28004d;
+  
+}
+.mingzi{
+  color: #fff;
+  font-size: 30rpx;
+   position:fixed;/* 悬浮固定 */
+   top: 10rpx;
+}
+
+.dianjiguanggao{
+   width: 100%;
+   height: 200rpx;
+
+}
+
+
+.xmad{
+position: fixed;
+  margin-top: 15rpx;
+  width: 97%;
+  margin-left: 120%;
+  border-radius: 30rpx;
+}

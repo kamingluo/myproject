@@ -1,0 +1,9 @@
+
+<view class="erweima">
+<view>
+  <text>扫描下面二维码联系我</text></view>
+ <view> <image src='http://littlebox.luojiaming.vip/image/my/kefu/575442952488421322.jpg'  class='topimg'  ></image></view>
+</view>
+<view class="erweima">
+<button open-type="contact" class='kefuhuihua' >或点击联系我</button>
+</view>

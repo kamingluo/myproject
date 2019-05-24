@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "程序员老黄历",
+  "usingComponents": {
+    "xm-ad": "/components/xmAD/xmAD"
+  }
+}

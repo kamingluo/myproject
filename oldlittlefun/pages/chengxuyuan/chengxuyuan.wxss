@@ -1,0 +1,134 @@
+view{
+  margin-left: 6px;
+  margin-right: 6px;
+}
+label{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-size: 15px;
+}
+.view_1{
+height: 40px;
+background-color: #555;
+margin-top:10%;
+display: flex;
+flex-direction:row;
+/**其中子view垂直居中显示*/
+align-items: center;
+}
+.view_2{
+height: 30rpx;
+background-color: white;
+margin-top:6%;
+display: flex;
+flex-direction:row;
+/**其中子view垂直居中显示*/
+align-items: center;
+}
+
+.text_1{
+  color: #bbb;
+  font-size: 36rpx;
+}
+.text_2{
+  font-size: 45rpx;
+  font-weight: 600;
+}
+/**参考https://www.cnblogs.com/sun8134/p/6395947.html*/
+.main {
+  margin-top:4%;
+  background-color:#ffffaa;
+}
+.item1 {
+  height: 300rpx;
+  width: 220rpx;
+  background-color:#ffee44;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+}
+.text_3{
+  font-size: 45px;
+  margin-left: 30%;
+  font-weight: 600;
+  
+}
+
+.main_1 {
+  margin-top:2px;
+  background-color:#ffddd3;
+}
+.item1_1 {
+  height: 300rpx;
+  width: 220rpx;
+  background-color:#ff4444;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+}
+.buyi_1{
+  color:#fff;
+}
+
+.yi_text{
+  margin-left:60rpx;
+  margin-top:10%;
+  margin-bottom: 8%;
+  
+}
+.yi_text2{
+  white-space: nowrap;/**强制不换行*/
+  font-size: 42rpx;
+  font-weight: 600;
+}
+.yi_text3{
+  white-space: nowrap;
+  font-size:28rpx;
+  font-weight: 400;
+  color: #777;
+
+}
+
+/**上面写完了宜和不宜*/
+.zuowei{
+  margin-top:15rpx;
+}
+.zuowei_1{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.zuowei_2{
+  font-size: 30rpx;
+}
+.zuowei_3{
+  color: #4a4;
+  font-weight: 600;
+}
+
+.zhushi{
+   margin-top:40rpx;
+  
+}
+.jieshi{
+  font-size: 24rpx;
+   color: #999;
+}
+
+.goddess{
+  font-weight: 400rpx;
+}
+
+.fenxiang{
+  margin-top: 35rpx;
+  background-image: linear-gradient(#99ccff, #99ccff); 
+  color: #fff;  
+  width: 120px;
+  height: 35px;
+  border-radius:25px 25px 25px 25px;
+  margin-left: 1%;
+  font-size: 13px;
+  text-align: center; 
+  
+
+}

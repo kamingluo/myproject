@@ -1,0 +1,69 @@
+
+<!--index.wxml-->
+<view class="calendar">
+  <view class="time">
+    <view>
+      <text class="t_blue">{{year}}</text>年
+      <text class="t_blue">{{month}}</text>月
+    </view>
+    <view style="text-align: right;">
+      已签到
+      <text class="t_red">{{calendarSignDay}}</text>天
+    </view>
+  </view>
+  <view class="weekName">
+    <view class="sunday">日</view>
+    <view class="monday">一</view>
+    <view class="tuesday">二</view>
+    <view class="wednesday">三</view>
+    <view class="thursday">四</view>
+    <view class="friday">五</view>
+    <view class="saturday">六</view>
+  </view>
+  <view class="week">
+
+    <!--填补空格-->
+    <view wx:for="{{nbsp}}" wx:key="555" >\n</view>
+
+    <!--开心循环日期-->
+    <view wx:for="{{date-1}}" style="color:gainsboro;" wx:key="666" >
+      <text wx:if="{{item+1==calendarSignData[item+1]}}" style="color:red;font-size:22rpx;">已签到</text>
+      <text wx:else="">{{item+1}}</text>
+    </view>
+    <view style="border-bottom: 1px solid blue; padding-bottom:8rpx;">
+      <text wx:if="{{date==calendarSignData[date]}}" style="color:red;font-size:22rpx;  border-radius: 50%;background-color: ghostwhite">已签到</text>
+      <text wx:else="" style="color:blue;">{{date}}</text>
+    </view>
+    <view wx:for="{{monthDaySize-date}}" wx:key="777" >{{item+date+1}}</view>
+  </view>
+  <view class="calendarSign">
+    <button wx:if="{{date!=calendarSignData[date]}}" style="color:white;background-color:blue;" bindtap="calendarSign">签到加积分</button>
+    <!-- 这是调起授权接口的  <button wx:if="{{date!=calendarSignData[date]}}" style="color:white;background-color:blue;" bindtap="calendarSign" open-type='getUserInfo' >签到</button>-->
+    <button wx:else="">今日已签到</button>
+  </view>
+  <ad unit-id="adunit-67a9b0ba2506718f"></ad>
+</view>
+
+
+
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner5}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->

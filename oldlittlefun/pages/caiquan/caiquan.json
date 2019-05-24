@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "猜猜拳",
+  "usingComponents": {
+    "xm-ad": "/components/xmAD/xmAD"
+  }
+}

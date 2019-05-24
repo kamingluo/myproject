@@ -1,0 +1,17 @@
+.erweima{
+  margin-top: 5%;
+  text-align: center;
+  align-items: center;
+}
+
+.topimg{
+  height: 400rpx;
+  width: 380rpx;
+}
+.kefuhuihua{
+  background-color: greenyellow;
+  width: 400rpx;
+}
+text{
+  color: #ADADAD;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "xm-ad": "/components/xmAD/xmAD"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "大转盘",
+  "usingComponents": {
+    "xm-ad": "/components/xmAD/xmAD"
+  }
+
+}

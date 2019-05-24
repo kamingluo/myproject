@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "游戏推荐",
+  "usingComponents": {
+    "xm-ad": "/components/xmAD/xmAD",
+     "wl-ad": "/components/wlAD/wlAD"
+  }
+}

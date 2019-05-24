@@ -1,0 +1,8 @@
+
+<view class="erweima">
+<view>
+ <view> <image src='../../images/kongbai.png'  class='topimg'  ></image></view>
+ <text>\n你还没有兑换商品</text></view>
+</view>
+<view class="erweima">
+</view>

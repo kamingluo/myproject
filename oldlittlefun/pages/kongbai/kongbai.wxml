@@ -1,0 +1,20 @@
+<view>
+
+<ad unit-id="adunit-51badd7632d09b6e"></ad><!--首页广告-->
+<ad unit-id="adunit-e890f62be8c8507b"></ad><!--我的页面广告-->
+
+<view class="xm_insert" ><!-- 小盟插屏广告-->
+<xm-ad class="xm_component" data-id="{{xmad.ad.insert}}"  bindclick='appoIntView'  bindclose='xmadClose'  adData="{{xmad.adData}}" >  </xm-ad>
+</view>
+
+<view  class="xm_banner"  style="width:100%" ><!-- 小盟banner广告-->
+<xm-ad class="xm_component" data-id="{{xmad.ad.banner}}"  bindclick='appoIntView'  bindclose='xmadClose'  adData="{{xmad.adData}}" >
+</xm-ad>
+</view>
+
+<view  class="xm_fixed"><!-- 小盟浮窗广告-->
+<xm-ad class="xm_component" data-id="{{xmad.ad.fixed}}"  bindclick='appoIntView'  bindclose='xmadClose'  adData="{{xmad.adData}}" >
+</xm-ad>
+</view>
+
+</view>

@@ -1,0 +1,90 @@
+<view>
+
+<view>
+<view class='view_1'>
+<text class='text_1' decode="{{true}}" >&nbsp;&nbsp;程序员老黄历</text>
+</view>
+</view>
+
+<view>
+<view class='view_2'>
+<text  class='text_2' decode="{{true}}" >今天是20{{textdata.year}}年{{textdata.month}}月{{textdata.day}}日  &nbsp;&nbsp;星期{{textdata.week}} </text>
+</view>
+</view>
+
+  <view class="main">
+    <view class="item1">
+      
+      <view class='text_3'>
+        <text>宜</text>
+      </view>
+
+      <view >
+        <view class='yi_text'>
+          <text class='yi_text2' >{{textdata.data[0].name}}</text>
+          <text class='yi_text3'>\n{{textdata.data[0].good}}</text>
+        </view>
+        <view class='yi_text'>
+          <text class='yi_text2' >{{textdata.data[1].name}}\n</text>
+          <text class='yi_text3'>{{textdata.data[1].good}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+ <view class="main_1">
+    <view class="item1_1">
+      <view class='text_3'>
+         <text class='buyi_1'>不\n</text>
+          <text class='buyi_1'>宜</text>
+      </view>
+
+       <view >
+
+        <view class='yi_text'>
+          <text class='yi_text2' >{{textdata.data[2].name}}</text>
+          <text class='yi_text3'>\n{{textdata.data[2].bad}}</text>
+        </view>
+        <view class='yi_text'>
+          <text class='yi_text2' >{{textdata.data[3].name}}\n</text>
+          <text class='yi_text3'>{{textdata.data[3].bad}}</text>
+        </view>
+      </view>
+    </view>
+
+    <ad unit-id="adunit-88a7910854b55322"></ad>
+
+  
+    <view  class="xm_banner"  style="width:100%"  bindtap='Clickads' data-type="banner" ><!-- 小盟banner广告-->
+    <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+  </view>
+
+
+ </view>
+
+
+ 
+<!--上面写完了宜和不宜 -->
+ 
+ <view class='zuowei'>
+ <text class='zuowei_1'>座位朝向：</text><text class='zuowei_2' >面向<text class='zuowei_3'>{{textdata.data2[0].directions}}</text>写程序，BUG最少</text>
+ </view>
+
+ <view class='zuowei'>
+ <text class='zuowei_1'>今日宜饮：</text><text class='zuowei_2' >{{textdata.data2[0].drinks1}}，{{textdata.data2[0].drinks2}}</text>
+ </view>
+
+ <view class='zuowei'>
+ <text class='zuowei_1'>女神亲近指数：<text class='goddess' >{{textdata.data2[0].goddess}}</text></text>
+ </view>
+
+ <view class='zhushi'>
+ <text class='jieshi'>本老黄历仅面向程序员；\n</text>
+ <text class='jieshi'>本老黄历内容是程序生成的，因为只有这样程序员才会信；\n</text>
+ <text class='jieshi'>不求生老病死，只求代码无BUG，产品无需求，美术无变更！</text>
+ </view>
+ <button  class='fenxiang' open-type='share' id='1'  >→推荐给好友</button>
+
+</view>
+

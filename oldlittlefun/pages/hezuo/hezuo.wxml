@@ -1,0 +1,19 @@
+<view>
+
+ <ad unit-id="adunit-e890f62be8c8507b"></ad><!-- 我的页面广告-->
+
+</view>
+
+
+<!-- 小盟测试banner广告-->
+<view   class="xm_banner"  style="width:100%"  bindtap='Clickads' data-type="banner" >
+  <xm-ad class="xm_component" data-id="{{xmad.ad.banner}}"  bindclick='appoIntView'       bindclose='xmadClose'  adData="{{xmad.adData}}" >
+</xm-ad>
+</view>
+
+
+
+<view class="wl_banner" style="background: #ﬀf;color:#333;"><!-- 可在此设置字体和背景颜⾊色 -->
+    <wl-ad data-id="{{wlad.ad.banner[0]}}" adData="{{wlad.adData}}" bindclick="wladClick" bindclose="wladClose" class="wl_component">
+    </wl-ad>
+</view>

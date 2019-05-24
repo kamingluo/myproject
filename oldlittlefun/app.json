@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/kongbai/kongbai",
+    "pages/shouquan/shouquan",
+    "pages/tizhijisuang/tizhijisuang",
+    "pages/my/my",
+    "pages/chengxuyuan/chengxuyuan",
+    "pages/home/home",
+    "pages/qiandao/qiandao",
+    "pages/caiquan/caiquan",
+    "pages/bigWheel/bigWheel",
+    "pages/index/index",
+    "pages/xmadH5/xmadH5",
+    "pages/hezuo/hezuo",
+    "pages/goods/goods",
+    "pages/kefu/kefu",
+    "pages/ence_push/ence_push",
+    "pages/dingdan/dingdan",
+    "pages/logs/logs",
+    "pages/xmadPage/copyInfo",
+    "pages/xmadPage/sell",
+    "pages/xmadPage/collect",
+    "pages/test/test"
+  ],
+  "navigateToMiniProgramAppIdList": [
+    "wx31b1555576e1ba4f",
+    "wx8ea5d74ccf54d68a"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0000E3",
+    "navigationBarTitleText": "一点好玩",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "56abe4",
+    "backgaoundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home.png"
+      },
+      {
+        "pagePath": "pages/caiquan/caiquan",
+        "text": "猜拳",
+        "iconPath": "images/xuanzhong.jpg",
+        "selectedIconPath": "images/xuanzhong.jpg"
+      },
+      {
+        "pagePath": "pages/bigWheel/bigWheel",
+        "text": "大转盘",
+        "iconPath": "images/timg.jpg",
+        "selectedIconPath": "images/timg.jpg"
+      },
+      {
+        "pagePath": "pages/chengxuyuan/chengxuyuan",
+        "text": "程序员黄历",
+        "iconPath": "images/chengxuyuan.png",
+        "selectedIconPath": "images/chengxuyuan.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/me_1.png",
+        "selectedIconPath": "images/me_1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

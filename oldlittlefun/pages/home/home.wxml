@@ -1,0 +1,71 @@
+<!--pages/home/home.wxml-->
+
+<!-- 滚动banner <swiper class='swiperClass' autoplay indicator-color="#a39f99" indicator-active-color="#f49641" indicator-dots  interval="2000" duration="1000" previous-margin="70px" next-margin="70px" circular bindchange="bindchange" style='height: 230rpx'>
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}" mode='aspectFill'>
+        </image>
+      </swiper-item>
+    </block>
+  </swiper>-->
+
+<ad unit-id="adunit-fde1086480d42cdc"></ad>
+  <scroll-view   bindtouchmove='Adhide'  >
+
+
+ <view class='currentScore'><open-data type="userNickName"  ></open-data><image src="../../souces/xin.png" class='xin'></image><text id='currentScore'>{{jifen}}</text></view>
+<!-- <view class='mingzi' ><open-data type="userNickName"  ></open-data></view>-->
+<image src='http://qiniu.luojiaming.vip/banner01.jpg' class='topimg' mode='aspectFill'></image>
+
+<!-- 视频广告-->
+<!-- <view class='games' >
+ <view bindtap='shipinad'  ><image src='http://qiniu.luojiaming.vip/index2.gif'></image></view>  
+</view> -->
+
+
+<view class='hrefs'>
+  <navigator url='/pages/qiandao/qiandao'><image src='http://qiniu.luojiaming.vip/qiandao.png'></image></navigator>
+  <navigator url='/pages/goods/goods'><image src='http://qiniu.luojiaming.vip/duihuan.png'></image></navigator>
+</view>
+
+<view  class="xm_banner"  style="width:100%"   bindtap='Clickads' data-type="banner"><!-- 小盟banner广告-->
+<xm-ad class="xm_component" data-id="{{xmad.ad.banner}}"  bindclick='appoIntView'  bindclose='xmadClose'  adData="{{xmad.adData}}" >
+</xm-ad>
+</view>
+
+<!--<button  class='fenxiang' open-type='share' id='1'  >分享赚积分</button>-->
+
+
+
+<view class='games'>
+  <view bindtap='dazhuanpan' ><image src='http://qiniu.luojiaming.vip/dazhuanpan.jpg'></image></view>  
+  <view bindtap='caiquan' ><image src='http://qiniu.luojiaming.vip/caiquan.jpg'></image></view>  
+</view>
+
+
+ <ad unit-id="adunit-01ec7688a3e64733"></ad>
+ 
+
+
+</scroll-view>
+
+
+<view  class='xmad' >  <!--小盟广告刷开始-->
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+<view >
+
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+<view >
+ <view class="xm_banner" style="width:100%">  <xm-ad data-id="{{xmad.ad.banner5}}" adData="{{xmad.adData}}" bindadload="adImgLoad"    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">  </xm-ad> </view>
+</view>
+
+</view> <!--小盟广告刷结束-->

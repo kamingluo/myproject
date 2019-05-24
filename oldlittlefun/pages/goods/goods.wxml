@@ -1,0 +1,27 @@
+
+<swiper autoplay="true" duration="100">
+  <block wx:for="{{bannerImg}}" wx:key="banner" >
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode='aspectFill'/>
+    </swiper-item>
+  </block>
+</swiper>
+<view>
+<ad unit-id="adunit-67a9b0ba2506718f"></ad>
+<text>你当前的积分是：{{jifen}}</text><image src="../../souces/xin.png" class='xin'></image>
+</view>
+ <view class='goodsList'>
+    <block wx:for="{{datalist}}" wx:key="shagnping" >
+        <view class='eachgood'>
+            <image class='goodimg' src='{{item.imgsrc}}' mode='aspectFill'></image>
+            <text class='goodname'>{{item.txt}}</text>
+            <view class='bottom'>
+              <text class='score'>{{item.score}}</text><text>积分</text>
+              <text class='btn' bindtap='duihuanshangping'  >立即兑换</text>
+            </view>
+        </view>
+    </block>
+  </view>
+  <view  class='daoditishi' >
+  <text>---更多礼品敬请期待---</text>
+  </view>
