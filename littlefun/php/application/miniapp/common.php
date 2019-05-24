@@ -67,6 +67,19 @@ function increase($openid,$data,$explain){
 }
 
 
+/**
+   * 徒弟进贡
+*/
+function contribution($master_id,$score){
+    $dbdata=db('user')->where('master_id',$master_id)->find();//查询师傅信息
+    $addscore= db('user')->where('id',$dbdata['id'])->setInc('score',$score,'tribute',$score);
+    $time =date('Y-m-d H:i:s',time());//获取当前时间
+
+    $record = ['id'=>'','openid' =>$dbdata['openid'],'score' =>$score,'explain' =>"徒弟进贡",'channel' =>$dbdata['channel'],'master_id' => $dbdata['master_id'],'create_time' =>$time];
+             $dbreturn=db('score_record')->insert($record);
+    return ['state'   => '200','message'  => "进贡成功" ,'score' => $score] ;
+
+}
 
 
 

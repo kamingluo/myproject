@@ -22,10 +22,10 @@ class Score
         	 $time =date('Y-m-d H:i:s',time());//获取当前时间
         	 $dbdata = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>$request->param("explain"),'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
         	 $dbreturn=db('score_record')->insert($dbdata);
-             return ['state'   => '200','message'  => "增加分数成功" ] ;
+             return ['state'   => '200','message'  => "增加分数成功" ,'score' => $request->param("score")] ;
         }
         else{
-        	return ['state'   => '400','message'  => "增加分数失败" ] ;
+        	return ['state'   => '400','message'  => "增加分数失败",'score' => $request->param("score") ] ;
         	 
         }
     }
@@ -40,10 +40,10 @@ class Score
         	 $time =date('Y-m-d H:i:s',time());//获取当前时间
         	 $dbdata = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>$request->param("explain"),'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
         	 $dbreturn=db('score_record')->insert($dbdata);
-             return ['state'   => '200','message'  => "减少分数成功" ] ;
+             return ['state'   => '200','message'  => "减少分数成功",'score' => $request->param("score") ] ;
         }
         else{
-        	return ['state'   => '400','message'  => "减少分数失败" ] ;
+        	return ['state'   => '400','message'  => "减少分数失败" ,'score' => $request->param("score")] ;
         	 
         }
     }
@@ -61,4 +61,18 @@ class Score
         $resdata=array_merge($state,array('userscorerecord'=>$scorerecord));
         return  $resdata;
     }
+
+
+    //徒弟进贡
+    public function tribute(Request $request){
+        $master_id =$request->param("master_id");//接收所有传过来的值
+        $score =$request->param("score");
+         $date=contribution($master_id, $score);
+         return $date;
+    }
+
+
+
+
+
 }

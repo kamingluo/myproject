@@ -20,7 +20,7 @@ class User
         $openid=openid($wxcode);
         $scene=$request->param("scene");
         $time =date('Y-m-d H:i:s',time());//获取当前时间
-        $dbnum =db('user')->where('openid',$openid)->select();//查询用户信息
+        $dbnum =db('user')->where('openid',$openid)->find();//查询用户信息
         if($dbnum==null){
                 $channel=$data["channel"];
                 $master_id=$data["master_id"];
@@ -35,7 +35,7 @@ class User
                  //更新信息
                 $dbreturn= db('user')->where('openid',$openid)->update(['updata_time' => $time,'scene' => $scene]);
                 if($dbreturn==1){
-                     $dbnum =db('user')->where('openid',$openid)->select();//查询用户信息
+                     $dbnum =db('user')->where('openid',$openid)->find();//查询用户信息
                     $state=['state'   => '200','message'  => "用户信息更新成功" ];
                     
                     $resdata=array_merge($state,array('userdata'=>$dbnum));
