@@ -16,9 +16,9 @@ const request = (config) => {
     success: function(res) {
       config.loading && wx.hideLoading();
       wx.hideNavigationBarLoading();
-      if (res.statusCode != 200) {
+      if (res.state >= 400) {
         if (config.fail) {
-          config.fail(res.data);
+          config.fail();
         } else {
           wx.showToast({
             title: '网络异常',
@@ -26,15 +26,16 @@ const request = (config) => {
           })
         }
       } else {
+        //console.log("请求返回的res",res)
         const data = res.data;
-        if (data.state == 200) {
+        if (data && data.state == 200 || data.status==0) {
           config.success && config.success(data);
         } else {
           if (config.fail) {
             config.fail && config.fail(data);
           } else {
             config.showToast && wx.showToast({
-              title:'状态异常',
+              title: data && data.result && data.result.msg || '状态异常',
               icon: 'none'
             })
           }
