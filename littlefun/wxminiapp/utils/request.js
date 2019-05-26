@@ -12,19 +12,16 @@ const request = (config) => {
   wx.request({
     url: config.url || (baseConfig.host + config.service),
     data: data,
-    method: 'POST',
+    method: config.method || 'POST',
     success: function(res) {
       config.loading && wx.hideLoading();
       wx.hideNavigationBarLoading();
       if (res.statusCode != 200) {
-        if (config.fail) {
-          config.fail(res.data);
-        } else {
-          wx.showToast({
-            title: '网络异常',
-            icon: 'none'
-          })
-        }
+        config.fail();
+        wx.showToast({
+          title: '网络异常',
+          icon: 'none'
+        })
       } else {
         const data = res.data;
         if (data.state == 200) {
@@ -34,7 +31,7 @@ const request = (config) => {
             config.fail && config.fail(data);
           } else {
             config.showToast && wx.showToast({
-              title:'状态异常',
+              title: '状态异常',
               icon: 'none'
             })
           }

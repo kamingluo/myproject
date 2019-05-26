@@ -1,17 +1,88 @@
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">ColorUI 空白模板</view>
-</cu-custom>
-<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
-  <view class="flex justify-center">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
-    <block wx:else>
-      <view class='text-center'>
-        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-        <view class="padding">{{userInfo.nickName}}</view>
-      </view>
-    </block>
+<view class="bg-img  padding-tb-xl" style="background-image: url('/images/BasicsBg.png');height: 414rpx;">
+
+
+  <view class='centered miniappname '>
+    <text>一点好玩</text>
   </view>
+
+
+  <view class='centered'>
+    <swiper class='u-wrp-bnr' autoplay='true' interval='5000' duration='1000' circular='true'>
+      <block wx:for="{{swiperdata}}" wx:for-index="index">
+        <swiper-item>
+          <image src='{{item.imgurl}}' bindtap='clickSwiper' data-data='{{item}}' class='u-img-slide'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='cu-tabbar-height'></view>
 </view>
-<view class="text-center margin-top">
-  <text class="text-grey text-xl">{{motto}}</text>
+
+<view >
+  <view class='main-main' >
+
+    <view>
+      <view class='centered'>
+        <view class='information-name centered bg-img' style="background-image: url('/images/testimg2.jpg">
+          <text>金币竞猜</text> </view>
+      </view>
+
+      <view class='centered  '>
+        <view class='information '>
+          <block wx:for="{{informationdata}}" wx:key="item">
+            <view class='information-body '>
+              <image src='{{item.imgurl}}' bindtap='clickInformation' data-data='{{item}}' class='u-img-slide '></image>
+            </view>
+          </block>
+        </view>
+      </view>
+
+    </view>
+
+
+    <view class='box'>
+      <view>
+
+        <view class='centered'>
+          <view class='information-name centered  bg-img ' style="background-image: url('/images/testimg2.jpg">
+            <text>体验得金币</text>
+          </view>
+        </view>
+
+        <view class='centered' wx:for="{{miniappaddata}}" wx:key="item">
+
+          <view class='box-body shadow-warp bg-white'  bindtap='clickminiappad' data-data="{{item}}" >
+            <view class=' box-body-image centered '>
+              <image src='{{item.imgurl}}'></image>
+            </view>
+
+            <view class=' box-body-name  centered'>
+              <view>
+                <view class='box-body-name-1'>{{item.name}}</view>
+                <view class='box-body-name-2 '>{{item.describe}}</view>
+                <view class='box-body-name-3'>体验
+                  <text> {{item.playtime}}秒 </text>可获得
+                  <text> {{item.score}}</text>金币</view>
+              </view>
+            </view>
+            <view class='box-body-anniu centered '>
+              <button class=' bg-blue'>立即体验</button>
+            </view>
+          </view>
+
+
+        </view>
+
+
+      </view>
+
+    </view>
+
+
+  </view>
+
+<view class='cu-tabbar-height'></view>
 </view>
+
+
+

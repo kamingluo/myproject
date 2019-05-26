@@ -15,7 +15,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
 	"appid": "wxc335c3cf09a7a39c",
-	"projectname": "ColorUI-template",
+	"projectname": "express",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -31,13 +31,39 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "分享进入",
+					"pathName": "pages/index/index",
+					"query": "channel=10000&master_id=100",
+					"scene": 1007
+				},
+				{
+					"id": 1,
+					"name": "我的页面",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "模拟分享进入",
+					"pathName": "pages/index/index",
+					"query": "master_id=255",
+					"scene": 1007
+				}
+			]
 		}
 	}
 }

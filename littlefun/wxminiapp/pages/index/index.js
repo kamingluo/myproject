@@ -1,56 +1,90 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const {
+  request
+} = require('./../../utils/request.js');
+const {
+  share
+} = require('./../../utils/share.js');
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    motto: 'Hi 开发者！',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    "swiperdata":[],
+    "informationdata":[],
+    "miniappaddata":[],
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  onLoad: function(e) {
+    this.indexData()
+    this.miniappadData()
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+  onShow: function() {
+
+  },
+
+
+ //查询首页数据
+  indexData:function(){
+    request({
+      service: 'index/indexdata',
+      method:'GET',
+      success: res => {
+        console.log('首页轮播图数据', res.swiperdata);
+        console.log('首页信息流数据', res.informationdata);
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          swiperdata: res.swiperdata,
+          informationdata: res.informationdata
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
-  }
+  },
+
+ //点击轮播图
+  clickSwiper:function(e){
+    console.log("点击轮播图数据", e.currentTarget.dataset.data)
+  },
+
+  clickInformation:function(e){
+    console.log("点击信息流数据", e.currentTarget.dataset.data)
+
+  },
+
+
+  miniappadData:function(){
+    request({
+      service: 'index/miniappad',
+      method: 'GET',
+      success: res => {
+        console.log('首页miniapp数据', res.miniappdata);
+        this.setData({
+           miniappaddata: res.miniappdata
+        })
+      }
+    })
+
+  },
+  clickminiappad:function(e){
+    console.log("点击miniappad", e.currentTarget.dataset.data)
+  },
+
+
+
+
+
+
+
+
+  onShareAppMessage: function(options) {
+    // console.log("分享掉起", options)
+    // if (options.from == 'button') {
+    //   let expressName = options.target.dataset.name
+    //   let expressNumber = options.target.dataset.number
+    //   console.log("按钮分享", expressName, expressNumber)
+    //   return share(1, expressName, expressNumber);
+    // } else {
+    //   return share(2);
+    // }
+  },
+
+
 })
