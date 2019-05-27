@@ -1,0 +1,8 @@
+/* pages/task/task.wxss */
+
+page{
+  background-color:  #382e66;
+}
+.top image {
+  width: 100%;
+}

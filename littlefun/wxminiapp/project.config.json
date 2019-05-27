@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -62,6 +62,12 @@
 					"pathName": "pages/index/index",
 					"query": "master_id=255",
 					"scene": 1007
+				},
+				{
+					"id": -1,
+					"name": "任务页面",
+					"pathName": "pages/task/task",
+					"scene": null
 				}
 			]
 		}

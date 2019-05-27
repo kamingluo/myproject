@@ -88,7 +88,7 @@ Page({
   miniappadclick:function(e){
     let userdata = wx.getStorageSync('userdata')
     app.aldstat.sendEvent('点击首页下面跳转小程序广告', userdata);
-    console.log("点击miniappadclick", e.currentTarget.dataset.data.type)
+    console.log("点击miniappadclick", e.currentTarget.dataset.data)
     var jumptype = e.currentTarget.dataset.data.type
     if (jumptype==0){
       wx.navigateToMiniProgram({

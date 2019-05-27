@@ -30,11 +30,12 @@
   width: 95%;
 }
 .information-name{
-  height: 60rpx;
-  width: 400rpx;
+  height: 50rpx;
+  width: 300rpx;
   margin-bottom: 20rpx;
 }
 .information-name text{
+position: fixed;
   color: white;
   font-size: 28rpx;
   font-weight: 600;

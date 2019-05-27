@@ -22,9 +22,12 @@
   <view class='main-main' >
 
     <view>
+
       <view class='centered'>
-        <view class='information-name centered bg-img' style="background-image: url('/images/testimg2.jpg">
-          <text>金币竞猜</text> </view>
+        <view class='information-name centered ' >
+         <image src='/images/titlebcg.png' class='u-img-slide'></image>
+         <text>金币竞猜</text>
+           </view>
       </view>
 
       <view class='centered  '>
@@ -43,11 +46,12 @@
     <view class='box'>
       <view>
 
-        <view class='centered'>
-          <view class='information-name centered  bg-img ' style="background-image: url('/images/testimg2.jpg">
-            <text>体验得金币</text>
-          </view>
-        </view>
+       <view class='centered'>
+        <view class='information-name centered ' >
+         <image src='/images/titlebcg.png' class='u-img-slide'></image>
+         <text>体验得金币</text>
+           </view>
+      </view>
 
         <view class='centered' wx:for="{{miniappaddata}}" wx:key="item">
 

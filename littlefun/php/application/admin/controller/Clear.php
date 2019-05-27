@@ -33,11 +33,13 @@ class Clear
         //miniappad广告三天数据清理
         $miniapp=db('miniapp_ad_record')-> where('create_time','< time', $weekend)->delete();
 
-         //sign七天数据清理
+         //签到七天数据清理
         $sign=db('sign')-> where('create_time','< time', $seven)->delete();
+         //分享七天数据清理
+        $share=db('share_record')-> where('create_time','< time', $seven)->delete();
 
         if($miniapp >= 0&&$score >= 0 && $gdt >=0 && $wl >= 0){
-             return " 共清理积分记录-->".$score. "    广点通数据-->" .$gdt ."    微量数据-->" .$wl ."    miniapp数据-->". $miniapp.   "     签到数据-->" .$sign ;
+             return " 共清理积分记录-->".$score. "    广点通数据-->" .$gdt ."    微量数据-->" .$wl ."    miniapp数据-->". $miniapp.   "     签到数据-->" .$sign.  "     分享数据-->" .$share ;
         }
         else{
              return "清理失败";
@@ -52,9 +54,10 @@ class Clear
     public function statistics()
     {
 
-        $sign=db('sign')->whereTime('create_time', 'yesterday')->sum('score');
+        // $sign=db('sign')->whereTime('create_time', 'yesterday')->sum('score');
+         $time =date("Y-m-d", strtotime("-1 day"));//获取当前时间的前一天
          
-        return  $sign;
+        return  $time ;
 
 
     }

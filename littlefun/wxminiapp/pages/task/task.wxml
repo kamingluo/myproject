@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">任务页面</view>
+</cu-custom>
+
+<view  class='top' >
+ <image src='/images/task/topbcg.png' class='u-img-slide'></image>
+</view>
+
+
+<view  class='body' >
+
+
+
+</view>

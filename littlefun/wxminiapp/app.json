@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/task/task"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +30,12 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
+        "iconPath": "images/config/index.png",
+        "selectedIconPath": "images/config/sindex.png"
+      },
+      {
+        "pagePath": "pages/task/task",
+        "text": "task",
         "iconPath": "images/config/index.png",
         "selectedIconPath": "images/config/sindex.png"
       },
