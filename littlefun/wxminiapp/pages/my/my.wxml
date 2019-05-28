@@ -2,10 +2,10 @@
   <view slot="content">我的页面</view>
 </cu-custom>
 
-<view class='addminiapptips' >
+<!-- <view class='addminiapptips' >
  <image src='/images/addminiapptip.png' class='u-img-slide'></image>
 
-</view>
+</view> -->
 
 <view class='top bg-gradual-blue'>
   <view class='user'>
