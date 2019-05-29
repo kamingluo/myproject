@@ -26,16 +26,16 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="100" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
-              <text>1/1</text>
+              <progress percent="{{usertodaytask.share/1*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
+              <text>{{usertodaytask.share}}/1</text>
             </view>
             <view class='box-body-name-2 '>分享好友，每天1次机会</view>
             <view class='box-body-name-2 '>随机奖励100-300金币</view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <!-- <button class='bg-gradual-purple'>去分享</button> -->
-          <button class='bg-grey'>已完成</button>
+          <button class='bg-gradual-purple'   wx:if="{{usertodaytask.share < 1}}" >去分享</button>
+          <button class='bg-grey' wx:else   >已完成</button>
         </view>
       </view>
     </view>
@@ -51,15 +51,16 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="40" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
-              <text>2/5</text>
+              <progress percent="{{usertodaytask.gdtvideo/5*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
+              <text>{{usertodaytask.gdtvideo}}/5</text>
             </view>
             <view class='box-body-name-2 '>观看视频，每天5次机会</view>
             <view class='box-body-name-2 '>随机奖励100-300金币</view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <button class='bg-gradual-purple'>去观看</button>
+          <button class='bg-gradual-purple'  wx:if="{{usertodaytask.gdtvideo < 5}}"  >去观看</button>
+          <button class='bg-grey' wx:else   >已完成</button>
         </view>
       </view>
     </view>

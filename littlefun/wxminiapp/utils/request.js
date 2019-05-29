@@ -12,7 +12,7 @@ const request = (config) => {
   }
 
   const requestdata = Object.assign(adddata, data);//合并的时候adddata放前面,是后面的data覆盖前面的adddata
-  console.log("data", requestdata)
+  //console.log("data", requestdata)
   config.loading && wx.showLoading({
     title: '正在加载',
     mask: true

@@ -1,61 +1,53 @@
-// pages/my/my.js
+
+const app = getApp()
+const {
+  request
+} = require('./../../utils/request.js');
+const {
+  share
+} = require('./../../utils/share.js');
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    userdata:'',
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
+    this.userdata()
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+ //获取用户信息
+  userdata:function(){
+    wx.login({
+      success: res => {
+        request({
+          service: 'user/userdata',
+          data: {
+            code: res.code,
+          },
+          success: res => {
+            console.log('我的页面获取用户信息', res);
+            this.setData({
+              userdata: res.userdata,
+            })
+          },
+          fail: res => {
+            console.log('错误捕捉', res);
+          },
+        })
+      }
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享

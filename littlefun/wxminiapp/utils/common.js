@@ -19,7 +19,7 @@ function register(e) {
           scene: scene
         },
         success: res => {
-          console.log('注册成功', res);
+         // console.log('注册成功', res);
           wx.setStorageSync('userdata', res.userdata)
         },
         fail: res => {
@@ -32,6 +32,7 @@ function register(e) {
     }
   })
 }
+
 
 
 

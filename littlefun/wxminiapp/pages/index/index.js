@@ -29,8 +29,8 @@ Page({
       service: 'index/indexdata',
       method:'GET',
       success: res => {
-        console.log('首页轮播图数据', res.swiperdata);
-        console.log('首页信息流数据', res.informationdata);
+        //console.log('首页轮播图数据', res.swiperdata);
+        //console.log('首页信息流数据', res.informationdata);
         this.setData({
           swiperdata: res.swiperdata,
           informationdata: res.informationdata
@@ -55,7 +55,7 @@ Page({
       service: 'index/miniappad',
       method: 'GET',
       success: res => {
-        console.log('首页miniapp数据', res.miniappdata);
+        //console.log('首页miniapp数据', res.miniappdata);
         this.setData({
            miniappaddata: res.miniappdata
         })

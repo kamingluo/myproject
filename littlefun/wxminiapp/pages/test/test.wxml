@@ -1,0 +1,9 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">测试页面</view>
+</cu-custom>
+
+<button  bindtap='increaseScore' >积分增加测试</button>
+
+<button  bindtap='reduceScore' >积分减少测试</button>
+
+<button  bindtap='havecode' >获取code</button>

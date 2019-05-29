@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/my/my",
-    "pages/task/task"
+    "pages/task/task",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
