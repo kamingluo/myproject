@@ -64,9 +64,30 @@ Page({
           },
           success: res => {
             console.log('用户快递信息', res);
-            this.setData({
-              userexpressdata: res.userexpressdata
-            })
+            if (res.userexpressdata.length < 1){
+              console.log('用户没有快递信息', res);
+              var falsedata = [
+                {
+                  "id": 98,
+                  "openid": "o3XMA0enuFRZsOCOCeqjB70exjr4",
+                  "expressName": "韵达快递(示例)",
+                  "expressNumber": "3961577121876",
+                  "create_time": "2019-05-29 10:16:32",
+                  "updata_time": "2019-05-29 10:16:32"
+                }
+              ];
+
+              this.setData({
+                userexpressdata: falsedata
+              })
+
+            }
+            else{
+              this.setData({
+                userexpressdata: res.userexpressdata
+              })
+            }
+           
           },
         })
       }

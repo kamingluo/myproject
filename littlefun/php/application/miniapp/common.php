@@ -7,6 +7,9 @@ use think\Log;
 use think\Db;
 use think\Request;
 
+use think\Controller;
+
+
 
 //测试方法
 function test(){
@@ -71,14 +74,21 @@ function increase($openid,$data,$explain){
    * 徒弟进贡
 */
 function contribution($master_id,$score){
-    $dbdata=db('user')->where('master_id',$master_id)->find();//查询师傅信息
-    $addscore= db('user')->where('id',$dbdata['id'])->setInc('score',$score,'tribute',$score);
+    $dbdata=db('user')->where('id',$master_id)->find();//查询师傅信息
+    $score=$score * 0.2;
+     $sql = "UPDATE user SET score =score + :score , tribute = tribute+ :tribute WHERE id = :id;";   //同时加两个字段的金额，thinkphp5方法特别麻烦
+    $affected = Db::execute($sql,['score'=>$score,'tribute'=>$score,'id'=>$master_id]); //给师傅加完金币
+    // return        $affected; 
     $time =date('Y-m-d H:i:s',time());//获取当前时间
-
     $record = ['id'=>'','openid' =>$dbdata['openid'],'score' =>$score,'explain' =>"徒弟进贡",'channel' =>$dbdata['channel'],'master_id' => $dbdata['master_id'],'create_time' =>$time];
-             $dbreturn=db('score_record')->insert($record);
-    return ['state'   => '200','message'  => "进贡成功" ,'score' => $score] ;
-
+    $dbreturn=db('score_record')->insert($record);
+     if ($affected==1&&$dbreturn==1) {
+         return ['state'   => '200','message'  => "进贡成功" ,'score' => $score] ;
+     }
+     else{
+         return ['state'   => '200','message'  => "进贡失败" ,'score' => $score] ;
+     }
+   
 }
 
 

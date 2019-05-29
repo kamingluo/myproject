@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -60,13 +60,14 @@
 					"id": 2,
 					"name": "模拟分享进入",
 					"pathName": "pages/index/index",
-					"query": "master_id=255",
+					"query": "master_id=255&channel=1000",
 					"scene": 1007
 				},
 				{
 					"id": -1,
 					"name": "任务页面",
 					"pathName": "pages/task/task",
+					"query": "",
 					"scene": null
 				}
 			]
