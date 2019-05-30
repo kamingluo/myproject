@@ -1,4 +1,4 @@
-
+const app = getApp()
 const {
   request
 } = require('./../../utils/request.js');
@@ -41,7 +41,7 @@ Page({
         "Content-type": "application/json",
       },
       success: function(res) {
-        console.log("查询快递返回的信息",res)
+        //console.log("查询快递返回的信息",res)
         that.setData({
           loadModal: false
         })
@@ -51,7 +51,7 @@ Page({
         that.addexpress(res.data)
         var data = res.data.Traces
         var lastdata = data.pop() || null
-        console.log("lastdata",lastdata)
+        //console.log("lastdata",lastdata)
         var fristdata = data.reverse()
         that.setData({
           expressdata: res.data,
@@ -65,7 +65,7 @@ Page({
   },
  
   addexpress:function(data){
-    console.log("传过来处理的信息",data)
+    //console.log("传过来处理的信息",data)
     let expressNumber=data.LogisticCode
     let expressName=data.ShipperName
     wx.login({
@@ -78,18 +78,26 @@ Page({
             expressName:expressName
           },
           success: res => {
-            console.log('添加快递信息结果返回', res);
+            //console.log('添加快递信息结果返回', res);
           },
         })
       }
     })
   },
 
+  gdtbanneradclick: function (e) {
+    //console.log("点击广点通banner广告", e.currentTarget)
+    let userdata = wx.getStorageSync('userdata')
+    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    app.aldstat.sendEvent('点击广点通banner广告', data);
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log("结果页面加载数据", options)
+   // console.log("结果页面加载数据", options)
     this.loadModal()
     this.query(options.number)
   },
@@ -138,7 +146,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (options) {
-    console.log("分享掉起", options)
+    //console.log("分享掉起", options)
     if (options.from == 'button') {
       let expressName = options.target.dataset.name
       let expressNumber = options.target.dataset.number

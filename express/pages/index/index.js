@@ -30,10 +30,14 @@ Page({
     wlad: {
       adData: {},
       ad: {
-        banner: ["banner"], 
+        banner: ["banner"],
       }
     },
-    indexminiappdata:'',
+    indexminiappdata: '',
+    insertdata: '',
+    insertdisplay: true,
+    gdtbannerposition: '',
+
     swiperList: [{
       id: 2,
       type: 'image',
@@ -44,6 +48,8 @@ Page({
   onLoad: function(e) {
     this.frame(e)
     this.indexminiappdata()
+    this.insertdata()
+    this.gdtbannerposition()
   },
   onShow: function() {
     this.userexpressdata()
@@ -63,31 +69,28 @@ Page({
             code: res.code,
           },
           success: res => {
-            console.log('用户快递信息', res);
-            if (res.userexpressdata.length < 1){
-              console.log('用户没有快递信息', res);
-              var falsedata = [
-                {
-                  "id": 98,
-                  "openid": "o3XMA0enuFRZsOCOCeqjB70exjr4",
-                  "expressName": "韵达快递(示例)",
-                  "expressNumber": "3961577121876",
-                  "create_time": "2019-05-29 10:16:32",
-                  "updata_time": "2019-05-29 10:16:32"
-                }
-              ];
+            //console.log('用户快递信息', res);
+            if (res.userexpressdata.length < 1) {
+              //console.log('用户没有快递信息', res);
+              var falsedata = [{
+                "id": 98,
+                "openid": "o3XMA0enuFRZsOCOCeqjB70exjr4",
+                "expressName": "韵达快递(示例)",
+                "expressNumber": "3961577121876",
+                "create_time": "2019-05-29 10:16:32",
+                "updata_time": "2019-05-29 10:16:32"
+              }];
 
               this.setData({
                 userexpressdata: falsedata
               })
 
-            }
-            else{
+            } else {
               this.setData({
                 userexpressdata: res.userexpressdata
               })
             }
-           
+
           },
         })
       }
@@ -95,23 +98,95 @@ Page({
   },
 
 
-  indexminiappdata:function(){
+  gdtbannerposition: function() {
+    var that = this
+    let number = Math.floor(Math.random() * 3)
+    if (number == 1) {
+      var gdtbannerposition = {
+        banneradposition1: 'adunit-66cc4c8b4d5f1941',
+        banneradposition2: 'adunit-d0b985b91bcfd072',
+        banneradposition3: 'adunit-3e034905c95ce64a',
+      }
+
+    } else if (number == 2) {
+      var gdtbannerposition = {
+        banneradposition1: 'adunit-d0b985b91bcfd072',
+        banneradposition2: 'adunit-3e034905c95ce64a',
+        banneradposition3: 'adunit-66cc4c8b4d5f1941',
+      }
+    } else {
+      var gdtbannerposition = {
+        banneradposition1: 'adunit-3e034905c95ce64a',
+        banneradposition2: 'adunit-66cc4c8b4d5f1941',
+        banneradposition3: 'adunit-d0b985b91bcfd072',
+      }
+    }
+
+    this.setData({
+      gdtbannerposition: gdtbannerposition
+    })
+
+    setTimeout(function() {
+      that.setData({
+        gdtbanneraddelay1: true
+      })
+      that.gdtbanneraddelay()
+    }, 4500);
+
+  },
+
+
+  gdtbanneraddelay: function() {
+    //console.log("执行我了")
+    var that = this
+    setTimeout(function() {
+      that.setData({
+        gdtbanneraddelay2: true
+      })
+    }, 10000);
+  },
+
+
+  gdtbanneradclick: function(e) {
+    //console.log("点击广点通banner广告", e.currentTarget)
+    let userdata = wx.getStorageSync('userdata')
+    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    app.aldstat.sendEvent('点击广点通banner广告', data);
+  },
+
+
+  indexminiappdata: function() {
     request({
       service: '/index/bottomminiappad',
       success: res => {
-        console.log('indexminiappdata信息', res);
+        //console.log('indexminiappdata信息', res);
         this.setData({
           indexminiappdata: res.indexminiappdata
         })
       }
     })
   },
-  miniappadclick:function(e){
+
+
+  insertdata: function() {
+    request({
+      service: '/index/insert',
+      success: res => {
+        //console.log('首页插屏ad信息', res);
+        this.setData({
+          insertdata: res.insertdata
+        })
+      }
+    })
+  },
+
+
+  miniappadclick: function(e) {
     let userdata = wx.getStorageSync('userdata')
     app.aldstat.sendEvent('点击首页下面跳转小程序广告', userdata);
     console.log("点击miniappadclick", e.currentTarget.dataset.data)
     var jumptype = e.currentTarget.dataset.data.type
-    if (jumptype==0){
+    if (jumptype == 0) {
       wx.navigateToMiniProgram({
         appId: e.currentTarget.dataset.data.appid,
         path: e.currentTarget.dataset.data.Jump,
@@ -120,8 +195,7 @@ Page({
           console.log("跳转成功", e.currentTarget.dataset.data.Jump)
         }
       })
-    }
-    else{
+    } else {
       console.log("打开图片")
       let path = e.currentTarget.dataset.data.Jump
       wx.previewImage({
@@ -129,6 +203,24 @@ Page({
       })
     }
   },
+
+  insertadclick: function(e) {
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('首页insert广告', userdata);
+    var that = this
+    wx.navigateToMiniProgram({
+      appId: e.currentTarget.dataset.data.appid,
+      path: e.currentTarget.dataset.data.Jump,
+      extraData: e.currentTarget.dataset.data.extradata,
+      success(res) {
+        //console.log("跳转成功", e.currentTarget.dataset.data.Jump)
+        that.closeinsertad()
+      }
+    })
+  },
+
+
+
   frame: function(e) {
     var framexpressNumber = e.expressNumber || null
     if (framexpressNumber == null) {
@@ -139,17 +231,17 @@ Page({
       //   framedata: e,
       //   frame: true
       // })
-       wx.navigateTo({
-      url: '../result/result?number=' + framexpressNumber
-    })
-      
+      wx.navigateTo({
+        url: '../result/result?number=' + framexpressNumber
+      })
+
     }
   },
 
   expressScancode: function() {
     wx.scanCode({
       success(res) {
-        console.log("扫码返回",res)
+        console.log("扫码返回", res)
         if (res.result < 10 || (res.result * 10) % 10 != 0) {
           wx.showToast({
             title: '请扫描正确的快递码',
@@ -276,6 +368,13 @@ Page({
           },
         })
       }
+    })
+  },
+
+  closeinsertad: function(e) {
+    console.log("关闭插屏弹框")
+    this.setData({
+      insertdisplay: false
     })
   },
 

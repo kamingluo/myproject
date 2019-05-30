@@ -51,3 +51,9 @@
   color: #13227a;
 
 }
+
+.gdtad{
+  width: 96%;
+  border-radius: 20rpx;
+  margin-bottom: 10rpx;
+}

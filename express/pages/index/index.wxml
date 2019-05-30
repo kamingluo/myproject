@@ -74,22 +74,41 @@
 
 
   <!-- 当用户没有快递信息的时候 -->
-  <view wx:else  class='centered ' >
-     <view class=' notexpress'>
-     <view> <image src='/images/default.png'></image> </view>
-     <view> 您还无快递信息,请<text bindtap='inputShowed' > 输入单号查询</text></view>
-     </view>
+  <view wx:else class='centered '>
+    <view class=' notexpress'>
+      <view>
+        <image src='/images/default.png'></image>
+      </view>
+      <view> 您还无快递信息,请
+        <text bindtap='inputShowed'> 输入单号查询</text>
+      </view>
+    </view>
   </view>
 
 </view>
 <!-- 全局页面结束 -->
 
 
-<!-- 自定义第三方广告 -->
-<view  class='miniappad'  wx:if="{{indexminiappdata.length>0}}"  >
-<view class=' centered' wx:for="{{indexminiappdata}}"  wx:key="item" >
- <view   data-data='{{item}}'  bindtap='miniappadclick'  > <image src='{{item.imgurl}}'></image> </view>
+
+<!-- 广点通banner广告 -->
+<view class='centered' wx:if="{{gdtbannerposition.banneradposition1}}">
+  <view class='gdtad'>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition1}}" unit-id="{{gdtbannerposition.banneradposition1}}"></ad>
+  </view>
 </view>
+
+
+
+
+
+
+<!-- 自定义第三方广告 -->
+<view class='miniappad' wx:if="{{indexminiappdata.length>0}}">
+  <view class=' centered' wx:for="{{indexminiappdata}}" wx:key="item">
+    <view data-data='{{item}}' bindtap='miniappadclick'>
+      <image src='{{item.imgurl}}'></image>
+    </view>
+  </view>
 </view>
 
 <!-- 小盟广告 -->
@@ -101,10 +120,10 @@
 
 <!-- 微量小程序banner广告 -->
 <view class='centered'>
-<view class="wl_banner xmad" style="background: #ffffff;color:#333;border-radius: 30rpx;">
+  <view class="wl_banner xmad" style="background: #ffffff;color:#333;border-radius: 30rpx;">
     <wl-ad data-id="{{wlad.ad.banner[0]}}" adData="{{wlad.adData}}" bindclick="wladClick" bindclose="wladClose" class="wl_component">
     </wl-ad>
-</view>
+  </view>
 </view>
 
 
@@ -162,6 +181,17 @@
   </view>
 </view>
 
+<!--首页第三方小程序广告弹框-->
+<view class='frame' wx:if="{{ insertdata != null &&  insertdisplay}}">
+  <view>
+    <view data-data='{{insertdata}}' bindtap='insertadclick'>
+      <image src='{{insertdata.imgurl}}'></image>
+    </view>
+    <view class='centered  insertadclose '>
+      <image bindtap='closeinsertad' src='/images/common/close_white.svg'></image>
+    </view>
+  </view>
+</view>
 
 
 
@@ -192,6 +222,26 @@
     </view>
   </view>
   <!--小盟广告结束-->
+
+
+  <!-- banneradbrush开始 -->
+<view>
+  <view class='centered' wx:if="{{gdtbannerposition.banneradposition2 && gdtbanneraddelay1 && !gdtbanneraddelay2}}">
+    <view class='gdtad'>
+      <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition2}}" unit-id="{{gdtbannerposition.banneradposition2}}"></ad>
+    </view>
+  </view>
+
+  <view class='centered' wx:if="{{gdtbannerposition.banneradposition3 && gdtbanneraddelay2 }}">
+    <view class='gdtad'>
+      <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition3}}" unit-id="{{gdtbannerposition.banneradposition3}}"></ad>
+    </view>
+  </view>
+</view>
+ <!-- banneradbrush结束 -->
+
+
+
 
 </view>
 <!--广告暗刷结束-->

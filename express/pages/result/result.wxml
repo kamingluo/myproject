@@ -52,7 +52,17 @@
           <text>{{item.AcceptTime}}</text> {{item.AcceptStation}}
         </view>
       </view>
+
+       <!-- 广点通banner广告 -->
+    <view  class='centered' >
+      <view class="gdtad" >
+        <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-3e034905c95ce64a" unit-id="adunit-3e034905c95ce64a"></ad>
+      </view>
     </view>
+    </view>
+
+
+   
 
   </view>
 
@@ -60,7 +70,7 @@
 
 
 
-  <view  class='adbrush' >
+  <view class='adbrush'>
     <!--广告暗刷开始-->
 
     <view>

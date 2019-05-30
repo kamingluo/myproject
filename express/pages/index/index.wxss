@@ -138,14 +138,19 @@
      text-decoration-line: underline;
 }
 
+.gdtad{
+  width: 94%;
+  border-radius: 15rpx;
+  margin-top: 10rpx;
+}
+
 .miniappad{
   margin-top: 20rpx;
 }
 .miniappad image {
   width: 700rpx;
   height: 200rpx;
-  border-radius: 20rpx;
-
+  border-radius: 15rpx;
 }
 
 .xmad {
@@ -162,7 +167,7 @@
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(20, 20, 20, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,3 +215,11 @@
 }
 
 
+.insertadclose{
+  margin-top: 100rpx;
+}
+
+.insertadclose image{
+  width: 70rpx;
+  height:70rpx;
+}
