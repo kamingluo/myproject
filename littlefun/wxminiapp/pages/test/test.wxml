@@ -7,3 +7,7 @@
 <button  bindtap='reduceScore' >积分减少测试</button>
 
 <button  bindtap='havecode' >获取code</button>
+
+
+
+ <kaming-button> <button  bindtap='buttonzujian' class='bg-gradual-blue'>11111111</button></kaming-button>

@@ -43,6 +43,13 @@ Page({
 
   },
 
+
+  buttonzujian:function(e){
+    console.log("测试组件",e)
+  },
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
