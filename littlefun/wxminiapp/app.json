@@ -23,28 +23,28 @@
   ],
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#ffa042",
-    "backgaoundColor": "#000000",
-    "borderStyle": "white",
+    "color": "#d0d0d0",
+    "selectedColor": "#0066FF",
+    "backgroundColor": "#ffffff",
+    "borderStyle":"white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/config/index.png",
-        "selectedIconPath": "images/config/sindex.png"
+        "iconPath": "images/config2/index.png",
+        "selectedIconPath": "images/config2/sindex.png"
       },
       {
         "pagePath": "pages/task/task",
-        "text": "task",
-        "iconPath": "images/config/index.png",
-        "selectedIconPath": "images/config/sindex.png"
+        "text": "任务",
+        "iconPath": "images/config2/task.png",
+        "selectedIconPath": "images/config2/stask.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "images/config/my.png",
-        "selectedIconPath": "images/config/smy.png"
+        "iconPath": "images/config2/my.png",
+        "selectedIconPath": "images/config2/smy.png"
       }
     ]
   }

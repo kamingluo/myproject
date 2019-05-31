@@ -19,7 +19,7 @@
 
   <view class='task centered'>
     <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('/images/task/block_content_bg.png');">
-      <view class='box-body' >
+      <view class='box-body'>
         <view class=' box-body-image centered '>
           <image src='/images/task/cash.png'></image>
         </view>
@@ -29,22 +29,28 @@
               <progress percent="{{usertodaytask.share/1*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
               <text>{{usertodaytask.share}}/1</text>
             </view>
-            <view class='box-body-name-2 '>分享好友，每天1次机会</view>
-            <view class='box-body-name-2 '>随机奖励100-300金币</view>
+            <view class='box-body-name-2 '>分享好友，每天<text class='important'  >1</text>次机会</view>
+            <view class='box-body-name-2 '>分享成功奖励<text class='important'  >30-50金币</text></view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <button class='bg-gradual-purple'   wx:if="{{usertodaytask.share < 1}}" >去分享</button>
-          <button class='bg-grey' wx:else   >已完成</button>
+          <kaming-button wx:if="{{usertodaytask.share < 1}}">
+            <button class='bg-gradual-purple' open-type='share'>去分享</button>
+          </kaming-button>
+          <!-- <button class='bg-gradual-purple'   wx:if="{{usertodaytask.share < 1}}" >去分享</button> -->
+          <!-- <button class='bg-grey' wx:else   >已完成</button> -->
+          <kaming-button wx:else>
+            <button class='bg-grey'>已完成</button>
+          </kaming-button>
         </view>
       </view>
     </view>
   </view>
 
 
-    <view class='task centered'>
+  <view class='task centered'>
     <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('/images/task/block_content_bg.png');">
-      <view class='box-body' >
+      <view class='box-body'>
         <view class=' box-body-image centered '>
           <image src='/images/task/cash.png'></image>
         </view>
@@ -54,17 +60,64 @@
               <progress percent="{{usertodaytask.gdtvideo/5*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
               <text>{{usertodaytask.gdtvideo}}/5</text>
             </view>
-            <view class='box-body-name-2 '>观看视频，每天5次机会</view>
-            <view class='box-body-name-2 '>随机奖励100-300金币</view>
+            <view class='box-body-name-2 '>观看视频，每天<text class='important'>5</text>次机会</view>
+            <view class='box-body-name-2 '>观看完成奖励<text class='important'  >20金币</text>/次</view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <button class='bg-gradual-purple'  wx:if="{{usertodaytask.gdtvideo < 5}}"  >去观看</button>
-          <button class='bg-grey' wx:else   >已完成</button>
+          <kaming-button wx:if="{{usertodaytask.gdtvideo < 5}}">
+            <button class='bg-gradual-purple'>去观看</button>
+          </kaming-button>
+          <kaming-button wx:else>
+            <button class='bg-grey'>已完成</button>
+          </kaming-button>
         </view>
       </view>
     </view>
   </view>
+
+
+
+  <view class='task centered'>
+    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('/images/task/block_content_bg.png');">
+      <view class='box-body'>
+        <view class=' box-body-image centered '>
+          <image src='/images/task/cash.png'></image>
+        </view>
+        <view class=' box-body-name  centered'>
+          <view>
+            <view class='progress'>
+              <progress percent="{{usertodaytask.gdtbanner/2*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
+              <text>{{usertodaytask.gdtbanner}}/2</text>
+            </view>
+            <view class='box-body-name-2 '>体验广告<text class='important'>15</text> 秒</view>
+            <view class='box-body-name-2 '>体验完成奖励<text class='important'>50金币</text>/次</view>
+          </view>
+        </view>
+        <view class='box-body-anniu centered '>
+          <view  class='gdtbannerad'   style="opacity: 0">
+          <!-- <view  class='gdtbannerad'   > -->
+            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
+          </view>
+          <kaming-button wx:if="{{usertodaytask.gdtvideo < 5}}">
+            <button class='bg-gradual-purple'>去体验看</button>
+          </kaming-button>
+          <kaming-button wx:else>
+            <button class='bg-grey'>已完成</button>
+          </kaming-button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+ <view class='centered'  >
+  <kaming-button  open-type='share' class='bottombutton'  >
+  <button  bindtap='buttonshare'   plain='true'> <image src='../../images/task/share_button.png' mode='widthFix'></image></button>
+  </kaming-button>
+ </view>
 
 
 

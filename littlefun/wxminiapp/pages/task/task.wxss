@@ -4,6 +4,12 @@ page {
   background-color: #382e66;
 }
 
+.important{
+  color:#ff9700;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+
 .top image {
   width: 100%;
 }
@@ -88,3 +94,23 @@ progress {
   font-size: 28rpx;
   font-weight: 600;
 }
+
+.gdtbannerad{
+  position: fixed;
+  width: 50%;
+  height: 5rpx;
+  z-index: 999;
+  margin-top: -80rpx;
+  left:65%;
+  
+}
+
+.bannerad{
+  border-radius: 200rpx;
+}
+
+
+.bottombutton{
+  margin-top: 40rpx;
+   width: 550rpx;
+ }

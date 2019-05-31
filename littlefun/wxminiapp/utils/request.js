@@ -39,7 +39,7 @@ const request = (config) => {
           if (config.fail) {
             config.fail && config.fail(data);
           } else {
-            config.showToast && wx.showToast({
+            wx.showToast({
               title: data.message,
               icon: 'none'
             })

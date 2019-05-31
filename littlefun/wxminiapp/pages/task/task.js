@@ -53,6 +53,17 @@ Page({
   },
 
 
+  //点击广点通广告
+  gdtbannerclick:function(){
+    console.log("点击广点通广告")
+
+  },
+
+  buttonshare:function(){
+    console.log("点击下面分享按钮")
+  },
+
+
 
 
 
