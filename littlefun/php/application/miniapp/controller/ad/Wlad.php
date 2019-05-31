@@ -12,7 +12,7 @@ class Wlad
 
 		return  "微量广告" ;
 	}	
-    //点击banner广告成功记录
+    //点击微量广告广告成功记录
 	public function clickwlad(Request $request)
 	{
 		$wxcode =$request->param("code");
@@ -21,7 +21,7 @@ class Wlad
 
     	$dbnum =db('wl_ad_record')->where('openid',$openid)->whereTime('create_time', 'today')->count();//查询今日点广告数
     	if($dbnum >= 3){
-    		$resdata=['state'   => '200','message'  => "今天点击微量广告3次了","clickwlad"=>'fail' ];
+    		$resdata=['state'   => '400','message'  => "今天点击微量广告3次了","clickwlad"=>'fail' ];
             return $resdata;
     	}
     	else{
@@ -39,14 +39,14 @@ class Wlad
                  return $resdata;
         	}
         	else{
-        		$resdata=['state'   => '200','message'  => "点击微量广告失败","clickwlad"=>'fail' ];
+        		$resdata=['state'   => '400','message'  => "点击微量广告失败","clickwlad"=>'fail' ];
                  return $resdata;
         	}
     	}
 	}
 
 
-      //用户今日点击小程序跳转广告数量
+      //用户微量广告数量
     public function todayclickwladnumber(Request $request)
     {
     	// return "111";

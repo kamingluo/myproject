@@ -40,7 +40,7 @@ const request = (config) => {
             config.fail && config.fail(data);
           } else {
             config.showToast && wx.showToast({
-              title: '状态异常',
+              title: data.message,
               icon: 'none'
             })
           }

@@ -8,6 +8,7 @@ const {
 const {
   share
 } = require('./../../utils/share.js');
+const task = require('./../../utils/task.js');
 
 const scoreOperation = require('./../../utils/score.js');
 
@@ -43,10 +44,42 @@ Page({
 
   },
 
+  lookvideoad:function(){
+    task.lookvideoad(1111,100)
+
+  },
+  clickbannerad:function(){
+    task.clickbannerad(2222, 90)
+  },
+
+  clickminiappad:function(){
+    task.clickminiappad(3333, 80,"点击clickminiappad")
+  },
+
+  clickwlad: function () {
+    task.clickwlad(4444, 70, "点击clickwlad")
+  },
+
+  signin: function () {
+    task.signin(60)
+  },
+
+  signdouble: function () {
+    task.signdouble()
+  },
+
+
+  share:function(){
+    task.share(50)
+
+  },
+
 
   buttonzujian:function(e){
     console.log("测试组件",e)
   },
+
+  
 
 
 

@@ -19,7 +19,7 @@ class Sign
     	$openid=openid($wxcode);
         $dbnum =db('sign')->where('openid',$openid)->whereTime('create_time', 'today')->count();
         if($dbnum>=1){
-         $state=['state'=> '200','message'  => "用户今天已经签到" ];
+         $state=['state'=> '400','message'  => "用户今天已经签到" ];
          $resdata=array_merge($state,array('whether'=>true));
          return $resdata;
         }
@@ -38,7 +38,7 @@ class Sign
     	$openid=openid($wxcode);
         $dbnum =db('sign')->where('openid',$openid)->whereTime('create_time', 'today')->count();
         if($dbnum>=1){
-         $resdata=['state'   => '200','message'  => "你已经签到了" ];
+         $resdata=['state'   => '400','message'  => "你已经签到了" ];
          return $resdata;
         }
         else{
@@ -53,7 +53,7 @@ class Sign
             return $resdata;
           }
           else{
-          	$resdata=['state'   => '200','message'  => "签到失败","signin"=>'fail' ];
+          	$resdata=['state'   => '400','message'  => "签到失败","signin"=>'fail' ];
             return $resdata;
           }
         }
@@ -67,7 +67,7 @@ class Sign
     	$dbscore =db('sign')->where('openid',$openid)->whereTime('create_time', 'today')->value('score');
     	$time =date('Y-m-d H:i:s',time());//获取当前时间
     	if($dbscore==null){
-    		$resdata=['state'   => '200','message'  => "今日未签到","signdouble"=>'fail' ];
+    		$resdata=['state'   => '400','message'  => "今日未签到","signdouble"=>'fail' ];
             return $resdata;
     	}
     	else{

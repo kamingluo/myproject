@@ -21,7 +21,7 @@ class Miniappad
 
     	$dbnum =db('miniapp_ad_record')->where('openid',$openid)->whereTime('create_time', 'today')->count();//查询今日点广告数
     	if($dbnum >= 3){
-    		$resdata=['state'   => '200','message'  => "你今天小程序广告点击已经三次了","clickminiappad"=>'fail' ];
+    		$resdata=['state'   => '400','message'  => "你今天小程序广告点击已经三次了","clickminiappad"=>'fail' ];
             return $resdata;
     	}
     	else{
@@ -39,7 +39,7 @@ class Miniappad
                  return $resdata;
         	}
         	else{
-        		$resdata=['state'   => '200','message'  => "点击小程序广告失败","clickminiappad"=>'fail' ];
+        		$resdata=['state'   => '400','message'  => "点击小程序广告失败","clickminiappad"=>'fail' ];
                  return $resdata;
         	}
     	}

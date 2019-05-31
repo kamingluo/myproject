@@ -31,7 +31,7 @@ class Share
     	$time =date('Y-m-d H:i:s',time());//获取当前时间
     	$dbnum =db('share_record')->where('openid',$openid)->whereTime('create_time', 'today')->count();//查询今日点广告数
     	if($dbnum >= 1){
-    		$resdata=['state'   => '200','message'  => "你今天已经完成过分享任务","sharesuccess"=>'fail' ];
+    		$resdata=['state'   => '400','message'  => "你今天已经完成过分享任务","sharesuccess"=>'fail' ];
             return $resdata;
     	}
     	else{
@@ -45,7 +45,7 @@ class Share
                  return $resdata;
         	}
         	else{
-        		$resdata=['state'   => '200','message'  => "分享任务失败","lookvideoad"=>'fail' ];
+        		$resdata=['state'   => '400','message'  => "分享任务失败","lookvideoad"=>'fail' ];
                  return $resdata;
         	}
     	}

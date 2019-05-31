@@ -43,7 +43,7 @@ class User
                     return $resdata;
                 }
                 else{
-                     $dbreturn=['state'   => '200','message'  => "用户信息更新失败" ];
+                     $dbreturn=['state'   => '400','message'  => "用户信息更新失败" ];
                     return $dbreturn;
                 }
             }

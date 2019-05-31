@@ -20,7 +20,7 @@ class Gdtad
     	$time =date('Y-m-d H:i:s',time());//获取当前时间
     	$dbnum =db('gdt_ad_record')->where('openid',$openid)->where('adtype',1)->whereTime('create_time', 'today')->count();//查询今日点广告数
     	if($dbnum >= 2){
-    		$resdata=['state'   => '200','message'  => "你今天banner广告点击已经两次了","clickbannerad"=>'fail' ];
+    		$resdata=['state'   => '400','message'  => "你今天banner广告点击已经两次了","clickbannerad"=>'fail' ];
             return $resdata;
     	}
     	else{
@@ -38,7 +38,7 @@ class Gdtad
                  return $resdata;
         	}
         	else{
-        		$resdata=['state'   => '200','message'  => "点击banner广告失败","clickbannerad"=>'fail' ];
+        		$resdata=['state'   => '400','message'  => "点击banner广告失败","clickbannerad"=>'fail' ];
                  return $resdata;
         	}
     	}
@@ -67,7 +67,7 @@ class Gdtad
     	$time =date('Y-m-d H:i:s',time());//获取当前时间
     	$dbnum =db('gdt_ad_record')->where('openid',$openid)->where('adtype',2)->whereTime('create_time', 'today')->count();//查询今日点广告数
     	if($dbnum >= 5){
-    		$resdata=['state'   => '200','message'  => "你观看视频广告已经5次了","lookvideoad"=>'fail' ];
+    		$resdata=['state'   => '400','message'  => "你观看视频广告已经5次了","lookvideoad"=>'fail' ];
             return $resdata;
     	}
     	else{
@@ -81,7 +81,7 @@ class Gdtad
                  return $resdata;
         	}
         	else{
-        		$resdata=['state'   => '200','message'  => "观看视频广告失败","lookvideoad"=>'fail' ];
+        		$resdata=['state'   => '400','message'  => "观看视频广告失败","lookvideoad"=>'fail' ];
                  return $resdata;
         	}
     	}

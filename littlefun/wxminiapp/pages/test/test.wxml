@@ -9,5 +9,14 @@
 <button  bindtap='havecode' >获取code</button>
 
 
+<button  bindtap='lookvideoad' >lookvideoad</button>
+<button  bindtap='clickbannerad' >clickbannerad</button>
+<button  bindtap='clickminiappad' >clickminiappad</button>
+<button  bindtap='clickwlad' >clickwlad</button>
+<button  bindtap='signin' >signin</button>
+<button  bindtap='signdouble' >signdouble</button>
+<button  bindtap='share' >share</button>
+
+
 
  <kaming-button> <button  bindtap='buttonzujian' class='bg-gradual-blue'>11111111</button></kaming-button>
