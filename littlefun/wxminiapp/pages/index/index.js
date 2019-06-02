@@ -7,6 +7,7 @@ const {
 const {
   share
 } = require('./../../utils/share.js');
+const common = require('./../../utils/common.js') //公共函数
 
 Page({
   data: {
@@ -42,12 +43,16 @@ Page({
  //点击轮播图
   clickSwiper:function(e){
     console.log("点击轮播图数据", e.currentTarget.dataset.data)
+    common.insidejump(e.currentTarget.dataset.data)
   },
 
   clickInformation:function(e){
     console.log("点击信息流数据", e.currentTarget.dataset.data)
+    common.insidejump(e.currentTarget.dataset.data)
 
   },
+
+
 
 
   miniappadData:function(){

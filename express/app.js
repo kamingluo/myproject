@@ -4,17 +4,21 @@ const common = require('./utils/common.js') //公共函数
 const {request} = require('./utils/request.js')//公共请求方法
 var App = require('./utils/xmadx_sdk.min.js').xmad(App, 'App').xmApp;//小盟广告
 const wlad = require('./utils/wlad_sdk.min.js'); //微量小程序联盟
+
 App({
   globalData: {
     //一定要，删除报错
   },
   onLaunch: function(e) {
+    this.autoUpdate()
     console.log("onLaunch打印信息", e)
+    wx.aldstat.sendEvent('入口值统计', e.query);
     var channel = e.query.channel || 0
     var master_id = e.query.master_id || 0
     var scene = e.scene || 0
     common.register(channel, master_id, scene) //用户注册
     common.xmadconfig()//获取小盟广告配置
+    wx.setStorageSync('gdtinsertstatus', 0)//先把插屏状态置为0
     // 获取系统状态栏信息
     wx.getSystemInfo({
       success: e => {
@@ -24,6 +28,7 @@ App({
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
       }
     })
+
   },
 
   

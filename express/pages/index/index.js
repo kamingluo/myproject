@@ -8,6 +8,7 @@ const {
 const {
   share
 } = require('./../../utils/share.js');
+let interstitialAd = null
 
 Page({
   data: {
@@ -35,7 +36,7 @@ Page({
     },
     indexminiappdata: '',
     insertdata: '',
-    insertdisplay: true,
+    insertdisplay: false,
     gdtbannerposition: '',
 
     swiperList: [{
@@ -46,14 +47,63 @@ Page({
   },
 
   onLoad: function(e) {
+    // console.log("indexonload", e)
     this.frame(e)
     this.indexminiappdata()
     this.insertdata()
     this.gdtbannerposition()
+    this.gdtinsertad()
   },
   onShow: function() {
     this.userexpressdata()
   },
+
+  /**
+  * 生命周期函数--监听页面隐藏
+  */
+  onHide: function () {
+    console.log("页面隐藏")
+    this.onshowgdtinsertad()
+
+  },
+
+
+
+  //加载插屏广告
+  gdtinsertad:function(){
+    
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-d487b16364fae405' })
+      interstitialAd.onLoad(() => {
+        console.log('插屏广告加载onLoad event emit')
+      })
+      interstitialAd.onError((err) => {
+        console.log('插屏广告错误onError event emit', err)
+      })
+      interstitialAd.onClose((res) => {
+        console.log('插屏广告被关闭onClose event emit', res)
+      })
+    }
+
+
+  },
+  //显示插屏广告
+  onshowgdtinsertad:function(){
+    var gdtinsertstatus = wx.getStorageSync('gdtinsertstatus')
+    if (interstitialAd && gdtinsertstatus == 0) {
+     // console.log("状态为0展示插屏广告")
+      interstitialAd.show().catch((err) => {
+        console.error("插屏广告错误啦",err)
+      })
+    }
+    else{
+      wx.setStorageSync('gdtinsertstatus', 0)//把插屏状态置为0
+      console.log("状态为1不展示插屏广告")
+    }
+
+  },
+
+
   inputShowed: function() { //输入框焦点获取
     this.setData({
       inputShowed: true
@@ -174,7 +224,8 @@ Page({
       success: res => {
         //console.log('首页插屏ad信息', res);
         this.setData({
-          insertdata: res.insertdata
+          insertdata: res.insertdata,
+          insertdisplay:true
         })
       }
     })

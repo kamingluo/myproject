@@ -46,6 +46,7 @@ Component({
     },
     clickAd(e) {
       wx.setStorageSync('xmadstatus', 1)
+      wx.setStorageSync('gdtinsertstatus', 1)
       this.triggerEvent('click')
       let userdata = wx.getStorageSync('userdata')
       app.aldstat.sendEvent('小盟广告手动点击', userdata);

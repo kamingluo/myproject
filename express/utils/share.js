@@ -1,6 +1,7 @@
 var app = getApp();
 
 function share(type,expressName, expressNumber) {
+  wx.setStorageSync('gdtinsertstatus', 1)//分享禁止插屏广告
   let userdata = wx.getStorageSync('userdata')
   app.aldstat.sendEvent('分享好友', userdata);
 	 let userid=wx.getStorageSync('userdata').id

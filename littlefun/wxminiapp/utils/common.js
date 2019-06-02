@@ -35,8 +35,34 @@ function register(e) {
 
 
 
+//跳转内部页面
+function insidejump (e) {
+  //console.log("跳转tab页面")
+  let type = e.type
+  if (type == 0) {
+    wx.switchTab({
+      url: e.url
+    })
+  }
+  else if (type == 1) {
+    //console.log("关闭其他页面跳转")
+    wx.reLaunch({
+      url: e.url
+    })
+  }
+  else {
+    //console.log("普通跳转")
+    wx.navigateTo({
+      url: e.url
+    })
+  }
+}
+
+
+
 
 
 module.exports = {
   register: register,
+  insidejump: insidejump,
 }
