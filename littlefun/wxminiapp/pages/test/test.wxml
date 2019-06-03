@@ -8,6 +8,7 @@
 <button  bindtap='reduceScore' >积分减少测试</button>
 
 <button  bindtap='havecode' >获取code</button>
+<button  bindtap='testjumpminiapp' >跳转小程序测试</button>
 
 
 <button  bindtap='lookvideoad' >lookvideoad</button>

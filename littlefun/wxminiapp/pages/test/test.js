@@ -44,6 +44,17 @@ Page({
 
   },
 
+  testjumpminiapp:function(){
+      wx.navigateToMiniProgram({
+        appId: 'wxdb8afdceb2e24d7a',
+        path: 'pages/index/index?pakey=551066f6',
+        extraData: '',
+        success(res) {
+          console.log("跳转成功", e.currentTarget.dataset.data.Jump)
+        }
+      })
+  },
+
   lookvideoad:function(){
     task.lookvideoad(1111,100)
 

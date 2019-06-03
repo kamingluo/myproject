@@ -62,8 +62,10 @@ Page({
   * 生命周期函数--监听页面隐藏
   */
   onHide: function () {
-    console.log("页面隐藏")
+    //console.log("页面隐藏")
     this.onshowgdtinsertad()
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('首页隐藏', userdata);
 
   },
 
@@ -181,7 +183,7 @@ Page({
         gdtbanneraddelay1: true
       })
       that.gdtbanneraddelay()
-    }, 4500);
+    }, 3000);
 
   },
 
@@ -193,7 +195,7 @@ Page({
       that.setData({
         gdtbanneraddelay2: true
       })
-    }, 10000);
+    }, 7000);
   },
 
 
@@ -290,6 +292,7 @@ Page({
   },
 
   expressScancode: function() {
+    wx.setStorageSync('gdtinsertstatus', 1)//禁止插屏广告
     wx.scanCode({
       success(res) {
         console.log("扫码返回", res)
