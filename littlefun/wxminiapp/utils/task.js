@@ -19,6 +19,7 @@ function lookvideoad(adid, score) {
         },
         success: res => {
           console.log('视频广告任务完成加积分', res);
+          return true;
         },
       })
     }
@@ -40,6 +41,7 @@ function clickbannerad(adid, score) {
         },
         success: res => {
           console.log('点击banner广告完成加积分', res);
+          return true;
         },
       })
     }
@@ -63,6 +65,7 @@ function clickminiappad(adid, score, adname) {
         },
         success: res => {
           console.log('跳转小程序广告任务成功', res);
+          return true;
         },
       })
     }
@@ -86,6 +89,7 @@ function clickwlad(adid, score, adname) {
         },
         success: res => {
           console.log('微量广告任务成功任务成功', res);
+          return true;
         },
       })
     }
@@ -106,6 +110,7 @@ function signin(score) {
         },
         success: res => {
           console.log('用户签到成功', res);
+          return true;
         },
       })
     }
@@ -124,6 +129,7 @@ function signdouble() {
         },
         success: res => {
           console.log('用户签到加倍成功', res);
+          return true;
         },
       })
     }
@@ -144,6 +150,7 @@ function share(score) {
         },
         success: res => {
           console.log('分享任务成功', res);
+          return true;
         },
       })
     }

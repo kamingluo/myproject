@@ -56,32 +56,40 @@ Page({
   },
 
   lookvideoad:function(){
-    task.lookvideoad(1111,100)
+   //let taskstuta= task.lookvideoad(1111,100)
+  
+    console.log(task.lookvideoad(1111, 100))
 
   },
   clickbannerad:function(){
-    task.clickbannerad(2222, 90)
+    let taskstuta =  task.clickbannerad(2222, 90)
+    console.log(taskstuta)
   },
 
   clickminiappad:function(){
-    task.clickminiappad(3333, 80,"点击clickminiappad")
+    let taskstuta =  task.clickminiappad(3333, 80,"点击clickminiappad")
+    console.log(taskstuta)
   },
 
   clickwlad: function () {
-    task.clickwlad(4444, 70, "点击clickwlad")
+    let taskstuta = task.clickwlad(4444, 70, "点击clickwlad")
+    console.log(taskstuta)
   },
 
   signin: function () {
-    task.signin(60)
+    let taskstuta =  task.signin(60)
+    console.log(taskstuta)
   },
 
   signdouble: function () {
-    task.signdouble()
+    let taskstuta =  task.signdouble()
+    console.log(taskstuta)
   },
 
 
   share:function(){
-    task.share(50)
+    let taskstuta =  task.share(50)
+    console.log(taskstuta)
 
   },
 

@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/my/my",
+    "pages/exchange/exchange",
     "pages/task/task",
     "pages/test/test"
   ],

@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">金币兑换</view>
+</cu-custom>
+
+
+<view>
+
+  <view class='centered'>
+
+    <view class='box'>
+
+
+      <view class='goods radius shadow bg-white  '>
+        <view class='goods-image'>
+          <image src='http://img0.imgtn.bdimg.com/it/u=988201095,1797499281&fm=26&gp=0.jpg'></image>
+        </view>
+        <view class='goods-introduce'>
+          <text>[爱奇艺]黄金会员月卡</text>
+        </view>
+        <view class='goods-price  centered'>
+          <image src='/images/config/coin.svg'></image>
+          <text>100000</text>
+          <view class='goods-number'>兑换人数:5874</view>
+        </view>
+        <view class='line'></view>
+        <view class='exchange centered'>
+          <image src='/images/common/duihuan.svg'></image>
+          <text>  立即兑换</text>
+        </view>
+      </view>
+
+
+
+      <view class='goods radius shadow bg-white  '>
+        <view class='goods-image'>
+          <image src='http://img1.imgtn.bdimg.com/it/u=3227593921,1366333822&fm=26&gp=0.jpg'></image>
+        </view>
+        <view class='goods-introduce'>
+          <text>[爱奇艺]黄金会员月卡</text>
+        </view>
+        <view class='goods-price  centered'>
+          <image src='/images/config/coin.svg'></image>
+          <text>100000</text>
+          <view class='goods-number'>兑换人数:5874</view>
+        </view>
+        <view class='line'></view>
+        <view class='exchange centered'>
+          <image src='/images/common/duihuan.svg'></image>
+          <text>  立即兑换</text>
+        </view>
+      </view>
+
+
+
+
+
+
+    </view>
+
+  </view>
+
+</view>
