@@ -4,7 +4,30 @@ var app = getApp();
 const {
   request
 } = require('./request.js')
+import { http } from './http.js'
 
+
+
+
+// function lookvideoad2(adid, score) {
+//   wx.login({
+//     success: res => {
+//       return   http({
+//         url: 'ad/gdtad/lookvideoad',
+//         data: {
+//           code: res.code,
+//           score: score,
+//           adid: adid,
+//           channel:'11111',
+//           master_id:'0'
+//         }
+//       })
+//       .then(
+//           console.log('视频广告任务完成加积分11111')
+//       )
+//     }
+//   })
+// }
 
 
 function lookvideoad(adid, score) {
@@ -19,7 +42,7 @@ function lookvideoad(adid, score) {
         },
         success: res => {
           console.log('视频广告任务完成加积分', res);
-          return true;
+          return res;
         },
       })
     }

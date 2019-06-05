@@ -71,11 +71,11 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "兑换页面",
 					"pathName": "pages/exchange/exchange",
 					"query": "",
-					"scene": null
+					"scene": 1011
 				}
 			]
 		}

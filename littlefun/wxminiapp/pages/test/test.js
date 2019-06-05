@@ -29,76 +29,76 @@ Page({
 
   },
 
-  reduceScore: function () {
+  reduceScore: function() {
     scoreOperation.reduce(80, "积分减少测试")
 
   },
 
 
-  havecode:function(){
-       wx.login({
-      success: function (res) {
-        console.log("用户code：：：：：：",res.code)
+  havecode: function() {
+    wx.login({
+      success: function(res) {
+        console.log("用户code：：：：：：", res.code)
       }
-       })
+    })
 
   },
 
-  testjumpminiapp:function(){
-      wx.navigateToMiniProgram({
-        appId: 'wxdb8afdceb2e24d7a',
-        path: 'pages/index/index?pakey=551066f6',
-        extraData: '',
-        success(res) {
-          console.log("跳转成功", e.currentTarget.dataset.data.Jump)
-        }
-      })
+  testjumpminiapp: function() {
+    wx.navigateToMiniProgram({
+      appId: 'wxdb8afdceb2e24d7a',
+      path: 'pages/index/index?pakey=551066f6',
+      extraData: '',
+      success(res) {
+        console.log("跳转成功", e.currentTarget.dataset.data.Jump)
+      }
+    })
   },
 
-  lookvideoad:function(){
-   //let taskstuta= task.lookvideoad(1111,100)
-  
-    console.log(task.lookvideoad(1111, 100))
+  lookvideoad: function() {
+    task.lookvideoad(1111, 100)
 
   },
-  clickbannerad:function(){
-    let taskstuta =  task.clickbannerad(2222, 90)
+
+
+
+  clickbannerad: function() {
+    task.clickbannerad(2222, 90)
+  },
+
+  clickminiappad: function() {
+    let taskstuta = task.clickminiappad(3333, 80, "点击clickminiappad")
     console.log(taskstuta)
   },
 
-  clickminiappad:function(){
-    let taskstuta =  task.clickminiappad(3333, 80,"点击clickminiappad")
-    console.log(taskstuta)
-  },
-
-  clickwlad: function () {
+  clickwlad: function() {
     let taskstuta = task.clickwlad(4444, 70, "点击clickwlad")
     console.log(taskstuta)
   },
 
-  signin: function () {
-    let taskstuta =  task.signin(60)
+  signin: function() {
+    let taskstuta = task.signin(60)
     console.log(taskstuta)
   },
 
-  signdouble: function () {
-    let taskstuta =  task.signdouble()
+  signdouble: function() {
+    let taskstuta = task.signdouble()
     console.log(taskstuta)
   },
 
 
-  share:function(){
-    let taskstuta =  task.share(50)
+  share: function() {
+    let taskstuta = task.share(50)
     console.log(taskstuta)
 
   },
 
 
-  buttonzujian:function(e){
-    console.log("测试组件",e)
+  buttonzujian: function(e) {
+    console.log("测试组件", e)
   },
 
-  
+
 
 
 

@@ -1,10 +1,16 @@
 // pages/exchange/exchange.js
+
+const app = getApp()
+const {
+  request
+} = require('./../../utils/request.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    goodsdata:[],
 
   },
 
@@ -12,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.goodsdata()
 
   },
 
@@ -26,6 +33,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+  },
+
+
+  goodsdata: function () {
+    request({
+      service: 'exchange/goodslist',
+      method: 'GET',
+      success: res => {
+        console.log('兑换商品列表', res.goodslist);
+        let scene = wx.getStorageSync('userdata').scene
+        if (scene==1001){
+          console.log('屏蔽');
+        }
+        else{
+          console.log('不屏蔽');
+        }
+
+        // this.setData({
+        //   goodsdata: res.miniappdata
+        // })
+      }
+    })
 
   },
 
