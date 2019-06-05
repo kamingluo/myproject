@@ -19,8 +19,8 @@
           <text>{{item.goodsIntroduce}}</text>
         </view>
         <view class='goods-price  centered'>
-          <image src='/images/config/coin.svg'></image>
-          <text>{{item.goodsPrice}}</text>
+          <image src='/images/common/coin.svg'></image>
+          <text> {{item.goodsPrice}}</text>
           <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
         </view>
         <view class='line'></view>
@@ -42,8 +42,8 @@
           <text>{{item.goodsIntroduce}}</text>
         </view>
         <view class='goods-price  centered'>
-          <image src='/images/config/coin.svg'></image>
-          <text>{{item.goodsPrice}}</text>
+          <image src='/images/common/coin.svg'></image>
+          <text> {{item.goodsPrice}}</text>
           <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
         </view>
         <view class='line'></view>

@@ -30,7 +30,7 @@
               <text>{{usertodaytask.share}}/1</text>
             </view>
             <view class='box-body-name-2 '>分享好友，每天<text class='important'  >1</text>次机会</view>
-            <view class='box-body-name-2 '>分享成功奖励<text class='important'  >30-50金币</text></view>
+            <view class='box-body-name-2 '>分享成功奖励<text class='important'  >30金币</text></view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
@@ -90,8 +90,8 @@
               <progress percent="{{usertodaytask.gdtbanner/2*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
               <text>{{usertodaytask.gdtbanner}}/2</text>
             </view>
-            <view class='box-body-name-2 '>体验广告<text class='important'>15</text> 秒</view>
-            <view class='box-body-name-2 '>体验完成奖励<text class='important'>50金币</text>/次</view>
+            <view class='box-body-name-2 '>体验广告<text class='important'>15</text> 秒,每天<text class='important'>2</text>次机会</view>
+            <view class='box-body-name-2 '>体验完成奖励<text class='important'>40金币</text>/次</view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
@@ -115,7 +115,7 @@
 
  <view class='centered'  >
   <kaming-button  open-type='share' class='bottombutton'  >
-  <button  bindtap='buttonshare'   plain='true'> <image src='http://miniapplittlefun.gzywudao.top/task/share_button.png' mode='widthFix'></image></button>
+  <image src='http://miniapplittlefun.gzywudao.top/task/share_button.png' mode='widthFix'></image>
   </kaming-button>
  </view>
 
