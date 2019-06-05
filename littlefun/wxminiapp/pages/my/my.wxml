@@ -21,7 +21,7 @@
       </view>
     </view>
     <view class='erweima'>
-      <image src='../../images/erweima.svg'></image>
+      <image src='../../images/common/erweima.svg'></image>
     </view>
   </view>
 </view>
@@ -30,17 +30,17 @@
   <view class='score_text'>
     当前共有：
     <text>{{userdata.score}}</text>
-    <image src='../../images/config/coin.svg'></image>
+    <image src='../../images/common/coin.svg'></image>
   </view>
   <view class='score_button'>
-    <button bindtap='duihuan' class=' bg-blue'>立即兑换</button>
+    <button bindtap='exchange' class=' bg-blue'>立即兑换</button>
   </view>
 </view>
 
 
 
  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow">
+    <view class="cu-item arrow"  bindtap='userscorerecord'  >
       <view class="content">
         <text class="cuIcon-github text-grey"></text>
         <text class="text-grey">收入明细</text>
@@ -52,18 +52,6 @@
          <text class="cuIcon-writefill text-cyan"></text>
         <text class="text-grey">联系我们</text>
       </button>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content"hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">日志</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content" >
-        <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">赞赏支持</text>
-      </view>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">

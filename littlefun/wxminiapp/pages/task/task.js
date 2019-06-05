@@ -15,6 +15,12 @@ Page({
   },
 
   onLoad: function(options) {
+    // wx.showShareMenu({
+    //   withShareTicket: true,
+    //   success: res => {
+    //     console.log("withShareTicket",res)
+    //   }
+    // })
   },
 
   onReady: function() {
@@ -70,7 +76,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function (options) {
+    console.log("分享掉起", options)
+    if (options.from == 'button') {
+      return share(1);
+    } else {
+      return share(2);
+    }
 
   }
 })

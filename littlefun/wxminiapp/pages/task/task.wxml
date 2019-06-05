@@ -3,7 +3,7 @@
 </cu-custom> -->
 
 <view class='top'>
-  <image src='/images/task/topbcg.png'></image>
+  <image src='http://miniapplittlefun.gzywudao.top/task/topbcg.png'></image>
 </view>
 
 
@@ -11,17 +11,17 @@
 
   <view class='centered'>
     <view class='information-name centered '>
-      <image src='/images/titlebcg.png' class='u-img-slide'></image>
+      <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
       <text>每日任务</text>
     </view>
   </view>
 
 
   <view class='task centered'>
-    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('/images/task/block_content_bg.png');">
+    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('http://miniapplittlefun.gzywudao.top/task/block_content_bg.png');">
       <view class='box-body'>
         <view class=' box-body-image centered '>
-          <image src='/images/task/cash.png'></image>
+          <image src='/images/common/cash.png'></image>
         </view>
         <view class=' box-body-name  centered'>
           <view>
@@ -49,10 +49,10 @@
 
 
   <view class='task centered'>
-    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('/images/task/block_content_bg.png');">
+    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('http://miniapplittlefun.gzywudao.top/task/block_content_bg.png');">
       <view class='box-body'>
         <view class=' box-body-image centered '>
-          <image src='/images/task/cash.png'></image>
+          <image src='/images/common/cash.png'></image>
         </view>
         <view class=' box-body-name  centered'>
           <view>
@@ -79,10 +79,10 @@
 
 
   <view class='task centered'>
-    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('/images/task/block_content_bg.png');">
+    <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('http://miniapplittlefun.gzywudao.top/task/block_content_bg.png');">
       <view class='box-body'>
         <view class=' box-body-image centered '>
-          <image src='/images/task/cash.png'></image>
+          <image src='/images/common/cash.png'></image>
         </view>
         <view class=' box-body-name  centered'>
           <view>
@@ -115,7 +115,7 @@
 
  <view class='centered'  >
   <kaming-button  open-type='share' class='bottombutton'  >
-  <button  bindtap='buttonshare'   plain='true'> <image src='../../images/task/share_button.png' mode='widthFix'></image></button>
+  <button  bindtap='buttonshare'   plain='true'> <image src='http://miniapplittlefun.gzywudao.top/task/share_button.png' mode='widthFix'></image></button>
   </kaming-button>
  </view>
 

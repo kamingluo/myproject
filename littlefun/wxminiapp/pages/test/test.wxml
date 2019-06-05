@@ -21,4 +21,8 @@
 
 
 
- <kaming-button> <button  bindtap='buttonzujian' class='bg-gradual-blue'>11111111</button></kaming-button>
+ <kaming-button> <button  bindtap='buttonzujian' class='bg-gradual-blue'>自定义组件测试</button></kaming-button>
+
+
+  <button type='primary' style='margin-bottom:10px;' bindtap='startSetInter'>开始计时{{num}}</button>
+  <button type='primary' bindtap='endSetInter'>结束计时</button>

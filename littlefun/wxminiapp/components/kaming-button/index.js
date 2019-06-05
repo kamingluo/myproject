@@ -1,3 +1,10 @@
+
+
+const app = getApp()
+const {
+  request
+} = require('./../../utils/request.js');
+
 const noLaunchType = [
   "contact",
   "getUserInfo",
@@ -52,8 +59,18 @@ Component({
     },
     //获取formid
     formSubmit(e) {
-      console.log("点击组件获得formId", e.detail.formId)
-      //formId
+      //console.log("点击组件获得formId", e.detail.formId)
+      let useropenid = wx.getStorageSync('userdata').openid || 0
+      request({
+        service: 'currency/formid',
+        data: {
+          formid: e.detail.formId,
+          useropenid: useropenid,
+        },
+        success: res => {
+          //console.log('上传formId成功', res);
+        },
+      })
 
     },
     //点击事件

@@ -64,8 +64,7 @@ Page({
   onHide: function () {
     //console.log("页面隐藏")
     this.onshowgdtinsertad()
-    let userdata = wx.getStorageSync('userdata')
-    app.aldstat.sendEvent('首页隐藏', userdata);
+   
 
   },
 
@@ -94,7 +93,9 @@ Page({
     var gdtinsertstatus = wx.getStorageSync('gdtinsertstatus')
     if (interstitialAd && gdtinsertstatus == 0) {
      // console.log("状态为0展示插屏广告")
-      interstitialAd.show().catch((err) => {
+      interstitialAd.show( 
+     
+      ).catch((err) => {
         console.error("插屏广告错误啦",err)
       })
     }
@@ -102,6 +103,9 @@ Page({
       wx.setStorageSync('gdtinsertstatus', 0)//把插屏状态置为0
       console.log("状态为1不展示插屏广告")
     }
+
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('插屏广告方法调用次数', userdata);
 
   },
 

@@ -4,7 +4,8 @@
     "pages/my/my",
     "pages/exchange/exchange",
     "pages/task/task",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/my/score_detailed/score_detailed"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,20 +34,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/config2/index.png",
-        "selectedIconPath": "images/config2/sindex.png"
+        "iconPath": "images/config/index.png",
+        "selectedIconPath": "images/config/sindex.png"
       },
       {
         "pagePath": "pages/task/task",
         "text": "任务",
-        "iconPath": "images/config2/task.png",
-        "selectedIconPath": "images/config2/stask.png"
+        "iconPath": "images/config/task.png",
+        "selectedIconPath": "images/config/stask.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "images/config2/my.png",
-        "selectedIconPath": "images/config2/smy.png"
+        "iconPath": "images/config/my.png",
+        "selectedIconPath": "images/config/smy.png"
       }
     ]
   }

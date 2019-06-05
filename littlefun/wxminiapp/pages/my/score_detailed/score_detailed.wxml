@@ -1,0 +1,61 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">金币明细</view>
+</cu-custom>
+
+
+
+<view>
+
+
+
+  <view wx:if="{{userscorerecord.length > 0}}" class='top_ba'>
+    <view class='top'>
+      <view class='top_explain'>
+        <text>操作</text>
+      </view>
+      <view class='top_score'>
+        <text>金币数</text>
+      </view>
+      <view class='top_time'>
+        <text>时间</text>
+      </view>
+    </view>
+    <view>
+      <view class="bootm" wx:for="{{userscorerecord}}" wx:key="item">
+        <view class='bootm_explain'>
+          <text>{{item.explain}}</text>
+        </view>
+        <view class='bootm_score'>
+          <text>{{item.score}}</text>
+        </view>
+        <view class='bootm_time'>
+          <text>{{item.create_time}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='tips'>
+      <text>-----系统只保存最近三天的记录-----</text>
+    </view>
+  </view>
+
+
+  <view wx:else>
+    <view class='default'>
+      <view>
+        <image src='http://littlebox.luojiaming.vip/default.png'></image>
+      </view>
+      <view>
+        <text>你三天内还没有收入呢</text>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+</view>

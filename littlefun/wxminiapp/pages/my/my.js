@@ -34,7 +34,7 @@ Page({
             code: res.code,
           },
           success: res => {
-            console.log('我的页面获取用户信息', res);
+           // console.log('我的页面获取用户信息', res);
             this.setData({
               userdata: res.userdata,
             })
@@ -46,6 +46,19 @@ Page({
       }
     })
 
+  },
+
+  exchange:function(){
+    wx.navigateTo({
+      url: '/pages/exchange/exchange'
+    })
+
+  },
+
+  userscorerecord:function(){
+    wx.navigateTo({
+      url: '/pages/my/score_detailed/score_detailed'
+    })
   },
 
 

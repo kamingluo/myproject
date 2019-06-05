@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -76,6 +76,13 @@
 					"pathName": "pages/exchange/exchange",
 					"query": "",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "金币明细",
+					"pathName": "pages/my/score_detailed/score_detailed",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

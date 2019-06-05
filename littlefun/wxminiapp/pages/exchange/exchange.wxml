@@ -10,46 +10,49 @@
 
     <view class='box'>
 
-
+   <block wx:for="{{goodslist1}}" wx:key="item">
       <view class='goods radius shadow bg-white  '>
         <view class='goods-image'>
-          <image src='http://img0.imgtn.bdimg.com/it/u=988201095,1797499281&fm=26&gp=0.jpg'></image>
+          <image src='{{item.goodsImg}}'></image>
         </view>
         <view class='goods-introduce'>
-          <text>[爱奇艺]黄金会员月卡</text>
+          <text>{{item.goodsIntroduce}}</text>
         </view>
         <view class='goods-price  centered'>
           <image src='/images/config/coin.svg'></image>
-          <text>100000</text>
-          <view class='goods-number'>兑换人数:5874</view>
+          <text>{{item.goodsPrice}}</text>
+          <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
         </view>
         <view class='line'></view>
-        <view class='exchange centered'>
+        <view class='exchange centered' bindtap='clickgoods'  data-goodsdata="{{item}}" >
           <image src='/images/common/duihuan.svg'></image>
           <text>  立即兑换</text>
         </view>
       </view>
+      </block>
+ 
 
 
-
-      <view class='goods radius shadow bg-white  '>
+     <block wx:for="{{goodslist2}}" wx:key="item">
+      <view class='goods radius shadow bg-white'  >
         <view class='goods-image'>
-          <image src='http://img1.imgtn.bdimg.com/it/u=3227593921,1366333822&fm=26&gp=0.jpg'></image>
+          <image src='{{item.goodsImg}}'></image>
         </view>
         <view class='goods-introduce'>
-          <text>[爱奇艺]黄金会员月卡</text>
+          <text>{{item.goodsIntroduce}}</text>
         </view>
         <view class='goods-price  centered'>
           <image src='/images/config/coin.svg'></image>
-          <text>100000</text>
-          <view class='goods-number'>兑换人数:5874</view>
+          <text>{{item.goodsPrice}}</text>
+          <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
         </view>
         <view class='line'></view>
-        <view class='exchange centered'>
+        <view class='exchange centered'   bindtap='clickgoods'   data-goodsdata="{{item}}"  >
           <image src='/images/common/duihuan.svg'></image>
           <text>  立即兑换</text>
         </view>
       </view>
+      </block>
 
 
 

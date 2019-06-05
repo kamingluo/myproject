@@ -50,14 +50,12 @@ const request = (config) => {
     fail: function(res) {
       config.loading && wx.hideLoading();
       wx.hideNavigationBarLoading();
-      if (config.fail) {
-        config.fail && config.fail(res);
-      } else {
-        config.showToast && wx.showToast({
+         config.fail(res);
+       wx.showToast({
           title: '网络异常',
           icon: 'none'
         })
-      }
+      
     },
     complete: function(res) {
       config.complete && config.complete(res);
