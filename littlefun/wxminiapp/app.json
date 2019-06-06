@@ -5,7 +5,9 @@
     "pages/exchange/exchange",
     "pages/task/task",
     "pages/test/test",
-    "pages/my/score_detailed/score_detailed"
+    "pages/my/score_detailed/score_detailed",
+    "pages/game/caiquan/caiquan",
+    "pages/game/dice/dice"
   ],
   "window": {
     "backgroundTextStyle": "light",

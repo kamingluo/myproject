@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
- margin-top: 30rpx;
   box-sizing: border-box;
 }
 .centered{
@@ -33,3 +32,9 @@ position: fixed;
   width: 97%;
   margin-left: 120%;
 }
+
+
+
+
+
+
