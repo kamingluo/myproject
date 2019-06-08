@@ -13,6 +13,10 @@ Page({
     goodslist1: [],
     goodslist2: [],
     coin: '',
+    alipayName:"",
+    alipayNumber:"",
+    exchangegood:{},
+    fram:false,
 
   },
 
@@ -86,10 +90,52 @@ Page({
         duration: 3000
       })
       return;
+    }else{
+      this.setData({
+        exchangegood: e.currentTarget.dataset.goodsdata,
+        fram:true,
+      })
+
+    }
+
+
+  },
+
+
+  alipayName: function (e) {
+    console.log("姓名", e.detail.value)
+    this.setData({
+      alipayName: e.detail.value
+    })
+  },
+
+  alipayNumber: function (e) {
+    console.log("账号", e.detail.value)
+    this.setData({
+      alipayNumber: e.detail.value
+    })
+  },
+  submitexchangdata:function(e){
+    var that =this
+    console.log("提交信息")
+    if (that.data.alipayName.length < 2 || that.data.alipayNumber.length <6){
+      wx.showToast({
+        title: "信息错误，请重新填写！",
+        icon: 'none',
+        duration: 3000
+      })
+    }else{
+      console.log("开始兑换")
     }
 
   },
 
+  closefram:function(){
+    this.setData({
+      fram: false
+    })
+
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

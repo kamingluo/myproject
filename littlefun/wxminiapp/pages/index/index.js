@@ -29,9 +29,6 @@ Page({
   },
   onShow: function() {
     this.playtask()
-    // let tasktime = this.data.time || 15
-    // console.log(tasktime)
-
   },
 
 
@@ -171,7 +168,8 @@ Page({
 
     //console.log("将时间恢复0")
     this.setData({
-      num: 0
+      num: 0,
+      taskid: "",
     });
 
   },

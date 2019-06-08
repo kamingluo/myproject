@@ -66,7 +66,7 @@
         </view>
         <view class='box-body-anniu centered '>
           <kaming-button wx:if="{{usertodaytask.gdtvideo < 5}}">
-            <button class='bg-gradual-purple'>去观看</button>
+            <button class='bg-gradual-purple'  bindtap='videoad'  >去观看</button>
           </kaming-button>
           <kaming-button wx:else>
             <button class='bg-grey'>已完成</button>
@@ -97,10 +97,10 @@
         <view class='box-body-anniu centered '>
           <view  class='gdtbannerad'   style="opacity: 0">
           <!-- <view  class='gdtbannerad'   > -->
-            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
+            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
           </view>
-          <kaming-button wx:if="{{usertodaytask.gdtvideo < 5}}">
-            <button class='bg-gradual-purple'>去体验看</button>
+          <kaming-button wx:if="{{usertodaytask.gdtbanner < 2}}">
+            <button class='bg-gradual-purple'  bindtap='nobannerad' >去体验看</button>
           </kaming-button>
           <kaming-button wx:else>
             <button class='bg-grey'>已完成</button>

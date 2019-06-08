@@ -10,48 +10,48 @@
 
     <view class='box'>
 
-   <block wx:for="{{goodslist1}}" wx:key="item">
-      <view class='goods radius shadow bg-white  '>
-        <view class='goods-image'>
-          <image src='{{item.goodsImg}}'></image>
+      <block wx:for="{{goodslist1}}" wx:key="item">
+        <view class='goods radius shadow bg-white  '>
+          <view class='goods-image'>
+            <image src='{{item.goodsImg}}'></image>
+          </view>
+          <view class='goods-introduce'>
+            <text>{{item.goodsIntroduce}}</text>
+          </view>
+          <view class='goods-price  centered'>
+            <image src='/images/common/coin.svg'></image>
+            <text> {{item.goodsPrice}}</text>
+            <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
+          </view>
+          <view class='line'></view>
+          <view class='exchange centered' bindtap='clickgoods' data-goodsdata="{{item}}">
+            <image src='/images/common/duihuan.svg'></image>
+            <text>  立即兑换</text>
+          </view>
         </view>
-        <view class='goods-introduce'>
-          <text>{{item.goodsIntroduce}}</text>
-        </view>
-        <view class='goods-price  centered'>
-          <image src='/images/common/coin.svg'></image>
-          <text> {{item.goodsPrice}}</text>
-          <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
-        </view>
-        <view class='line'></view>
-        <view class='exchange centered' bindtap='clickgoods'  data-goodsdata="{{item}}" >
-          <image src='/images/common/duihuan.svg'></image>
-          <text>  立即兑换</text>
-        </view>
-      </view>
       </block>
- 
 
 
-     <block wx:for="{{goodslist2}}" wx:key="item">
-      <view class='goods radius shadow bg-white'  >
-        <view class='goods-image'>
-          <image src='{{item.goodsImg}}'></image>
+
+      <block wx:for="{{goodslist2}}" wx:key="item">
+        <view class='goods radius shadow bg-white'>
+          <view class='goods-image'>
+            <image src='{{item.goodsImg}}'></image>
+          </view>
+          <view class='goods-introduce'>
+            <text>{{item.goodsIntroduce}}</text>
+          </view>
+          <view class='goods-price  centered'>
+            <image src='/images/common/coin.svg'></image>
+            <text> {{item.goodsPrice}}</text>
+            <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
+          </view>
+          <view class='line'></view>
+          <view class='exchange centered' bindtap='clickgoods' data-goodsdata="{{item}}">
+            <image src='/images/common/duihuan.svg'></image>
+            <text>  立即兑换</text>
+          </view>
         </view>
-        <view class='goods-introduce'>
-          <text>{{item.goodsIntroduce}}</text>
-        </view>
-        <view class='goods-price  centered'>
-          <image src='/images/common/coin.svg'></image>
-          <text> {{item.goodsPrice}}</text>
-          <view class='goods-number'>兑换人数:{{item.goodsNumber}}</view>
-        </view>
-        <view class='line'></view>
-        <view class='exchange centered'   bindtap='clickgoods'   data-goodsdata="{{item}}"  >
-          <image src='/images/common/duihuan.svg'></image>
-          <text>  立即兑换</text>
-        </view>
-      </view>
       </block>
 
 
@@ -63,4 +63,38 @@
 
   </view>
 
+</view>
+
+
+
+<!-- 兑换弹框 -->
+<view class='frame' wx:if="{{fram}}">
+  <view>
+    <view bindtap='insertadclick' class='frame-background centered'>
+      <view  class='frame-body ' >
+        <view class='fram-title centered' >
+          <text class='fram-title-text' >兑换<text class='cashnumber' > {{exchangegood.goodsPrice/1000}} </text>元现金红包</text>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">姓名</view>
+          <input placeholder="请输入支付宝姓名"  maxlength='10'  bindinput="alipayName"></input>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">账号</view>
+          <input placeholder="请输入支付宝账号"  maxlength='20' bindinput="alipayNumber"></input>
+        </view>
+        <view  class='fram-button' >
+          <kaming-button>
+            <button class="bg-gradual-blue"  bindtap='submitexchangdata'  >提交信息</button>
+          </kaming-button>
+        </view>
+        <view class='fram-tips' >
+          <text>ps:奖励会在两个工作日内下发，请留意你的支付宝收款信息，如有疑问，请联系客服人员</text>
+        </view>
+      </view>
+    </view>
+    <view class='centered  insertadclose '>
+      <image bindtap='closefram' src='/images/common/close_white.svg'></image>
+    </view>
+  </view>
 </view>

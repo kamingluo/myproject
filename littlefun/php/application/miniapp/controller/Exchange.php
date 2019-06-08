@@ -62,7 +62,7 @@ class Exchange
         	 $scorerecord=db('score_record')->insert($recorddata);
 
         	//增加兑换记录
-        	 $changedata= ['id'=>'','openid' =>$openid,'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"), 'goodsName' =>$goodsdata['goodsName'],'goodsPrice' =>$goodsdata['goodsPrice'],'goodsType' =>$goodsdata['goodsType'],'state' =>0,  'create_time' =>$time];
+        	 $changedata= ['id'=>'','openid' =>$openid,'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"), 'goodsName' =>$goodsdata['goodsName'],'goodsPrice' =>$goodsdata['goodsPrice'],'goodsType' =>$goodsdata['goodsType'],'alipayName' =>$request->param("alipayName"),'alipayNumber' =>$request->param("alipayNumber"),'state' =>0,  'create_time' =>$time];
         	 $change=db('exchange_record')->insert($changedata);
 
 
