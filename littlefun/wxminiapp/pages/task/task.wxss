@@ -2,6 +2,7 @@
 
 page {
   background-color: #382e66;
+  /* background-color: #1cbbb4; */
 }
 
 .important{

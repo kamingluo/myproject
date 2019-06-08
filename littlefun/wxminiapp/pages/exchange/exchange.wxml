@@ -98,3 +98,25 @@
     </view>
   </view>
 </view>
+
+
+<view class='frame'  wx:if="{{fram2}}" >
+  <view>
+    <view bindtap='insertadclick' class='frame-background centered'>
+      <view  class='frame-body ' >
+        <view class='fram-title centered' >
+          <text class='fram-title-text' >兑换<text class='cashnumber' > {{exchangegood.goodsName}} </text></text>
+        </view>
+        <view>由于商品兑换涉及手机号码或者寄送地址等信息，为方便奖励的下发，请联系客服进行兑换！</view>
+        <view  class='fram-button' >
+          <kaming-button>
+            <button class="bg-gradual-blue"  open-type="contact"  bindtap='closefram' >联系客服</button>
+          </kaming-button>
+        </view>
+      </view>
+    </view>
+    <view class='centered  insertadclose '>
+      <image bindtap='closefram' src='/images/common/close_white.svg'></image>
+    </view>
+  </view>
+</view>

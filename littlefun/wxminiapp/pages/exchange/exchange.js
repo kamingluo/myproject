@@ -17,6 +17,8 @@ Page({
     alipayNumber:"",
     exchangegood:{},
     fram:false,
+    fram2: false,
+
 
   },
 
@@ -90,7 +92,15 @@ Page({
         duration: 3000
       })
       return;
-    }else{
+    }
+    else if (e.currentTarget.dataset.goodsdata.goodsType != 0) {
+      this.setData({
+        exchangegood: e.currentTarget.dataset.goodsdata,
+        fram2: true,
+      })
+
+    }
+    else{
       this.setData({
         exchangegood: e.currentTarget.dataset.goodsdata,
         fram:true,
@@ -124,18 +134,62 @@ Page({
         icon: 'none',
         duration: 3000
       })
-    }else{
+      return;
+    }
+    else{
       console.log("开始兑换")
+      that.exchange()
     }
 
   },
 
   closefram:function(){
     this.setData({
-      fram: false
+      fram: false,
+      fram2: false,
+    })
+  },
+
+  exchange:function(){
+    wx.login({
+      success: res => {
+        let goodsid = this.data.exchangegood.id
+        let alipayName = this.data.alipayName
+        let alipayNumber = this.data.alipayNumber
+        request({
+          service: 'exchange/userexchange',
+          data: {
+            code: res.code,
+            goodsid: goodsid,
+            alipayName: alipayName,
+            alipayNumber: alipayNumber,
+          },
+          success: res => {
+            console.log('兑换成功', res);
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 3000
+            })
+            this.setData({
+              fram: false
+            }) 
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '/pages/my/exchange_detailed/exchange_detailed'
+              })
+            }, 2000);
+           
+          },
+        })
+      }
     })
 
   },
+
+
+
+
   /**
    * 生命周期函数--监听页面隐藏
    */

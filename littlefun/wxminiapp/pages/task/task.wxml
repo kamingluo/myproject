@@ -4,6 +4,7 @@
 
 <view class='top'>
   <image src='http://miniapplittlefun.gzywudao.top/task/topbcg.png'></image>
+  <!-- <image src='/images/common/test.png'></image> -->
 </view>
 
 

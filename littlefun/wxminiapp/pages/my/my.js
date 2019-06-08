@@ -56,10 +56,18 @@ Page({
 
   },
 
+
   userscorerecord:function(){
     wx.navigateTo({
       url: '/pages/my/score_detailed/score_detailed'
     })
+  },
+
+  userchangelist:function(){
+    wx.navigateTo({
+      url: '/pages/my/exchange_detailed/exchange_detailed'
+    })
+
   },
 
 

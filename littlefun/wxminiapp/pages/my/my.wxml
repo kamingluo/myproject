@@ -46,6 +46,12 @@
         <text class="text-grey">收入明细</text>
       </view>
     </view>
+     <view class="cu-item arrow"  bindtap='userchangelist'  >
+      <view class="content">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">兑换记录</text>
+      </view>
+    </view>
     <view class="cu-item arrow">
      <button class="cu-btn content" open-type="contact">
         <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
