@@ -12,6 +12,7 @@ Page({
   data: {
     goodslist1: [],
     goodslist2: [],
+    coin: '',
 
   },
 
@@ -20,7 +21,6 @@ Page({
    */
   onLoad: function(options) {
     this.goodsdata()
-
   },
 
   /**
@@ -34,7 +34,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    this.userdata()
 
+  },
+
+
+  //获取用户信息
+  userdata: function () {
+    wx.login({
+      success: res => {
+        request({
+          service: 'user/userdata',
+          data: {
+            code: res.code,
+          },
+          success: res => {
+            console.log('获取用户信息', res);
+            this.setData({
+              coin: res.userdata.score,
+            })
+            wx.setStorageSync('userdata', res.userdata)
+          },
+        })
+      }
+    })
   },
 
 
@@ -54,7 +77,16 @@ Page({
   },
 
   clickgoods: function(e) {
+    var that =this
     console.log(e.currentTarget.dataset.goodsdata)
+    if (that.data.coin < e.currentTarget.dataset.goodsdata.goodsPrice ){
+      wx.showToast({
+        title: "金币不足，快去赚金币吧！",
+        icon: 'none',
+        duration: 3000
+      })
+      return;
+    }
 
   },
 

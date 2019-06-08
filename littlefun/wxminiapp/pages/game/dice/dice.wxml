@@ -68,13 +68,12 @@
 </template>
 <view>
     <view class="game-info">
-        <div class="name"><open-data type="userNickName" ></open-data></div>
-        <div>
-            <span class="money {{moneyClass}}">{{ sigleScore }}</span>
-            <div class="score">
-                {{ score }}
-            </div>
-        </div>
+        <view>
+            <view class="score centered">
+            <image src="../../../images/common/coin.svg"></image>
+            <text>{{ score }}</text>  
+            </view>
+        </view>
     </view>
     <view class="dice-body">
         <block wx:for="{{showDiceTemplateArray}}" wx:key="*this">

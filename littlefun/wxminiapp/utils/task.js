@@ -88,7 +88,11 @@ function clickminiappad(adid, score, adname) {
         },
         success: res => {
           console.log('跳转小程序广告任务成功', res);
-          return true;
+          wx.showToast({
+            title: "完成任务,增加金币",
+            icon: 'none',
+            duration: 3000
+          })
         },
       })
     }
@@ -112,7 +116,11 @@ function clickwlad(adid, score, adname) {
         },
         success: res => {
           console.log('微量广告任务成功任务成功', res);
-          return true;
+          wx.showToast({
+            title: "完成任务,增加金币",
+            icon: 'none',
+            duration: 3000
+          })
         },
       })
     }

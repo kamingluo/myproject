@@ -55,6 +55,7 @@ Page({
             this.setData({
               coin: res.userdata.score,
             })
+            wx.setStorageSync('userdata', res.userdata)
           },
           fail: res => {
             console.log('错误捕捉', res);

@@ -38,6 +38,7 @@ Page({
             this.setData({
               userdata: res.userdata,
             })
+            wx.setStorageSync('userdata', res.userdata)
           },
           fail: res => {
             console.log('错误捕捉', res);

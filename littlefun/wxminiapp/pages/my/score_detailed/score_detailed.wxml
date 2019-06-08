@@ -8,8 +8,21 @@
 <view>
 
 
+  <view wx:if="{{userscorerecord.length < 0}}">
+    <view class='default'>
+      <view>
+        <image src='http://littlebox.luojiaming.vip/default.png'></image>
+      </view>
+      <view>
+        <text>你三天内还没有收入呢</text>
+      </view>
+    </view>
+  </view>
 
-  <view wx:if="{{userscorerecord.length > 0}}" class='top_ba'>
+
+
+
+  <view wx:else class='top_ba'>
     <view class='top'>
       <view class='top_explain'>
         <text>操作</text>
@@ -40,16 +53,6 @@
   </view>
 
 
-  <view wx:else>
-    <view class='default'>
-      <view>
-        <image src='http://littlebox.luojiaming.vip/default.png'></image>
-      </view>
-      <view>
-        <text>你三天内还没有收入呢</text>
-      </view>
-    </view>
-  </view>
 
 
 

@@ -18,18 +18,17 @@
   <view class='cu-tabbar-height'></view>
 </view>
 
-<view >
-  <view class='main-main' >
+<view>
+  <view class='main-main'>
 
+    <!-- 中间豆腐块开始 -->
     <view>
-
       <view class='centered'>
-        <view class='information-name centered ' >
-         <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
-         <text>金币竞猜</text>
-           </view>
+        <view class='information-name centered '>
+          <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
+          <text>金币竞猜</text>
+        </view>
       </view>
-
       <view class='centered  '>
         <view class='information '>
           <block wx:for="{{informationdata}}" wx:key="item">
@@ -39,27 +38,28 @@
           </block>
         </view>
       </view>
-
     </view>
+    <!-- 中间豆腐块结束 -->
 
 
+
+    <!-- 盒子开始 -->
     <view class='box'>
       <view>
 
-       <view class='centered'>
-        <view class='information-name centered ' >
-         <image src='http://miniapplittlefun.gzywudao.top/task/block_title@2x.png' class='u-img-slide'></image>
-         <text>体验得金币</text>
-           </view>
-      </view>
+        <view class='centered'>
+          <view class='information-name centered '>
+            <image src='http://miniapplittlefun.gzywudao.top/task/block_title@2x.png' class='u-img-slide'></image>
+            <text>体验得金币</text>
+          </view>
+        </view>
 
+        <!-- 第三方小程序开始 -->
         <view class='centered' wx:for="{{miniappaddata}}" wx:key="item">
-
-          <view class='box-body shadow-warp bg-white'  bindtap='clickminiappad' data-data="{{item}}" >
+          <view class='box-body shadow-warp bg-white' bindtap='clickminiappad' data-data="{{item}}">
             <view class=' box-body-image centered '>
               <image src='{{item.imgurl}}'></image>
             </view>
-
             <view class=' box-body-name  centered'>
               <view>
                 <view class='box-body-name-1'>{{item.name}}</view>
@@ -73,20 +73,21 @@
               <button class=' bg-blue'>立即体验</button>
             </view>
           </view>
-
-
         </view>
+        <!-- 第三方小程序结束 -->
 
 
       </view>
-
     </view>
+    <!-- 盒子结束-->
+
 
 
   </view>
 
-<view class='cu-tabbar-height'></view>
+
 </view>
 
 
 
+<!-- <view class='cu-tabbar-height'></view> -->

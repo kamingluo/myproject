@@ -25,7 +25,13 @@ class Miniappad
             return $resdata;
     	}
     	else{
-    		//自己加积分
+        $clickadname =db('miniapp_ad_record')->where('openid',$openid)->where('adname',$request->param("adname"))->whereTime('create_time', 'today')->count();//查询今日点广告数
+        if(clickadname >= 1){
+          $resdata=['state'   => '400','message'  => "你今天完成过这个小程序的任务了！","clickminiappad"=>'fail' ];
+          return $resdata;
+
+        }else{
+          //自己加积分
     		$addscore= db('user')->where('openid',$openid)->setInc('score',$request->param("score"));
     		//增加点击广告记录
     		$adres = ['id'=>'','openid' =>$openid,'channel' =>$request->param("channel"),'master_id' =>$request->param("master_id"),'adid' =>$request->param("adid"),'adname' =>$request->param("adname"),'score' =>$request->param("score"),'create_time' =>$time];
@@ -41,7 +47,10 @@ class Miniappad
         	else{
         		$resdata=['state'   => '400','message'  => "点击小程序广告失败","clickminiappad"=>'fail' ];
                  return $resdata;
-        	}
+          }
+
+        }
+    		
     	}
 	}
 
