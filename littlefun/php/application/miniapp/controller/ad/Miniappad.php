@@ -26,7 +26,7 @@ class Miniappad
     	}
     	else{
         $clickadname =db('miniapp_ad_record')->where('openid',$openid)->where('adname',$request->param("adname"))->whereTime('create_time', 'today')->count();//查询今日点广告数
-        if(clickadname >= 1){
+        if($clickadname >= 1){
           $resdata=['state'   => '400','message'  => "你今天完成过这个小程序的任务了！","clickminiappad"=>'fail' ];
           return $resdata;
 
