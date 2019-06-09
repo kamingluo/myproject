@@ -30,7 +30,8 @@
               <progress percent="{{usertodaytask.share/1*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
               <text>{{usertodaytask.share}}/1</text>
             </view>
-            <view class='box-body-name-2 '>分享好友，每天<text class='important'  >1</text>次机会</view>
+            <!-- <view class='box-body-name-2 '>分享好友，每天<text class='important'  >1</text>次机会</view> -->
+            <view class='box-body-name-2 '>额外获得好友收益的<text class='important'  >20%</text></view>
             <view class='box-body-name-2 '>分享成功奖励<text class='important'  >30金币</text></view>
           </view>
         </view>

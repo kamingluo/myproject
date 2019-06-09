@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "wl-ad": "/components/wlAD/wlAD",
+    "xm-ad": "/components/xmAD/xmAD"
+  }
 }

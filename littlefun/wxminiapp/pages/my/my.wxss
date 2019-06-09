@@ -115,3 +115,13 @@ flex-basis: 400rpx;
   margin-left: 80rpx;
 
 }
+
+.iconsize{
+  font-size: 40rpx;
+}
+
+.gdtad{
+  width: 94%;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+}

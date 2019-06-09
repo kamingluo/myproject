@@ -125,7 +125,12 @@ page{
    font-size: 30rpx;
 }
 
+
 .tips{
+  text-align: center;
+  background-color: rgb(250, 248, 248);
+}
+.tips text{
   text-align: center;
   font-size: 30rpx;
   margin-top: 10rpx;

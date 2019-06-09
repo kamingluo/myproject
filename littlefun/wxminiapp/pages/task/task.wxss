@@ -28,7 +28,7 @@ page {
 }
 
 .information-name text {
-  position: fixed;
+  position: absolute;
   color: white;
   font-size: 28rpx;
   font-weight: 600;

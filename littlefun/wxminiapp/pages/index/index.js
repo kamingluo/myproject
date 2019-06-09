@@ -9,6 +9,7 @@ const {
 } = require('./../../utils/share.js');
 const common = require('./../../utils/common.js') //公共函数
 const task = require('./../../utils/task.js');
+var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; //小盟广告
 
 Page({
   data: {
@@ -22,10 +23,29 @@ Page({
     tasktime: null, //任务时间
     taskscore: null, //任务奖励
     adname:"",//AD名称
+    gdtbannerposition: '',//广点通位置
+    wlad: {
+      adData: {},
+      ad: {
+        banner: ["banner", "banner1"],   //是否展示banner⼴广告，如不不需展示删掉该字段即可
+      }
+    },
+    xmad: {//小盟广告
+      adData: {},
+      ad: {
+        banner1: "xma416450d58bf78f56f0b54c487624b",
+        banner2: "xm68259e5bc52f94b364e86e1ee8aaaa",
+        banner3: "xm285e32d8abf77e8ba321f97005d8f2",
+        banner4: "xm4b6fd7c45bfc80a4e057693272702b",
+        banner5: "xm478c5c0e15def0abcb93ccd2d57194",
+      },
+    },
+
   },
   onLoad: function(e) {
     this.indexData()
     this.miniappadData()
+    this.gdtbannerposition()
   },
   onShow: function() {
     this.playtask()
@@ -115,6 +135,21 @@ Page({
     }
   },
 
+  clickwlad:function(e){
+    console.log("点击微量广告", e.target.dataset.id)
+    var that = this
+    that.startSetInter()
+    let adname =  "微量"+ e.target.dataset.id
+    that.setData({
+      taskid: 1,
+      taskscore: 60,
+      tasktime: 15,
+      adid: 999,
+      adname: adname,
+    })
+
+  },
+
   startSetInter: function() {
     var that = this;
     //将计时器赋值给setInter
@@ -146,12 +181,10 @@ Page({
       return;
     }
     var adid = that.data.adid || 1
-    var score = that.data.score || 50
+    var score = that.data.taskscore || 60
+    var adname = that.data.adname || "任务名称空"
+    var tasktime = that.data.tasktime || 15
     if (that.data.taskid == 0) { //miniapp任务
-      let adid = that.data.adid || 1
-      let score = that.data.taskscore || 50
-      let tasktime = that.data.tasktime || 15
-      let adname = that.data.adname || "任务名称空"
       if (that.data.num > tasktime) {
         task.clickminiappad(adid, score, adname)
       } else {
@@ -159,10 +192,10 @@ Page({
       }
 
     } else { //微量ad任务
-      if (that.data.num > 15) {
+      if (that.data.num >= 15) {
         task.clickwlad(adid, score, adname)
       } else {
-        that.wxshowToast("体验满15秒才能获得奖励哦！")
+        that.wxshowToast("体验满时间成功才能获得奖励哦！")
       }
     }
 
@@ -182,6 +215,63 @@ Page({
       duration: 2500
     })
 
+  },
+
+
+  gdtbannerposition: function () {
+    var that = this
+    let number = Math.floor(Math.random() * 3)
+    if (number == 1) {
+      var gdtbannerposition = {
+        banneradposition1: 'adunit-fde1086480d42cdc',
+        banneradposition2: 'adunit-67a9b0ba2506718f',
+        banneradposition3: 'adunit-146df4b99bbc1595',
+      }
+
+    } else if (number == 2) {
+      var gdtbannerposition = {
+        banneradposition1: 'adunit-67a9b0ba2506718f',
+        banneradposition2: 'adunit-146df4b99bbc1595',
+        banneradposition3: 'adunit-fde1086480d42cdc',
+      }
+    } else {
+      var gdtbannerposition = {
+        banneradposition1: 'adunit-146df4b99bbc1595',
+        banneradposition2: 'adunit-fde1086480d42cdc',
+        banneradposition3: 'adunit-67a9b0ba2506718f',
+      }
+    }
+
+    this.setData({
+      gdtbannerposition: gdtbannerposition
+    })
+
+    setTimeout(function () {
+      that.setData({
+        gdtbanneraddelay1: true
+      })
+      that.gdtbanneraddelay()
+    }, 3000);
+
+  },
+
+
+  gdtbanneraddelay: function () {
+    console.log("执行我了")
+    var that = this
+    setTimeout(function () {
+      that.setData({
+        gdtbanneraddelay2: true
+      })
+    }, 7000);
+  },
+
+
+  gdtbanneradclick: function (e) {
+    console.log("点击广点通banner广告", e.currentTarget)
+    let userdata = wx.getStorageSync('userdata')
+    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    app.aldstat.sendEvent('首页点击广点通banner广告', data);
   },
 
 

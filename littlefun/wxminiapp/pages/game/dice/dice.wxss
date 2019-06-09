@@ -32,8 +32,8 @@
     margin: 26rpx;
     padding: 8rpx;
     background-color: #e7e7e7;
-    width: 200rpx;
-    height: 200rpx;
+    width: 210rpx;
+    height: 210rpx;
     box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0 #d7d7d7, inset -5px 0 #d7d7d7;
     border-radius: 10%;
 }

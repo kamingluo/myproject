@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-blue"  >
+<cu-custom bgColor="bg-gradual-blue">
   <view slot="content">我的页面</view>
 </cu-custom>
 
@@ -20,9 +20,9 @@
         <text>ID:{{userdata.id}}</text>
       </view>
     </view>
-    <view class='erweima'>
+    <!-- <view class='erweima'>
       <image src='../../images/common/erweima.svg'></image>
-    </view>
+    </view> -->
   </view>
 </view>
 
@@ -39,36 +39,47 @@
 
 
 
- <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow"  bindtap='userscorerecord'  >
-      <view class="content">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">收入明细</text>
-      </view>
-    </view>
-     <view class="cu-item arrow"  bindtap='userchangelist'  >
-      <view class="content">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">兑换记录</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-     <button class="cu-btn content" open-type="contact">
-        <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
-         <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">联系我们</text>
-      </button>
-    </view>
-    <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="feedback">
-        <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">意见反馈</text>
-      </button>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content"  hover-class="none">
-        <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">关于我们</text>
-      </view>
+<view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
+  <view class="cu-item arrow" bindtap='userscorerecord'>
+    <view class="content">
+      <text class="cuIcon-coin text-yellow  iconsize"></text>
+      <text class="text-grey">收入明细</text>
     </view>
   </view>
+  <view class="cu-item arrow" bindtap='userchangelist'>
+    <view class="content ">
+      <text class="cuIcon-pay text-blue iconsize"></text>
+      <text class="text-grey">兑换记录</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="contact">
+      <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
+      <text class="cuIcon-service text-cyan  iconsize"></text>
+      <text class="text-grey">联系我们</text>
+    </button>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="feedback">
+      <text class="cuIcon-edit text-red  iconsize"></text>
+      <text class="text-grey">意见反馈</text>
+    </button>
+  </view>
+  <!-- <view class="cu-item arrow">
+    <view class="content" hover-class="none">
+      <text class="cuIcon-creativefill text-orange"></text>
+      <text class="text-grey">关于我们</text>
+    </view>
+  </view> -->
+</view>
+
+
+
+
+<!-- 广点通banner广告开始-->
+<view class='centered'>
+  <view class='gdtad'>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
+  </view>
+</view>
+<!-- 广点通banner广告结束-->

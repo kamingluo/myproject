@@ -1,6 +1,9 @@
 //app.js
 const common = require('./utils/common.js') //公共函数
 const { request } = require('./utils/request.js')//公共请求方法
+const ald = require('./utils/sdk/ald/ald-stat.js') //阿拉丁统计
+const wlad = require('./utils/sdk/wlad/wlad_sdk.min.js'); //微量广告
+var App = require('./utils/sdk/xmad/xmadx_sdk.min.js').xmad(App, 'App').xmApp; //小盟广告
 App({
   globalData: {
     //一定要，删除报错
@@ -19,23 +22,23 @@ App({
       }
     })
   },
-  // onShow(options) {
-  //   wx.login({
-  //     success: function (res) {
-  //       request({
-  //         service: '/user/obtainopenid',
-  //         data: {
-  //           code: res.code,
-  //         },
-  //         success: res => {
-  //           wx.aldstat.sendOpenid(res.openid)
-  //         },
-  //         fail: res => {
-  //           console.log("小程序启动onshow拿到的openid错误信息", res)
-  //         },
-  //       })
-  //     }
-  //   })
-  // },
+  onShow(options) {
+    wx.login({
+      success: function (res) {
+        request({
+          service: 'user/obtainopenid',
+          data: {
+            code: res.code,
+          },
+          success: res => {
+            wx.aldstat.sendOpenid(res.openid) //阿拉丁统计需要
+          },
+          fail: res => {
+            console.log("小程序启动onshow拿到的openid错误信息", res)
+          },
+        })
+      }
+    })
+  },
 
 })

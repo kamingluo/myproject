@@ -48,7 +48,7 @@
       </view>
     </view>
     <view class='tips'>
-      <text>-----系统只保存最近三天的记录-----</text>
+      <text>-----系统只保存最近七天的记录-----</text>
     </view>
   </view>
 

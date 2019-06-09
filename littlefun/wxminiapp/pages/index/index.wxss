@@ -3,6 +3,13 @@
   font-weight: 600;
   color: #ffffff;
 }
+.miniappname  image{
+  width: 80%;
+  height: 60rpx;
+  margin-right: 180rpx;
+  margin-top: 5rpx;
+
+}
 .u-wrp-bnr {
   width: 88%;
   height: 250rpx;
@@ -15,7 +22,11 @@
   width: 100%;
   height: inherit;
 }
-
+.gdtad{
+  width: 94%;
+  border-radius: 15rpx;
+  margin-top: 5rpx;
+}
 
 .main-main{
   margin-top: 15rpx;
@@ -35,7 +46,7 @@
   margin-bottom: 20rpx;
 }
 .information-name text{
-position: fixed;
+position: absolute ;
   color: white;
   font-size: 28rpx;
   font-weight: 600;
@@ -61,25 +72,23 @@ position: fixed;
   border-radius: 20rpx;
 }
 .box-body-image{
-
 width: 20%;
 height: 170rpx;
 }
 .box-body-image image{
-    border-radius: 50%;
-  
-  width: 130rpx;
-  height: 130rpx;
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .box-body-name{
   width: 57%;
   height: 170rpx;
-  margin-left: -10rpx;
+  margin-left: -30rpx;
   color: #000000;
 }
 .box-body-name-1{
-  font-size: 35rpx;
+  font-size: 30rpx;
   font-weight: 600;
 }
 .box-body-name-2{
@@ -100,4 +109,9 @@ color: #666666;
 width: 170rpx;
 height: 70rpx;
 font-size: 26rpx;
+}
+
+
+.xmad{
+  margin-bottom: 20rpx;
 }
