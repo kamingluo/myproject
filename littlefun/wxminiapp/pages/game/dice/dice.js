@@ -48,15 +48,10 @@ Page({
   },
   // 游戏开始,骰子变化
   changeDice: function(event) {
-    //console.warn(event.currentTarget.dataset.type)
-    let userid = wx.getStorageSync("userid")
-    let channel = wx.getStorageSync("userchannel")
-    let gametype = event.currentTarget.dataset.type
-    wx.reportAnalytics('playgame', {
-      userid: userid,
-      channel: channel,
-      gametype: gametype,
-    });
+
+    let userdata = wx.getStorageSync('userdata')
+      app.aldstat.sendEvent('点击玩骰子', userdata);
+ 
     var that = this;
     // 判断是否在游戏
     if (that.data.gaming) {

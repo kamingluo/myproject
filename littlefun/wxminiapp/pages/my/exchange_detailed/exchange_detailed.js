@@ -24,7 +24,7 @@ Page({
             code: res.code,
           },
           success: res => {
-            console.log('用户兑换列表页面', res);
+            //console.log('用户兑换列表页面', res);
             this.setData({
               exchangelist: res.exchangelist,
             })

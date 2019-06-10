@@ -10,7 +10,7 @@
 
     <view class='box'>
 
-      <block wx:for="{{goodslist1}}" wx:key="item">
+      <block wx:for="{{goodslist1}}" wx:key="item"  wx:if="{{display}}"  >
         <view class='goods radius shadow bg-white  '>
           <view class='goods-image'>
             <image src='{{item.goodsImg}}'></image>

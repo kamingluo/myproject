@@ -135,6 +135,10 @@ Page({
   },
 
   continuego:function(){
+
+    let userdata = wx.getStorageSync('userdata')
+      app.aldstat.sendEvent('点击猜拳', userdata);
+
     if(this.data.coin < 100 ){
        this.wxshowToast("金币不足,先去赚金币吧！")
        return;

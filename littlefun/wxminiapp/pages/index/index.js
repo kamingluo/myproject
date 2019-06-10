@@ -17,6 +17,7 @@ Page({
     "informationdata": [],
     "miniappaddata": [],
     "indexconfig":"",
+    addapptips:false,
     adid: '',
     setInter: '',
     num: 0,
@@ -28,9 +29,10 @@ Page({
     wlad: {
       adData: {},
       ad: {
-        banner: ["banner", "banner1","banner3","banner4"],   //是否展示banner⼴广告，如不不需展示删掉该字段即可
+        banner: ["banner0", "banner1","banner2","banner3"],   //是否展示banner⼴广告，如不不需展示删掉该字段即可
       }
     },
+    wladlist:null,
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -45,9 +47,12 @@ Page({
   },
   onLoad: function(e) {
     this.indexData()
-    this.indexConfig()
+    this.indexconfig()
     this.miniappadData()
     this.gdtbannerposition()
+    this.setData({
+      addapptips: app.globalData.addapptips || false //添加小程序提示
+    })
   },
   onShow: function() {
     this.playtask()
@@ -71,27 +76,49 @@ Page({
   },
 
     //查询首页配置
-  indexConfig: function() {
+  indexconfig: function() {
     request({
       service: 'index/indexconfig',
       method: 'GET',
       success: res => {
-        console.log('首页配置数据', res.swiperdata);
+        //console.log('首页配置数据', res.indexconfig);
         this.setData({
           indexconfig: res.indexconfig,
         })
+        this.wladlist(res.indexconfig.wladnum)
       }
     })
   },
 
+
+  //微量广告展示
+  wladlist:function(number){
+
+    if (!app.globalData.display){
+      return;
+    }
+
+    var that =this
+    var wladnumber = number
+    // console.log("微量ad配置数量", wladnumber)
+    var newwladlist = []
+    for (var wl = 0; wl < wladnumber; wl++) {
+      newwladlist.push([wl]);
+    }
+    that.setData({
+      wladlist: newwladlist,
+    });
+    //console.log("微量newwladlist", newwladlist)
+  },
+
   //点击轮播图
   clickSwiper: function(e) {
-    console.log("点击轮播图数据", e.currentTarget.dataset.data)
+    //console.log("点击轮播图数据", e.currentTarget.dataset.data)
     common.insidejump(e.currentTarget.dataset.data)
   },
 
   clickInformation: function(e) {
-    console.log("点击信息流数据", e.currentTarget.dataset.data)
+    //console.log("点击信息流数据", e.currentTarget.dataset.data)
     common.insidejump(e.currentTarget.dataset.data)
 
   },
@@ -100,6 +127,9 @@ Page({
 
 
   miniappadData: function() {
+    if (!app.globalData.display) {
+      return;
+    }
     request({
       service: 'index/miniappad',
       method: 'GET',
@@ -113,8 +143,10 @@ Page({
 
   },
   clickminiappad: function(e) {
+      let userdata = wx.getStorageSync('userdata')
+      app.aldstat.sendEvent('首页点击miniappad', userdata);
     var that = this
-    console.log("点击miniappadclick", e.currentTarget.dataset.data)
+    //console.log("点击miniappadclick", e.currentTarget.dataset.data)
     var jumptype = e.currentTarget.dataset.data.type
     if (jumptype == 0) {
       wx.navigateToMiniProgram({
@@ -122,7 +154,7 @@ Page({
         path: e.currentTarget.dataset.data.Jump,
         extraData: e.currentTarget.dataset.data.extradata,
         success(res) {
-          console.log("跳转miniappad成功", e.currentTarget.dataset.data.Jump)
+          //console.log("跳转miniappad成功", e.currentTarget.dataset.data.Jump)
           that.startSetInter()
           that.setData({
             taskid: 0,
@@ -134,7 +166,7 @@ Page({
         }
       })
     } else {
-      console.log("打开图片")
+      //console.log("打开图片")
       let path = e.currentTarget.dataset.data.Jump
       wx.previewImage({
         urls: [path],
@@ -152,7 +184,9 @@ Page({
   },
 
   clickwlad:function(e){
-    console.log("点击微量广告", e.target.dataset.id)
+     let userdata = wx.getStorageSync('userdata')
+     app.aldstat.sendEvent('首页点击微量广告', userdata);
+    //console.log("点击微量广告", e.target.dataset.id)
     var that = this
     that.startSetInter()
     let adname =  "微量"+ e.target.dataset.id
@@ -174,14 +208,14 @@ Page({
     that.data.setInter = setInterval(
       function() {
         if (that.data.num > 40) {
-          console.log('大于40啦');
+          //console.log('大于40啦');
           clearInterval(that.data.setInter)
         }
         var numVal = that.data.num + 1;
         that.setData({
           num: numVal
         });
-        console.log('当前计时时间==' + that.data.num);
+        //console.log('当前计时时间==' + that.data.num);
       }, 1000);
   },
   endSetInter: function() {
@@ -193,9 +227,9 @@ Page({
   playtask: function() {
     var that = this
     clearInterval(that.data.setInter) //清除计时器
-    console.log("onshow展示任务id", that.data.taskid)
+    //console.log("onshow展示任务id", that.data.taskid)
     if (that.data.taskid == null || that.data.num == 0) {
-      console.log("时间等于0或者任务id等于空")
+      //console.log("时间等于0或者任务id等于空")
       return;
     }
     var adid = that.data.adid || 1
@@ -275,7 +309,7 @@ Page({
 
 
   gdtbanneraddelay: function () {
-    console.log("执行我了")
+    //console.log("执行我了")
     var that = this
     setTimeout(function () {
       that.setData({
@@ -286,7 +320,7 @@ Page({
 
 
   gdtbanneradclick: function (e) {
-    console.log("点击广点通banner广告", e.currentTarget)
+    //console.log("点击广点通banner广告", e.currentTarget)
     let userdata = wx.getStorageSync('userdata')
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
     app.aldstat.sendEvent('首页点击广点通banner广告', data);

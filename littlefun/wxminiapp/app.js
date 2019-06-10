@@ -11,6 +11,8 @@ App({
   onLaunch: function (e) {
     console.log("onLaunch打印信息", e)
     common.register(e) //用户注册
+    common.xmaddata() //小盟ad配置
+    this.scene(e.scene)//传入入口值判断
     
     // 获取系统状态栏信息
     wx.getSystemInfo({
@@ -22,6 +24,26 @@ App({
       }
     })
   },
+
+  scene: function(scene){
+    if (scene == 1001) {
+      console.log("隐藏")
+      this.globalData.display = false;
+    }
+    else {
+      console.log("显示")
+      this.globalData.display = true;
+    }
+    if (scene == 1089 || scene == 1001 ){
+      this.globalData.addapptips = false;
+    }
+    else{
+      this.globalData.addapptips = true;
+    }
+
+  },
+
+
   onShow(options) {
     wx.login({
       success: function (res) {

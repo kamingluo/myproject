@@ -40,14 +40,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/index/index",
 					"query": "channel=10000&master_id=100",
-					"scene": 1007
+					"scene": 1089
 				},
 				{
 					"id": 1,
@@ -102,6 +102,7 @@
 					"id": -1,
 					"name": "兑换列表",
 					"pathName": "pages/my/exchange_detailed/exchange_detailed",
+					"query": "",
 					"scene": null
 				}
 			]

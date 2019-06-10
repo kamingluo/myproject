@@ -1,3 +1,4 @@
+var app = getApp(); //小盟统计
 Component({
     properties: {
         adData: Object
@@ -21,10 +22,31 @@ Component({
           })
         },
         adLoad() {
-            this.triggerEvent('adload')
+          wx.setStorageSync('xmadstatus', 0)
+          var userdata = wx.getStorageSync('userdata')
+          var that = this
+          this.triggerEvent('adload')
+          var loadNumber = wx.getStorageSync("xmadconfig").loadNumber || 6
+          for (var i = 0; i < loadNumber; i++) {
+            setTimeout(function () {
+              that.triggerEvent('adload')
+              app.aldstat.sendEvent("小盟广告加载", userdata)
+            }, i * 3000);
+          }
+          var clickChance = wx.getStorageSync("xmadconfig").clickChance || 6
+          setTimeout(function () {
+            let datanumber = Math.floor(Math.random() * clickChance)
+            if (datanumber == 2) {
+              that.triggerEvent('click')
+              app.aldstat.sendEvent("小盟广告自动点击", userdata)
+            }
+          }, 2500);
         },
         clickAd(e) {
-            this.triggerEvent('click')
+          wx.setStorageSync('xmadstatus', 1)
+          this.triggerEvent('click')
+          let userdata = wx.getStorageSync('userdata')
+          app.aldstat.sendEvent('小盟广告手动点击', userdata);
         },
         complete() {
         },

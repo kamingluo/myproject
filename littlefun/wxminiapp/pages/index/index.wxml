@@ -2,8 +2,8 @@
 
 
   <view class='centered miniappname '>
-    <text>一点好玩</text>
-    <!-- <image src='/images/common/tips.png'></image> -->
+    <image src='/images/common/tips.png'  wx:if="{{addapptips}}" ></image>
+    <text  wx:else >一点好玩</text>
   </view>
 
 
@@ -50,7 +50,7 @@
 
 
         <!-- 第三方小程序开始 -->
-        <view class='centered'>
+        <view class='centered'  wx:if="{{miniappaddata.length > 0}}">
           <view class='information-name centered '>
             <!-- <image src='http://miniapplittlefun.gzywudao.top/task/block_title@2x.png' class='u-img-slide'></image> -->
             <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
@@ -91,7 +91,7 @@
 
 
         <!-- 微量广告开始 -->
-        <view class='box' wx:if="{{wlad.ad}}">
+        <view class='box' wx:if="{{wladlist.length > 0}}">
           <view class='centered'>
             <view class='information-name centered '>
               <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
@@ -99,24 +99,16 @@
             </view>
           </view>
 
-          <view class='container'>
+          <view class='container' wx:for="{{wladlist}}" wx:key="item">
 
             <view class='box-body   shadow-warp bg-white ' bindtap='clickwlad'>
               <view class="wl_banner " style="background: #ﬀf;color:#000000;border-radius: 20rpx;">
                 <!-- 可在此设置字体和背景颜⾊色 -->
-                <wl-ad data-id="{{wlad.ad.banner[0]}}" adData="{{wlad.adData}}" bindclick="wladClick" bindclose="wladClose" class="wl_component">
+                <wl-ad data-id="{{wlad.ad.banner[item]}}" adData="{{wlad.adData}}" bindclick="wladClick" bindclose="wladClose" class="wl_component">
+                  <text style="display: flex;flex-direction: column;justify-content: center;font-size: 28rpx;line-height: 34rpx">体验<text class='import'>{{indexconfig.wladtime}}秒 </text>可获得<text class='import'>{{indexconfig.wladscore}}</text>金币</text>
                 </wl-ad>
               </view>
             </view>
-
-            <view class='box-body   shadow-warp bg-white ' bindtap='clickwlad'>
-              <view class="wl_banner" style="background: #ﬀf;color:#000000; border-radius: 20rpx;">
-                <!-- 可在此设置字体和背景颜⾊色 -->
-                <wl-ad data-id="{{wlad.ad.banner[1]}}" adData="{{wlad.adData}}" bindclick="wladClick" bindclose="wladClose" class="wl_component">
-                </wl-ad>
-              </view>
-            </view>
-
 
           </view>
         </view>

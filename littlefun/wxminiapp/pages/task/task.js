@@ -12,16 +12,21 @@ let preventShake = 0; //防止快速点击
 Page({
   data: {
     usertodaytask: "",
-    taskconfig:"",
+    taskconfig:null,
     adid: '',
     setInter: '',
     num: 0,
     taskid: '', //任务id
+    display:false, //是否展示
 
   },
 
   onLoad: function(options) {
-    this.taskConfig()
+    this.taskconfig()
+
+    this.setData({
+      display: app.globalData.display || false
+    })
 
   },
 
@@ -38,6 +43,11 @@ Page({
 
 
   videoad: function() {
+
+     let userdata = wx.getStorageSync('userdata')
+      app.aldstat.sendEvent('点击看视频', userdata);
+
+
     var that = this;
     // 在页面中定义激励视频广告
     let videoAd = null
@@ -47,31 +57,31 @@ Page({
         adUnitId: 'adunit-0560e4c071403ecd'
       })
       videoAd.onLoad(() => {
-        console.log("onLoad")
+        //console.log("onLoad")
       })
       videoAd.onError((err) => {
-        console.log("onError")
+        //console.log("onError")
       })
       videoAd.onClose((res) => {
-        console.log("点击关闭视频广告", res)
+        //console.log("点击关闭视频广告", res)
         if (res && res.isEnded || res === undefined) {
           that.lookvideoad('adunit-0560e4c071403ecd')
-          console.log("正常播放结束，可以下发游戏奖励")
+          //console.log("正常播放结束，可以下发游戏奖励")
         } else {
           that.wxshowToast("观看完成才能获得奖励哦！")
-          console.log("播放中途退出，不下发游戏奖励")
+          //console.log("播放中途退出，不下发游戏奖励")
         }
       })
     }
     // 用户触发广告后，显示激励视频广告
     if (videoAd) {
       videoAd.show().catch(() => {
-        console.log("失败重试")
+        //console.log("失败重试")
         // 失败重试
         videoAd.load()
           .then(() => videoAd.show())
           .catch(err => {
-            console.log('激励视频 广告显示失败')
+           //console.log('激励视频 广告显示失败')
             that.wxshowToast("暂无广告")
           })
       })
@@ -85,7 +95,7 @@ Page({
   lookvideoad: function(adid) {
     var nowTime = Date.now();
     if (nowTime - preventShake < 5000) {
-      console.log("防止短时间内多次调用")
+      //console.log("防止短时间内多次调用")
       return
     }
     preventShake = nowTime;
@@ -112,6 +122,28 @@ Page({
   },
 
 
+  //签到
+  sign:function(){
+    var that = this;
+    wx.login({
+      success: res => {
+        request({
+          service: 'sign/signin',
+          data: {
+            code: res.code,
+            score: 20,
+          },
+          success: res => {
+            that.todaytask()
+            that.wxshowToast("签到完成，增加金币")
+          },
+        })
+      }
+    })
+
+  },
+
+
   //查看用户今天任务完成情况
   todaytask: function() {
     wx.login({
@@ -122,13 +154,13 @@ Page({
             code: res.code,
           },
           success: res => {
-            console.log('用户今日任务完成状态', res);
+            //console.log('用户今日任务完成状态', res);
             this.setData({
               usertodaytask: res,
             })
           },
           fail: res => {
-            console.log('错误捕捉', res);
+            //console.log('错误捕捉', res);
           },
         })
       }
@@ -138,11 +170,12 @@ Page({
 
 
   //查询广告配置
-  taskConfig: function() {
+  taskconfig: function() {
     request({
       service: 'task/index/taskconfig',
       method: 'GET',
       success: res => {
+        //console.log('任务页面配置信息', res.taskconfig);
         this.setData({
           taskconfig: res.taskconfig,
         })
@@ -154,7 +187,9 @@ Page({
 
   //点击广点通广告
   gdtbannerclick: function(e) {
-     console.log("点击广点通广告", e.currentTarget.dataset.adid)
+     let userdata = wx.getStorageSync('userdata')
+      app.aldstat.sendEvent('点击任务页面广点通bannerad', userdata);
+    //console.log("点击广点通广告", e.currentTarget.dataset.adid)
     this.startSetInter()
     this.setData({
       taskid: 1,
@@ -164,7 +199,7 @@ Page({
   },
 
   nobannerad:function(){
-    console.log("没有广告源")
+    //console.log("没有广告源")
     this.wxshowToast("暂无广告")
 
   },
@@ -178,7 +213,7 @@ Page({
     that.data.setInter = setInterval(
       function() {
         if (that.data.num > 40) {
-          console.log('大于40啦');
+          //console.log('大于40啦');
           clearInterval(that.data.setInter)
         }
         var numVal = that.data.num + 1;
@@ -246,7 +281,7 @@ Page({
     var that = this
     wx.login({
       success: res => {
-        let score =that.data.taskConfig.sharescore
+        let score =that.data.taskconfig.sharescore
         request({
           service: 'task/share/sharesuccess',
           data: {
@@ -267,7 +302,7 @@ Page({
     var that = this
     wx.login({
       success: res => {
-        let score =that.data.taskConfig.bannerscore
+        let score =that.data.taskconfig.bannerscore
         request({
           service: 'ad/gdtad/clickbannerad',
           data: {
@@ -292,6 +327,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(options) {
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('点击任务页面分享', userdata);
     //console.log("分享掉起", options)
     this.startSetInter()
     this.setData({

@@ -23,7 +23,7 @@ Page({
             code: res.code,
           },
           success: res => {
-            console.log('用户积分', res);
+            //console.log('用户积分', res);
             this.setData({
               userscorerecord: res.userscorerecord,
             })
@@ -79,16 +79,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let userchannel = wx.getStorageSync("userchannel")
-    let userid = wx.getStorageSync("userid")
-    let shareimg = wx.getStorageSync("shareimg")
-    let sharetitle = wx.getStorageSync("sharetitle")
-    return {
-      title: sharetitle,
-      desc: '点点好玩',
-      imageUrl: shareimg,
-      path: '/pages/index/index?channel=' + userchannel + '&id=' + userid, // 路径，传递参数到指定页面。
-    }
     
   }
 })

@@ -73,7 +73,7 @@ progress {
 }
 
 .progress text {
-  position: fixed;
+  position: absolute;
   margin-top: -30rpx;
   margin-left: 110rpx;
 }
@@ -97,7 +97,7 @@ progress {
 }
 
 .gdtbannerad{
-  position: fixed;
+  position: absolute;
   width: 50%;
   height: 5rpx;
   z-index: 999;

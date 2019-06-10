@@ -23,13 +23,25 @@ function register(e) {
           wx.setStorageSync('userdata', res.userdata)
         },
         fail: res => {
-          console.log('错误捕捉', res);
+          //console.log('错误捕捉', res);
         },
         complete: res => {
           // console.log('成功不成功都执行函数', res);
         },
       })
     }
+  })
+}
+
+function xmaddata(){
+  request({
+    service: 'ad/xmad/xmadconfig',
+    method: 'GET',
+    success: res => {
+      //console.log('小盟ad配置', res.xmaddata);
+      wx.setStorageSync('xmadconfig', res.xmaddata)
+
+    },
   })
 }
 
@@ -65,4 +77,5 @@ function insidejump (e) {
 module.exports = {
   register: register,
   insidejump: insidejump,
+  xmaddata:xmaddata,
 }

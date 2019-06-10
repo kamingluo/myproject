@@ -111,6 +111,12 @@ height: 70rpx;
 font-size: 26rpx;
 }
 
+.import{
+   color: red;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
 
 .xmad{
   margin-bottom: 20rpx;

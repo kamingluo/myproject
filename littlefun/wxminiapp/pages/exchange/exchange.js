@@ -18,6 +18,7 @@ Page({
     exchangegood:{},
     fram:false,
     fram2: false,
+    display: false, //是否展示
 
 
   },
@@ -27,6 +28,9 @@ Page({
    */
   onLoad: function(options) {
     this.goodsdata()
+    this.setData({
+      display: app.globalData.display || false
+    })
   },
 
   /**
@@ -55,7 +59,7 @@ Page({
             code: res.code,
           },
           success: res => {
-            console.log('获取用户信息', res);
+            //console.log('获取用户信息', res);
             this.setData({
               coin: res.userdata.score,
             })
@@ -72,7 +76,7 @@ Page({
       service: 'exchange/goodslist',
       method: 'GET',
       success: res => {
-        console.log('兑换商品列表', res);
+        //console.log('兑换商品列表', res);
         this.setData({
           goodslist1: res.goodslist1,
           goodslist2: res.goodslist2,
@@ -83,6 +87,10 @@ Page({
   },
 
   clickgoods: function(e) {
+
+     let userdata = wx.getStorageSync('userdata')
+      app.aldstat.sendEvent('点击商品兑换', userdata);
+
     var that =this
     console.log(e.currentTarget.dataset.goodsdata)
     if (that.data.coin < e.currentTarget.dataset.goodsdata.goodsPrice ){
@@ -113,21 +121,21 @@ Page({
 
 
   alipayName: function (e) {
-    console.log("姓名", e.detail.value)
+    //console.log("姓名", e.detail.value)
     this.setData({
       alipayName: e.detail.value
     })
   },
 
   alipayNumber: function (e) {
-    console.log("账号", e.detail.value)
+    //console.log("账号", e.detail.value)
     this.setData({
       alipayNumber: e.detail.value
     })
   },
   submitexchangdata:function(e){
     var that =this
-    console.log("提交信息")
+    //console.log("提交信息")
     if (that.data.alipayName.length < 2 || that.data.alipayNumber.length <6){
       wx.showToast({
         title: "信息错误，请重新填写！",
@@ -137,7 +145,7 @@ Page({
       return;
     }
     else{
-      console.log("开始兑换")
+      //console.log("开始兑换")
       that.exchange()
     }
 
