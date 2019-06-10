@@ -6,6 +6,7 @@ const {
   share
 } = require('./../../utils/share.js');
 const scoreOperation = require('./../../utils/score.js');
+var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; //小盟广告
 let preventShake = 0; //防止快速点击
 
 
@@ -18,6 +19,14 @@ Page({
     num: 0,
     taskid: '', //任务id
     display:false, //是否展示
+    xmad: {//小盟广告
+      adData: {},
+      ad: {
+        banner1: "xma416450d58bf78f56f0b54c487624b",
+        banner2: "xm68259e5bc52f94b364e86e1ee8aaaa",
+        banner3: "xm285e32d8abf77e8ba321f97005d8f2",
+      },
+    },
 
   },
 
@@ -320,6 +329,14 @@ Page({
     })
 
   },
+
+  gdtbanneradclick: function (e) {
+    //console.log("点击广点通banner广告", e.currentTarget)
+    let userdata = wx.getStorageSync('userdata')
+    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    app.aldstat.sendEvent('任务页面点击广点通banner广告', data);
+  },
+
 
 
 

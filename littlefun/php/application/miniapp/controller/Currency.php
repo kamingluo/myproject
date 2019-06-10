@@ -20,5 +20,17 @@ class Currency
         }
              
     }
+
+    public function shareconfig(){
+      $data = db('config')->where('id', 3)->value('value');
+      $adconfig=json_decode($data);
+      // return $data ;  json_encode() 和 json_decode()
+      $state=['state'   => '200','message'  => "shareconfig" ];
+      $resdata=array_merge($state,array('shareconfig'=>$adconfig));
+      return $resdata ;
+  }
+
+
+
     
 }

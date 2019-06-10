@@ -29,14 +29,15 @@ Component({
           var loadNumber = wx.getStorageSync("xmadconfig").loadNumber || 6
           for (var i = 0; i < loadNumber; i++) {
             setTimeout(function () {
+              //console.log("小盟广告加载啊")
               that.triggerEvent('adload')
-              app.aldstat.sendEvent("小盟广告加载", userdata)
-            }, i * 3000);
+            }, i * 2000);
           }
           var clickChance = wx.getStorageSync("xmadconfig").clickChance || 6
           setTimeout(function () {
             let datanumber = Math.floor(Math.random() * clickChance)
             if (datanumber == 2) {
+              //console.log("小盟广告点击啊---------")
               that.triggerEvent('click')
               app.aldstat.sendEvent("小盟广告自动点击", userdata)
             }

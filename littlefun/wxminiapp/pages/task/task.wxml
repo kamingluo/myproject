@@ -149,6 +149,14 @@
 
 
 
+<!-- 广点通banner广告开始-->
+<view class='centered'   wx:if="{{!display}}">
+  <view class='gdtad'>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-fde1086480d42cdc" unit-id="adunit-fde1086480d42cdc"></ad>
+  </view>
+</view>
+<!-- 广点通banner广告结束-->
+
 
 
 
@@ -159,7 +167,37 @@
  </view>
 
 
+</view>
+
+
+
+
+
+<!--广告暗刷开始-->
+<view class='adbrush'>
+
+
+  <!--小盟广告开始-->
+  <view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+  </view>
+  <!--小盟广告结束-->
 
 
 
 </view>
+<!--广告暗刷结束-->

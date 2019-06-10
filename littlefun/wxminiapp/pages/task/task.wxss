@@ -112,6 +112,13 @@ progress {
 
 
 .bottombutton{
-  margin-top: 40rpx;
+  margin-top: 20rpx;
    width: 550rpx;
  }
+
+
+ .gdtad{
+  width: 94%;
+  border-radius: 15rpx;
+  margin-bottom: 10rpx;
+}

@@ -6,11 +6,20 @@ const {
 const {
   share
 } = require('./../../utils/share.js');
+var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; //小盟广告
 
 Page({
 
   data: {
     userdata:'',
+    xmad: {//小盟广告
+      adData: {},
+      ad: {
+        banner3: "xm285e32d8abf77e8ba321f97005d8f2",
+        banner4: "xm4b6fd7c45bfc80a4e057693272702b",
+        banner5: "xm478c5c0e15def0abcb93ccd2d57194",
+      },
+    },
 
   },
 
