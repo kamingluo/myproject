@@ -46,6 +46,19 @@ function xmaddata(){
 }
 
 
+function shareconfig() {
+  request({
+    service: 'currency/shareconfig',
+    method: 'GET',
+    success: res => {
+      //console.log('分享配置', res.xmaddata);
+      wx.setStorageSync('shareconfig', res.shareconfig)
+
+    },
+  })
+}
+
+
 
 //跳转内部页面
 function insidejump (e) {
@@ -78,4 +91,5 @@ module.exports = {
   register: register,
   insidejump: insidejump,
   xmaddata:xmaddata,
+  shareconfig: shareconfig,
 }

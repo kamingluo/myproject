@@ -91,7 +91,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (options) {
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('点击我的页面分享', userdata);
+    if (options.from == 'button') {
+      return share(1);
+    } else {
+      return share(2);
+    }
   }
 })

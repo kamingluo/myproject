@@ -3,6 +3,9 @@ const {
   request
 } = require('./../../../utils/request.js');
 const scoreOperation = require('./../../../utils/score.js');
+const {
+  share
+} = require('./../../../utils/share.js');
 
 
 Page({
@@ -275,6 +278,19 @@ Page({
   onShow: function() {
     this.userdata()
     this.isHidden();
+  },
+
+  /**
+  * 用户点击右上角分享
+  */
+  onShareAppMessage: function (options) {
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('点击骰子页面分享', userdata);
+    if (options.from == 'button') {
+      return share(1);
+    } else {
+      return share(2);
+    }
   }
 
 

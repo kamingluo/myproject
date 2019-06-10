@@ -91,7 +91,7 @@ Page({
           .then(() => videoAd.show())
           .catch(err => {
            //console.log('激励视频 广告显示失败')
-            that.wxshowToast("暂无广告")
+            that.wxshowToast("暂无广告,等会再试试！")
           })
       })
     }
@@ -112,7 +112,7 @@ Page({
     var that = this;
     wx.login({
       success: res => {
-        let score =that.data.taskConfig.videoscore
+        let score =that.data.taskconfig.videoscore
         request({
           service: 'ad/gdtad/lookvideoad',
           data: {

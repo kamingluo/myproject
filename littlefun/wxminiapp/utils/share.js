@@ -5,20 +5,21 @@ function share(type) {
   // app.aldstat.sendEvent('分享好友', userdata);
   let userid = wx.getStorageSync('userdata').id
   let userchannel = wx.getStorageSync('userdata').channel
+  var shareconfig = wx.getStorageSync('shareconfig')
   if (type == 1) { //button分享
     return {
-      title: "button分享",
-      desc: '分享给好友',
-      imageUrl: 'http://material.gzywudao.top/image/express/expressbuttonshare.jpg',
+      title: shareconfig.sharetitle,
+      desc: shareconfig.sharedesc,
+      imageUrl: shareconfig.shareimg,
       path: '/pages/index/index?channel=' + userchannel + '&master_id=' + userid , // 路径，传递参数到指定页面。
     }
     
   } else {
 
     return {
-      title: '顶部分享',
-      desc: '顶部分享',
-      imageUrl: 'http://material.gzywudao.top/image/express/expressimg.jpg',
+      title: shareconfig.sharetitle,
+      desc: shareconfig.sharedesc,
+      imageUrl: shareconfig.shareimg,
       path: '/pages/index/index?channel=' + userchannel + '&master_id=' + userid, // 路径，传递参数到指定页面。
     }
   }

@@ -18,14 +18,16 @@
     "navigationBarTextStyle": "white"
   },
   "navigateToMiniProgramAppIdList": [
-    "wxc335c3cf09a7a39c",
-    "wxd53f125c7e4c7d44",
-    "wxff806fdc5b03a36a",
-    "wx8eb631be38edd8b9",
+    "wx116b7845568283b2",
+    "wxb48042794f735d87",
+    "wx3a9b09dfdc458be5",
+    "wx7f86a7e2eda966af",
     "wx18b75705b93bd908",
-    "wxe58cc7eeb8ee8363",
-    "wxb37a18d94e4f9172",
-    "wxdb8afdceb2e24d7a"
+    "wxdb8afdceb2e24d7a",
+    "wxdbe887eb5a89b044",
+    "wx5aaf853d5cc9d349",
+    "wx3adb314c8e9a6ed1",
+    "wx7b56fa9275ca7d12"
   ],
   "sitemapLocation": "sitemap.json",
   "tabBar": {

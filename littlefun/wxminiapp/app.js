@@ -14,6 +14,7 @@ App({
     common.register(e) //用户注册
     common.xmaddata() //小盟ad配置
     this.scene(e.scene)//传入入口值判断
+    common.shareconfig()//分享配置
     
     // 获取系统状态栏信息
     wx.getSystemInfo({

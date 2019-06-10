@@ -66,9 +66,7 @@
               <view>
                 <view class='box-body-name-1'>{{item.name}}</view>
                 <view class='box-body-name-2 '>{{item.describe}}</view>
-                <view class='box-body-name-3'>体验
-                  <text> {{item.playtime}}秒 </text>可获得
-                  <text> {{item.score}}</text>金币</view>
+                <view class='box-body-name-3'>体验<text>{{item.playtime}}秒</text>可获得<text>{{item.score}}</text>金币</view>
               </view>
             </view>
             <view class='box-body-anniu centered '>
@@ -105,7 +103,7 @@
               <view class="wl_banner " style="background: #ﬀf;color:#000000;border-radius: 20rpx;">
                 <!-- 可在此设置字体和背景颜⾊色 -->
                 <wl-ad data-id="{{wlad.ad.banner[item]}}" adData="{{wlad.adData}}" bindclick="wladClick" bindclose="wladClose" class="wl_component">
-                  <text style="display: flex;flex-direction: column;justify-content: center;font-size: 28rpx;line-height: 34rpx">体验<text class='import'>{{indexconfig.wladtime}}秒 </text>可获得<text class='import'>{{indexconfig.wladscore}}</text>金币</text>
+                  <text style="display: flex;flex-direction: column;justify-content: center;font-size: 28rpx;line-height: 34rpx">体验<text class='import'>{{indexconfig.wladtime}}秒</text>可获得<text class='import'>{{indexconfig.wladscore}}</text>金币</text>
                 </wl-ad>
               </view>
             </view>

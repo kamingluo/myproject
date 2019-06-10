@@ -331,17 +331,18 @@ Page({
 
 
 
-  onShareAppMessage: function(options) {
-    // console.log("分享掉起", options)
-    // if (options.from == 'button') {
-    //   let expressName = options.target.dataset.name
-    //   let expressNumber = options.target.dataset.number
-    //   console.log("按钮分享", expressName, expressNumber)
-    //   return share(1, expressName, expressNumber);
-    // } else {
-    //   return share(2);
-    // }
-  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (options) {
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('点击首页分享', userdata);
+    if (options.from == 'button') {
+      return share(1);
+    } else {
+      return share(2);
+    }
+  }
 
 
 })
