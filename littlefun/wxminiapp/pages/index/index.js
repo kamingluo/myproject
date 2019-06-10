@@ -16,6 +16,7 @@ Page({
     "swiperdata": [],
     "informationdata": [],
     "miniappaddata": [],
+    "indexconfig":"",
     adid: '',
     setInter: '',
     num: 0,
@@ -27,7 +28,7 @@ Page({
     wlad: {
       adData: {},
       ad: {
-        banner: ["banner", "banner1"],   //是否展示banner⼴广告，如不不需展示删掉该字段即可
+        banner: ["banner", "banner1","banner3","banner4"],   //是否展示banner⼴广告，如不不需展示删掉该字段即可
       }
     },
     xmad: {//小盟广告
@@ -44,6 +45,7 @@ Page({
   },
   onLoad: function(e) {
     this.indexData()
+    this.indexConfig()
     this.miniappadData()
     this.gdtbannerposition()
   },
@@ -63,6 +65,20 @@ Page({
         this.setData({
           swiperdata: res.swiperdata,
           informationdata: res.informationdata
+        })
+      }
+    })
+  },
+
+    //查询首页配置
+  indexConfig: function() {
+    request({
+      service: 'index/indexconfig',
+      method: 'GET',
+      success: res => {
+        console.log('首页配置数据', res.swiperdata);
+        this.setData({
+          indexconfig: res.indexconfig,
         })
       }
     })
@@ -140,10 +156,12 @@ Page({
     var that = this
     that.startSetInter()
     let adname =  "微量"+ e.target.dataset.id
+    let tasktime = that.data.indexconfig.wladtime || 15
+    let taskscore = that.data.indexconfig.wladscore || 60
     that.setData({
       taskid: 1,
-      taskscore: 60,
-      tasktime: 15,
+      taskscore: taskscore,
+      tasktime: tasktime,
       adid: 999,
       adname: adname,
     })

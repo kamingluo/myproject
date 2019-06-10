@@ -12,6 +12,7 @@ let preventShake = 0; //防止快速点击
 Page({
   data: {
     usertodaytask: "",
+    taskconfig:"",
     adid: '',
     setInter: '',
     num: 0,
@@ -20,6 +21,7 @@ Page({
   },
 
   onLoad: function(options) {
+    this.taskConfig()
 
   },
 
@@ -53,7 +55,7 @@ Page({
       videoAd.onClose((res) => {
         console.log("点击关闭视频广告", res)
         if (res && res.isEnded || res === undefined) {
-          that.lookvideoad('adunit-0560e4c071403ecd', 20)
+          that.lookvideoad('adunit-0560e4c071403ecd')
           console.log("正常播放结束，可以下发游戏奖励")
         } else {
           that.wxshowToast("观看完成才能获得奖励哦！")
@@ -80,7 +82,7 @@ Page({
 
 
 
-  lookvideoad: function(adid, score) {
+  lookvideoad: function(adid) {
     var nowTime = Date.now();
     if (nowTime - preventShake < 5000) {
       console.log("防止短时间内多次调用")
@@ -91,6 +93,7 @@ Page({
     var that = this;
     wx.login({
       success: res => {
+        let score =that.data.taskConfig.videoscore
         request({
           service: 'ad/gdtad/lookvideoad',
           data: {
@@ -132,6 +135,21 @@ Page({
     })
 
   },
+
+
+  //查询广告配置
+  taskConfig: function() {
+    request({
+      service: 'task/index/taskconfig',
+      method: 'GET',
+      success: res => {
+        this.setData({
+          taskconfig: res.taskconfig,
+        })
+      }
+    })
+  },
+
 
 
   //点击广点通广告
@@ -186,15 +204,18 @@ Page({
       return;
     }
 
+    let bannertime=that.data.taskconfig.bannertime || 15
+    let sharetime=that.data.taskconfig.sharetime  || 5
+
     if (that.data.taskid == 0) { //分享任务
-      if (that.data.num > 5) {
+      if (that.data.num >= sharetime) {
         that.share()
       } else {
         that.wxshowToast("分享成功才能获得奖励哦！")
       }
 
     } else { //广点通任务
-      if (that.data.num > 15) {
+      if (that.data.num >= bannertime) {
         that.clickbannerad()
 
       } else {
@@ -225,11 +246,12 @@ Page({
     var that = this
     wx.login({
       success: res => {
+        let score =that.data.taskConfig.sharescore
         request({
           service: 'task/share/sharesuccess',
           data: {
             code: res.code,
-            score: 30,
+            score: score,
           },
           success: res => {
             //console.log('分享任务成功', res);
@@ -245,11 +267,12 @@ Page({
     var that = this
     wx.login({
       success: res => {
+        let score =that.data.taskConfig.bannerscore
         request({
           service: 'ad/gdtad/clickbannerad',
           data: {
             code: res.code,
-            score: 40,
+            score: score,
             adid: that.data.adid,
           },
           success: res => {

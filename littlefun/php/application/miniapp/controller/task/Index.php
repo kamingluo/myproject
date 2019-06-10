@@ -29,4 +29,13 @@ class Index
         return $resdata;
     }
 
+     public function taskconfig(){
+        $data = db('config')->where('id', 2)->value('value');
+        $adconfig=json_decode($data);
+        // return $data ;  json_encode() 和 json_decode()
+         $state=['state'   => '200','message'  => "wladconfig" ];
+        $resdata=array_merge($state,array('taskconfig'=>$adconfig));
+        return $resdata ;
+    }
+
 }

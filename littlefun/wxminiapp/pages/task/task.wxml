@@ -27,19 +27,19 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.share/1*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
-              <text>{{usertodaytask.share}}/1</text>
+              <progress percent="{{usertodaytask.share/taskconfig.sharenum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
+              <text>{{usertodaytask.share}}/{{taskconfig.sharenum}}</text>
             </view>
-            <!-- <view class='box-body-name-2 '>分享好友，每天<text class='important'  >1</text>次机会</view> -->
+            <!-- <view class='box-body-name-2 '>分享好友，每天<text class='important'  >{{taskconfig.sharenum}}</text>次机会</view> -->
             <view class='box-body-name-2 '>额外获得好友收益的<text class='important'  >20%</text></view>
-            <view class='box-body-name-2 '>分享成功奖励<text class='important'  >30金币</text></view>
+            <view class='box-body-name-2 '>分享成功奖励<text class='important'  >{{taskconfig.sharescore}}金币</text></view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
           <kaming-button wx:if="{{usertodaytask.share < 1}}">
             <button class='bg-gradual-purple' open-type='share'>去分享</button>
           </kaming-button>
-          <!-- <button class='bg-gradual-purple'   wx:if="{{usertodaytask.share < 1}}" >去分享</button> -->
+          <!-- <button class='bg-gradual-purple'   wx:if="{{usertodaytask.share < taskconfig.sharenum}}" >去分享</button> -->
           <!-- <button class='bg-grey' wx:else   >已完成</button> -->
           <kaming-button wx:else>
             <button class='bg-grey'>已完成</button>
@@ -59,15 +59,15 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.gdtvideo/5*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
-              <text>{{usertodaytask.gdtvideo}}/5</text>
+              <progress percent="{{usertodaytask.gdtvideo/taskconfig.videonum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
+              <text>{{usertodaytask.gdtvideo}}/{{taskconfig.videonum}}</text>
             </view>
-            <view class='box-body-name-2 '>观看视频，每天<text class='important'>5</text>次机会</view>
-            <view class='box-body-name-2 '>观看完成奖励<text class='important'  >20金币</text>/次</view>
+            <view class='box-body-name-2 '>观看视频，每天<text class='important'>{{taskconfig.videonum}}</text>次机会</view>
+            <view class='box-body-name-2 '>观看完成奖励<text class='important'  >{{taskconfig.videoscore}}金币</text>/次</view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <kaming-button wx:if="{{usertodaytask.gdtvideo < 5}}">
+          <kaming-button wx:if="{{usertodaytask.gdtvideo < taskconfig.videonum}}">
             <button class='bg-gradual-purple'  bindtap='videoad'  >去观看</button>
           </kaming-button>
           <kaming-button wx:else>
@@ -89,11 +89,11 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.gdtbanner/2*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
-              <text>{{usertodaytask.gdtbanner}}/2</text>
+              <progress percent="{{usertodaytask.gdtbanner/taskconfig.bannernum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active> </progress>
+              <text>{{usertodaytask.gdtbanner}}/{{taskconfig.bannernum}}</text>
             </view>
-            <view class='box-body-name-2 '>体验广告<text class='important'>15</text> 秒,每天<text class='important'>2</text>次机会</view>
-            <view class='box-body-name-2 '>体验完成奖励<text class='important'>40金币</text>/次</view>
+            <view class='box-body-name-2 '>体验广告<text class='important'>15</text> 秒,每天<text class='important'>{{taskconfig.bannernum}}</text>次机会</view>
+            <view class='box-body-name-2 '>体验完成奖励<text class='important'>{{taskconfig.bannerscore}}金币</text>/次</view>
           </view>
         </view>
         <view class='box-body-anniu centered '>
@@ -101,7 +101,7 @@
           <!-- <view  class='gdtbannerad'   > -->
             <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
           </view>
-          <kaming-button wx:if="{{usertodaytask.gdtbanner < 2}}">
+          <kaming-button wx:if="{{usertodaytask.gdtbanner < taskconfig.bannernum}}">
             <button class='bg-gradual-purple'  bindtap='nobannerad' >去体验看</button>
           </kaming-button>
           <kaming-button wx:else>
