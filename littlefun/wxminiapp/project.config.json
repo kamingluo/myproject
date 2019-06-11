@@ -46,8 +46,8 @@
 					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/index/index",
-					"query": "channel=10000&master_id=100",
-					"scene": 1089
+					"query": "channel=6666&master_id=18001",
+					"scene": 1096
 				},
 				{
 					"id": 1,

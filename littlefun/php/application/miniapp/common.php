@@ -99,7 +99,7 @@ function contribution($master_id,$openid,$score){
     $affected = Db::execute($sql,['score'=>$score,'tribute'=>$score,'id'=>$master_id]); //给师傅加完金币
      
     $apprenticeid =db('user')->where('openid',$openid)->value('id');//拿到徒弟id
-    $tributereturn= db('tribute_table')->where('apprenticeid',$apprenticeid)->setInc('score',$score);//更改进贡表数据
+    $tributereturn= db('tribute_table')->where('apprenticeid',$apprenticeid)->setInc('pay_tribute',$score);//更改进贡表数据
 
     // return        $affected; 
     $time =date('Y-m-d H:i:s',time());//获取当前时间
