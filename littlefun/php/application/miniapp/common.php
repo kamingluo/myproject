@@ -59,7 +59,7 @@ function increase($openid,$data,$explain){
     // return $dbreturn;
     if($dbreturn == 1){
         $time =date('Y-m-d H:i:s',time());//获取当前时间
-        $dbdata = ['id'=>'','openid' =>$openid,'score' =>$data['score'],'explain' =>$explain,'channel' =>$data['channel'],'master_id' => $data['master_id'],'create_time' =>$time];
+        $dbdata = ['id'=>'','openid' =>$openid,'score' =>$data['score'],'explain' =>$explain,'channel' =>$data['channel'],'master_id' => $data['master_id'],'state' =>0,'create_time' =>$time];
         $dbreturn=db('score_record')->insert($dbdata);
         return 1;
         }
@@ -103,7 +103,7 @@ function contribution($master_id,$openid,$score){
 
     // return        $affected; 
     $time =date('Y-m-d H:i:s',time());//获取当前时间
-    $record = ['id'=>'','openid' =>$dbdata['openid'],'score' =>$score,'explain' =>"徒弟进贡",'channel' =>$dbdata['channel'],'master_id' => $dbdata['master_id'],'create_time' =>$time];
+    $record = ['id'=>'','openid' =>$dbdata['openid'],'score' =>$score,'explain' =>"徒弟进贡",'channel' =>$dbdata['channel'],'master_id' => $dbdata['master_id'],'state' =>0,'create_time' =>$time];
     $dbreturn=db('score_record')->insert($record);
      if ($affected==1&&$dbreturn==1) {
          return ['state'   => '200','message'  => "进贡成功" ,'score' => $score] ;

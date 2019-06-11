@@ -186,12 +186,12 @@ Page({
   clickwlad:function(e){
      let userdata = wx.getStorageSync('userdata')
      app.aldstat.sendEvent('首页点击微量广告', userdata);
-    //console.log("点击微量广告", e.target.dataset.id)
+    console.log("点击微量广告", e.target.dataset.id)
     var that = this
     that.startSetInter()
-    let adname =  "微量"+ e.target.dataset.id
-    let tasktime = that.data.indexconfig.wladtime || 15
-    let taskscore = that.data.indexconfig.wladscore || 60
+    var adname =  "微量"+ e.target.dataset.id
+    var tasktime = that.data.indexconfig.wladtime || 15
+    var taskscore = that.data.indexconfig.wladscore || 60
     that.setData({
       taskid: 1,
       taskscore: taskscore,

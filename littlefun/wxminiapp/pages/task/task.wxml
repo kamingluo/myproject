@@ -27,7 +27,7 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.share/taskconfig.sharenum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active-mode="forwards"> </progress>
+              <progress percent="{{usertodaytask.share/taskconfig.sharenum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange"  active  active-mode="forwards"> </progress>
               <text>{{usertodaytask.share}}/{{taskconfig.sharenum}}</text>
             </view>
             <!-- <view class='box-body-name-2 '>分享好友，每天<text class='important'  >{{taskconfig.sharenum}}</text>次机会</view> -->
@@ -59,7 +59,7 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.gdtbanner/taskconfig.bannernum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active-mode="forwards"> </progress>
+              <progress percent="{{usertodaytask.gdtbanner/taskconfig.bannernum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active active-mode="forwards"> </progress>
               <text>{{usertodaytask.gdtbanner}}/{{taskconfig.bannernum}}</text>
             </view>
             <view class='box-body-name-2 '>体验广告<text class='important'>{{taskconfig.bannertime}}</text> 秒,每天<text class='important'>{{taskconfig.bannernum}}</text>次机会</view>
@@ -95,7 +95,7 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.sign/1*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active-mode="forwards"> </progress>
+              <progress percent="{{usertodaytask.sign/1*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active active-mode="forwards"> </progress>
               <text>{{usertodaytask.sign}}/1</text>
             </view>
             <view class='box-body-name-2 '  >签到，每天<text class='important'>1</text>次机会</view>
@@ -127,7 +127,7 @@
         <view class=' box-body-name  centered'>
           <view>
             <view class='progress'>
-              <progress percent="{{usertodaytask.gdtvideo/taskconfig.videonum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active-mode="forwards"> </progress>
+              <progress percent="{{usertodaytask.gdtvideo/taskconfig.videonum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active active-mode="forwards"> </progress>
               <text>{{usertodaytask.gdtvideo}}/{{taskconfig.videonum}}</text>
             </view>
             <view class='box-body-name-2 '  wx:if="{{display}}" >观看视频，每天<text class='important'>{{taskconfig.videonum}}</text>次机会</view>

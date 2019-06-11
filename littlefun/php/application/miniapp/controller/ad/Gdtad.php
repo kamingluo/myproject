@@ -32,7 +32,7 @@ class Gdtad
     		$adres = ['id'=>'','openid' =>$openid,'channel' =>$request->param("channel"),'master_id' =>$request->param("master_id"),'adid' =>$request->param("adid"),'adtype' =>1,'score' =>$request->param("score"),'create_time' =>$time];
     	    $addata=db('gdt_ad_record')->insert($adres);
     	    //增加积分变化记录
-    	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"点击广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
+    	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"点击广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'state' =>0,'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
 
             $contribution=contribution($request->param("master_id"),$openid,$request->param("score"));//徒弟进贡
@@ -78,7 +78,7 @@ class Gdtad
     		$addscore= db('user')->where('openid',$openid)->setInc('score',$request->param("score"));
     		$adres = ['id'=>'','openid' =>$openid,'channel' =>$request->param("channel"),'master_id' =>$request->param("master_id"),'adid' =>$request->param("adid"),'adtype' =>2,'score' =>$request->param("score"),'create_time' =>$time];
     	    $addata=db('gdt_ad_record')->insert($adres);
-    	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"观看视频广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
+    	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"观看视频广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'state' =>0,'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
 
           $contribution=contribution($request->param("master_id"),$openid,$request->param("score"));//徒弟进贡

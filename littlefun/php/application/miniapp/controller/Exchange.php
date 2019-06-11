@@ -58,7 +58,7 @@ class Exchange
         	$reducescore= db('user')->where('openid',$openid)->setDec('score',$goodsdata['goodsPrice']);
 
         	//积分记录记录
-        	 $recorddata= ['id'=>'','openid' =>$openid,'score' =>$goodsdata['goodsPrice'],'explain' =>"金币兑换礼品",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
+        	 $recorddata= ['id'=>'','openid' =>$openid,'score' =>$goodsdata['goodsPrice'],'explain' =>"金币兑换礼品",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'state' =>1,'create_time' =>$time];
         	 $scorerecord=db('score_record')->insert($recorddata);
 
         	//增加兑换记录

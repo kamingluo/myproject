@@ -72,7 +72,7 @@ class Sign
     	}
     	else{
     		 $addscore= db('user')->where('openid',$openid)->setInc('score',$dbscore);
-        	 $dbdata = ['id'=>'','openid' =>$openid,'score' =>$dbscore,'explain' =>"签到翻倍",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
+        	 $dbdata = ['id'=>'','openid' =>$openid,'score' =>$dbscore,'explain' =>"签到翻倍",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'state' =>0,'create_time' =>$time];
         	 $dbreturn=db('score_record')->insert($dbdata);
         	 $resdata=['state'   => '200','message'  => "加倍成功","signdouble"=>'success' ];
             return $resdata;

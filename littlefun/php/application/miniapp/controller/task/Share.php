@@ -38,7 +38,7 @@ class Share
     		$addscore= db('user')->where('openid',$openid)->setInc('score',$request->param("score"));
     		$adres = ['id'=>'','openid' =>$openid,'channel' =>$request->param("channel"),'master_id' =>$request->param("master_id"),'score' =>$request->param("score"),'create_time' =>$time];
     	    $addata=db('share_record')->insert($adres);
-    	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"分享任务",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
+    	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"分享任务",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"), 'state' =>0,'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
         	if($addscore==1&&$addata==1&&$data==1){
         	     $resdata=['state'   => '200','message'  => "完成分享任务","lookvideoad"=>'success' ];
