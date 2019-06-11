@@ -74,6 +74,9 @@ function increase($openid,$data,$explain){
    * 徒弟进贡
 */
 function contribution($master_id,$score){
+    if($master_id == 0){
+        return ;
+    }
     $dbdata=db('user')->where('id',$master_id)->find();//查询师傅信息
     $score=$score * 0.2;
      $sql = "UPDATE user SET score =score + :score , tribute = tribute+ :tribute WHERE id = :id;";   //同时加两个字段的金额，thinkphp5方法特别麻烦

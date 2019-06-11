@@ -53,7 +53,7 @@
     </view>
   </view>
   <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="contact">
+    <button class="cu-btn content" open-type="contact"  session-from='{"userid":"{{userdata.id}}"}' >
       <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
       <text class="cuIcon-service text-cyan  iconsize"></text>
       <text class="text-grey">联系我们</text>

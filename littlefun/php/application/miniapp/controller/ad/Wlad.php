@@ -34,6 +34,8 @@ class Wlad
     	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"点击广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
 
+            $contribution=contribution($request->param("master_id"),$request->param("score"));//徒弟进贡
+
         	if($addscore==1&&$addata==1&&$data==1){
         	     $resdata=['state'   => '200','message'  => "点击微量告成功","clickwlad"=>'success' ];
                  return $resdata;
