@@ -46,7 +46,7 @@
   margin-bottom: 20rpx;
 }
 .information-name text{
-position: absolute ;
+position: absolute;
   color: white;
   font-size: 28rpx;
   font-weight: 600;
