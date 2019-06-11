@@ -69,18 +69,38 @@ function increase($openid,$data,$explain){
 
 }
 
+/**
+   * 进贡表增加数据
+   * tribute_table
+*/
+function tribute($master_id,$userId,$channel){
+  if($master_id == 0){
+    return ;
+}
+    $time =date('Y-m-d H:i:s',time());//获取当前时间
+    $record = ['id'=>'','master_id' =>$master_id,'apprenticeid' =>$userId,'pay_tribute' => 0 ,'channel' =>$channel,'create_time' =>$time];
+    $data=db('tribute_table')->insert($record);
+    return $data;
+
+}
+
 
 /**
    * 徒弟进贡
 */
-function contribution($master_id,$score){
+function contribution($master_id,$openid,$score){
     if($master_id == 0){
         return ;
     }
+    
     $dbdata=db('user')->where('id',$master_id)->find();//查询师傅信息
     $score=$score * 0.2;
      $sql = "UPDATE user SET score =score + :score , tribute = tribute+ :tribute WHERE id = :id;";   //同时加两个字段的金额，thinkphp5方法特别麻烦
     $affected = Db::execute($sql,['score'=>$score,'tribute'=>$score,'id'=>$master_id]); //给师傅加完金币
+     
+    $apprenticeid =db('user')->where('openid',$openid)->value('id');//拿到徒弟id
+    $tributereturn= db('tribute_table')->where('apprenticeid',$apprenticeid)->setInc('score',$score);//更改进贡表数据
+
     // return        $affected; 
     $time =date('Y-m-d H:i:s',time());//获取当前时间
     $record = ['id'=>'','openid' =>$dbdata['openid'],'score' =>$score,'explain' =>"徒弟进贡",'channel' =>$dbdata['channel'],'master_id' => $dbdata['master_id'],'create_time' =>$time];

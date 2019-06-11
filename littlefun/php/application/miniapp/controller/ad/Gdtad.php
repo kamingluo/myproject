@@ -35,7 +35,7 @@ class Gdtad
     	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"点击广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
 
-            $contribution=contribution($request->param("master_id"),$request->param("score"));//徒弟进贡
+            $contribution=contribution($request->param("master_id"),$openid,$request->param("score"));//徒弟进贡
 
         	if($addscore==1&&$addata==1&&$data==1){
         	     $resdata=['state'   => '200','message'  => "点击banner广告成功","clickbannerad"=>'success' ];
@@ -81,7 +81,7 @@ class Gdtad
     	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"观看视频广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
 
-            $contribution=contribution($request->param("master_id"),$request->param("score"));//徒弟进贡
+          $contribution=contribution($request->param("master_id"),$openid,$request->param("score"));//徒弟进贡
 
         	if($addscore==1&&$addata==1&&$data==1){
         	     $resdata=['state'   => '200','message'  => "观看视频广告成功","lookvideoad"=>'success' ];

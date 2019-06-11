@@ -27,6 +27,9 @@ class User
                 $dbdata = ['id'=>'','openid' =>$openid,'channel' => $channel,'scene' => $scene,'score' => 0,'tribute' => 0,'master_id' => $master_id,'create_time' =>$time ,'updata_time' =>$time];
                 $userId= db('user')->insertGetId($dbdata);//返回自增ID
                 $userdata=['id'=>$userId,'openid' =>$openid,'channel' => $channel,'scene' => $scene,'score' => 0,'tribute' => 0,'master_id' => $master_id,'create_time' =>$time ,'updata_time' =>$time];
+
+                $tribute=tribute($master_id,$userId,$channel);//进贡表增加数据
+
                 $state=['state'   => '200','message'  => "注册成功" ];
                 $resdata=array_merge($state,array('userdata'=>$userdata));
                 return $resdata;

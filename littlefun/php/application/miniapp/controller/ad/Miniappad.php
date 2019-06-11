@@ -40,7 +40,7 @@ class Miniappad
     	    $datares = ['id'=>'','openid' =>$openid,'score' =>$request->param("score"),'explain' =>"点击小程序广告",'channel' =>$request->param("channel"),'master_id' => $request->param("master_id"),'create_time' =>$time];
         	$data=db('score_record')->insert($datares);
 
-            $contribution=contribution($request->param("master_id"),$request->param("score"));//徒弟进贡
+            $contribution=contribution($request->param("master_id"),$openid,$request->param("score"));//徒弟进贡
 
         	if($addscore==1&&$addata==1&&$data==1){
         	     $resdata=['state'   => '200','message'  => "点击小程序广告成功","clickminiappad"=>'success' ];
