@@ -68,6 +68,16 @@ class Miniappad
         return $resdata;
     }
 
+    //单个推广页面的数据
+    public function extension()
+    {
+      $data =db('extension')->where('open',0)->order('id asc')->find();
+      $state=['state'   => '200','message'  => "extension" ];
+      $resdata=array_merge($state,array('extensiondata'=>$data));
+      return $resdata;
+      # code...
+    }
+
 	
     
     

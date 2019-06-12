@@ -40,7 +40,8 @@
           <text>{{item.explain}}</text>
         </view>
         <view class='bootm_score'>
-          <text>{{item.score}}</text>
+        <text  class='jia' wx:if="{{item.state==0}}">加{{item.score}}</text>
+          <text  class='jian' wx:else>减{{item.score}}</text>
         </view>
         <view class='bootm_time'>
           <text>{{item.create_time}}</text>

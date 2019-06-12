@@ -137,3 +137,14 @@ page{
   margin-bottom: 20rpx;
   
 }
+
+
+.jia{
+  color: red;
+  font-weight: 600;
+
+}
+.jian{
+  color: green;
+  font-weight: 600;
+}
