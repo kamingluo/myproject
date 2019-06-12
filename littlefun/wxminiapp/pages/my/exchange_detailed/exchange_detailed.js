@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    exchangelist:null
+    exchangelist:null,
+    loadModal: true,
 
   },
 
@@ -27,6 +28,7 @@ Page({
             //console.log('用户兑换列表页面', res);
             this.setData({
               exchangelist: res.exchangelist,
+              loadModal: false,
             })
           },
         })

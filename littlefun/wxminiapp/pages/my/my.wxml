@@ -79,7 +79,7 @@
 <!-- 广点通banner广告开始-->
 <view class='centered'>
   <view class='gdtad'>
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->

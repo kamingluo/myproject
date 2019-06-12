@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -104,6 +104,13 @@
 					"pathName": "pages/my/exchange_detailed/exchange_detailed",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "单个推广页",
+					"pathName": "pages/task/extension/extension",
+					"query": "state=0",
+					"scene": 1011
 				}
 			]
 		}

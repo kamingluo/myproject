@@ -28,7 +28,7 @@ App({
   },
 
   scene: function(scene){
-    if (scene == 1001) {
+    if (scene == 1001 || scene == 1129 ) {
       //console.log("隐藏")
       this.globalData.display = false;
     }

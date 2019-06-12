@@ -118,6 +118,7 @@
     </view>
 </view>
 <view hidden="{{ !showBet }}" class="moving-chips-amount"  style="top: {{finger.Y}}px; left: {{finger.X}}px;">{{bet}}</view>
+<view class='tips' > <text>规则:  3到10点为小，11到18点为大</text>  </view>
 
 </view>
 

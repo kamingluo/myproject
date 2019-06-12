@@ -9,6 +9,7 @@ Page({
    */
   data: {
     userscorerecord: [],  //信息流数组
+    loadModal: true,
   },
 
   /**
@@ -26,6 +27,7 @@ Page({
             //console.log('用户积分', res);
             this.setData({
               userscorerecord: res.userscorerecord,
+              loadModal: false,
             })
           },
         })
