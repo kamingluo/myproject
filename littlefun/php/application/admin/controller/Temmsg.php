@@ -23,20 +23,26 @@ class Temmsg
       $access_token=$token['access_token'];//拿到token
       // return $access_token;
 
-      $sql = "Select formid1.* from formid1,(Select openid,min(id) as id from formid1 GROUP BY openid )  a  where formid1.openid=a.openid and formid1.id=a.id;";
+      $sql = "Select formid.* from formid,(Select openid,min(id) as id from formid GROUP BY openid )  a  where formid.openid=a.openid and formid.id=a.id;";
       $msgdata = Db::query($sql); //拿到数据
       $count = count($msgdata);//拿到数值条数
 
       
       foreach($msgdata as $count  => $data){
-         // echo $data["formid"];
-         // echo $data["openid"];
          $resdata=signtemMsg($data["formid"],$data["openid"],$access_token);
-         $clear=db('formid1')-> where('formid', $data["formid"])->delete();
+         $clear=db('formid')-> where('formid', $data["formid"])->delete();
        }
+        // $emaildata=sendEmail([['user_email'=>'954087620@qq.com','content'=>'签到推送完毕']]); //想推送不知道为啥不行
+        return  "签到推送成功";
 
-        $emaildata=sendEmail([['user_email'=>'954087620@qq.com','content'=>'签到推送完毕']]);
-        return   $emaildata;
+    }
+
+    public function clearformid()
+    {
+
+       $day=date("Y-m-d H:i:s", strtotime('-6 days'));//获取6天时间
+       $clearformid=db('formid')-> where('create_time','< time', $day)->delete();
+       return "共清理过期formid数量-->" .$clearformid ;
 
     }
    
