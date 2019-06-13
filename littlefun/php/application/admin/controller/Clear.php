@@ -20,18 +20,18 @@ class Clear
 
         $seven=date("Y-m-d H:i:s", strtotime('-7 days'));//获取三天时间
 
-        //清理积分增加减少三天前的记录
-        $score=db('score_record')-> where('create_time','< time', $weekend)->delete();
+        //清理积分增加减少7天前的记录
+        $score=db('score_record')-> where('create_time','< time', $seven)->delete();
 
-        //广点通广告三天数据清理
-        $gdt=db('gdt_ad_record')-> where('create_time','< time', $weekend)->delete();
+        //广点通广告7天数据清理
+        $gdt=db('gdt_ad_record')-> where('create_time','< time', $seven)->delete();
 
-        //微量广告三天数据清理
-        $wl=db('wl_ad_record')-> where('create_time','< time', $weekend)->delete();
+        //微量广告7天数据清理
+        $wl=db('wl_ad_record')-> where('create_time','< time', $seven)->delete();
 
 
-        //miniappad广告三天数据清理
-        $miniapp=db('miniapp_ad_record')-> where('create_time','< time', $weekend)->delete();
+        //miniappad广告7天数据清理
+        $miniapp=db('miniapp_ad_record')-> where('create_time','< time', $seven)->delete();
 
          //签到七天数据清理
         $sign=db('sign')-> where('create_time','< time', $seven)->delete();
