@@ -59,7 +59,7 @@ Component({
     },
     //获取formid
     formSubmit(e) {
-      //console.log("点击组件获得formId", e.detail.formId)
+      console.log("点击组件获得formId", e.detail.formId)
       let useropenid = wx.getStorageSync('userdata').openid || 0
       request({
         service: 'currency/formid',

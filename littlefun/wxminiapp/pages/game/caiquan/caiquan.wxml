@@ -30,7 +30,9 @@
              <image src='souces/{{item}}' bindtap='chooseimg' data-id='{{index}}'></image>
         </block>
         </view>
+        <kaming-button>
         <view class='contunueBtn' bindtap='continuego'>{{word}}</view>
+        </kaming-button>
     </view>
    <!--选择出拳框  -->
 

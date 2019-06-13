@@ -210,6 +210,8 @@ Page({
   nobannerad:function(){
     //console.log("没有广告源")
     this.wxshowToast("暂无广告")
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('任务页面banner暂无广告源', userdata);
 
   },
 

@@ -64,7 +64,11 @@ function clickbannerad(adid, score) {
         },
         success: res => {
           console.log('点击banner广告完成加积分', res);
-          return true;
+          wx.showToast({
+            title: "完成任务,增加金币",
+            icon: 'none',
+            duration: 3000
+          })
         },
       })
     }

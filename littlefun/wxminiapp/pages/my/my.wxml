@@ -41,19 +41,23 @@
 
 <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
   <view class="cu-item arrow" bindtap='userscorerecord'>
-    <view class="content">
-      <text class="cuIcon-coin text-yellow  iconsize"></text>
-      <text class="text-grey">收入明细</text>
-    </view>
+    <kaming-button>
+      <view class="content">
+        <text class="cuIcon-coin text-yellow  iconsize"></text>
+        <text class="text-grey">收入明细</text>
+      </view>
+    </kaming-button>
   </view>
   <view class="cu-item arrow" bindtap='userchangelist'>
-    <view class="content ">
-      <text class="cuIcon-pay text-blue iconsize"></text>
-      <text class="text-grey">兑换记录</text>
-    </view>
+    <kaming-button>
+      <view class="content ">
+        <text class="cuIcon-pay text-blue iconsize"></text>
+        <text class="text-grey">兑换记录</text>
+      </view>
+    </kaming-button>
   </view>
   <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="contact"  session-from='{"userid":"{{userdata.id}}"}' >
+    <button class="cu-btn content" open-type="contact" session-from='{"userid":"{{userdata.id}}"}'>
       <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
       <text class="cuIcon-service text-cyan  iconsize"></text>
       <text class="text-grey">联系我们</text>

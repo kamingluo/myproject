@@ -3,7 +3,7 @@
   <view slot="content">测试页面</view>
 </cu-custom>
 
-<button  bindtap='increaseScore' >积分增加测试</button>
+<!-- <button  bindtap='increaseScore' >积分增加测试</button>
 
 <button  bindtap='reduceScore' >积分减少测试</button>
 
@@ -17,7 +17,7 @@
 <button  bindtap='clickwlad' >clickwlad</button>
 <button  bindtap='signin' >signin</button>
 <button  bindtap='signdouble' >signdouble</button>
-<button  bindtap='share' >share</button>
+<button  bindtap='share' >share</button> -->
 
 
 

@@ -2,8 +2,8 @@
 
 
   <view class='centered miniappname '>
-    <image src='/images/common/tips.png'  wx:if="{{addapptips}}" ></image>
-    <text  wx:else >一点好玩</text>
+    <image src='/images/common/tips.png' wx:if="{{addapptips}}"></image>
+    <text wx:else>一点好玩</text>
   </view>
 
 
@@ -50,7 +50,7 @@
 
 
         <!-- 第三方小程序开始 -->
-        <view class='centered'  wx:if="{{miniappaddata.length > 0}}">
+        <view class='centered' wx:if="{{miniappaddata.length > 0}}">
           <view class='information-name centered '>
             <!-- <image src='http://miniapplittlefun.gzywudao.top/task/block_title@2x.png' class='u-img-slide'></image> -->
             <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
@@ -66,11 +66,15 @@
               <view>
                 <view class='box-body-name-1'>{{item.name}}</view>
                 <view class='box-body-name-2 '>{{item.describe}}</view>
-                <view class='box-body-name-3'>体验<text>{{item.playtime}}秒</text>可获得<text>{{item.score}}</text>金币</view>
+                <view class='box-body-name-3'>体验
+                  <text>{{item.playtime}}秒</text>可获得
+                  <text>{{item.score}}</text>金币</view>
               </view>
             </view>
             <view class='box-body-anniu centered '>
-              <button class=' bg-blue'>立即体验</button>
+              <kaming-button>
+                <button class=' bg-blue'>立即体验</button>
+              </kaming-button>
             </view>
           </view>
         </view>
@@ -78,11 +82,31 @@
 
 
 
+
+
         <!-- 广点通banner广告开始-->
+
+        <view class='centered' wx:if="{{gdtbannerposition.banneradposition1&&display &&indexconfig.gdtimg}}">
+          <view class="gdtad">
+            <view   bindtap='nobannerad'  style="background-image: url('{{indexconfig.gdtimg}}');background-size: contain;background-repeat:round" class='gdtadimg'>
+              <view style="opacity: 0">
+                <ad capture-bind:tap="gdtbanneradclick" data-name="{{gdtbannerposition.banneradposition1}}" unit-id="{{gdtbannerposition.banneradposition1}}"></ad>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      <!-- 广点通banner广告结束-->
+
+<!-- http://qiniu.luojiaming.vip/index2.gif -->
+
+        <!-- 广点通banner广告开始-->
+        <view wx:else>
         <view class='centered' wx:if="{{gdtbannerposition.banneradposition1}}">
           <view class='gdtad'>
             <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition1}}" unit-id="{{gdtbannerposition.banneradposition1}}"></ad>
           </view>
+        </view>
         </view>
         <!-- 广点通banner广告结束-->
 

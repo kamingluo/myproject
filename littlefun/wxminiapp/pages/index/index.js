@@ -13,6 +13,7 @@ var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; /
 
 Page({
   data: {
+    display:false,
     "swiperdata": [],
     "informationdata": [],
     "miniappaddata": [],
@@ -51,7 +52,8 @@ Page({
     this.miniappadData()
     this.gdtbannerposition()
     this.setData({
-      addapptips: app.globalData.addapptips || false //添加小程序提示
+      addapptips: app.globalData.addapptips || false, //添加小程序提示
+      display:app.globalData.display  //全局控制
     })
   },
   onShow: function() {
@@ -81,7 +83,7 @@ Page({
       service: 'index/indexconfig',
       method: 'GET',
       success: res => {
-        //console.log('首页配置数据', res.indexconfig);
+        console.log('首页配置数据', res.indexconfig);
         this.setData({
           indexconfig: res.indexconfig,
         })
@@ -236,21 +238,23 @@ Page({
     var score = that.data.taskscore || 60
     var adname = that.data.adname || "任务名称空"
     var tasktime = that.data.tasktime || 15
-    if (that.data.taskid == 0) { //miniapp任务
-      if (that.data.num > tasktime) {
+
+
+    if (that.data.num >= tasktime){
+      if (that.data.taskid == 0) {
         task.clickminiappad(adid, score, adname)
-      } else {
-        that.wxshowToast("体验满时间成功才能获得奖励哦！")
       }
-
-    } else { //微量ad任务
-      if (that.data.num >= 15) {
+      else if (that.data.taskid == 1){
         task.clickwlad(adid, score, adname)
-      } else {
-        that.wxshowToast("体验满时间成功才能获得奖励哦！")
       }
-    }
+      else{
+        task.clickbannerad(adid, score)
+      }
 
+    }else{
+      that.wxshowToast("体验满时间成功才能获得奖励哦！")
+
+    }
     //console.log("将时间恢复0")
     this.setData({
       num: 0,
@@ -268,6 +272,16 @@ Page({
     })
 
   },
+
+
+  nobannerad: function () {
+    //console.log("没有广告源")
+    this.wxshowToast("暂无广告")
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('首页banner暂无广告源', userdata);
+
+  },
+
 
 
   gdtbannerposition: function () {
@@ -320,10 +334,24 @@ Page({
 
 
   gdtbanneradclick: function (e) {
+    var that =this
     //console.log("点击广点通banner广告", e.currentTarget)
     let userdata = wx.getStorageSync('userdata')
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
     app.aldstat.sendEvent('首页点击广点通banner广告', data);
+
+    var tasktime = that.data.indexconfig.gdtadtime || 12
+    var taskscore = that.data.indexconfig.gdtadscore || 60
+    that.setData({
+      taskid: 2,
+      taskscore: taskscore,
+      tasktime: tasktime,
+      adid: e.currentTarget.dataset.name,
+      adname: "广点通首页ad",
+    })
+    that.startSetInter()
+
+
   },
 
 
