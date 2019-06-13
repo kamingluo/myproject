@@ -10,17 +10,17 @@
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
-  "navigateToMiniProgramAppIdList": [
-    "wx116b7845568283b2",
-    "wxb48042794f735d87",
-    "wx3a9b09dfdc458be5",
-    "wxcec47c6d546e3a68",
-    "wx18b75705b93bd908",
-    "wxdb8afdceb2e24d7a",
-    "wxdbe887eb5a89b044",
-    "wx5aaf853d5cc9d349",
-    "wx3adb314c8e9a6ed1",
-    "wx7b56fa9275ca7d12"
-  ],
+"navigateToMiniProgramAppIdList": [
+  "wx8bdd2c60f9860399",
+  "wx8746e250c8debc3b",
+  "wx3a9b09dfdc458be5",
+  "wx1d52dbef7ef8a966",
+  "wxdb8afdceb2e24d7a",
+  "wxc1ee10069d40b79c",
+  "wx7f86a7e2eda966af",
+  "wx18b75705b93bd908",
+  "wxa9333554e5350ee6",
+  "wxcec47c6d546e3a68"
+],
   "sitemapLocation": "sitemap.json"
 }
