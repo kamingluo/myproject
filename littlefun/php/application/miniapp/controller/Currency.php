@@ -10,6 +10,13 @@ class Currency
     {
 
     	$time =date('Y-m-d H:i:s',time());//获取当前时间
+
+      $dbnum =db('formid')->where('openid',$request->param("useropenid"))->whereTime('create_time', 'today')->count();//查询今日点广告数
+      if($dbnum > 10 ){
+        return ['state'   => '200','message'  => "今天大于10啦不用加了!"] ;
+      }
+
+
         $dbdata = ['id'=>'','openid' =>$request->param("useropenid"),'formid' =>$request->param("formid"),'channel' =>$request->param("channel"),'create_time' =>$time];
         $dbreturn=db('formid')->insert($dbdata);
         if($dbreturn==1){
