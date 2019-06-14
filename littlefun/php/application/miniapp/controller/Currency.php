@@ -38,6 +38,43 @@ class Currency
   }
 
 
+  public function getqrcode()
+{
+     $data['appid']=Config('appid');
+      $data['secret']= Config('secret');
+      $data['grant_type']= 'client_credential';
+      $api = "https://api.weixin.qq.com/cgi-bin/token";//拿token接口
+      $str = http($api, $data,'GET');
+      $token = json_decode($str,true);
+      $access_token=$token['access_token'];//拿到token
+    $url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=$access_token";
+    $ch = curl_init();
+    $data = json_encode(['scene' => '&id=userid']);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 'image/gif');
+    curl_setopt($ch, CURLOPT_URL,$url);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($data)
+    ));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); //如果需要将结果直接返回到变量里，那加上这句。
+    $res = curl_exec($ch);
+    $data = 'data:image/jpeg;base64,'.base64_encode($res);//补全base64加密字符串头
+
+    // return  json_decode($res,true);
+    return $data;
+
+
+
+   }
+
+
+
+
+
+
 
     
 }
