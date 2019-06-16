@@ -26,7 +26,6 @@ const request = (config) => {
       config.loading && wx.hideLoading();
       wx.hideNavigationBarLoading();
       if (res.statusCode != 200) {
-        config.fail();
         wx.showToast({
           title: '网络异常',
           icon: 'none'
@@ -36,21 +35,16 @@ const request = (config) => {
         if (data.state == 200) {
           config.success && config.success(data);
         } else {
-          if (config.fail) {
-            config.fail && config.fail(data);
-          } else {
             wx.showToast({
               title: data.message,
               icon: 'none'
             })
-          }
         }
       }
     },
     fail: function(res) {
-      config.loading && wx.hideLoading();
+      wx.hideLoading();
       wx.hideNavigationBarLoading();
-         config.fail(res);
        wx.showToast({
           title: '网络异常',
           icon: 'none'

@@ -4,3 +4,8 @@
 </cu-custom>
 
 
+
+
+<image  wx:if="{{imgurl}}" src='{{imgurl}}' ></image>
+
+<button  bindtap='dowloadimg'  >下载图片</button>

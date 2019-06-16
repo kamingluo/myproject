@@ -56,7 +56,7 @@ class Currency
     $access_token=$token['access_token'];//拿到token
     $url = "https://api.weixin.qq.com/wxa/getwxacode?access_token=$access_token";
 
-    $data = json_encode(array("path"=>"pages/index/index?id=$userid&channel=$channel","width"=> 150));
+    $data = json_encode(array("path"=>"pages/index/index?master_id=$userid&channel=$channel","width"=> 150));
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_HEADER, 'image/gif');
