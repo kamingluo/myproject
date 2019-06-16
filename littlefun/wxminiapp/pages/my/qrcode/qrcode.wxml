@@ -1,0 +1,6 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}" >
+<view slot="backText">返回</view>
+  <view slot="content">测试二维码</view>
+</cu-custom>
+
+

@@ -62,7 +62,7 @@
               <progress percent="{{usertodaytask.gdtbanner/taskconfig.bannernum*100}}" stroke-width="13" border-radius="10" backgroundColor="#EEDFCC" color="orange" active active-mode="forwards"> </progress>
               <text>{{usertodaytask.gdtbanner}}/{{taskconfig.bannernum}}</text>
             </view>
-            <view class='box-body-name-2 '>体验广告<text class='important'>{{taskconfig.bannertime}}</text> 秒,每天<text class='important'>{{taskconfig.bannernum}}</text>次机会</view>
+            <view class='box-body-name-2 '>点击体验<text class='important'>{{taskconfig.bannertime}}</text> 秒,每天<text class='important'>{{taskconfig.bannernum}}</text>次机会</view>
             <view class='box-body-name-2 '>体验完成奖励<text class='important'>{{taskconfig.bannerscore}}金币</text>/次</view>
           </view>
         </view>
@@ -118,7 +118,7 @@
 
 
 
-  <view class='task centered' >
+  <view class='task centered'   wx:if="{{display}}"   >
     <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('http://miniapplittlefun.gzywudao.top/task/block_content_bg.png');">
       <view class='box-body'>
         <view class=' box-body-image centered '>

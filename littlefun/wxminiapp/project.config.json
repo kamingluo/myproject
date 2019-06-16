@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -78,9 +78,9 @@
 					"scene": 1011
 				},
 				{
-					"id": -1,
-					"name": "金币明细",
-					"pathName": "pages/my/score_detailed/score_detailed",
+					"id": 5,
+					"name": "我的二维码",
+					"pathName": "pages/my/qrcode/qrcode",
 					"query": "",
 					"scene": null
 				},
@@ -111,6 +111,13 @@
 					"pathName": "pages/task/extension/extension",
 					"query": "state=0",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/my/qrcode/qrcode",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
