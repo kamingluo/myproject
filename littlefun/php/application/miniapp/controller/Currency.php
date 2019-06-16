@@ -83,7 +83,7 @@ class Currency
     if ($r) {
       return ['state'   => '200','message'  => "二维码生成成功" ,'type' => 'success'] ;
     }else{
-      return ['state'   => '200','message'  => "二维码生成失败" ,'type' => 'fail'] ;
+      return ['state'   => '400','message'  => "二维码生成失败" ,'type' => 'fail'] ;
     }
   }
 

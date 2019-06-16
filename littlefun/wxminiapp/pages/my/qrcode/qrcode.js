@@ -23,21 +23,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.myqrcode()
     
   },
 
   myqrcode:function(){
+    let userid = wx.getStorageSync('userdata').id
+    // if (userid==null){
+    //   // wx.showToast({
+    //   //   title: "生成失败",
+    //   //   icon: 'none'
+    //   // })
+    //   return ;
+    // }
     request({
-      service: 'exchange/exchangelist',
+      service: 'currency/getqrcode',
       data: {
-        code: res.code,
+        userid: userid,
       },
       success: res => {
-        //console.log('用户兑换列表页面', res);
-        this.setData({
-          exchangelist: res.exchangelist,
-          loadModal: false,
-        })
+        console.log('生成二维码成功', res);
+        // this.setData({
+        //   exchangelist: res.exchangelist,
+        //   loadModal: false,
+        // })
       },
     })
 
