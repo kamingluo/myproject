@@ -56,7 +56,6 @@ Page({
 
 
   dowloadimg: function () {
-
     var imgSrc = this.data.imgurl
     wx.downloadFile({
       url: imgSrc,
