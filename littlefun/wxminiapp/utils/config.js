@@ -8,7 +8,7 @@ module.exports = {
 
 
 // "navigateToMiniProgramAppIdList": [
-//   "wx8bdd2c60f9860399", //小蜜蜂日历打卡
+//   "wxf1f0d92f69dd80db", //快递查询管理
 //   "wx8746e250c8debc3b",//猫爪省钱优惠券
 //   "wx3a9b09dfdc458be5",//365打卡福利来了
 //   "wx1d52dbef7ef8a966",//in有尽有

@@ -19,6 +19,7 @@ Page({
     num: 0,
     taskid: '', //任务id
     display:false, //是否展示
+    videodisplay:false, //视频是否展示展示
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -32,10 +33,8 @@ Page({
 
   onLoad: function(options) {
     this.taskconfig()
+    this.addisplay()
 
-    this.setData({
-      display: app.globalData.display || false
-    })
 
   },
 
@@ -49,6 +48,28 @@ Page({
   },
 
   onHide: function() {},
+
+
+
+  addisplay:function(){
+
+    this.setData({
+      display: app.globalData.display || false
+    })
+
+     let userchannel = wx.getStorageSync('userdata').channel
+     if(userchannel==null || userchannel == 0 ){
+          this.setData({
+         videodisplay: false
+        })
+     }
+     else{
+       this.setData({
+         videodisplay: true
+        })
+     }
+
+  },
 
 
   videoad: function() {

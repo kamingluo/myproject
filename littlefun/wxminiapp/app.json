@@ -5,7 +5,6 @@
     "pages/exchange/exchange",
     "pages/task/task",
     "pages/task/extension/extension",
-    "pages/my/qrcode/qrcode",
     "pages/my/score_detailed/score_detailed",
     "pages/my/exchange_detailed/exchange_detailed",
     "pages/game/caiquan/caiquan",
@@ -19,7 +18,7 @@
     "navigationBarTextStyle": "white"
   },
 "navigateToMiniProgramAppIdList": [
-  "wx8bdd2c60f9860399",
+  "wxf1f0d92f69dd80db",
   "wx8746e250c8debc3b",
   "wx3a9b09dfdc458be5",
   "wx1d52dbef7ef8a966",
