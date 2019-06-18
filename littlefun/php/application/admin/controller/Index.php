@@ -9,7 +9,11 @@ class Index
     public function index()
     {
 
-    	  $emaildata=sendEmail([['user_email'=>'954087620@qq.com','content'=>'签到推送完毕']]); //想推送不知道为啥不行
+    	 if(sendMail("954087620@qq.com",'11111','2222')) {
+             return "chegng";
+           } else {
+           return "shibai";
+          }
     }
     
    

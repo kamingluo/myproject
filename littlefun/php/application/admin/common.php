@@ -4,6 +4,7 @@
 // +----------------------------------------------------------------------
 
 use think\Log;
+use phpmailer\phpmailer;
 
 
 //测试方法
@@ -113,3 +114,32 @@ function postCurl($url,$data,$type)
     return $res;
 }
 
+
+
+/*
+ * 发送邮件
+ * @param $to string
+ * @param $title string
+ * @param $content string
+ * @return bool
+ * */
+function sendMail($to, $title, $content) {
+ // Vendor('PHPMailer.PHPMailerAutoload');
+  Vendor('phpmailer.phpmailer'); 
+ $mail = new PHPMailer(); //实例化
+ $mail->IsSMTP(); // 启用SMTP
+ $mail->Host=Config('MAIL_HOST'); //smtp服务器的名称（这里以QQ邮箱为例）
+ $mail->SMTPAuth = Config('MAIL_SMTPAUTH'); //启用smtp认证
+ $mail->Username = Config('MAIL_USERNAME'); //发件人邮箱名
+ $mail->Password = Config('MAIL_PASSWORD') ; //163邮箱发件人授权密码
+ $mail->From = Config('MAIL_FROM'); //发件人地址（也就是你的邮箱地址）
+ $mail->FromName = Config('MAIL_FROMNAME'); //发件人姓名
+ $mail->AddAddress($to,"尊敬的客户");
+ $mail->WordWrap = 50; //设置每行字符长度
+ $mail->IsHTML(Config('MAIL_ISHTML')); // 是否HTML格式邮件
+ $mail->CharSet=Config('MAIL_CHARSET'); //设置邮件编码
+ $mail->Subject =$title; //邮件主题
+ $mail->Body = $content; //邮件内容
+ $mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; //邮件正文不支持HTML的备用显示
+ return($mail->Send());
+}
