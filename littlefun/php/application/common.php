@@ -66,8 +66,8 @@ function sendEmail($data = []) {
 
   $mail->IsSMTP(); // 启用SMTP
   $mail->Host = 'smtp.qq.com'; //SMTP服务器 以126邮箱为例子 
-  $mail->Port = 465;  //邮件发送端口
-  $mail->SMTPAuth = false;  //启用SMTP认证
+  $mail->Port = 587;  //邮件发送端口
+  $mail->SMTPAuth = true;  //启用SMTP认证
   $mail->SMTPSecure = "ssl";   // 设置安全验证方式为ssl
 
   $mail->CharSet = "UTF-8"; //字符集
