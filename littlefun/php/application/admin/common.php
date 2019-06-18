@@ -128,16 +128,16 @@ function sendMail($to, $title, $content) {
   Vendor('phpmailer.phpmailer'); 
  $mail = new PHPMailer(); //实例化
  $mail->IsSMTP(); // 启用SMTP
- $mail->Host=Config('MAIL_HOST'); //smtp服务器的名称（这里以QQ邮箱为例）
- $mail->SMTPAuth = Config('MAIL_SMTPAUTH'); //启用smtp认证
- $mail->Username = Config('MAIL_USERNAME'); //发件人邮箱名
- $mail->Password = Config('MAIL_PASSWORD') ; //163邮箱发件人授权密码
- $mail->From = Config('MAIL_FROM'); //发件人地址（也就是你的邮箱地址）
- $mail->FromName = Config('MAIL_FROMNAME'); //发件人姓名
- $mail->AddAddress($to,"尊敬的客户");
+ $mail->Host='smtp.163.com'; //smtp服务器的名称（这里以QQ邮箱为例）
+ $mail->SMTPAuth = true; //启用smtp认证
+ $mail->Username ='kaming_001@163.com'; //发件人邮箱名
+ $mail->Password = 'a123456'; //163邮箱发件人授权密码
+ $mail->From ='kaming_001@163.com'; //发件人地址（也就是你的邮箱地址）
+ $mail->FromName = 'kaming'; //发件人姓名
+ $mail->AddAddress("954087620@qq.com","尊敬的客户");
  $mail->WordWrap = 50; //设置每行字符长度
- $mail->IsHTML(Config('MAIL_ISHTML')); // 是否HTML格式邮件
- $mail->CharSet=Config('MAIL_CHARSET'); //设置邮件编码
+ $mail->IsHTML(true); // 是否HTML格式邮件
+ $mail->CharSet='utf-8'; //设置邮件编码
  $mail->Subject =$title; //邮件主题
  $mail->Body = $content; //邮件内容
  $mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; //邮件正文不支持HTML的备用显示
