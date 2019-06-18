@@ -19,7 +19,7 @@ Page({
     num: 0,
     taskid: '', //任务id
     display:false, //是否展示
-    videodisplay:false, //视频是否展示展示
+    gdtaddisplay:false, //视频是否展示展示
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -58,14 +58,15 @@ Page({
     })
 
      let userchannel = wx.getStorageSync('userdata').channel
-     if(userchannel==null || userchannel == 0 ){
+     let scene = wx.getStorageSync('userdata').scene
+     if(userchannel==null || userchannel == 0 && scene == 1047 ){
           this.setData({
-         videodisplay: false
+         gdtaddisplay: false
         })
      }
      else{
        this.setData({
-         videodisplay: true
+         gdtaddisplay: true
         })
      }
 

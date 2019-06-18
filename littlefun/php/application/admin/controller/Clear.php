@@ -45,22 +45,8 @@ class Clear
              return "清理失败";
         }
 
-
-       
     }
 
-
-    //统计前一天的相关数据，一般是凌晨执行
-    public function statistics()
-    {
-
-        // $sign=db('sign')->whereTime('create_time', 'yesterday')->sum('score');
-         $time =date("Y-m-d", strtotime("-1 day"));//获取当前时间的前一天
-         
-        return  $time ;
-
-
-    }
    
 
 }

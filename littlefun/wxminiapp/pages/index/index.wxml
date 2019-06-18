@@ -86,7 +86,7 @@
 
         <!-- 广点通banner广告开始-->
 
-        <view class='centered' wx:if="{{gdtbannerposition.banneradposition1&&display &&indexconfig.gdtimg}}">
+        <view class='centered' wx:if="{{gdtbannerposition.banneradposition1&&display &&indexconfig.gdtimg && gdtaddisplay}}">
           <view class="gdtad">
             <view   bindtap='nobannerad'  style="background-image: url('{{indexconfig.gdtimg}}');background-size: contain;background-repeat:round" class='gdtadimg'>
               <view style="opacity: 0">

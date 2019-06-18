@@ -40,21 +40,21 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/index/index",
 					"query": "channel=6666&master_id=18001",
-					"scene": 1096
+					"scene": 1047
 				},
 				{
 					"id": 1,
 					"name": "我的页面",
 					"pathName": "pages/my/my",
 					"query": "",
-					"scene": null
+					"scene": 1011
 				},
 				{
 					"id": 2,

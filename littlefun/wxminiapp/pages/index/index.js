@@ -19,6 +19,7 @@ Page({
     "miniappaddata": [],
     "indexconfig":"",
     addapptips:false,
+    gdtaddisplay:false,
     adid: '',
     setInter: '',
     num: 0,
@@ -51,13 +52,33 @@ Page({
     this.indexconfig()
     this.miniappadData()
     this.gdtbannerposition()
+    this.addisplay()
     this.setData({
       addapptips: app.globalData.addapptips || false, //添加小程序提示
       display:app.globalData.display  //全局控制
     })
+
   },
   onShow: function() {
     this.playtask()
+  },
+
+
+    addisplay:function(){
+
+     let userchannel = wx.getStorageSync('userdata').channel
+     let scene = wx.getStorageSync('userdata').scene
+     if(userchannel==null || userchannel == 0 && scene == 1047 ){
+          this.setData({
+         gdtaddisplay: false
+        })
+     }
+     else{
+       this.setData({
+         gdtaddisplay: true
+        })
+     }
+
   },
 
 

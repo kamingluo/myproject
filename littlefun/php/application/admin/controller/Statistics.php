@@ -35,6 +35,9 @@ class Statistics
          //分享
         $share=db('share_record')->whereTime('create_time', 'yesterday')->sum('score');
 
+        //进贡
+        $paytribute=db('score_record')-> where('explain',"徒弟进贡")->whereTime('create_time', 'yesterday')->sum('score');
+
 
         //骰子赢得
         $dicewin=db('score_record')-> where('explain',"猜大小赢得")->whereTime('create_time', 'yesterday')->sum('score');
@@ -55,7 +58,7 @@ class Statistics
 
         if($sign >= 0&&$all >= 0 && $gdtad >=0 && $miniappad >= 0&& $wlad >= 0){
 
-          $dbdata = ['id'=>'','all' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'create_time' =>$time];
+          $dbdata = ['id'=>'','all' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'create_time' =>$time];
           $resdata=db('statistics')->insert($dbdata);
 
           return "统计成功(1为成功)-->" . $resdata ;

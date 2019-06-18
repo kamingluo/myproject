@@ -10,7 +10,7 @@ module.exports = {
 // "navigateToMiniProgramAppIdList": [
 //   "wxf1f0d92f69dd80db", //快递查询管理
 //   "wx8746e250c8debc3b",//猫爪省钱优惠券
-//   "wx3a9b09dfdc458be5",//365打卡福利来了
+//   "wx045c0926c73a03f5",//挑战财商
 //   "wx1d52dbef7ef8a966",//in有尽有
 //   "wxdb8afdceb2e24d7a",//一点点
 //   "wxc1ee10069d40b79c",//斗地址
