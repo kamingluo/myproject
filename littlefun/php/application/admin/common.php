@@ -65,7 +65,7 @@ function signtemMsg($formid,$openid,$access_token)
                 "color"=>"#173177"
             ),
             "keyword2"=>array(
-                "value"=>"轻轻一点签到，还有其他奖励等你来领取！",
+                "value"=>"轻轻一点签到，还有其他任务奖励等你来领取！",
                 "color"=>"#173177"
             ),
             "keyword3"=>array(
