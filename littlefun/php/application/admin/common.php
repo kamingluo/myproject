@@ -65,11 +65,11 @@ function signtemMsg($formid,$openid,$access_token)
                 "color"=>"#173177"
             ),
             "keyword2"=>array(
-                "value"=>"轻轻一点签到，还有其他任务奖励等你来领取！",
+                "value"=>"轻轻一点签到，还有更多任务奖励等你来领取！",
                 "color"=>"#173177"
             ),
             "keyword3"=>array(
-                "value"=>"20金币",
+                "value"=>"2028人已签到",
                 "color"=>"#173177"
             ),
             "keyword4"=>array(
@@ -81,7 +81,7 @@ function signtemMsg($formid,$openid,$access_token)
     );
     $res = postCurl($url,$data,'json');//将data数组转换为json数据
     if($res){
-        echo "111";
+        echo "1";
        // echo json_encode(array('state'=>4,'msg'=>$res));
     }else{
          echo "222";
