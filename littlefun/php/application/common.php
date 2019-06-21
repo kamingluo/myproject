@@ -88,9 +88,9 @@ function sendEmail($data = []) {
 
       //发送成功就删除
       if ($mail->Send()) {
-        echo "发送成功";
+        return "success";
       }else{
-          echo "Mailer Error: ".$mail->ErrorInfo;// 输出错误信息  
+          return "Mailer Error: ".$mail->ErrorInfo;// 输出错误信息  
       }
     }
   }           
