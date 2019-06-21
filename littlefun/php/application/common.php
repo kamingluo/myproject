@@ -115,8 +115,8 @@ $mail->setFrom("954087620@qq.com","kaming"); //发件人地址（也就是你的
 $mail->AddAddress("954087620@qq.com","1455014921@qq.com"); //接收人地址和名称
 $mail->WordWrap = 100; //设置每行字符长度
 $mail->isHTML(true); // 是否HTML格式邮件
-$mail->Subject ="你好这是测试的"; //邮件主题
-$mail->Body = "给你发送个信息"; //邮件内容
+$mail->Subject ="11111"; //邮件主题
+$mail->Body = "2222222"; //邮件内容
 //$mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; //邮件正文不支持HTML的备用显示
 return ($mail->Send()); //发送方法，发送成功返回true，失败返回false
 
