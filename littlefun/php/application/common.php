@@ -58,42 +58,65 @@ function http($url, $params, $method = 'GET', $header = array(), $multi = false)
 * @param type $data 邮箱队列数据 包含邮箱地址 内容
 * 在本地发送不成功，服务器上才行
 */
+// function sendEmail($data = []) {
+
+//   Vendor('phpmailer.phpmailer');
+//   $mail = new PHPMailer(); //实例化
+
+
+//   $mail->IsSMTP(); // 启用SMTP
+//   $mail->Host = 'smtp.qq.com'; //SMTP服务器 以126邮箱为例子 
+//   $mail->Port = 465;  //邮件发送端口
+//   $mail->SMTPAuth = true;  //启用SMTP认证
+//   $mail->SMTPSecure = "ssl";   // 设置安全验证方式为ssl
+
+//   $mail->CharSet = "UTF-8"; //字符集
+//   $mail->Encoding = "base64"; //编码方式
+
+//   $mail->Username = '954087620@qq.com';  //你的邮箱 
+//   $mail->Password = 'tpvxkvrinllobbig';  //你的密码 
+//   $mail->Subject = '邮件标题'; //邮件标题  
+
+//   $mail->From = '954087620@qq.com';  //发件人地址（也就是你的邮箱）
+//   $mail->FromName = 'kaming';  //发件人姓名
+
+//   if($data && is_array($data)){
+//     foreach ($data as $k=>$v){
+//       $mail->AddAddress($v['user_email'], "亲"); //添加收件人（地址，昵称）
+//       $mail->IsHTML(true); //支持html格式内容
+//       $mail->Body = $v['content']; //邮件主体内容
+
+//       //发送成功就删除
+//       if ($mail->Send()) {
+//         echo "发送成功";
+//       }else{
+//           echo "Mailer Error: ".$mail->ErrorInfo;// 输出错误信息  
+//       }
+//     }
+//   }           
+// }
+
+
 function sendEmail($data = []) {
 
-  Vendor('phpmailer.phpmailer');
-  $mail = new PHPMailer(); //实例化
+$mail = new PHPMailer();
+$mail->isSMTP(); // 启用SMTP
+//$mail->SMTPDebug=1; //开启调试模式
+//$mail->SMTPSecure = "ssl";
+$mail->CharSet='utf-8'; //设置邮件编码格式
+$mail->Host="smtp.qq.com"; //smtp服务器的名称（这里以126邮箱为例）
+$mail->SMTPAuth = true; //启用smtp认证
+$mail->Username = "954087620@qq.com"; //你的邮箱名可以不写@后缀，也可以写
+$mail->Password = "tpvxkvrinllobbig" ; //邮箱密码，现在开启邮箱SMTP后叫做安全码
+$mail->Port=465; //SMTP端口号
+//$mail->Port = 994;
+$mail->setFrom("954087620@qq.com","kaming"); //发件人地址（也就是你的邮箱地址）和发件人名称
+$mail->AddAddress("954087620@qq.com","1455014921@qq.com"); //接收人地址和名称
+$mail->WordWrap = 100; //设置每行字符长度
+$mail->isHTML(true); // 是否HTML格式邮件
+$mail->Subject ="你好这是测试的"; //邮件主题
+$mail->Body = "给你发送个信息"; //邮件内容
+//$mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; //邮件正文不支持HTML的备用显示
+return ($mail->Send()); //发送方法，发送成功返回true，失败返回false
 
-
-  $mail->IsSMTP(); // 启用SMTP
-  $mail->Host = 'smtp.qq.com'; //SMTP服务器 以126邮箱为例子 
-  $mail->Port = 465;  //邮件发送端口
-  $mail->SMTPAuth = true;  //启用SMTP认证
-  $mail->SMTPSecure = "ssl";   // 设置安全验证方式为ssl
-
-  $mail->CharSet = "UTF-8"; //字符集
-  $mail->Encoding = "base64"; //编码方式
-
-  $mail->Username = '954087620@qq.com';  //你的邮箱 
-  $mail->Password = 'tpvxkvrinllobbig';  //你的密码 
-  $mail->Subject = '邮件标题'; //邮件标题  
-
-  $mail->From = '954087620@qq.com';  //发件人地址（也就是你的邮箱）
-  $mail->FromName = 'kaming';  //发件人姓名
-
-  if($data && is_array($data)){
-    foreach ($data as $k=>$v){
-      $mail->AddAddress($v['user_email'], "亲"); //添加收件人（地址，昵称）
-      $mail->IsHTML(true); //支持html格式内容
-      $mail->Body = $v['content']; //邮件主体内容
-
-      //发送成功就删除
-      if ($mail->Send()) {
-        echo "发送成功";
-      }else{
-          echo "Mailer Error: ".$mail->ErrorInfo;// 输出错误信息  
-      }
-    }
-  }           
 }
-
-
