@@ -99,7 +99,8 @@ function http($url, $params, $method = 'GET', $header = array(), $multi = false)
 
 function sendEmail($data = []) {
 
-$mail = new PHPMailer();
+  Vendor('phpmailer.phpmailer');
+  $mail = new PHPMailer(); //实例化
 $mail->isSMTP(); // 启用SMTP
 //$mail->SMTPDebug=1; //开启调试模式
 //$mail->SMTPSecure = "ssl";
