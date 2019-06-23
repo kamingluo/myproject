@@ -72,7 +72,8 @@
 <!-- 广点通banner广告开始-->
 <view class='centered'  wx:if="{{extensiondata != null}}" >
   <view class='gdtad'>
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-01ec7688a3e64733" unit-id="adunit-01ec7688a3e64733"></ad>
+    <!-- <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-01ec7688a3e64733" unit-id="adunit-01ec7688a3e64733"></ad> 这是单页广告 -->
+     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>  <!-- 任务页面广告id-->
   </view>
 </view>
 <!-- 广点通banner广告结束-->
