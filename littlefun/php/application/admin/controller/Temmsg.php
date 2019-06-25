@@ -26,6 +26,7 @@ class Temmsg
       $sql = "Select formid.* from formid,(Select openid,min(id) as id from formid GROUP BY openid )  a  where formid.openid=a.openid and formid.id=a.id;";
       $msgdata = Db::query($sql); //拿到数据
       $count = count($msgdata);//拿到数值条数
+      //return  $msgdata;
 
       
       foreach($msgdata as $count  => $data){

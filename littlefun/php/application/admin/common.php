@@ -52,7 +52,7 @@ function signtemMsg($formid,$openid,$access_token)
     $temid = 'iClWDGVGgzkixCkJPeaZ5iqPkJfHzgapJ8oA7A6wTRQ';
     $page = 'pages/task/task?ald_media_id=20276&ald_link_key=80e8cc11a4c18d99';
     $openid =$openid;
-    if(!$openid||!$formid)die('failed!');
+    if(!$formid)die('failed!');//openid有出现等于0的情况，所以不判断了
     $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
     $data = array(//这里一定要按照微信给的格式
         "touser"=>$openid,

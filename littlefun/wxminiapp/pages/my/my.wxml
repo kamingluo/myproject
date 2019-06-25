@@ -20,9 +20,9 @@
         <text>ID:{{userdata.id}}</text>
       </view>
     </view>
-    <!-- <view class='erweima'>
+    <view class='erweima'  bindtap='qrcode' >
       <image src='../../images/common/erweima.svg'></image>
-    </view> -->
+    </view>
   </view>
 </view>
 

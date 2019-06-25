@@ -64,7 +64,13 @@ Page({
     })
 
   },
+ 
+  qrcode:function(){
+    wx.navigateTo({
+      url: '/pages/my/qrcode/qrcode'
+    })
 
+  },
 
   userscorerecord:function(){
     wx.navigateTo({
