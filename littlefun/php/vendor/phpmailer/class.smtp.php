@@ -129,9 +129,8 @@ class SMTP {
     }
 
     // connect to the smtp server
-    $this->smtp_conn = stream_socket_client("tcp://".$host.":".$port,
-    // $this->smtp_conn = @pfsockopen($host,    // the host of the server
-    //                              $port,    // the port to use
+    $this->smtp_conn = @pfsockopen($host,    // the host of the server
+                                 $port,    // the port to use
                                  $errno,   // error number if any
                                  $errstr,  // error message if any
                                  $tval);   // give up after ? secs

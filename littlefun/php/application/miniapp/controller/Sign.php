@@ -79,15 +79,5 @@ class Sign
     	}
     }
 
-     public function test(Request $request)
-     {
-     	 $wxcode =$request->param("code");
-    	 $openid=openid($wxcode);
-    	 $explain="自定义加积分说明";
-         $data =$request->param();
-         $resdata=increase($openid,$data,$explain);
-         return $resdata;
-    }
-
 
 }
