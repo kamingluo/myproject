@@ -69,7 +69,7 @@ function signtemMsg($formid,$openid,$access_token)
                 "color"=>"#173177"
             ),
             "keyword3"=>array(
-                "value"=>"2028人已签到",
+                "value"=>"点击进入签到...",
                 "color"=>"#173177"
             ),
             "keyword4"=>array(
