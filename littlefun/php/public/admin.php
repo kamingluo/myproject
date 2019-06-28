@@ -17,8 +17,13 @@ define('CONF_PATH', __DIR__ . '/../conf/');
 define('APP_DEBUG',True);
 
 // 允许请求跨域
-header ('Access-Control-Allow-Origin:http://localhost:8080');
-// header("Access-Control-Allow-Origin:*");
+if ($_SERVER['REQUEST_METHOD']=='OPTIONS') {
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    header('Access-Control-Allow-Methods: GET, POST, PUT,DELETE,OPTIONS,PATCH');
+    return;
+    }
+header("Access-Control-Allow-Origin:*");
 header("Access-Control-Allow-Methods:GET, POST, OPTIONS, DELETE");
 header("Access-Control-Allow-Headers:DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type, Accept-Language, Origin, Accept-Encoding");
 
