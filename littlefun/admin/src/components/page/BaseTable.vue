@@ -2,11 +2,11 @@
     <div class="table">
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-lx-cascades"></i> 基础表格</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-lx-cascades"></i> 单页推广配置</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
-            <div class="handle-box">
+           <!-- <div class="handle-box">
                 <el-button type="primary" icon="delete" class="handle-del mr10" @click="delAll">批量删除</el-button>
                 <el-select v-model="select_cate" placeholder="筛选省份" class="handle-select mr10">
                     <el-option key="1" label="广东省" value="广东省"></el-option>
@@ -14,15 +14,34 @@
                 </el-select>
                 <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
                 <el-button type="primary" icon="search" @click="search">搜索</el-button>
-            </div>
-            <el-table :data="data" border class="table" ref="multipleTable" @selection-change="handleSelectionChange">
+            </div>-->
+            <el-table :data="tableData" border class="table" ref="multipleTable" @selection-change="handleSelectionChange">
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
-                <el-table-column prop="date" label="日期" sortable width="150">
+                <el-table-column prop="id" label="id" width='80'>
                 </el-table-column>
-                <el-table-column prop="name" label="姓名" width="120">
+                <el-table-column prop="name" label="name" >
                 </el-table-column>
-                <el-table-column prop="address" label="地址" :formatter="formatter">
+                <el-table-column prop="appid" label="appid"  width='150'>
                 </el-table-column>
+                <el-table-column prop="Jump" label="跳转链接" width='180'>
+                </el-table-column>
+                 <el-table-column prop="describe" label="简介" width='150' >
+                </el-table-column>
+                 <el-table-column prop="extradata" label="extradata" width='100' >
+                </el-table-column>
+                 <el-table-column prop="imgurl" label="图片链接" width='200' >
+                </el-table-column>
+                  <el-table-column prop="onshowjump" label="onshowjump" >
+                </el-table-column>
+                  <el-table-column prop="open" label="open" >
+                </el-table-column>
+                 <el-table-column prop="playtime" label="playtime" >
+                </el-table-column>
+                 <el-table-column prop="score" label="score" >
+                </el-table-column>
+                  <el-table-column prop="type" label="type" >
+                </el-table-column>
+
                 <el-table-column label="操作" width="180" align="center">
                     <template slot-scope="scope">
                         <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -37,17 +56,48 @@
         </div>
 
         <!-- 编辑弹出框 -->
-        <el-dialog title="编辑" :visible.sync="editVisible" width="30%">
-            <el-form ref="form" :model="form" label-width="50px">
-                <el-form-item label="日期">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="form.date" value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>
+        <el-dialog title="编辑" :visible.sync="editVisible" width="40%">
+            <el-form ref="form" :model="form" label-width="80px">
+
+                <el-form-item label="id">
+                    <el-input v-model="form.id"></el-input>
                 </el-form-item>
-                <el-form-item label="姓名">
+                <el-form-item label="名称">
                     <el-input v-model="form.name"></el-input>
                 </el-form-item>
-                <el-form-item label="地址">
-                    <el-input v-model="form.address"></el-input>
+                <el-form-item label="appid">
+                    <el-input v-model="form.appid"></el-input>
                 </el-form-item>
+                <el-form-item label="跳转链接">
+                    <el-input v-model="form.Jump"></el-input>
+                </el-form-item>
+                <el-form-item label="简介">
+                    <el-input v-model="form.describe"></el-input>
+                </el-form-item>
+                <el-form-item label="extradata">
+                    <el-input v-model="form.extradata"></el-input>
+                </el-form-item>
+                <el-form-item label="图片链接">
+                    <el-input v-model="form.imgurl"></el-input>
+                </el-form-item>
+                <el-form-item label="onshowjump">
+                    <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                <el-form-item label="open">
+                    <el-input v-model="form.open"></el-input>
+                </el-form-item>
+                <el-form-item label="playtime">
+                    <el-input v-model="form.playtime"></el-input>
+                </el-form-item>
+                <el-form-item label="score">
+                    <el-input v-model="form.score"></el-input>
+                </el-form-item>
+                 <el-form-item label="type">
+                    <el-input v-model="form.type"></el-input>
+                </el-form-item>
+                
+                
+
 
             </el-form>
             <span slot="footer" class="dialog-footer">
@@ -104,12 +154,12 @@
                         }
                     }
                     if (!is_del) {
-                        if (d.address.indexOf(this.select_cate) > -1 &&
-                            (d.name.indexOf(this.select_word) > -1 ||
-                                d.address.indexOf(this.select_word) > -1)
-                        ) {
-                            return d;
-                        }
+                        // if (d.address.indexOf(this.select_cate) > -1 &&
+                        //     (d.name.indexOf(this.select_word) > -1 ||
+                        //         d.address.indexOf(this.select_word) > -1)
+                        // ) {
+                        //     return d;
+                        // }
                     }
                 })
             }
@@ -121,20 +171,28 @@
                 this.getData();
             },
             // 获取 easy-mock 的模拟数据
-            getData() {
-                // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
-                console.log("基础表格页面",process.env.NODE_ENV)
+            // getData() {
+            //     // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
+            //     console.log("基础表格页面",process.env.NODE_ENV)
 
-                if (process.env.NODE_ENV === 'development') {
-                    this.url = '/admin.php/configure/extension/extension';
-                };
-                console.log("基础表格请求上传数据",this.url,this.cur_page)
-                this.$axios.post(this.url, {
-                    page: this.cur_page
+            //     if (process.env.NODE_ENV === 'development') {
+            //         this.url = '/admin.php/configure/extension/extension';
+            //     };
+            //     this.$axios.post(this.url, {
+            //         page: this.cur_page
                     
-                }).then((res) => {
-                    console.log("基础表格请求返回数据",res)
-                    // this.tableData = res.data.list;
+            //     }).then((res) => {
+            //         console.log("基础表格请求返回数据",res)
+            //         // this.tableData = res.data.list;
+            //     })
+            // },
+
+            //获取数据
+             getData() {
+                this.url = '/admin.php/configure/extension/extension';
+                this.$axios.post(this.url).then((res) => {
+                    console.log("基础表格请求返回数据",res.data.data)
+                    this.tableData = res.data.data;
                 })
             },
             search() {
@@ -147,13 +205,15 @@
                 return row.tag === value;
             },
             handleEdit(index, row) {
+                console.log("点击编辑")
                 this.idx = index;
                 const item = this.tableData[index];
-                this.form = {
-                    name: item.name,
-                    date: item.date,
-                    address: item.address
-                }
+                this.form = item
+                // this.form = {
+                //     id: item.id,
+                //     name: item.name,
+                //     appid: item.appid
+                // }
                 this.editVisible = true;
             },
             handleDelete(index, row) {
@@ -176,8 +236,13 @@
             // 保存编辑
             saveEdit() {
                 this.$set(this.tableData, this.idx, this.form);
+                console.log("提交修改信息",this.form)
                 this.editVisible = false;
                 this.$message.success(`修改第 ${this.idx+1} 行成功`);
+
+                this.$axios.post('/admin.php/configure/extension/addandupdate',this.form).then((res) => {
+                    console.log("修改信息返回数据",res)
+                })
             },
             // 确定删除
             deleteRow(){
