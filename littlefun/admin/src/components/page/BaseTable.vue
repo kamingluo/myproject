@@ -251,6 +251,9 @@
             deleteRow(){
                 this.tableData.splice(this.idx, 1);
                 console.log("删除提交数据id",this.deleteid)
+                this.$axios.post('/admin.php/configure/extension/deletedata',{id:this.deleteid}).then((res) => {
+                    console.log("删除信息返回数据",res)
+                })
                 this.$message.success('删除成功');
                 this.delVisible = false;
             }
