@@ -22,7 +22,7 @@ class Extension
     	$id=$request->param("id");
     	$name=$request->param("name");
     	$appid=$request->param("appid");
-    	$Jump=$request->param("jump");
+    	$Jump=$request->param("Jump");
     	$extradata=$request->param("extradata");
     	$describe=$request->param("describe");
     	$imgurl=$request->param("imgurl");
