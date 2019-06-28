@@ -123,13 +123,18 @@
             // 获取 easy-mock 的模拟数据
             getData() {
                 // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
+                console.log("基础表格页面",process.env.NODE_ENV)
+
                 if (process.env.NODE_ENV === 'development') {
-                    this.url = '/ms/table/list';
+                    this.url = '/admin.php/configure/extension/extension';
                 };
+                console.log("基础表格请求上传数据",this.url,this.cur_page)
                 this.$axios.post(this.url, {
                     page: this.cur_page
+                    
                 }).then((res) => {
-                    this.tableData = res.data.list;
+                    console.log("基础表格请求返回数据",res)
+                    // this.tableData = res.data.list;
                 })
             },
             search() {
