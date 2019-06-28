@@ -13,6 +13,16 @@ class Extension
         $state=['state'   => '200','message'  => "单页推广页配置数据查询成功" ];
         $resdata=array_merge($state,array('data'=>$data));
         return $resdata ;
+	}
+	
+
+	public function deletedata(Request $request)
+    {
+
+    	$data=db('extension')-> where('id', $request->param("id"))->delete();
+        $state=['state'   => '200','message'  => "删除成功" ];
+        $resdata=array_merge($state,array('data'=>$data));
+        return $resdata ;
     }
 
 

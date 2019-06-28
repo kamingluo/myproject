@@ -137,7 +137,8 @@
                     date: '',
                     address: ''
                 },
-                idx: -1
+                idx: -1,
+                deleteid:''
             }
         },
         created() {
@@ -217,7 +218,9 @@
                 this.editVisible = true;
             },
             handleDelete(index, row) {
+                console.log("点击删除按钮",index,"删除id",row.id)
                 this.idx = index;
+                this.deleteid=row.id;
                 this.delVisible = true;
             },
             delAll() {
@@ -247,6 +250,7 @@
             // 确定删除
             deleteRow(){
                 this.tableData.splice(this.idx, 1);
+                console.log("删除提交数据id",this.deleteid)
                 this.$message.success('删除成功');
                 this.delVisible = false;
             }
