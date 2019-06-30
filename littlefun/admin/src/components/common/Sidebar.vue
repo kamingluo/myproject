@@ -45,8 +45,13 @@
                     },
                     {
                         icon: 'el-icon-lx-cascades',
+                        index: 'daycoins',
+                        title: '每日金币消耗'
+                    },
+                    {
+                        icon: 'el-icon-lx-cascades',
                         index: 'table',
-                        title: '基础表格'
+                        title: '单页推广配置'
                     },
                     {
                         icon: 'el-icon-lx-copy',

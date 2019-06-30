@@ -27,9 +27,14 @@ export default new Router({
           meta: { title: '自定义图标' }
         },
         {
+          path: '/daycoins',
+          component: resolve => require(['../components/page/DayCoins.vue'], resolve),
+          meta: { title: '每日金币消耗' }
+        },
+        {
           path: '/table',
           component: resolve => require(['../components/page/BaseTable.vue'], resolve),
-          meta: { title: '基础表格' }
+          meta: { title: '单页推广配置' }
         },
         {
           path: '/tabs',

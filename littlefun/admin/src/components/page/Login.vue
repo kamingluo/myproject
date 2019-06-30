@@ -57,6 +57,7 @@
             }
             else{
                 console.log("账号或者密码错误");
+                 this.$message.error(`账号或者密码错误`);
             }
                
             }
