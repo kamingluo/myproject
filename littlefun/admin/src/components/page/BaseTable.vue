@@ -6,7 +6,10 @@
             </el-breadcrumb>
         </div>
         <div class="container">
-           <!-- <div class="handle-box">
+        <div class="handle-box">
+                <el-button type="primary"  class="handle-del mr10" @click="add">新增数据</el-button>
+          </div>
+           <!--<div class="handle-box">
                 <el-button type="primary" icon="delete" class="handle-del mr10" @click="delAll">批量删除</el-button>
                 <el-select v-model="select_cate" placeholder="筛选省份" class="handle-select mr10">
                     <el-option key="1" label="广东省" value="广东省"></el-option>
@@ -16,30 +19,31 @@
                 <el-button type="primary" icon="search" @click="search">搜索</el-button>
             </div>-->
             <el-table :data="tableData" border class="table" ref="multipleTable" @selection-change="handleSelectionChange">
-                <el-table-column type="selection" width="55" align="center"></el-table-column>
+                <!--<el-table-column type="selection" width="55" align="center"></el-table-column>-->
+
                 <el-table-column prop="id" label="id" width='80'>
                 </el-table-column>
-                <el-table-column prop="name" label="name" >
+                <el-table-column prop="name" label="name" width='150' >
                 </el-table-column>
-                <el-table-column prop="appid" label="appid"  width='150'>
+                <el-table-column prop="appid" label="appid"  width='180'>
                 </el-table-column>
-                <el-table-column prop="Jump" label="跳转链接" width='180'>
+                <el-table-column prop="Jump" label="跳转链接" width='250'>
                 </el-table-column>
-                 <el-table-column prop="describe" label="简介" width='150' >
+                 <el-table-column prop="describe" label="简介" width='180' >
                 </el-table-column>
                  <el-table-column prop="extradata" label="extradata" width='100' >
                 </el-table-column>
-                 <el-table-column prop="imgurl" label="图片链接" width='200' >
+                 <el-table-column prop="imgurl" label="图片链接" width='390' >
                 </el-table-column>
-                  <el-table-column prop="onshowjump" label="onshowjump" >
+                  <el-table-column prop="onshowjump" label="onshowjump(返回时0跳1不跳)" width='220' >
                 </el-table-column>
-                  <el-table-column prop="open" label="open" >
+                  <el-table-column prop="open" label="open(0开1关)" width='130' >
                 </el-table-column>
-                 <el-table-column prop="playtime" label="playtime" >
+                 <el-table-column prop="playtime" label="playtime"  width='100'>
                 </el-table-column>
-                 <el-table-column prop="score" label="score" >
+                 <el-table-column prop="score" label="score"  width='100'>
                 </el-table-column>
-                  <el-table-column prop="type" label="type" >
+                  <el-table-column prop="type" label="type(0直跳1图片)" width='150' >
                 </el-table-column>
 
                 <el-table-column label="操作" width="180" align="center">
@@ -49,18 +53,20 @@
                     </template>
                 </el-table-column>
             </el-table>
-            <div class="pagination">
+
+            <!--<div class="pagination">
                 <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="1000">
                 </el-pagination>
-            </div>
+            </div>-->
+
         </div>
 
         <!-- 编辑弹出框 -->
-        <el-dialog title="编辑" :visible.sync="editVisible" width="40%">
-            <el-form ref="form" :model="form" label-width="80px">
+        <el-dialog title="编辑" :visible.sync="editVisible" width="30%">
+            <el-form ref="form" :model="form" label-width="120px">
 
                 <el-form-item label="id">
-                    <el-input v-model="form.id"></el-input>
+                    <el-input v-model="form.id"  placeholder="id为空就是新增数据" ></el-input>
                 </el-form-item>
                 <el-form-item label="名称">
                     <el-input v-model="form.name"></el-input>
@@ -81,7 +87,7 @@
                     <el-input v-model="form.imgurl"></el-input>
                 </el-form-item>
                 <el-form-item label="onshowjump">
-                    <el-input v-model="form.name"></el-input>
+                    <el-input v-model="form.onshowjump"></el-input>
                 </el-form-item>
                 <el-form-item label="open">
                     <el-input v-model="form.open"></el-input>
@@ -196,6 +202,12 @@
                     this.tableData = res.data.data;
                 })
             },
+            add(){
+              console.log("点击新增")
+              this.form = {}
+              this.editVisible = true;
+
+            },
             search() {
                 this.is_search = true;
             },
@@ -241,10 +253,11 @@
                 this.$set(this.tableData, this.idx, this.form);
                 console.log("提交修改信息",this.form)
                 this.editVisible = false;
-                this.$message.success(`修改第 ${this.idx+1} 行成功`);
+                this.$message.success(`操作成功`);
 
                 this.$axios.post('/admin.php/configure/extension/addandupdate',this.form).then((res) => {
                     console.log("修改信息返回数据",res)
+                     this.getData();
                 })
             },
             // 确定删除

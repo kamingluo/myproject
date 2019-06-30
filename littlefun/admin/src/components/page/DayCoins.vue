@@ -9,7 +9,7 @@
             <el-table :data="tableData" border class="table" ref="multipleTable">
             <el-table-column prop="create_time" label="日期" >
                 </el-table-column>
-                <el-table-column prop="all" label="全部操作" >
+                <el-table-column prop="all" label="全部流水" >
                 </el-table-column>
                 <el-table-column prop="gdtad" label="广点通ad" >
                 </el-table-column>
@@ -29,12 +29,14 @@
                 </el-table-column>
                  <el-table-column prop="dicewin" label="用户猜大小赢了" >
                 </el-table-column>
-                 <el-table-column prop="dicelose" label="用户猜大小输了" >
+                <el-table-column prop="dicelose" label="用户猜大小输了" >
+                </el-table-column>
+                 <el-table-column prop="exchangecoin" label="兑换商品" >
                 </el-table-column>
                   
             </el-table>
             <div class="pagination">
-                <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="1000">
+                <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="countnumber">
                 </el-pagination>
             </div>
         </div>
@@ -48,15 +50,9 @@
         data() {
             return {
                 tableData: [],
-                cur_page: 1
+                cur_page: 1,
+                countnumber:10,
             }
-        },
-        formatDate(time) {
-            // var date = new Date(time);
-            // return formatdate(date, 'yyyy-MM-dd hh:mm:ss');  // 此处可根据自己的需要自定义想要的日期格式
-            
-          var time_str= '2014-9-19 13:19:21';
-          return time_str.substr(0,10);     
         },
         created() {
             this.getData();
@@ -73,6 +69,7 @@
                 this.$axios.post(this.url,{pages:this.cur_page}).then((res) => {
                     console.log("基础每日消耗返回数据",res.data.data)
                     this.tableData = res.data.data;
+                    this.countnumber=res.data.countnumber;
                 })
             }
         }
