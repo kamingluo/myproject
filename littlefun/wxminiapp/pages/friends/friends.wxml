@@ -1,0 +1,42 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的好友</view>
+</cu-custom>
+
+
+<view class="bg-img  padding-tb-xl" style="background-image: url('http://miniapplittlefun.gzywudao.top/index/indexbanner1.png');height: 300rpx;">
+</view>
+
+
+<view>
+  <view class='body centered'>
+    <view class='information centered'>
+      <view class='centered'>
+        <text> 111111:<text class='import'>87</text></text>
+        <image src='/images/config/smy.png'></image>
+      </view>
+      <view class='centered'>
+        <text>222222:<text class='import'>877844</text></text>
+        <image src='/images/common/coin.svg'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='centered'>
+  <view class='information centered explain'>
+    <view>
+      <image src='/images/common/coin.svg'></image>
+    </view>
+    <view>
+      <view><text>1.124313513535135</text></view>
+      <view><text>1.124313513535135</text></view>
+    </view>
+  </view>
+</view>
+
+
+<view class='share-btn'>
+  <button>1111111111</button>
+</view>

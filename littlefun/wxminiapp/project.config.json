@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -86,8 +86,8 @@
 				},
 				{
 					"id": 6,
-					"name": "猜拳页面",
-					"pathName": "pages/game/caiquan/caiquan",
+					"name": "我的好友",
+					"pathName": "pages/friends/friends",
 					"query": "",
 					"scene": null
 				},

@@ -1,0 +1,42 @@
+/* pages/friends/friends.wxss */
+
+.body {
+  background-color: #fff;
+  height: 150rpx;
+}
+
+.information {
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 95%;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+
+.information image {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.import {
+  font-size: 45rpx;
+}
+
+.explain{
+   background-color: red;
+   height: 150rpx;
+   margin-top: 15rpx;
+}
+
+
+
+
+
+.share-btn {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
