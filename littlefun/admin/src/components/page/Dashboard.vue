@@ -15,15 +15,15 @@
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">
                     <div slot="header" class="clearfix">
-                        <span>语言详情</span>
+                        <span>渠道用户比例</span>
                     </div>
-                    Vue
+                    微量推广
                     <el-progress :percentage="71.3" color="#42b983"></el-progress>
-                    JavaScript
+                    云享社区
                     <el-progress :percentage="24.1" color="#f1e05a"></el-progress>
-                    CSS
+                    来钱道
                     <el-progress :percentage="3.7"></el-progress>
-                    HTML
+                    蚂蚁帮扶
                     <el-progress :percentage="0.9" color="#f56c6c"></el-progress>
                 </el-card>
             </el-col>
@@ -75,10 +75,16 @@
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">{{}}</div>
-                                    <div>总金币流水</div>
+                                    <div class="grid-num">{{historycoins.whole}}</div>
+                                    <div>历史总金币流水</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.whole }}</div>
+                                    <div>今日总流水</div>
                                 </div>
                             </div>
                         </el-card>
@@ -88,10 +94,17 @@
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                            <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>广点通广告支出</div>
+                                    <div class="grid-num">{{historycoins.gdtad}}</div>
+                                    <div>历史广点通广告支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.gdtad }}</div>
+                                    <div>今日广点通广告支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -102,10 +115,17 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                           <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>微量广告支出</div>
+                                    <div class="grid-num">{{historycoins.wlad}}</div>
+                                    <div>历史微量广告支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.wlad }}</div>
+                                    <div>今日微量广告支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -114,10 +134,17 @@
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>小程序推广支出</div>
+                                    <div class="grid-num">{{historycoins.miniappad}}</div>
+                                    <div>历史小程序ad支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.miniappad }}</div>
+                                    <div>今日小程序ad支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -125,10 +152,17 @@
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                           <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>签到支出</div>
+                                    <div class="grid-num">{{historycoins.sign}}</div>
+                                    <div>历史签到支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.sign }}</div>
+                                    <div>今日签到支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -137,22 +171,37 @@
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                            <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>分享支出</div>
+                                    <div class="grid-num">{{historycoins.share}}</div>
+                                    <div>历史分享支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.share }}</div>
+                                    <div>今日分享支出</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
 
+
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                          <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                     <div class="grid-content grid-con-3">
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>分享支出</div>
+                                    <div class="grid-num">{{historycoins.paytribute}}</div>
+                                    <div>历史进贡支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.paytribute }}</div>
+                                    <div>今日进贡支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -161,22 +210,17 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                      <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>进贡支出</div>
+                                    <div class="grid-num">{{historycoins.dicewin}}</div>
+                                    <div>历史猜大小赢得</div>
                                 </div>
-                            </div>
-                        </el-card>
-                    </el-col>
-
-                    <el-col :span="8">
-                        <el-card shadow="hover" :body-style="{padding: '0px'}">
-                     <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>猜大小用户赢得</div>
+                                    <div class="grid-num">{{todaycoins.dicewin }}</div>
+                                    <div>今日猜大小赢得</div>
                                 </div>
                             </div>
                         </el-card>
@@ -185,10 +229,17 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                          <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                               
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>猜大小用户输了</div>
+                                    <div class="grid-num">{{historycoins.dicelose}}</div>
+                                    <div>历史猜大小输了</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.dicelose }}</div>
+                                    <div>今日猜大小输了</div>
                                 </div>
                             </div>
                         </el-card>
@@ -197,10 +248,17 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>猜拳用户赢得</div>
+                                    <div class="grid-num">{{historycoins.caiquanwin}}</div>
+                                    <div>历史猜拳赢得</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.caiquanwin }}</div>
+                                    <div>今日猜拳赢得</div>
                                 </div>
                             </div>
                         </el-card>
@@ -209,14 +267,42 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                               
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>猜拳用户输了</div>
+                                    <div class="grid-num">{{historycoins.caiquanlose}}</div>
+                                    <div>历史猜拳输了</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.caiquanlose }}</div>
+                                    <div>今日猜拳输了</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
+
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                            <div class="grid-content grid-con-3">
+                                
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{historycoins.exchangecoin}}</div>
+                                    <div>历史兑换总数</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.exchangecoin }}</div>
+                                    <div>今日兑换</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+
+
                 </el-row>
             </el-col>
         </el-row>
@@ -385,6 +471,11 @@
         text-align: center;
         font-size: 14px;
         color: #999;
+    }
+    .grid-cont-jia {
+        font-size: 18px;
+         color: #999;
+         text-align: center;
     }
 
     .grid-num {
