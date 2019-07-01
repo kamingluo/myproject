@@ -9,7 +9,7 @@ class Dataquery
     public function coinstatistics(Request $request) //每日金币统计数据
     {
         $pages=$request->param("pages");
-        $countnumber=$data=db('statistics')->count();
+        $countnumber=db('statistics')->count();
         if($pages == 1 || $pages==null  ){
           $data=db('statistics')->order('id desc')->limit(0,10)->select();
           $state=['state'   => '200','message'  => "每日金币统计数据" ];
