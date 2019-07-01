@@ -60,7 +60,7 @@ class Statistics
 
         if($sign >= 0&&$all >= 0 && $gdtad >=0 && $miniappad >= 0&& $wlad >= 0){
 
-          $dbdata = ['id'=>'','all' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'exchangecoin' =>$exchangecoin,'create_time' =>$time];
+          $dbdata = ['id'=>'','whole' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'exchangecoin' =>$exchangecoin,'create_time' =>$time];
           $resdata=db('statistics')->insert($dbdata);
 
           return "统计成功(1为成功)-->" . $resdata ;

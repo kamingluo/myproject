@@ -9,7 +9,7 @@
             <el-table :data="tableData" border class="table" ref="multipleTable">
             <el-table-column prop="create_time" label="日期" >
                 </el-table-column>
-                <el-table-column prop="all" label="全部流水" >
+                <el-table-column prop="whole" label="全部流水" >
                 </el-table-column>
                 <el-table-column prop="gdtad" label="广点通ad" >
                 </el-table-column>
