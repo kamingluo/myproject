@@ -30,18 +30,10 @@ class Examine
     public function sendrewards(Request $request) //发放奖励修改状态
     {
         $id=$request->param("id");//数据id
-        $adopt=$request->param("adopt");//是否通过
-        if($adopt == 'success'){
-            $dbreturn= db('exchange_record')->where('id',$id)->update(['state' => 1]);
-            $resdata=['state'   => '200','message'  => "修改状态成功" ];
-            return $resdata ;
-        }
-        else{
-            $dbreturn= db('exchange_record')->where('id',$id)->update(['state' => 2]);
-            $resdata=['state'   => '200','message'  => "修改状态成功" ];
-            return $resdata ;
-        }
-          
+        $state=$request->param("state");
+        $dbreturn= db('exchange_record')->where('id',$id)->update(['state' => $state]);
+        $resdata=['state'   => '200','message'  => "修改状态成功" ];
+        return $resdata ;    
 	}
     
 }

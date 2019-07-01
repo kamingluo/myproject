@@ -27,6 +27,11 @@ export default new Router({
           meta: { title: '自定义图标' }
         },
         {
+          path: '/examine',
+          component: resolve => require(['../components/page/Examine.vue'], resolve),
+          meta: { title: '用户兑换列表' }
+        },
+        {
           path: '/daycoins',
           component: resolve => require(['../components/page/DayCoins.vue'], resolve),
           meta: { title: '每日金币消耗' }

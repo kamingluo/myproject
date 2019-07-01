@@ -54,6 +54,11 @@
                         title: '单页推广配置'
                     },
                     {
+                        icon: 'el-icon-lx-cascades',
+                        index: 'examine',
+                        title: '用户兑换列表'
+                    },
+                    {
                         icon: 'el-icon-lx-copy',
                         index: 'tabs',
                         title: 'tab选项卡'
