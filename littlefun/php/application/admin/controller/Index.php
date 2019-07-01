@@ -23,7 +23,7 @@ class Index
 
     public function historycoins()
     {
-    	$sql = "SELECT SUM(whole),SUM(gdtad),SUM(wlad),SUM(miniappad),SUM(sign),SUM(sign),SUM(paytribute),SUM(dicewin),SUM(dicelose),SUM(caiquanwin),SUM(caiquanlose),SUM(exchangecoin)  FROM statistics;";
+    	$sql = "SELECT SUM(whole)as whole,SUM(gdtad)as gdtad,SUM(wlad)as wlad,SUM(miniappad)as miniappad,SUM(sign)as sign,SUM(share) as share,SUM(paytribute)as paytribute,SUM(dicewin)as dicewin,SUM(dicelose)as dicelose,SUM(caiquanwin)as caiquanwin,SUM(caiquanlose)as caiquanlose,SUM(exchangecoin)as exchangecoin  FROM statistics;";
         $data = Db::query($sql); //拿到数据
 
         $state=['state'   => '200','message'  => "拿到今天为止所有数据的和" ];

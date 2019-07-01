@@ -13,7 +13,7 @@
                     <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
                     <div class="user-info-list">上次登录地点：<span>东莞</span></div>
                 </el-card>
-               <!-- <el-card shadow="hover" style="height:252px;">
+                <el-card shadow="hover" style="height:252px;">
                     <div slot="header" class="clearfix">
                         <span>语言详情</span>
                     </div>
@@ -25,7 +25,7 @@
                     <el-progress :percentage="3.7"></el-progress>
                     HTML
                     <el-progress :percentage="0.9" color="#f56c6c"></el-progress>
-                </el-card>-->
+                </el-card>
             </el-col>
             <el-col :span="16">
                 <el-row :gutter="20" class="mgb20">
@@ -34,36 +34,39 @@
                         
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-lx-people grid-con-icon"></i>
-                                
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">1234</div>
-                                    <div>今日注册数</div>
-                                </div>
-                                <div class="grid-cont-right">
-                                    <div class="grid-num">1234</div>
-                                    <div>总注册数</div>
+                                    <div class="grid-num">{{usersdata.allusersnumber}}</div>
+                                    <div>总注册用户数</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-2">
-                                <i class="el-icon-lx-notice grid-con-icon"></i>
+                            <div class="grid-content grid-con-1">
+                                <i class="el-icon-lx-people grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>今日活跃数</div>
+                                    <div class="grid-num">{{usersdata.todayregisterusersnumber}}</div>
+                                    <div>今日注册用户数</div>
+                                </div>
+                                 <div class="grid-cont-right">
+                                    <div class="grid-num">{{usersdata.yesterdayregisterusersnumber}}</div>
+                                    <div>昨日注册用户数</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-2">
-                                <i class="el-icon-lx-notice grid-con-icon"></i>
+                            <div class="grid-content grid-con-1">
+                                <i class="el-icon-lx-people grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>昨日活跃数</div>
+                                    <div class="grid-num">{{usersdata.todayactiveusersnumber}}</div>
+                                    <div>今日活跃用户数</div>
+                                </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{usersdata.yesterdayactiveusersnumber}}</div>
+                                    <div>昨日活跃用户数</div>
                                 </div>
                             </div>
                         </el-card>
@@ -71,11 +74,11 @@
 
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-2">
-                                <i class="el-icon-lx-notice grid-con-icon"></i>
+                            <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>系统消息</div>
+                                    <div class="grid-num">{{}}</div>
+                                    <div>总金币流水</div>
                                 </div>
                             </div>
                         </el-card>
@@ -84,11 +87,11 @@
 
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-2">
-                                <i class="el-icon-lx-notice grid-con-icon"></i>
+                           <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">321</div>
-                                    <div>系统消息</div>
+                                    <div>广点通广告支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -98,11 +101,11 @@
 
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-goods grid-con-icon"></i>
+                          <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div>微量广告支出</div>
                                 </div>
                             </div>
                         </el-card>
@@ -111,63 +114,110 @@
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-goods grid-con-icon"></i>
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div>小程序推广支出</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-goods grid-con-icon"></i>
+                          <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div>签到支出</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
+
                      <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-3">
-                                <i class="el-icon-lx-goods grid-con-icon"></i>
+                           <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div>分享支出</div>
                                 </div>
                             </div>
                         </el-card>
                     </el-col>
 
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                          <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">5000</div>
+                                    <div>分享支出</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
 
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                     <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">5000</div>
+                                    <div>进贡支出</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                     <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">5000</div>
+                                    <div>猜大小用户赢得</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                         <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">5000</div>
+                                    <div>猜大小用户输了</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                            <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">5000</div>
+                                    <div>猜拳用户赢得</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                            <div class="grid-content grid-con-3">
+                                <i class="el-icon-lx-rechargefill grid-con-icon"></i>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">5000</div>
+                                    <div>猜拳用户输了</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
                 </el-row>
-                <!--<el-card shadow="hover" style="height:403px;">
-                    <div slot="header" class="clearfix">
-                        <span>待办事项</span>
-                        <el-button style="float: right; padding: 3px 0" type="text">添加</el-button>
-                    </div>
-                    <el-table :data="todoList" :show-header="false" height="304" style="width: 100%;font-size:14px;">
-                        <el-table-column width="40">
-                            <template slot-scope="scope">
-                                <el-checkbox v-model="scope.row.status"></el-checkbox>
-                            </template>
-                        </el-table-column>
-                        <el-table-column>
-                            <template slot-scope="scope">
-                                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}</div>
-                            </template>
-                        </el-table-column>
-                        <el-table-column width="60">
-                            <template slot-scope="scope">
-                                <i class="el-icon-edit"></i>
-                                <i class="el-icon-delete"></i>
-                            </template>
-                        </el-table-column>
-                    </el-table>
-                </el-card>-->
             </el-col>
         </el-row>
         <el-row :gutter="20">
@@ -193,30 +243,9 @@
         data() {
             return {
                 name: localStorage.getItem('ms_username'),
-                todoList: [{
-                        title: '今天要修复100个bug',
-                        status: false,
-                    },
-                    {
-                        title: '今天要修复100个bug',
-                        status: false,
-                    },
-                    {
-                        title: '今天要写100行代码加几个bug吧',
-                        status: false,
-                    }, {
-                        title: '今天要修复100个bug',
-                        status: false,
-                    },
-                    {
-                        title: '今天要修复100个bug',
-                        status: true,
-                    },
-                    {
-                        title: '今天要写100行代码加几个bug吧',
-                        status: true,
-                    }
-                ],
+                todaycoins:'',
+                usersdata:'',
+                historycoins:'',
                 data: [{
                         name: '2018/09/04',
                         value: 1083
@@ -272,9 +301,13 @@
                 return this.name === 'admin' ? '超级管理员' : '普通用户';
             }
         },
+       
         created(){
             this.handleListener();
             this.changeDate();
+            this.admintodaycoins();
+            this.adminhistorycoins();
+            this.adminusersdata();
         },
         activated(){
             this.handleListener();
@@ -284,6 +317,31 @@
             bus.$off('collapse', this.handleBus);
         },
         methods: {
+             //拿到今天的消耗数据  
+            admintodaycoins() {
+                //this.url = '/admin.php/configure/extension/extension';
+                this.$axios.post('/admin.php/index/todaycoins').then((res) => {
+                    console.log("拿到今天的消耗数据",res.data)
+                    this.todaycoins = res.data.data;
+                })
+            },
+
+             //拿到历史的消耗数据
+            adminhistorycoins() {
+                //this.url = '/admin.php/index/historycoins';
+                this.$axios.post('/admin.php/index/historycoins').then((res) => {
+                    console.log("拿到历史的消耗数据",res.data)
+                   this.historycoins = res.data.data[0];
+                })
+            },
+            //拿到用户数据
+            adminusersdata() {
+                //this.url = '/admin.php/configure/extension/extension';
+                this.$axios.post('/admin.php/index/usersdata').then((res) => {
+                    console.log("拿到用户数据",res.data)
+                    this.usersdata = res.data.data;
+                })
+            },
             changeDate(){
                 const now = new Date().getTime();
                 this.data.forEach((item, index) => {
