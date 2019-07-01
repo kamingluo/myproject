@@ -417,7 +417,7 @@
                 //this.url = '/admin.php/index/historycoins';
                 this.$axios.post('/admin.php/index/historycoins').then((res) => {
                     console.log("拿到历史的消耗数据",res.data)
-                   this.historycoins = res.data.data[0];
+                   this.historycoins = res.data[0];
                 })
             },
             //拿到用户数据
