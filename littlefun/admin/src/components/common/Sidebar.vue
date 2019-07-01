@@ -39,7 +39,7 @@
                 collapse: false,
                 items: [
                     {
-                        icon: 'el-icon-video-play',
+                        icon: 'el-icon-lx-home',
                         index: 'dashboard',
                         title: '系统首页'
                     },
