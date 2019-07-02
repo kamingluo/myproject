@@ -6,6 +6,18 @@ use think\Config;
 class Index
 {
 
+
+    public function channeldata()
+    {
+        $sql = "select count(1) as count,a.channel,b.name from user a,channel b where a.channel=b.channel group by a.channel;";
+        $data = Db::query($sql); //拿到数据
+        $allusersnumber=db('user')->count();//总注册用户数
+        $state=['state'   => '200','message'  => "渠道注册用户数" ];
+        $resdata=array_merge($state,array('allusersnumber'=>$allusersnumber),array('data'=>$data));
+        return $resdata;
+        
+    }
+
     public function usersdata()
     {
         $allusersnumber=db('user')->count();//总注册用户数
@@ -25,7 +37,6 @@ class Index
     {
     	$sql = "SELECT SUM(whole)as whole,SUM(gdtad)as gdtad,SUM(wlad)as wlad,SUM(miniappad)as miniappad,SUM(sign)as sign,SUM(share) as share,SUM(paytribute)as paytribute,SUM(dicewin)as dicewin,SUM(dicelose)as dicelose,SUM(caiquanwin)as caiquanwin,SUM(caiquanlose)as caiquanlose,SUM(exchangecoin)as exchangecoin  FROM statistics;";
         $data = Db::query($sql); //拿到数据
-        return $data;
 
         $state=['state'   => '200','message'  => "拿到今天为止所有数据的和" ];
         $resdata=array_merge($state,array('data'=>$data));
