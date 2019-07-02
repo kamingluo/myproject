@@ -2,7 +2,7 @@
     <div>
         <el-row :gutter="20">
             <el-col :span="8">
-                <el-card shadow="hover" class="mgb20" style="height:252px;">
+              <el-card shadow="hover" class="mgb20" >
                     <div class="user-info">
                         <img src="../../assets/images/img.jpg" class="user-avator" alt="">
                         <div class="user-info-cont">
@@ -10,22 +10,22 @@
                             <div>{{role}}</div>
                         </div>
                     </div>
-                    <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
-                    <div class="user-info-list">上次登录地点：<span>东莞</span></div>
+                   <!-- <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
+                    <div class="user-info-list">上次登录地点：<span>东莞</span></div>-->
                 </el-card>
-                <el-card shadow="hover" style="height:252px;">
+
+                <el-card shadow="hover"   v-if="channelif" >
                     <div slot="header" class="clearfix">
-                        <span>渠道用户比例</span>
+                        <span>渠道用户比例(总用户数:{{allusersnumber}})</span>
                     </div>
-                    微量推广
-                    <el-progress :percentage="71.3" color="#42b983"></el-progress>
-                    云享社区
-                    <el-progress :percentage="24.1" color="#f1e05a"></el-progress>
-                    来钱道
-                    <el-progress :percentage="3.7"></el-progress>
-                    蚂蚁帮扶
-                    <el-progress :percentage="0.9" color="#f56c6c"></el-progress>
+
+                   <div v-for="item in channeldata"   >
+                     {{item.name}}(渠道号:{{item.channel}}) (注册人数:{{item.count}})
+                    <el-progress :percentage="channelnumber(item.count)"  :stroke-width="8"    color="#42b983"></el-progress>
+                  </div>
+
                 </el-card>
+
             </el-col>
             <el-col :span="16">
                 <el-row :gutter="20" class="mgb20">
@@ -332,6 +332,9 @@
                 todaycoins:'',
                 usersdata:'',
                 historycoins:'',
+                channeldata:[],
+                allusersnumber:0,
+                channelif:false,
                 data: [{
                         name: '2018/09/04',
                         value: 1083
@@ -391,9 +394,11 @@
         created(){
             this.handleListener();
             this.changeDate();
+            this.adminchanneldata();
             this.admintodaycoins();
             this.adminhistorycoins();
             this.adminusersdata();
+            
         },
         activated(){
             this.handleListener();
@@ -403,6 +408,25 @@
             bus.$off('collapse', this.handleBus);
         },
         methods: {
+            channelnumber:function(number){
+                 var num =number / this.allusersnumber*100;
+                  num = num.toFixed(1); //保留一位小数
+                    // console.log(typeof num);
+                return Number(num);//转变成Number类型才不会报错
+            },
+
+            //拿到渠道用户注册数
+            adminchanneldata() {
+               
+                this.$axios.post('/admin.php/index/channeldata').then((res) => {
+                    console.log("拿到渠道用户注册数",res.data)
+                    this.channeldata = res.data.data;
+                    this.allusersnumber=res.data.allusersnumber;
+                    this.channelif = true;
+                    
+                })
+            },
+
              //拿到今天的消耗数据  
             admintodaycoins() {
                 //this.url = '/admin.php/configure/extension/extension';
@@ -417,7 +441,7 @@
                 //this.url = '/admin.php/index/historycoins';
                 this.$axios.post('/admin.php/index/historycoins').then((res) => {
                     console.log("拿到历史的消耗数据",res.data)
-                   this.historycoins = res.data[0];
+                   this.historycoins = res.data.data[0];
                 })
             },
             //拿到用户数据
@@ -456,6 +480,7 @@
 
 
 <style scoped>
+
     .el-row {
         margin-bottom: 20px;
     }

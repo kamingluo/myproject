@@ -9,7 +9,7 @@ class Index
 
     public function channeldata()
     {
-        $sql = "select count(1) as count,a.channel,b.name from user a,channel b where a.channel=b.channel group by a.channel;";
+        $sql = "select count(1) as count,a.channel,b.name from user a,channel b where a.channel=b.channel group by a.channel ORDER BY count DESC;";
         $data = Db::query($sql); //拿到数据
         $allusersnumber=db('user')->count();//总注册用户数
         $state=['state'   => '200','message'  => "渠道注册用户数" ];
