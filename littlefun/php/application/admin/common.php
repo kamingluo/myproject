@@ -50,7 +50,7 @@ function signtemMsg($formid,$openid,$access_token)
 {
     $formid = $formid;
     $temid = 'iClWDGVGgzkixCkJPeaZ5iqPkJfHzgapJ8oA7A6wTRQ';
-    $page = 'pages/task/task?ald_media_id=20276&ald_link_key=80e8cc11a4c18d99';
+    $page = 'pages/index/index?ald_media_id=20276&ald_link_key=e2f83910477fd11f';
     $openid =$openid;
     if(!$formid)die('failed!');//openid有出现等于0的情况，所以不判断了
     $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
@@ -65,7 +65,7 @@ function signtemMsg($formid,$openid,$access_token)
                 "color"=>"#173177"
             ),
             "keyword2"=>array(
-                "value"=>"轻轻一点签到既有奖励，还有更多任务奖励等你来领取！",
+                "value"=>"轻轻一点签到既有奖励，更多任务奖励等你来领取！",
                 "color"=>"#173177"
             ),
             "keyword3"=>array(
