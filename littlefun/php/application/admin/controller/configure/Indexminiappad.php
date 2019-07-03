@@ -30,7 +30,8 @@ class Indexminiappad
 
     public function addandupdate(Request $request)
     {
-    	$id=$request->param("id");
+		$id=$request->param("id");
+		$newid=$request->param("newid");
     	$name=$request->param("name");
     	$appid=$request->param("appid");
     	$Jump=$request->param("Jump");
@@ -42,9 +43,14 @@ class Indexminiappad
     	$playtime=$request->param("playtime");
     	$open=$request->param("open");
     	if($id){
-    		$dbreturn= db('index_miniapp_ad')->where('id',$id)->update(['id' =>$id,'name' =>$name,'appid' =>$appid,'Jump' =>$Jump,'extradata' =>$extradata,'describe' => $describe,'imgurl' =>$imgurl,'type' =>$type,'score' =>$score,'playtime' =>$playtime,'open' =>$open]);
-    		return ['state'   => '200','message'  => "更新配置数据"] ;
- 
+			if($newid){
+				$dbreturn= db('index_miniapp_ad')->where('id',$id)->update(['id' =>$newid,'name' =>$name,'appid' =>$appid,'Jump' =>$Jump,'extradata' =>$extradata,'describe' => $describe,'imgurl' =>$imgurl,'type' =>$type,'score' =>$score,'playtime' =>$playtime,'open' =>$open]);
+    		    return ['state'   => '200','message'  => "更新配置数据"] ;
+			}
+			else{
+				$dbreturn= db('index_miniapp_ad')->where('id',$id)->update(['name' =>$name,'appid' =>$appid,'Jump' =>$Jump,'extradata' =>$extradata,'describe' => $describe,'imgurl' =>$imgurl,'type' =>$type,'score' =>$score,'playtime' =>$playtime,'open' =>$open]);
+    		    return ['state'   => '200','message'  => "更新配置数据"] ;
+			}
     	}else{
 
         	 $dbdata = ['id'=>'','name' =>$name,'appid' =>$appid,'Jump' =>$Jump,'extradata' =>$extradata,'describe' => $describe,'imgurl' =>$imgurl,'type' =>$type,'score' =>$score,'playtime' =>$playtime,'open' =>$open];
