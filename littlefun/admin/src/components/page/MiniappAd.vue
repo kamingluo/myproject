@@ -18,6 +18,16 @@
                 </el-table-column>
                 <el-table-column prop="appid" label="appid"  width='180'>
                 </el-table-column>
+
+                <el-table-column prop="open" label="open(0开1关)" width='130' >
+                </el-table-column>
+                 <el-table-column prop="playtime" label="playtime"  width='100'>
+                </el-table-column>
+                 <el-table-column prop="score" label="score"  width='100'>
+                </el-table-column>
+                <el-table-column prop="type" label="type(0直跳1图片)" width='150' >
+                </el-table-column>
+
                 <el-table-column prop="Jump" label="跳转链接" width='250'>
                 </el-table-column>
                  <el-table-column prop="describe" label="简介" width='180' >
@@ -26,21 +36,15 @@
                 </el-table-column>
                  <el-table-column prop="imgurl" label="图片链接" width='390' >
                 </el-table-column>
-                  <el-table-column prop="open" label="open(0开1关)" width='130' >
-                </el-table-column>
-                 <el-table-column prop="playtime" label="playtime"  width='100'>
-                </el-table-column>
-                 <el-table-column prop="score" label="score"  width='100'>
-                </el-table-column>
-                  <el-table-column prop="type" label="type(0直跳1图片)" width='150' >
-                </el-table-column>
-
                 <el-table-column label="操作" width="180" align="center">
                     <template slot-scope="scope">
                         <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
                         <el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                     </template>
                 </el-table-column>
+                  
+
+               
             </el-table>
 
             <!--<div class="pagination">
@@ -54,8 +58,12 @@
         <el-dialog title="编辑" :visible.sync="editVisible" width="30%">
             <el-form ref="form" :model="form" label-width="120px">
 
+             <el-form-item label="newid">
+                    <el-input v-model="form.newid"  placeholder="为空就是不改变id值" ></el-input>
+                </el-form-item>
+
                 <el-form-item label="id">
-                    <el-input v-model="form.id"  placeholder="id为空就是新增数据" ></el-input>
+                    <el-input v-model="form.id" ></el-input>
                 </el-form-item>
                 <el-form-item label="名称">
                     <el-input v-model="form.name"></el-input>
@@ -124,11 +132,7 @@
                 is_search: false,
                 editVisible: false,
                 delVisible: false,
-                form: {
-                    name: '',
-                    date: '',
-                    address: ''
-                },
+                form: {},
                 idx: -1,
                 deleteid:''
             }
