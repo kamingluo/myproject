@@ -9,7 +9,7 @@ class Extension
     public function extension()
     {
 
-    	$data=db('extension')->order('id asc')->select();//查询轮播图配置信息
+    	$data=db('extension')->order('id asc')->select();
         $state=['state'   => '200','message'  => "单页推广页配置数据查询成功" ];
         $resdata=array_merge($state,array('data'=>$data));
         return $resdata ;

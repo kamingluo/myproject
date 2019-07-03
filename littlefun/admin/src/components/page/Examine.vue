@@ -34,14 +34,14 @@
                 </el-table-column>
                 <el-table-column label="操作" width="180" align="center">
                     <template slot-scope="scope">
-                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">审核</el-button>
+                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">审核/el-button>
                         <!--<el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>-->
                     </template>
                 </el-table-column>
             </el-table>
 
             <div class="pagination">
-                <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="tableData.length">
+                <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="datapages">
                 </el-pagination>
             </div>
 
@@ -93,7 +93,8 @@
                     address: ''
                 },
                 idx: -1,
-                deleteid:''
+                deleteid:'',
+                datapages:0,
             }
         },
         created() {
@@ -122,8 +123,9 @@
              getData() {
                 this.url = '/admin.php/configure/examine/exchangedata';
                 this.$axios.post(this.url,{pages:this.cur_page}).then((res) => {
-                    console.log("用户兑换列表信息",res.data.data)
+                    console.log("11用户兑换列表信息",res)
                     this.tableData = res.data.data;
+                    this.datapages=res.data.countnumber;
                 })
             },
             handleEdit(index, row) {
