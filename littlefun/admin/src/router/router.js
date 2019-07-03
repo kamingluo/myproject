@@ -42,6 +42,11 @@ export default new Router({
           meta: { title: '单页推广配置' }
         },
         {
+          path: '/miniappad',
+          component: resolve => require(['../components/page/MiniappAd.vue'], resolve),
+          meta: { title: '首页miniapp配置' }
+        },
+        {
           path: '/tabs',
           component: resolve => require(['../components/page/Tabs.vue'], resolve),
           meta: { title: 'tab选项卡' }

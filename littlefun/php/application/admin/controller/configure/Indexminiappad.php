@@ -42,7 +42,7 @@ class Indexminiappad
     	$playtime=$request->param("playtime");
     	$open=$request->param("open");
     	if($id){
-    		$dbreturn= db('index_miniapp_ad')->where('id',$id)->update(['name' =>$name,'appid' =>$appid,'Jump' =>$Jump,'extradata' =>$extradata,'describe' => $describe,'imgurl' =>$imgurl,'type' =>$type,'score' =>$score,'playtime' =>$playtime,'open' =>$open]);
+    		$dbreturn= db('index_miniapp_ad')->where('id',$id)->update(['id' =>$id,'name' =>$name,'appid' =>$appid,'Jump' =>$Jump,'extradata' =>$extradata,'describe' => $describe,'imgurl' =>$imgurl,'type' =>$type,'score' =>$score,'playtime' =>$playtime,'open' =>$open]);
     		return ['state'   => '200','message'  => "更新配置数据"] ;
  
     	}else{
