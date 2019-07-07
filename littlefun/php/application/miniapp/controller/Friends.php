@@ -20,7 +20,7 @@ class Friends
        //进贡总数
         $scoresum=db('tribute_table')-> where('master_id',$request->param("userid"))->sum('pay_tribute');
         $state=['state'   => '200','message'  => "friendslist列表查询成功",'scoresum'  => $scoresum ];
-        $resdata=array_merge($state,array('miniappdata'=>$dbdata));
+        $resdata=array_merge($state,array('friendsdata'=>$dbdata));
         return $resdata ;
     }
 

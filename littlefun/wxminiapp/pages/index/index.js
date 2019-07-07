@@ -338,7 +338,7 @@ Page({
         gdtbanneraddelay1: true
       })
       that.gdtbanneraddelay()
-    }, 3000);
+    }, 3500);
 
   },
 

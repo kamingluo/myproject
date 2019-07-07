@@ -42,7 +42,7 @@
           <!-- <button class='bg-gradual-purple'   wx:if="{{usertodaytask.share < taskconfig.sharenum}}" >去分享</button> -->
           <!-- <button class='bg-grey' wx:else   >已完成</button> -->
           <kaming-button wx:else>
-            <button class='bg-grey'>已完成</button>
+            <button class='bg-grey'  >已完成</button>
           </kaming-button>
         </view>
       </view>
@@ -107,7 +107,7 @@
             <button class='bg-gradual-purple'  bindtap='sign'  >签到</button>
           </kaming-button>
           <kaming-button wx:else>
-            <button class='bg-grey'>已完成</button>
+            <button class='bg-grey'  bindtap='signcomplete'>已完成</button>
           </kaming-button>
         </view>
       </view>

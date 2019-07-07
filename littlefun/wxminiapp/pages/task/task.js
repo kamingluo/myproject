@@ -8,19 +8,19 @@ const {
 const scoreOperation = require('./../../utils/score.js');
 var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; //小盟广告
 let preventShake = 0; //防止快速点击
-
+let interstitialAd = null //插屏广告
 
 Page({
   data: {
     usertodaytask: "",
-    taskconfig:null,
+    taskconfig: null,
     adid: '',
     setInter: '',
     num: 0,
     taskid: '', //任务id
-    display:false, //是否展示
-    gdtaddisplay:false, //视频是否展示展示
-    xmad: {//小盟广告
+    display: false, //是否展示
+    gdtaddisplay: false, //视频是否展示展示
+    xmad: { //小盟广告
       adData: {},
       ad: {
         banner1: "xma416450d58bf78f56f0b54c487624b",
@@ -34,16 +34,14 @@ Page({
   onLoad: function(options) {
     this.taskconfig()
     this.addisplay()
-
-
   },
 
   onReady: function() {},
 
   onShow: function() {
     this.todaytask()
-
     this.playtask()
+    this.gdtinsertad()
 
   },
 
@@ -51,34 +49,30 @@ Page({
 
 
 
-  addisplay:function(){
+  addisplay: function() {
 
     this.setData({
       display: app.globalData.display || false
     })
 
-     let userchannel = wx.getStorageSync('userdata').channel
-     let scene = wx.getStorageSync('userdata').scene
-     if(userchannel==null || userchannel == 0 && scene == 1047 ){
-          this.setData({
-         gdtaddisplay: false
-        })
-     }
-     else{
-       this.setData({
-         gdtaddisplay: true
-        })
-     }
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
 
   },
 
 
   videoad: function() {
-
-     let userdata = wx.getStorageSync('userdata')
-      app.aldstat.sendEvent('点击看视频', userdata);
-
-
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('点击看视频', userdata);
     var that = this;
     // 在页面中定义激励视频广告
     let videoAd = null
@@ -112,7 +106,7 @@ Page({
         videoAd.load()
           .then(() => videoAd.show())
           .catch(err => {
-           //console.log('激励视频 广告显示失败')
+            //console.log('激励视频 广告显示失败')
             that.wxshowToast("暂无广告,等会再试试！")
           })
       })
@@ -130,11 +124,10 @@ Page({
       return
     }
     preventShake = nowTime;
-
     var that = this;
     wx.login({
       success: res => {
-        let score =that.data.taskconfig.videoscore
+        let score = that.data.taskconfig.videoscore
         request({
           service: 'ad/gdtad/lookvideoad',
           data: {
@@ -154,7 +147,7 @@ Page({
 
 
   //签到
-  sign:function(){
+  sign: function() {
     var that = this;
     wx.login({
       success: res => {
@@ -167,13 +160,71 @@ Page({
           success: res => {
             that.todaytask()
             that.wxshowToast("签到完成，增加金币")
+            setTimeout(function () {
+              that.onshowgdtinsertad()
+            },1500);
           },
         })
       }
     })
-
+   
   },
 
+  //点击签到完成按钮
+  signcomplete:function(){
+    var that =this
+    if (!app.globalData.display) {
+      return;
+    }
+    that.wxshowToast("你今天已经签到过了")
+    setTimeout(function () {
+      that.onshowgdtinsertad()
+    }, 1500);
+    
+  },
+
+   //加载插屏广告
+  gdtinsertad:function(){
+    if (!app.globalData.display){
+      //审核
+      return;
+    }
+
+      if (wx.createInterstitialAd) {
+        interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-d9dab7b33fc7dd29' })
+        interstitialAd.onLoad(() => {
+          //console.log('插屏广告加载onLoad event emit')
+        })
+        interstitialAd.onError((err) => {
+          console.log('插屏广告错误onError event emit', err)
+        })
+        interstitialAd.onClose((res) => {
+          console.log('插屏广告被关闭onClose event emit', res)
+        })
+      }
+  },
+
+
+
+  //显示插屏广告
+  onshowgdtinsertad: function () {
+
+    if (!app.globalData.display || ! this.data.gdtaddisplay) {
+      return;
+    }
+
+    if (this.data.taskconfig.instertad != 0){
+      console.log("广告错误")
+      return;
+    }
+      interstitialAd.show(
+      ).catch((err) => {
+        console.error("插屏广告错误啦", err)
+      })
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('任务页插屏次数', userdata);
+
+  },
 
   //查看用户今天任务完成情况
   todaytask: function() {
@@ -218,8 +269,8 @@ Page({
 
   //点击广点通广告
   gdtbannerclick: function(e) {
-     let userdata = wx.getStorageSync('userdata')
-      app.aldstat.sendEvent('点击任务页面广点通bannerad', userdata);
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('点击任务页面广点通bannerad', userdata);
     //console.log("点击广点通广告", e.currentTarget.dataset.adid)
     this.startSetInter()
     this.setData({
@@ -229,7 +280,7 @@ Page({
 
   },
 
-  nobannerad:function(){
+  nobannerad: function() {
     //console.log("没有广告源")
     this.wxshowToast("暂无广告")
     let userdata = wx.getStorageSync('userdata')
@@ -272,8 +323,8 @@ Page({
       return;
     }
 
-    let bannertime=that.data.taskconfig.bannertime || 15
-    let sharetime=that.data.taskconfig.sharetime  || 5
+    let bannertime = that.data.taskconfig.bannertime || 15
+    let sharetime = that.data.taskconfig.sharetime || 5
 
     if (that.data.taskid == 0) { //分享任务
       if (that.data.num >= sharetime) {
@@ -294,7 +345,7 @@ Page({
     //console.log("将时间恢复0")
     this.setData({
       num: 0,
-      taskid:"",
+      taskid: "",
     });
 
   },
@@ -314,7 +365,7 @@ Page({
     var that = this
     wx.login({
       success: res => {
-        let score =that.data.taskconfig.sharescore
+        let score = that.data.taskconfig.sharescore
         request({
           service: 'task/share/sharesuccess',
           data: {
@@ -335,7 +386,7 @@ Page({
     var that = this
     wx.login({
       success: res => {
-        let score =that.data.taskconfig.bannerscore
+        let score = that.data.taskconfig.bannerscore
         request({
           service: 'ad/gdtad/clickbannerad',
           data: {
@@ -354,7 +405,7 @@ Page({
 
   },
 
-  gdtbanneradclick: function (e) {
+  gdtbanneradclick: function(e) {
     //console.log("点击广点通banner广告", e.currentTarget)
     let userdata = wx.getStorageSync('userdata')
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并

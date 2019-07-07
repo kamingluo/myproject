@@ -31,7 +31,7 @@ Component({
             setTimeout(function () {
               //console.log("小盟广告加载啊")
               that.triggerEvent('adload')
-            }, i * 2000);
+            }, i * 2500);
           }
           var clickChance = wx.getStorageSync("xmadconfig").clickChance || 6
           setTimeout(function () {
