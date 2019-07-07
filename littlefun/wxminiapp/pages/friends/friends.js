@@ -49,32 +49,30 @@ Page({
         userid: userid
       },
       success: res => {
-        console.log('获取徒弟信息', res);
         this.setData({
-          friendsdata: res.miniappdata,
+          friendsdata: res.friendsdata,
           scoresum: res.scoresum,
-
         })
       },
     })
   },
 
 
-  qrcode: function () {
+  qrcode: function() {
     wx.navigateTo({
       url: '/pages/my/qrcode/qrcode'
     })
 
   },
 
-  gdtbanneradclick: function (e) {
+  gdtbanneradclick: function(e) {
     let userdata = wx.getStorageSync('userdata')
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
     app.aldstat.sendEvent('好友页面点击banner广告', data);
   },
 
 
-  display: function () {
+  display: function() {
     this.setData({
       display: app.globalData.display || false
     })
@@ -127,7 +125,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(options) {
-    if (app.globalData.display){
+    if (app.globalData.display) {
       let userdata = wx.getStorageSync('userdata')
       app.aldstat.sendEvent('点击好友页面分享', userdata);
       if (options.from == 'button') {
@@ -135,14 +133,9 @@ Page({
       } else {
         return share(2);
       }
-
-    }
-    else{
+    } else {
       return;
     }
-
-   
-
 
   }
 
