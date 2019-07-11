@@ -54,26 +54,17 @@ class Dataquery
     //7日兑换数
     $exchange=db('score_record')->where('openid',$openid)-> where('explain',"金币兑换礼品")->sum('score');
     
-
-    $task=['gdtbanner' => $gdtbanner,'gdtvideo'  => $gdtvideo ,'sign'  => $sign,'miniapp'  => $miniapp,'wlad'  => $wlad,'share'  => $share];
-    $coins=['tribute' => $tribute,'dicewin' => $dicewin,'dicelose'  => $dicelose ,'caiquanwin'  => $caiquanwin,'caiquanlose'  => $caiquanlose,'exchange'  => $exchange];
+    $task=['广点通banner广告' => $gdtbanner,'广点通视频广告'  => $gdtvideo ,'签到'  => $sign,'小程序跳转'  => $miniapp,'微量广告'  => $wlad,'分享'  => $share];
+    $coins=['进贡' => $tribute,'猜大小赢了' => $dicewin,'猜大小输了'  => $dicelose ,'猜拳赢了'  => $caiquanwin,'猜拳输了'  => $caiquanlose,'金币兑换'  => $exchange];
     $state=['state'   => '200','message'  => "用户7天记录数据" ];
     $resdata=array_merge($state,array('userdata'=>$userdata),array('task'=>$task),array('coins'=>$coins));
-
-
     return $resdata;
-
  }
-
-
 
 
   public function channeldata(Request $request) //用户信息
  {
-
     $channel=$request->param("channel");
-   
-
     $gdtbanner=db('gdt_ad_record')->where('channel',$channel)->where('adtype',1)->sum('score');//查询7天点击banner数
     $gdtvideo=db('gdt_ad_record')->where('channel',$channel)->where('adtype',2)->sum('score');//查询7天点击banner数
     $sign=db('sign')->where('channel',$channel)->sum('score');//查询7天签到数
@@ -83,7 +74,6 @@ class Dataquery
 
     //徒弟进贡
     $tribute=db('score_record')->where('channel',$channel)-> where('explain',"徒弟进贡")->sum('score');
-
     //骰子赢得
     $dicewin=db('score_record')->where('channel',$channel)-> where('explain',"猜大小赢得")->sum('score');
     //骰子输了
@@ -96,8 +86,8 @@ class Dataquery
     $exchange=db('score_record')->where('channel',$channel)-> where('explain',"金币兑换礼品")->sum('score');
     
 
-    $task=['gdtbanner' => $gdtbanner,'gdtvideo'  => $gdtvideo ,'sign'  => $sign,'miniapp'  => $miniapp,'wlad'  => $wlad,'share'  => $share];
-    $coins=['tribute' => $tribute,'dicewin' => $dicewin,'dicelose'  => $dicelose ,'caiquanwin'  => $caiquanwin,'caiquanlose'  => $caiquanlose,'exchange'  => $exchange];
+    $task=['广点通banner广告' => $gdtbanner,'广点通视频广告'  => $gdtvideo ,'签到'  => $sign,'小程序跳转'  => $miniapp,'微量广告'  => $wlad,'分享'  => $share];
+    $coins=['进贡' => $tribute,'猜大小赢了' => $dicewin,'猜大小输了'  => $dicelose ,'猜拳赢了'  => $caiquanwin,'猜拳输了'  => $caiquanlose,'金币兑换'  => $exchange];
     $state=['state'   => '200','message'  => "渠道7天记录数据" ];
     $resdata=array_merge($state,array('task'=>$task),array('coins'=>$coins));
 
