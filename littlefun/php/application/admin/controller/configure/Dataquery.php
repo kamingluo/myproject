@@ -57,7 +57,7 @@ class Dataquery
 
     $task=['gdtbanner' => $gdtbanner,'gdtvideo'  => $gdtvideo ,'sign'  => $sign,'miniapp'  => $miniapp,'wlad'  => $wlad,'share'  => $share];
     $coins=['tribute' => $tribute,'dicewin' => $dicewin,'dicelose'  => $dicelose ,'caiquanwin'  => $caiquanwin,'caiquanlose'  => $caiquanlose,'exchange'  => $exchange];
-    $state=['state'   => '200','message'  => "用户数据" ];
+    $state=['state'   => '200','message'  => "用户7天记录数据" ];
     $resdata=array_merge($state,array('userdata'=>$userdata),array('task'=>$task),array('coins'=>$coins));
 
 
@@ -98,7 +98,7 @@ class Dataquery
 
     $task=['gdtbanner' => $gdtbanner,'gdtvideo'  => $gdtvideo ,'sign'  => $sign,'miniapp'  => $miniapp,'wlad'  => $wlad,'share'  => $share];
     $coins=['tribute' => $tribute,'dicewin' => $dicewin,'dicelose'  => $dicelose ,'caiquanwin'  => $caiquanwin,'caiquanlose'  => $caiquanlose,'exchange'  => $exchange];
-    $state=['state'   => '200','message'  => "渠道数据" ];
+    $state=['state'   => '200','message'  => "渠道7天记录数据" ];
     $resdata=array_merge($state,array('task'=>$task),array('coins'=>$coins));
 
 
