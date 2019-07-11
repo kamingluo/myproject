@@ -13,6 +13,8 @@
                 <el-table-column prop="id" label="id" width='80'>
                 </el-table-column>
                 <el-table-column prop="openid" label="openid" width='200' >
+                <template slot-scope="scope">{{ scope.row.openid }} <el-button type="text" @click="getuserData(scope.row.openid)" >查看信息</el-button></template>
+                
                 </el-table-column>
                 <el-table-column prop="alipayName" label="支付宝名称"  width='120'>
                 </el-table-column>
@@ -69,6 +71,48 @@
                 <el-button type="primary" @click="saveEdit">确 定</el-button>
             </span>
         </el-dialog>
+
+
+
+
+
+
+
+         <!-- 编辑用户信息框 -->
+        <el-dialog title="用户信息操作信息" :visible.sync="userdataVisible" width="70%">
+
+          <div class="bodaydata"> 
+                 <div  class="userdatatitle"> 用户信息</div>
+                <div class="userdatadiv"  v-for="(value, name) in adminuserdata" >
+                <span class="keyname" >{{ name }}:</span><span  class="keyvalue" > {{ value }} </span>
+                </div>
+          </div>
+
+           <div class="bodaydata"> 
+                 <div  class="userdatatitle"> 7天任务信息</div>
+                <div class="userdatadiv"  v-for="(value, name) in admintaskdata" >
+                <span class="keyname" >{{ name }}:</span><span  class="keyvalue" > {{ value }} </span>
+                </div>
+          </div>
+
+
+          <div class="bodaydata"> 
+                 <div  class="userdatatitle">7天金币信息</div>
+                <div class="userdatadiv"  v-for="(value, name) in admincoinsdata" >
+                <span class="keyname" >{{ name }}:</span><span  class="keyvalue" > {{ value }} </span>
+                </div>
+          </div>
+
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="userdataVisible = false">关闭</el-button>
+            </span>
+        </el-dialog>
+
+
+
+
+
+
     </div>
 </template>
 
@@ -86,6 +130,10 @@
                 del_list: [],
                 is_search: false,
                 editVisible: false,
+                userdataVisible:false,
+                adminuserdata:null,
+                admintaskdata:null,
+                admincoinsdata:null,
                 delVisible: false,
                 form: {
                     name: '',
@@ -99,6 +147,7 @@
         },
         created() {
             this.getData();
+           
         },
         computed: {
             data() {
@@ -147,12 +196,54 @@
                      this.getData();
                 })
             },
+
+            getuserData(openid) {
+                this.url = '/admin.php/configure/dataquery/userdata';
+                this.$axios.post(this.url,{openid:openid}).then((res) => {
+                    console.log("用户操作信息",res.data)
+                    this.adminuserdata = res.data.userdata;
+                    this.admintaskdata = res.data.task;
+                    this.admincoinsdata = res.data.coins;
+                     this.userdataVisible = true;
+                    
+                })
+            },
+
+            userdata(){
+                this.userdataVisible = true;
+            },
+
+
+
+
+
         }
     }
 
 </script>
 
 <style scoped>
+
+ .bodaydata{
+     margin-top:25px;
+ }
+.userdatadiv{
+     display:inline;
+     margin-left:15px;
+      
+} 
+.userdatatitle{
+    font-size: 30px;
+}
+
+.keyname{
+font-size: 20px;
+}
+.keyvalue{
+font-size: 25px;
+color:red;
+font-weight:600;
+}
     .handle-box {
         margin-bottom: 20px;
     }
