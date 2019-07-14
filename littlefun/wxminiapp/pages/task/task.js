@@ -20,6 +20,7 @@ Page({
     taskid: '', //任务id
     display: false, //是否展示
     gdtaddisplay: false, //视频是否展示展示
+    gdtbannerposition:null,
     xmad: { //小盟广告
       adData: {},
       ad: {
@@ -34,6 +35,7 @@ Page({
   onLoad: function(options) {
     this.taskconfig()
     this.addisplay()
+    this.gdtbannerposition()
   },
 
   onReady: function() {},
@@ -68,6 +70,29 @@ Page({
     }
 
   },
+
+  gdtbannerposition:function(){
+    var that = this
+   
+    let number = Math.floor(Math.random() * 2)
+    console.log(number)
+    if (number == 1) {
+      that.setData({
+        gdtbannerposition: 'adunit - 9d16e8380e901760'
+      })
+    }
+    else{
+      that.setData({
+        gdtbannerposition: 'adunit-4c19107c204f1900'
+      })
+    }
+
+  },
+
+
+
+
+
 
 
   videoad: function() {
@@ -257,7 +282,7 @@ Page({
       service: 'task/index/taskconfig',
       method: 'GET',
       success: res => {
-        //console.log('任务页面配置信息', res.taskconfig);
+        console.log('任务页面配置信息', res.taskconfig);
         this.setData({
           taskconfig: res.taskconfig,
         })

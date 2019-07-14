@@ -18,7 +18,7 @@
   </view>
 
 
-  <view class='task centered'  wx:if="{{display}}" >
+  <view class='task centered'  wx:if="{{display && taskconfig.sharescore > 10}}" >
     <view class='task_list bg-img  u-img-slid padding-tb-xl' style="background-image: url('http://miniapplittlefun.gzywudao.top/task/block_content_bg.png');">
       <view class='box-body'>
         <view class=' box-body-image centered '>
@@ -67,9 +67,9 @@
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <view  class='gdtbannerad'   style="opacity: 0">
+          <view  class='gdtbannerad' wx:if="{{gdtbannerposition}}"  style="opacity: 0">
           <!-- <view  class='gdtbannerad'   > -->
-            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
+            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="{{gdtbannerposition}}" unit-id="{{gdtbannerposition}}"></ad>
           </view>
           <kaming-button wx:if="{{usertodaytask.gdtbanner < taskconfig.bannernum}}">
             <button class='bg-gradual-purple'  bindtap='nobannerad' >去体验看</button>

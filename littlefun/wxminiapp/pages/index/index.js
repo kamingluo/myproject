@@ -13,29 +13,29 @@ var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; /
 
 Page({
   data: {
-    display:false,
+    display: false,
     "swiperdata": [],
     "informationdata": [],
     "miniappaddata": [],
-    "indexconfig":"",
-    addapptips:false,
-    gdtaddisplay:false,
+    "indexconfig": "",
+    addapptips: false,
+    gdtaddisplay: false,
     adid: '',
     setInter: '',
     num: 0,
     taskid: '', //任务id
     tasktime: null, //任务时间
     taskscore: null, //任务奖励
-    adname:"",//AD名称
-    gdtbannerposition: '',//广点通位置
+    adname: "", //AD名称
+    gdtbannerposition: '', //广点通位置
     wlad: {
       adData: {},
       ad: {
-        banner: ["banner0", "banner1","banner2","banner3"],   //是否展示banner⼴广告，如不不需展示删掉该字段即可
+        banner: ["banner0", "banner1", "banner2", "banner3"], //是否展示banner⼴广告，如不不需展示删掉该字段即可
       }
     },
-    wladlist:null,
-    xmad: {//小盟广告
+    wladlist: null,
+    xmad: { //小盟广告
       adData: {},
       ad: {
         banner1: "xma416450d58bf78f56f0b54c487624b",
@@ -55,7 +55,7 @@ Page({
     this.addisplay()
     this.setData({
       addapptips: app.globalData.addapptips || false, //添加小程序提示
-      display:app.globalData.display  //全局控制
+      display: app.globalData.display //全局控制
     })
 
   },
@@ -64,20 +64,18 @@ Page({
   },
 
 
-    addisplay:function(){
-
-     let userchannel = wx.getStorageSync('userdata').channel
-     let scene = wx.getStorageSync('userdata').scene
-     if(userchannel==null || userchannel == 0 && scene == 1047 ){
-          this.setData({
-         gdtaddisplay: false
-        })
-     }
-     else{
-       this.setData({
-         gdtaddisplay: true
-        })
-     }
+  addisplay: function() {
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
 
   },
 
@@ -98,7 +96,7 @@ Page({
     })
   },
 
-    //查询首页配置
+  //查询首页配置
   indexconfig: function() {
     request({
       service: 'index/indexconfig',
@@ -115,13 +113,13 @@ Page({
 
 
   //微量广告展示
-  wladlist:function(number){
+  wladlist: function(number) {
 
-    if (!app.globalData.display){
+    if (!app.globalData.display) {
       return;
     }
 
-    var that =this
+    var that = this
     var wladnumber = number
     // console.log("微量ad配置数量", wladnumber)
     var newwladlist = []
@@ -166,8 +164,8 @@ Page({
 
   },
   clickminiappad: function(e) {
-      let userdata = wx.getStorageSync('userdata')
-      app.aldstat.sendEvent('首页点击miniappad', userdata);
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('首页点击miniappad', userdata);
     var that = this
     //console.log("点击miniappadclick", e.currentTarget.dataset.data)
     var jumptype = e.currentTarget.dataset.data.type
@@ -206,13 +204,13 @@ Page({
     }
   },
 
-  clickwlad:function(e){
-     let userdata = wx.getStorageSync('userdata')
-     app.aldstat.sendEvent('首页点击微量广告', userdata);
+  clickwlad: function(e) {
+    let userdata = wx.getStorageSync('userdata')
+    app.aldstat.sendEvent('首页点击微量广告', userdata);
     console.log("点击微量广告", e.target.dataset.id)
     var that = this
     that.startSetInter()
-    var adname =  "微量"+ e.target.dataset.id
+    var adname = "微量" + e.target.dataset.id
     var tasktime = that.data.indexconfig.wladtime || 15
     var taskscore = that.data.indexconfig.wladscore || 60
     that.setData({
@@ -261,18 +259,16 @@ Page({
     var tasktime = that.data.tasktime || 15
 
 
-    if (that.data.num >= tasktime){
+    if (that.data.num >= tasktime) {
       if (that.data.taskid == 0) {
         task.clickminiappad(adid, score, adname)
-      }
-      else if (that.data.taskid == 1){
+      } else if (that.data.taskid == 1) {
         task.clickwlad(adid, score, adname)
-      }
-      else{
+      } else {
         task.clickbannerad(adid, score)
       }
 
-    }else{
+    } else {
       that.wxshowToast("体验满时间成功才能获得奖励哦！")
 
     }
@@ -295,7 +291,7 @@ Page({
   },
 
 
-  nobannerad: function () {
+  nobannerad: function() {
     //console.log("没有广告源")
     this.wxshowToast("暂无广告")
     let userdata = wx.getStorageSync('userdata')
@@ -305,7 +301,7 @@ Page({
 
 
 
-  gdtbannerposition: function () {
+  gdtbannerposition: function() {
     var that = this
     let number = Math.floor(Math.random() * 3)
     if (number == 1) {
@@ -333,7 +329,7 @@ Page({
       gdtbannerposition: gdtbannerposition
     })
 
-    setTimeout(function () {
+    setTimeout(function() {
       that.setData({
         gdtbanneraddelay1: true
       })
@@ -343,10 +339,10 @@ Page({
   },
 
 
-  gdtbanneraddelay: function () {
+  gdtbanneraddelay: function() {
     //console.log("执行我了")
     var that = this
-    setTimeout(function () {
+    setTimeout(function() {
       that.setData({
         gdtbanneraddelay2: true
       })
@@ -354,8 +350,8 @@ Page({
   },
 
 
-  gdtbanneradclick: function (e) {
-    var that =this
+  gdtbanneradclick: function(e) {
+    var that = this
     //console.log("点击广点通banner广告", e.currentTarget)
     let userdata = wx.getStorageSync('userdata')
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
@@ -383,7 +379,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (options) {
+  onShareAppMessage: function(options) {
     let userdata = wx.getStorageSync('userdata')
     app.aldstat.sendEvent('点击首页分享', userdata);
     if (options.from == 'button') {

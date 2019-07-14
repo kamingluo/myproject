@@ -18,6 +18,7 @@ Page({
     friendsdata: "",
     scoresum: 0,
     display: false, //是否展示
+    gdtaddisplay: false,
     xmad: { //小盟广告
       adData: {},
       ad: {
@@ -35,6 +36,7 @@ Page({
   onLoad: function(options) {
     this.friendsdata()
     this.display()
+    this.addisplay()
 
   },
 
@@ -76,6 +78,23 @@ Page({
     this.setData({
       display: app.globalData.display || false
     })
+  },
+
+
+
+  addisplay: function () {
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
+
   },
 
 

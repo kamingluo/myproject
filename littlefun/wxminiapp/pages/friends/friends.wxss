@@ -17,6 +17,12 @@
 }
 
 
+ .gdtad2{
+    position: fixed;
+   margin-top: -80rpx;
+  border-radius: 15rpx;
+}
+
  .gdtad{
    margin-top: 15rpx;
   width: 98%;
@@ -52,7 +58,7 @@
 
 .explain {
   font-weight: bold;
-  margin-top: 15rpx;
+  margin-top: 10rpx;
   margin-bottom: 10rpx;
   display: flex;
   align-items: center;
@@ -214,9 +220,6 @@
 
 
 
-
-
-
 .bootm_text{
   display: flex;
   text-align: center;
@@ -225,7 +228,6 @@
   font-size: 30rpx;
   color: #696969;
 }
-
 
 .share{
   width: 100%;
