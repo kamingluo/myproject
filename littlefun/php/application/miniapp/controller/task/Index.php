@@ -37,5 +37,27 @@ class Index
         $resdata=array_merge($state,array('taskconfig'=>$adconfig));
         return $resdata ;
     }
+    
+    //查询用户有没有做添加微信客服任务
+    public function addweixin(Request $request){
+      $userid =$request->param("userid");
+      $count = db('addweixin')->where('userid', $userid)->count();
+      if($count > 0){
+        //已经完成过了
+        $resdata=['state' => '200','message'  => "已经添加微信" ,'addweixin' => false  ];
+        return $resdata ;
+      }
+      else{
+        //还没完成
+        $resdata=['state' => '200','message'  => "未添加微信",'addweixin' => true ];
+        return $resdata ;
+      }
+      
+  }
+
+
+
+
+
 
 }
