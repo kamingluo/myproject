@@ -54,13 +54,16 @@ class Statistics
         //提现金币数
         $exchangecoin=db('score_record')-> where('explain',"金币兑换礼品")->whereTime('create_time', 'yesterday')->sum('score');
 
+         //添加微信客服支出
+         $addweixinscore=db('addweixin')->whereTime('create_time', 'yesterday')->sum('score');
+
 
 
          $time =date("Y-m-d H:i:s", strtotime("-1 day"));//获取当前时间的前一天
 
         if($sign >= 0&&$all >= 0 && $gdtad >=0 && $miniappad >= 0&& $wlad >= 0){
 
-          $dbdata = ['id'=>'','whole' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'exchangecoin' =>$exchangecoin,'create_time' =>$time];
+          $dbdata = ['id'=>'','whole' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'exchangecoin' =>$exchangecoin,'addweixin' =>$addweixinscore,'create_time' =>$time];
           $resdata=db('statistics')->insert($dbdata);
 
           return "统计成功(1为成功)-->" . $resdata ;

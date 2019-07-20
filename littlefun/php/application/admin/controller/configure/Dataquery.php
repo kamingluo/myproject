@@ -62,7 +62,7 @@ class Dataquery
  }
 
 
-  public function channeldata(Request $request) //用户信息
+  public function channeldata(Request $request) 
  {
     $channel=$request->param("channel");
     $gdtbanner=db('gdt_ad_record')->where('channel',$channel)->where('adtype',1)->sum('score');//查询7天点击banner数

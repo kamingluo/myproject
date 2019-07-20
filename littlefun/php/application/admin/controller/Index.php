@@ -23,9 +23,11 @@ class Index
         $allusersnumber=db('user')->count();//总注册用户数
         $todayregisterusersnumber=db('user')->whereTime('create_time', 'today')->count();//今天注册用户数
         $todayactiveusersnumber=db('user')->whereTime('updata_time', 'today')->count();//今天活跃用户数
+        $todaypupilnumber=db('tribute_table')->whereTime('updata_time', 'today')->count();//今天收徒数
         $yesterdayregisterusersnumber=db('user')->whereTime('create_time', 'yesterday')->count();//昨天注册用户数
         $yesterdayactiveusersnumber=db('user')->whereTime('updata_time', 'yesterday')->count();//昨天活跃用户数
-        $data = ['allusersnumber' =>$allusersnumber,'todayregisterusersnumber'=>$todayregisterusersnumber,'todayactiveusersnumber'=>$todayactiveusersnumber,'yesterdayregisterusersnumber'=>$yesterdayregisterusersnumber,'yesterdayactiveusersnumber'=>$yesterdayactiveusersnumber];
+        $yesterdaypupilnumber=db('tribute_table')->whereTime('updata_time', 'yesterday')->count();//昨天收徒数
+        $data = ['allusersnumber' =>$allusersnumber,'todayregisterusersnumber'=>$todayregisterusersnumber,'todayactiveusersnumber'=>$todayactiveusersnumber,'todaypupilnumber'=>$todaypupilnumber,'yesterdayregisterusersnumber'=>$yesterdayregisterusersnumber,'yesterdayactiveusersnumber'=>$yesterdayactiveusersnumber,'yesterdaypupilnumber'=>$yesterdaypupilnumber];
         $state=['state'   => '200','message'  => "用户数据" ];
         $resdata=array_merge($state,array('data'=>$data));
         return $resdata;
@@ -73,6 +75,9 @@ class Index
         //进贡
         $paytribute=db('score_record')-> where('explain',"徒弟进贡")->whereTime('create_time', 'today')->sum('score');
 
+        //添加客服微信
+        $addweixin=db('addweixin')->whereTime('create_time', 'today')->sum('score');
+
         //骰子赢得
         $dicewin=db('score_record')-> where('explain',"猜大小赢得")->whereTime('create_time', 'today')->sum('score');
 
@@ -90,7 +95,7 @@ class Index
         $exchangecoin=db('score_record')-> where('explain',"金币兑换礼品")->whereTime('create_time', 'today')->sum('score');
 
 
-        $data = ['whole' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'exchangecoin' =>$exchangecoin];
+        $data = ['whole' =>$all,'gdtad' =>$gdtad,'wlad' =>$wlad,'miniappad' =>$miniappad,'sign' =>$sign,'share' =>$share,'paytribute' =>$paytribute,'addweixin' =>$addweixin,'dicewin' =>$dicewin,'dicelose' =>$dicelose,'caiquanwin' =>$caiquanwin,'caiquanlose' =>$caiquanlose,'exchangecoin' =>$exchangecoin];
 
         $state=['state'   => '200','message'  => "拿到今天所有数据的和" ];
         $resdata=array_merge($state,array('data'=>$data));
