@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -64,11 +64,11 @@
 					"scene": 1001
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "任务页面",
 					"pathName": "pages/task/task",
-					"query": "",
-					"scene": null
+					"query": "channel=1001",
+					"scene": 1001
 				},
 				{
 					"id": 4,

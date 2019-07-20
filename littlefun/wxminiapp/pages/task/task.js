@@ -21,6 +21,7 @@ Page({
     display: false, //是否展示
     gdtaddisplay: false, //视频是否展示展示
     gdtbannerposition:null,
+    addweixin:false,
     xmad: { //小盟广告
       adData: {},
       ad: {
@@ -36,6 +37,7 @@ Page({
     this.taskconfig()
     this.addisplay()
     this.gdtbannerposition()
+    this.addweixin()
   },
 
   onReady: function() {},
@@ -89,6 +91,24 @@ Page({
 
   },
 
+
+
+ addweixin:function(){
+   var userid = wx.getStorageSync('userdata').id
+   request({
+     service: 'task/index/addweixin',
+     data: {
+       userid: userid,
+     },
+     method: 'GET',
+     success: res => {
+       this.setData({
+         addweixin: res.addweixin,
+       })
+     }
+   })
+
+ },
 
 
 
@@ -282,7 +302,7 @@ Page({
       service: 'task/index/taskconfig',
       method: 'GET',
       success: res => {
-        console.log('任务页面配置信息', res.taskconfig);
+        //console.log('任务页面配置信息', res.taskconfig);
         this.setData({
           taskconfig: res.taskconfig,
         })
@@ -435,6 +455,19 @@ Page({
     let userdata = wx.getStorageSync('userdata')
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
     app.aldstat.sendEvent('任务页面点击广点通banner广告', data);
+  },
+
+
+  addweixinkefu:function(){
+    var kefuimg = this.data.taskconfig.kefuimg 
+    wx.previewImage({   //点击预览图片
+      urls: [kefuimg],
+      success: function() {
+        let userdata = wx.getStorageSync('userdata')
+        app.aldstat.sendEvent('点击添加微信按钮', userdata);
+      },
+    });
+
   },
 
 
