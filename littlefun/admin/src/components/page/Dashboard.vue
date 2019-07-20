@@ -70,6 +70,13 @@
                                     <div class="grid-num">{{usersdata.allusersnumber}}</div>
                                     <div>总注册用户数</div>
                                 </div>
+
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{usersdata.todayregisterusersnumber}}</div>
+                                    <div>今日注册用户数</div>
+                                </div>
+
+
                             </div>
                         </el-card>
                     </el-col>
@@ -77,14 +84,18 @@
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-lx-people grid-con-icon"></i>
-                                <div class="grid-cont-right">
-                                    <div class="grid-num">{{usersdata.todayregisterusersnumber}}</div>
-                                    <div>今日注册用户数</div>
-                                </div>
+                                
                                  <div class="grid-cont-right">
                                     <div class="grid-num">{{usersdata.yesterdayregisterusersnumber}}</div>
                                     <div>昨日注册用户数</div>
                                 </div>
+
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{usersdata.todayactiveusersnumber}}</div>
+                                    <div>今日活跃用户数</div>
+                                </div>
+
+
                             </div>
                         </el-card>
                     </el-col>
@@ -93,12 +104,12 @@
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-lx-people grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">{{usersdata.todayactiveusersnumber}}</div>
-                                    <div>今日活跃用户数</div>
+                                    <div class="grid-num">{{usersdata.todaypupilnumber}}</div>
+                                    <div>今日收徒数</div>
                                 </div>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">{{usersdata.yesterdayactiveusersnumber}}</div>
-                                    <div>昨日活跃用户数</div>
+                                    <div class="grid-num">{{usersdata.yesterdaypupilnumber}}</div>
+                                    <div>昨日收徒数</div>
                                 </div>
                             </div>
                         </el-card>
@@ -238,6 +249,29 @@
                             </div>
                         </el-card>
                     </el-col>
+
+
+                    <el-col :span="8">
+                        <el-card shadow="hover" :body-style="{padding: '0px'}">
+                     <div class="grid-content grid-con-3">
+                                
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{historycoins.addweixin}}</div>
+                                    <div>历史添加微信支出</div>
+                                </div>
+                                <div class="grid-cont-jia">
+                                    <div> 加</div>
+                                    </div>
+                                <div class="grid-cont-right">
+                                    <div class="grid-num">{{todaycoins.addweixin }}</div>
+                                    <div>今日添加微信支出</div>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+
+
+
 
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{padding: '0px'}">
