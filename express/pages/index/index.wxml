@@ -90,6 +90,16 @@
 
 
 
+<!-- 自定义第三方广告 -->
+<view class='miniappad' wx:if="{{indexminiappdata.length>0}}">
+  <view class=' centered' wx:for="{{indexminiappdata}}" wx:key="item">
+    <view data-data='{{item}}' bindtap='miniappadclick'>
+      <image src='{{item.imgurl}}'></image>
+    </view>
+  </view>
+</view>
+
+
 <!-- 广点通banner广告 -->
 <view class='centered' wx:if="{{gdtbannerposition.banneradposition1}}">
   <view class='gdtad'>
@@ -100,14 +110,7 @@
 
 
 
-<!-- 自定义第三方广告 -->
-<view class='miniappad' wx:if="{{indexminiappdata.length>0}}">
-  <view class=' centered' wx:for="{{indexminiappdata}}" wx:key="item">
-    <view data-data='{{item}}' bindtap='miniappadclick'>
-      <image src='{{item.imgurl}}'></image>
-    </view>
-  </view>
-</view>
+
 
 <!-- 小盟广告 -->
 <view class='centered'>
