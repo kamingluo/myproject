@@ -249,3 +249,10 @@
   color: orange;
   font-weight: 600;
 }
+
+
+.ad{
+  position: absolute;
+  top:400rpx;
+  left:50rpx;
+}

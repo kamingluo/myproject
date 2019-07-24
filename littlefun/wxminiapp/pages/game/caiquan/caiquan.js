@@ -22,12 +22,14 @@ Page({
     result:'',
     jifen:"",
     word:'开始',
-    coin:''
+    coin:'',
+    display:false,
+    gdtaddisplay: false
    
   },
 
   onLoad: function () {
-
+    
    
   },
 
@@ -41,8 +43,35 @@ Page({
     // })
     // 
     this.userdata()
+    this.addisplay()
     
   },
+
+
+  addisplay: function () {
+
+    this.setData({
+      display: app.globalData.display || false
+    })
+
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
+
+  },
+
+
+
+
+
 
 
    //获取用户信息

@@ -66,9 +66,9 @@
           </view>
         </view>
         <view class='box-body-anniu centered '>
-          <view  class='gdtbannerad' wx:if="{{gdtbannerposition}}"  style="opacity: 0">
+          <view  class='gdtbannerad' style="opacity: 0">
           <!-- <view  class='gdtbannerad'   > -->
-            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="{{gdtbannerposition}}" unit-id="{{gdtbannerposition}}"></ad>
+            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
           </view>
           <kaming-button wx:if="{{usertodaytask.gdtbanner < taskconfig.bannernum}}">
             <button class='bg-gradual-purple'  bindtap='nobannerad' >去体验看</button>

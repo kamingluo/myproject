@@ -10,6 +10,8 @@ Page({
   data: {
     userscorerecord: [],  //信息流数组
     loadModal: true,
+    display: false,
+    gdtaddisplay: false
   },
 
   /**
@@ -46,6 +48,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.addisplay()
+
+  },
+
+
+
+  addisplay: function () {
+
+    this.setData({
+      display: app.globalData.display || false
+    })
+
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
 
   },
 

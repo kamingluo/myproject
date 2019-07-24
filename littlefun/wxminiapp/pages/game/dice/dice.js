@@ -24,7 +24,9 @@ Page({
       X: 0
     },
     showBet: false, // 是否显示黑盘中的筹码
-    timeArray: []
+    timeArray: [],
+    display: false,
+    gdtaddisplay: false
   },
   putChip: function(event) {
     var that = this
@@ -277,8 +279,36 @@ Page({
 
   onShow: function() {
     this.userdata()
+    this.addisplay()
     this.isHidden();
   },
+
+
+
+  addisplay: function () {
+
+    this.setData({
+      display: app.globalData.display || false
+    })
+
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
+
+  },
+
+
+
+
+
 
   /**
   * 用户点击右上角分享
