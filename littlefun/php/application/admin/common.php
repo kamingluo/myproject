@@ -90,6 +90,53 @@ function signtemMsg($formid,$openid,$access_token)
 }
 
 
+
+
+function profit($formid,$openid,$access_token)
+{
+    $formid = $formid;
+    $temid = 'LtBmBA2Q6NrFzpz4fvl_pkRUzwKRJUkJ64T4P1X5vHE';
+    $page = 'pages/index/index?ald_media_id=20276&ald_link_key=e2f83910477fd11f';
+    $openid =$openid;
+    if(!$formid)die('failed!');//openid有出现等于0的情况，所以不判断了
+    $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
+    $data = array(//这里一定要按照微信给的格式
+        "touser"=>$openid,
+        "template_id"=>$temid,
+        "page"=>$page,
+        "form_id"=>$formid,
+        "data"=>array(
+            "keyword1"=>array(
+                "value"=>"一点好玩",
+                "color"=>"#173177"
+            ),
+            "keyword2"=>array(
+                "value"=>"100金币！",
+                "color"=>"#173177"
+            ),
+            "keyword3"=>array(
+                "value"=>"新增添加客服任务，100金币快速到手，更多任务等你来！",
+                "color"=>"#173177"
+            ),
+            "keyword4"=>array(
+                "value"=>"常规任务！",
+                "color"=>"#930000"
+            )
+        ),
+        "emphasis_keyword"=>"keyword5.DATA",//需要进行加大的消息
+    );
+    $res = postCurl($url,$data,'json');//将data数组转换为json数据
+    if($res){
+        echo "1";
+       // echo json_encode(array('state'=>4,'msg'=>$res));
+    }else{
+         echo "222";
+        // echo json_encode(array('state'=>5,'msg'=>$res));
+    }
+}
+
+
+
 function postCurl($url,$data,$type)
 {
     if($type == 'json'){
