@@ -6,7 +6,7 @@ use think\Db;
 use think\Request;
 use think\Exception;
 use think\Log;
-
+use think\cache\driver\Redis;
 class Clear
 {
     //定时清理
@@ -46,6 +46,22 @@ class Clear
         }
 
     }
+
+
+    public function test()
+    {
+        // return 'test';
+
+         $redis = new Redis();  //实例化这个类
+        $redis->set('name', 'chenmo');
+         $data=$redis->get('name');
+     return $data;
+
+    }
+
+
+
+
 
    
 
