@@ -43,18 +43,25 @@
     </view>
    <!-- 获取积分和点击兑换 -->
    <text class='shuoming'>游戏说明：100金币一局,赢了获取100金币，输了扣除100金币，平局不扣金币</text>
-</view>
 
 
-
-
-<!-- 广点通banner广告开始-->
-<view class='adbrush'>
-  <view class='gdtad'>
+   <!-- 广点通banner广告开始-->
+<view  wx:if="{{gdtaddisplay}}" >
+  <view class='gdtad'   style="opacity: 0" >
     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-6b1bfd8a209c7e92" unit-id="adunit-6b1bfd8a209c7e92"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->
+
+
+
+
+
+</view>
+
+
+
+
 
 
 
