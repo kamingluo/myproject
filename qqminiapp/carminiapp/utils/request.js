@@ -4,23 +4,23 @@ const request = (config) => {
     return false;
   }
   const data = config.data
-  config.loading && wx.showLoading({
+  config.loading && qq.showLoading({
     title: '正在加载',
     mask: true
   });
-  wx.showNavigationBarLoading();
-  wx.request({
+  qq.showNavigationBarLoading();
+  qq.request({
     url: config.url || (baseConfig.host + config.service),
     data: data,
     method: 'POST',
-    success: function(res) {
-      config.loading && wx.hideLoading();
-      wx.hideNavigationBarLoading();
+    success: function (res) {
+      config.loading && qq.hideLoading();
+      qq.hideNavigationBarLoading();
       if (res.state >= 400) {
         if (config.fail) {
           config.fail();
         } else {
-          wx.showToast({
+          qq.showToast({
             title: '网络异常',
             icon: 'none'
           })
@@ -28,13 +28,13 @@ const request = (config) => {
       } else {
         //console.log("请求返回的res",res)
         const data = res.data;
-        if (data && data.state == 200 || data.status==0) {
+        if (data && data.state == 200 || data.status == 0) {
           config.success && config.success(data);
         } else {
           if (config.fail) {
             config.fail && config.fail(data);
           } else {
-            config.showToast && wx.showToast({
+            config.showToast && qq.showToast({
               title: data && data.result && data.result.msg || '状态异常',
               icon: 'none'
             })
@@ -42,19 +42,19 @@ const request = (config) => {
         }
       }
     },
-    fail: function(res) {
-      config.loading && wx.hideLoading();
-      wx.hideNavigationBarLoading();
+    fail: function (res) {
+      config.loading && qq.hideLoading();
+      qq.hideNavigationBarLoading();
       if (config.fail) {
         config.fail && config.fail(res);
       } else {
-        config.showToast && wx.showToast({
+        config.showToast && qq.showToast({
           title: '网络异常',
           icon: 'none'
         })
       }
     },
-    complete: function(res) {
+    complete: function (res) {
       config.complete && config.complete(res);
     }
   })

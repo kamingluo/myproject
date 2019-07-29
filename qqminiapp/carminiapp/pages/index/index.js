@@ -7,39 +7,40 @@ const {
 
 Page({
   data: {
-    usercar:[],
+    usercar: [],
     cardCur: 0,
     swiperList: [{
       id: 2,
       type: 'image',
       url: 'http://qiniu.luojiaming.vip/carimagebanner.jpg'
-    }, ],
+    },],
   },
 
   onLoad: function () {
   },
-  onShow:function(){
+  onShow: function () {
     this.cardata()
   },
 
 
   //查询违章信息跳转
-  query: function() {
-    wx.navigateTo({
+  query: function () {
+    qq.navigateTo({
       url: '../carViolation/carViolation'
     })
   },
   //添加车辆
-  addcar:function(){
-    wx.navigateTo({
+  addcar: function () {
+    qq.navigateTo({
       url: '../queryviolation/queryviolation'
     })
   },
- 
- //查询用户车辆信息
-  cardata:function(){
-    wx.login({
+
+  //查询用户车辆信息
+  cardata: function () {
+    qq.login({
       success: res => {
+        console.log("login", res)
         request({
           service: '/car/usercar',
           showToast: true,
@@ -55,7 +56,21 @@ Page({
         })
       }
     })
- },
+  },
 
-  
+  onShareAppMessage(res) {
+    let userid = qq.getStorageSync('userdata').id
+    let userchannel = qq.getStorageSync('userdata').channel
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '违章查询，查查你的爱车有没有违章！',
+      path: '/pages/index/index?channel=' + userchannel + '&master_id=' + userid, // 路径，传递参数到指定页面。
+      imageUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564232549949&di=15e6a6b02b322cb954aa59f8b042e0e2&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2677683685%2C3307097535%26fm%3D214%26gp%3D0.jpg',
+    }
+  }
+
+
 })

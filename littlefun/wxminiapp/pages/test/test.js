@@ -22,30 +22,38 @@ Page({
   data: {
     setInter: '',
     num: 0,
+    zxad: {
+      adData: {},
+      ad: {
+        banner: ["banner"], //是否展示 banner 广告，如不展示删掉即可
+        insert: "insert", //是否展示插屏广告，如不展示删掉即可
+        fixed: "fixed" //是否展示右下悬浮广告，如不展示删掉即可
+      }
+    }
   },
 
 
-  increaseScore: function() {
+  increaseScore: function () {
     scoreOperation.increase(80, "积分增加测试")
 
   },
 
-  reduceScore: function() {
+  reduceScore: function () {
     scoreOperation.reduce(80, "积分减少测试")
 
   },
 
 
-  havecode: function() {
+  havecode: function () {
     wx.login({
-      success: function(res) {
+      success: function (res) {
         console.log("用户code：：：：：：", res.code)
       }
     })
 
   },
 
-  testjumpminiapp: function() {
+  testjumpminiapp: function () {
     wx.navigateToMiniProgram({
       appId: 'wxdb8afdceb2e24d7a',
       path: 'pages/index/index?pakey=551066f6',
@@ -56,46 +64,46 @@ Page({
     })
   },
 
-  lookvideoad: function() {
+  lookvideoad: function () {
     task.lookvideoad(1111, 100)
 
   },
 
 
 
-  clickbannerad: function() {
+  clickbannerad: function () {
     task.clickbannerad(2222, 90)
   },
 
-  clickminiappad: function() {
+  clickminiappad: function () {
     let taskstuta = task.clickminiappad(3333, 80, "点击clickminiappad")
     console.log(taskstuta)
   },
 
-  clickwlad: function() {
+  clickwlad: function () {
     let taskstuta = task.clickwlad(4444, 70, "点击clickwlad")
     console.log(taskstuta)
   },
 
-  signin: function() {
+  signin: function () {
     let taskstuta = task.signin(60)
     console.log(taskstuta)
   },
 
-  signdouble: function() {
+  signdouble: function () {
     let taskstuta = task.signdouble()
     console.log(taskstuta)
   },
 
 
-  share: function() {
+  share: function () {
     let taskstuta = task.share(50)
     console.log(taskstuta)
 
   },
 
 
-  buttonzujian: function(e) {
+  buttonzujian: function (e) {
     console.log("测试组件", e)
   },
 
@@ -106,21 +114,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     //console.log(options)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     console.log('onShow时间==' + this.data.num);
     clearInterval(this.data.setInter)
     this.setData({
@@ -130,11 +138,11 @@ Page({
   },
 
 
-  startSetInter: function() {
+  startSetInter: function () {
     var that = this;
     //将计时器赋值给setInter
     that.data.setInter = setInterval(
-      function() {
+      function () {
         var numVal = that.data.num + 1;
         that.setData({
           num: numVal
@@ -142,7 +150,7 @@ Page({
         console.log('setInterval==' + that.data.num);
       }, 1000);
   },
-  endSetInter: function() {
+  endSetInter: function () {
     var that = this;
     //清除计时器  即清除setInter
     clearInterval(that.data.setInter)
@@ -157,7 +165,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
     this.startSetInter()
 
   },
@@ -165,28 +173,28 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

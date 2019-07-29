@@ -7,13 +7,13 @@ const {
 
 Page({
   data: {
-    city:"粤",
+    city: "粤",
     carnumber: '',
     frameno: '',
     engineno: '',
     mobile: '',
     citydata: [],
-    citydatashow:false
+    citydatashow: false
   },
 
   onLoad: function () {
@@ -23,34 +23,34 @@ Page({
 
   //查询违章信息跳转
   query: function () {
-    wx.navigateTo({
+    qq.navigateTo({
       url: '../carViolation/carViolation'
     })
   },
 
- //点击城市展开选择城市或者隐藏
-  clickcity:function(e){
-    console.log("点击城市",e)
-    if(this.data.citydatashow==false){
+  //点击城市展开选择城市或者隐藏
+  clickcity: function (e) {
+    console.log("点击城市", e)
+    if (this.data.citydatashow == false) {
       this.setData({
-          citydatashow:true
-    })
+        citydatashow: true
+      })
     }
-    else{
+    else {
       this.setData({
-          citydatashow: false
-    })
+        citydatashow: false
+      })
     }
   },
 
   //点击选择城市
   choicecity: function (e) {
     console.log(e._relatedInfo.anchorRelatedText)
-     this.setData({
-          city: e._relatedInfo.anchorRelatedText,
-       citydatashow: false
+    this.setData({
+      city: e._relatedInfo.anchorRelatedText,
+      citydatashow: false
     })
-    
+
   },
 
   //查询违章省份简称
@@ -89,23 +89,23 @@ Page({
   //查询按钮
   BtnClick: function (e) {
     this.addcar()
-    console.log(" city:" + this.data.city +"carnumber：" + this.data.carnumber + " frameno：" + this.data.frameno+ " engineno:" + this.data.engineno+ " mobile:" + this.data.mobile);
+    console.log(" city:" + this.data.city + "carnumber：" + this.data.carnumber + " frameno：" + this.data.frameno + " engineno:" + this.data.engineno + " mobile:" + this.data.mobile);
     this.query()
   },
 
 
-  addcar:function(){
-     wx.login({
+  addcar: function () {
+    qq.login({
       success: res => {
         request({
           service: '/car/addcar',
           showToast: true,
           data: {
             code: res.code,
-            lsprefix:this.data.city,
-            lsnum:this.data.carnumber,
-            frameno:this.data.frameno,
-            engineno:this.data.engineno,
+            lsprefix: this.data.city,
+            lsnum: this.data.carnumber,
+            frameno: this.data.frameno,
+            engineno: this.data.engineno,
             mobile: this.data.mobile
           },
           success: res => {

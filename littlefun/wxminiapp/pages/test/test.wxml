@@ -23,6 +23,13 @@
 
  <kaming-button> <button  bindtap='buttonzujian' class='bg-gradual-blue'>自定义组件测试</button></kaming-button>
 
+ <!-- banner 广告 -->
+<view class="zx_banner" style="background: #fff;color:#333;">
+<zx-ad data-id="{{zxad.ad.banner[0]}}" adData="{{zxad.adData}}" bindclick="zxadClick" bindclose="zxadClose"
+class="zx_component">
+</zx-ad>
+</view>
+
 
   <button type='primary' style='margin-bottom:10px;' bindtap='startSetInter'>开始计时{{num}}</button>
   <button type='primary' bindtap='endSetInter'>结束计时</button>

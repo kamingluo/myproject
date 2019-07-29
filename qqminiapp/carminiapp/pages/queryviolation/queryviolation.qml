@@ -42,8 +42,8 @@
 
 
 
-<view class='carcity animation-scale-up' wx:if="{{citydatashow}}">
+<view class='carcity animation-scale-up' qq:if="{{citydatashow}}">
   <view class="carcitybody">
-    <view class="bg-cyan padding city" wx:for="{{citydata}}" wx:key="item" bindtap='choicecity'>{{item.lsprefix}}</view>
+    <view class="bg-cyan padding city" qq:for="{{citydata}}" qq:key="item" bindtap='choicecity'>{{item.lsprefix}}</view>
   </view>
 </view>

@@ -41,7 +41,7 @@
 .card-right button{
   background-color:  #1787E8;
   color: white;
-  font-size: 30rpx;
+  font-size: 28rpx;
   width: 150rpx;
   height: 70rpx;
 }

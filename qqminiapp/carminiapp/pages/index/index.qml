@@ -1,19 +1,19 @@
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">车辆小管家</view>
+  <view slot="content">违章查询</view>
 </cu-custom>
 
 <view >
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{swiperList}}" wx:key>
-    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  <swiper-item qq:for="{{swiperList}}" qq:key>
+    <image src="{{item.url}}" mode="aspectFill" qq:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" qq:if="{{item.type=='video'}}"></video>
   </swiper-item>
 </swiper>
 </view>
 
-<view  class='mycardata' wx:if="{{usercar.length}}" >
+<view  class='mycardata' qq:if="{{usercar.length}}" >
 <view class='centered' ><view class='mycartitle' >我的车辆</view></view>
-<view class='centered' wx:for="{{usercar}}" wx:key="item"   >
+<view class='centered' qq:for="{{usercar}}" qq:key="item"   qq:key="key" >
 <view class='card radius shadow-warp bg-white centered '  >
 <view class='card-left centered'><image  src='/images/car.svg'  ></image></view>
 <view class='card-center ' >
@@ -29,7 +29,7 @@
 </view>
 </view>
 
-<view wx:else class='centered' >
+<view qq:else class='centered' >
 <view class='nocaraddcar radius shadow-warp bg-white ' bindtap='addcar' >
 <view><image  src='/images/add.svg'  ></image></view>
 <view class='nocaraddcar-text' >添加车辆</view>

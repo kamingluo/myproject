@@ -4,6 +4,7 @@ const { request } = require('./utils/request.js')//公共请求方法
 const ald = require('./utils/sdk/ald/ald-stat.js') //阿拉丁统计
 const wlad = require('./utils/sdk/wlad/wlad_sdk.min.js'); //微量广告
 var App = require('./utils/sdk/xmad/xmadx_sdk.min.js').xmad(App, 'App').xmApp; //小盟广告
+const zxht = require('./utils/sdk/zx/zxsdk.js');
 App({
   globalData: {
     //一定要，删除报错
@@ -15,7 +16,7 @@ App({
     common.xmaddata() //小盟ad配置
     this.scene(e.scene)//传入入口值判断
     common.shareconfig()//分享配置
-    
+
     // 获取系统状态栏信息
     wx.getSystemInfo({
       success: e => {
@@ -27,9 +28,9 @@ App({
     })
   },
 
-  scene: function(scene){
-     // wx.setStorageSync('scene', scene)
-    if (scene == 1001 || scene == 1129 ) {
+  scene: function (scene) {
+    // wx.setStorageSync('scene', scene)
+    if (scene == 1001 || scene == 1129) {
       //console.log("隐藏")
       this.globalData.display = false;
     }
@@ -37,10 +38,10 @@ App({
       //console.log("显示")
       this.globalData.display = true;
     }
-    if (scene == 1089 || scene == 1001 ){
+    if (scene == 1089 || scene == 1001) {
       this.globalData.addapptips = false;
     }
-    else{
+    else {
       this.globalData.addapptips = true;
     }
 

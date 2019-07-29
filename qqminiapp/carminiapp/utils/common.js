@@ -6,7 +6,7 @@ const baseConfig = require('./config.js')
 
 function register(channel, master_id) {
   //console.log('传过来的注册信息', channel, master_id);
-  wx.login({
+  qq.login({
     success: res => {
       request({
         service: '/user/register',
@@ -17,13 +17,14 @@ function register(channel, master_id) {
         },
         success: res => {
           //console.log('打印注册信息', res);
-          wx.setStorageSync('openid', res.userdata.openid)
+          qq.setStorageSync('openid', res.userdata.openid)
+          qq.setStorageSync('userdata', res.userdata)
         },
-         fail: res => {
-            // console.log('错误捕捉', res);
+        fail: res => {
+          //console.log('错误捕捉', res);
         },
-           complete: res => {
-            // console.log('成功不成功都执行函数', res);
+        complete: res => {
+          // console.log('成功不成功都执行函数', res);
         },
       })
     }

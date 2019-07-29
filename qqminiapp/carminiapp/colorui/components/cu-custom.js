@@ -14,7 +14,7 @@ Component({
     bgColor: {
       type: String,
       default: ''
-    }, 
+    },
     isCustom: {
       type: [Boolean, String],
       default: false
@@ -41,12 +41,12 @@ Component({
    */
   methods: {
     BackPage() {
-      wx.navigateBack({
+      qq.navigateBack({
         delta: 1
       });
     },
-    toHome(){
-      wx.reLaunch({
+    toHome() {
+      qq.reLaunch({
         url: '/pages/index/index',
       })
     }
