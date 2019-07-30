@@ -85,6 +85,14 @@ Page({
 
   },
 
+  testpages: function () {
+    console.log("long tap")
+    wx.navigateTo({
+      url: '/pages/test/test'
+    })
+
+  },
+
   gdtbanneradclick: function (e) {
     //console.log("点击广点通banner广告", e.currentTarget)
     let userdata = wx.getStorageSync('userdata')

@@ -13,7 +13,7 @@
       <open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
     </view>
     <view class='username'>
-      <view class='userNickName'>
+      <view class='userNickName'  bindlongpress="testpages" >
         <open-data type="userNickName"></open-data>
       </view>
       <view class='id'>

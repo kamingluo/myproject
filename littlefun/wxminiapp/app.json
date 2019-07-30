@@ -10,7 +10,8 @@
     "pages/my/exchange_detailed/exchange_detailed",
     "pages/my/qrcode/qrcode",
     "pages/game/caiquan/caiquan",
-    "pages/game/dice/dice"
+    "pages/game/dice/dice",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
