@@ -1,7 +1,9 @@
 // pages/my/exchange_detailed/exchange_detailed.js
+const app = getApp()
 const {
   request
 } = require('./../../../utils/request.js');
+
 Page({
 
   /**

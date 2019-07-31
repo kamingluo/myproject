@@ -20,16 +20,27 @@
 <button  bindtap='share' >share</button> -->
 
 
+<view  class='testbutton'   >
+ <kaming-button > <button  bindtap='buttonzujian' class='bg-gradual-blue'>自定义组件测试</button></kaming-button>
+</view>
 
- <kaming-button> <button  bindtap='buttonzujian' class='bg-gradual-blue'>自定义组件测试</button></kaming-button>
+<view  class='testbutton'   >
+  <kaming-button  > <button  bindtap='buttonzujian' class='bg-gradual-blue'>上传formid测试</button></kaming-button>
+</view>
+
 
  <!-- banner 广告 -->
+ <view  class='testbutton'   >
 <view class="zx_banner" style="background: #fff;color:#333;">
 <zx-ad data-id="{{zxad.ad.banner[0]}}" adData="{{zxad.adData}}" bindclick="zxadClick" bindclose="zxadClose"
 class="zx_component">
 </zx-ad>
 </view>
+ </view>
 
+ 
 
-  <button type='primary' style='margin-bottom:10px;' bindtap='startSetInter'>开始计时{{num}}</button>
-  <button type='primary' bindtap='endSetInter'>结束计时</button>
+ <view  class='testbutton'   >
+  <button type='primary' style='margin-bottom:10px;' bindtap='startSetInter'>测试开始计时{{num}}</button>
+  <button type='primary' bindtap='endSetInter'>测试结束计时</button>
+ </view>
