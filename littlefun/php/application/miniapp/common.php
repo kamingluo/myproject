@@ -78,7 +78,7 @@ function tribute($master_id,$userId,$channel){
     return ;
 }
     $time =date('Y-m-d H:i:s',time());//获取当前时间
-    $record = ['id'=>'','master_id' =>$master_id,'apprenticeid' =>$userId,'pay_tribute' => 0 ,'channel' =>$channel,'create_time' =>$time];
+    $record = ['id'=>'','master_id' =>$master_id,'apprenticeid' =>$userId,'pay_tribute' => 0 ,'channel' =>$channel,'reward' =>0,'create_time' =>$time];
     $data=db('tribute_table')->insert($record);
     return $data;
 
@@ -115,4 +115,48 @@ function contribution($master_id,$openid,$score){
 }
 
 
+
+
+/**
+   * 徒弟完成任务奖励师傅100金币
+*/
+function reward($master_id,$openid){
+    //师傅id为0直接跳出
+    if($master_id == 0){
+        return ;
+    }
+    
+    $apprenticeid =db('user')->where('openid',$openid)->value('id');//拿到徒弟id
+
+    $rewardif=db('tribute_table')->where('apprenticeid',$apprenticeid)->value('reward');//拿到是否奖励过的值，0是没1是有
+
+    if($rewardif == 1){
+        //已经奖励过了
+        return ;
+    }
+    else{
+
+    $dbdata=db('user')->where('id',$master_id)->find();//查询师傅信息
+    $score=100; //写死100金币
+
+     $sql = "UPDATE user SET score =score + :score , tribute = tribute+ :tribute WHERE id = :id;";   //同时加两个字段的金额，thinkphp5方法特别麻烦
+    $affected = Db::execute($sql,['score'=>$score,'tribute'=>$score,'id'=>$master_id]); //给师傅加完金币
+     
+    $tributereturn= db('tribute_table')->where('apprenticeid',$apprenticeid)->setInc('pay_tribute',$score)->update(['reward' => 1]);//更改进贡表数据
+
+    // return        $affected; 
+    $time =date('Y-m-d H:i:s',time());//获取当前时间
+    $record = ['id'=>'','openid' =>$dbdata['openid'],'score' =>$score,'explain' =>"徒弟进贡",'channel' =>$dbdata['channel'],'master_id' => $dbdata['master_id'],'state' =>0,'create_time' =>$time];
+    $dbreturn=db('score_record')->insert($record);
+     if ($affected==1&&$dbreturn==1) {
+         return ['state'   => '200','message'  => "进贡成功" ,'score' => $score] ;
+     }
+     else{
+         return ['state'   => '200','message'  => "进贡失败" ,'score' => $score] ;
+     }
+
+    }
+
+   
+}
 

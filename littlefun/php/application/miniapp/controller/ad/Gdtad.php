@@ -108,7 +108,13 @@ class Gdtad
     }
 
 
-	public function test(){
+	public function test(Request $request){
+        $master_id =$request->param("master_id");
+        $openid =$request->param("openid");
+
+        $reward = reward ($master_id , $openid);
+
+        return $reward ;
 		//     	// 获取当日的数据
 		// Db::table('table') ->whereTime('times', 'today')->select();
 		// // 获取昨天的数据
