@@ -132,7 +132,7 @@ function reward($master_id,$openid){
 
     if($rewardif == 1){
         //已经奖励过了
-        return ;
+        return ['state'   => '200','message'  => "已经奖励过了" ] ;
     }
     else{
 
@@ -142,7 +142,8 @@ function reward($master_id,$openid){
      $sql = "UPDATE user SET score =score + :score , tribute = tribute+ :tribute WHERE id = :id;";   //同时加两个字段的金额，thinkphp5方法特别麻烦
     $affected = Db::execute($sql,['score'=>$score,'tribute'=>$score,'id'=>$master_id]); //给师傅加完金币
      
-    $tributereturn= db('tribute_table')->where('apprenticeid',$apprenticeid)->setInc('pay_tribute',$score)->update(['reward' => 1]);//更改进贡表数据
+    $tributereturn= db('tribute_table')->where('apprenticeid',$apprenticeid)->setInc('pay_tribute',$score);//更改进贡表数据
+    $tributereturn2= db('tribute_table')->where('apprenticeid',$apprenticeid)->update(['reward' => 1]);//更改进贡表数据
 
     // return        $affected; 
     $time =date('Y-m-d H:i:s',time());//获取当前时间
