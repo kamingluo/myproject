@@ -58,6 +58,13 @@ Page({
     })
   },
 
+  gdtbanneradclick: function (e) {
+    console.log("点击广点通banner广告", e.currentTarget)
+    // let userdata = wx.getStorageSync('userdata')
+    // let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    // app.aldstat.sendEvent('我的页面点击广点通banner广告', data);
+  },
+
   onShareAppMessage(res) {
     let userid = qq.getStorageSync('userdata').id
     let userchannel = qq.getStorageSync('userdata').channel

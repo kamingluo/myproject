@@ -35,3 +35,16 @@
 <view class='nocaraddcar-text' >添加车辆</view>
 </view>
 </view>
+
+
+
+
+
+<!-- 广点通banner广告开始-->
+<view class='centered'>
+  <view class='gdtad'>
+    <ad  unit-id="53799997ea74906e70021c919de7d2f9"></ad>
+  </view>
+</view>
+<!-- 广点通banner广告结束-->
+
