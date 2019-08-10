@@ -21,25 +21,25 @@ class Qiniu
          $upToken  = $auth->uploadToken($bucket);
 
         // return  $upToken;
-         $ret = array('message' => "生成上传Token",'uptoken' => $upToken);
-
+         $ret = array('message' => "生成七牛上传Token成功",'uptoken' => $upToken);
+         return $ret;
     
-          // 要上传文件的本地路径
-          $filePath = './logo.png';
-          // 上传到七牛后保存的文件名
-          $key = 'logo.png';
-          // 初始化 UploadManager 对象并进行文件的上传。
-          $uploadMgr = new UploadManager();
-          // 调用 UploadManager 的 putFile 方法进行文件的上传。
-          list($ret, $err) = $uploadMgr->putFile($upToken, $key, $filePath);
-          //echo "\n====> putFile result: \n";
-          if ($err !== null) {
-             return $err;
-           } 
-          else 
-          {
-             return $ret;
-          }
+          // // 要上传文件的本地路径
+          // $filePath = './logo.png';
+          // // 上传到七牛后保存的文件名
+          // $key = 'logo.png';
+          // // 初始化 UploadManager 对象并进行文件的上传。
+          // $uploadMgr = new UploadManager();
+          // // 调用 UploadManager 的 putFile 方法进行文件的上传。
+          // list($ret, $err) = $uploadMgr->putFile($upToken, $key, $filePath);
+          // //echo "\n====> putFile result: \n";
+          // if ($err !== null) {
+          //    return $err;
+          //  } 
+          // else 
+          // {
+          //    return $ret;
+          // }
      }
 
 }
