@@ -9,22 +9,15 @@ class Usergroup
     public function Usergroup(Request $request)
     {
 
-    	// $sql= "SELECT rule FROM crowd where id=1 ;";
-     //    $data = Db::query($sql); //拿到数据
-        $dbnum =db('crowd')->where('id',2)->find();
+      $dbnum =db('crowd')->where('id',3)->find();
+        return json_decode($dbnum["rule"]);
 
-        // return str_replace("\\","/",$dbnum["rule"]);
-        // return $dbnum;
-        echo $dbnum["rule"];
+    	 $wxcode =$request->param("code");
+    	 $openid=openid($wxcode);
+    	 $sql = "select crowd.*,user_crowd.user_type,user_crowd.score from crowd ,user_crowd where user_crowd.crowd_id=crowd.id and user_crowd.user_openid='o3XMA0enuFRZsOCOCeqjB70exjr4';";
+       $msgdata = Db::query($sql); //拿到数据
 
-
-
-    	//  $wxcode =$request->param("code");
-    	//  $openid=openid($wxcode);
-    	//  $sql = "select crowd.*,user_crowd.user_type,user_crowd.score from crowd ,user_crowd where user_crowd.crowd_id=crowd.id and user_crowd.user_openid='o3XMA0enuFRZsOCOCeqjB70exjr4';";
-     //     $msgdata = Db::query($sql); //拿到数据
-
-    	// return  $msgdata;
+    	return  $msgdata;
     }
     
     
