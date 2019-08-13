@@ -6,25 +6,17 @@ use think\Config;
 
 class Usergroup
 {
+
+    //查询用户拥有的群列表
     public function Usergroup(Request $request)
     {
 
-      $dbnum =db('crowd')->where('id',3)->find();
-        return json_decode($dbnum["rule"]);
-
-    	 $wxcode =$request->param("code");
-    	 $openid=openid($wxcode);
-    	 $sql = "select crowd.*,user_crowd.user_type,user_crowd.score from crowd ,user_crowd where user_crowd.crowd_id=crowd.id and user_crowd.user_openid='o3XMA0enuFRZsOCOCeqjB70exjr4';";
-       $msgdata = Db::query($sql); //拿到数据
-
-    	return  $msgdata;
+    	$wxcode =$request->param("code");
+    	$openid=openid($wxcode);
+    	$sql = "select crowd.*,user_crowd.user_type,user_crowd.score from crowd ,user_crowd where user_crowd.crowd_id=crowd.id and user_crowd.user_openid='". $openid."';" ;
+        $data = Db::query($sql); //拿到数据
+        $state=['state'   => '200','message'  => "拿到用户加入群的列表" ];
+        $resdata=array_merge($state,array('usergrouplist'=>$data));
+        return $resdata ;
     }
-    
-    
-
 }
-
-
-// {"1":"这是规则介绍1","2":"这是规则介绍2","3":"这是规则介绍3"}
-// 
-// [{"test":"这是规则介绍1"},{"test":"这是规则介绍2",{"test":"这是规则介绍3"}]
