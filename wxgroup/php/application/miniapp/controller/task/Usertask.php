@@ -25,7 +25,7 @@ class Usertask
     {
         $wxcode =$request->param("code");
         $openid=openid($wxcode);
-        $score =$request->param("score");
+        //$score =$request->param("score");
         $explain =$request->param("explain");
         $crowd_id =$request->param("crowd_id");
         $crowd_name =$request->param("crowd_name");
@@ -34,7 +34,7 @@ class Usertask
         $time =date('Y-m-d H:i:s',time());//获取当前时间
         $userdata=db('user')->where('openid',$openid)->find();//查询用户信息
   
-        $dbdata = ['id'=>'','openid' =>$openid,'user_id' =>$userdata["id"],'channel' =>$userdata["channel"],'score' =>$score,'explain' =>$explain,'crowd_id' =>$crowd_id,'crowd_name' =>$crowd_name,'nickName' =>$userdata["nickName"],'images' =>$images,'result' =>null,'state' =>0,'create_time' =>$time];
+        $dbdata = ['id'=>'','openid' =>$openid,'user_id' =>$userdata["id"],'channel' =>$userdata["channel"],'score' =>0,'explain' =>$explain,'crowd_id' =>$crowd_id,'crowd_name' =>$crowd_name,'nickName' =>$userdata["nickName"],'images' =>$images,'result' =>null,'state' =>0,'create_time' =>$time];
         	 $dbreturn=db('task_record')->insert($dbdata);
 
         $state=['state'   => '200','message'  => "提交任务成功" ];
