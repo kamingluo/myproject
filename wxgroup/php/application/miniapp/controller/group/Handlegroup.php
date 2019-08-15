@@ -43,6 +43,36 @@ class Handlegroup
         }
       
     }
+
+   //设置群管理员
+   public function setupadministrators(Request $request) 
+   {
+
+        $crowd_id=$request->param("crowd_id");//群ID
+        $user_id=$request->param("user_id");//用户ID
+        $updateres= db('user_crowd')->where('crowd_id',$crowd_id)->where('user_id',$user_id)->update(['user_type' => 2 ]);
+        $state=['state'   => '200','message'  => "设置群管理员成功" ];
+        $resdata=array_merge($state,array('updateres'=>$updateres));
+        return $resdata ;
+
+   }
+
+
+   //取消群管理员
+   public function canceladministrators(Request $request) 
+   {
+
+        $crowd_id=$request->param("crowd_id");//群ID
+        $user_id=$request->param("user_id");//用户ID
+        $updateres= db('user_crowd')->where('crowd_id',$crowd_id)->where('user_id',$user_id)->update(['user_type' => 0 ]);
+        $state=['state'   => '200','message'  => "取消群管理员成功" ];
+        $resdata=array_merge($state,array('updateres'=>$updateres));
+        return $resdata ;
+
+   }
+
+
+
     
 
 }
