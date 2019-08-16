@@ -23,6 +23,22 @@ class Handlegroup
     }
     
 
+     //根据用户昵称模糊查询
+    public function querygroupuser(Request $request)
+    {
+        $crowd_id=$request->param("crowd_id");//群id
+        $nickName=$request->param("nickName");
+        $sql = "select user.*,user_crowd.user_type,user_crowd.score,user_crowd.create_time as joincrowd_time from user,user_crowd where user.id=user_crowd.user_id and user_crowd.crowd_id = " .$crowd_id. " and user.nickName  LIKE '%".$nickName."%' order BY user_crowd.score desc;";
+        // return $sql;
+        $querygroupuser = Db::query($sql); //拿到数据
+        $state=['state'   => '200','message'  => "根据用户昵称模糊查询成功" ];
+        $resdata=array_merge($state,array('querygroupuser'=>$querygroupuser));
+        return $resdata ;
+
+    }
+
+
+
      //修改用户的群积分账户
     public function updateusergroupscore(Request $request)
     {
