@@ -15,7 +15,6 @@ function share(type) {
     }
     
   } else {
-
     return {
       title: shareconfig.sharetitle,
       desc: shareconfig.sharedesc,

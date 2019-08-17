@@ -5,8 +5,7 @@ const {
 const baseConfig = require('./config.js')
 
 function register(e) {
-  var channel = e.query.channel || 0
-  var master_id = e.query.master_id || 0
+  var channel = e.channel
   var scene = e.scene
   wx.login({
     success: res => {
@@ -15,11 +14,35 @@ function register(e) {
         data: {
           code: res.code,
           channel: channel,
-          master_id: master_id,
           scene: scene
         },
         success: res => {
          // console.log('注册成功', res);
+          wx.setStorageSync('userdata', res.userdata)
+        },
+        fail: res => {
+          //console.log('错误捕捉', res);
+        },
+        complete: res => {
+          // console.log('成功不成功都执行函数', res);
+        },
+      })
+    }
+  })
+}
+
+
+
+function authorized(e) {
+  var data = e
+  wx.login({
+    success: res => {
+      data.code=res.code
+      request({
+        service: 'user/authorized',
+        data: data,
+        success: res => {
+          // console.log('注册成功', res);
           wx.setStorageSync('userdata', res.userdata)
         },
         fail: res => {
@@ -76,7 +99,7 @@ function insidejump (e) {
     })
   }
   else {
-    //console.log("普通跳转")
+    console.log("普通跳转",e)
     wx.navigateTo({
       url: e.url
     })
@@ -89,6 +112,7 @@ function insidejump (e) {
 
 module.exports = {
   register: register,
+  authorized: authorized,
   insidejump: insidejump,
   xmaddata:xmaddata,
   shareconfig: shareconfig,

@@ -10,11 +10,11 @@ App({
   },
   onLaunch: function (e) {
     console.log("onLaunch打印信息", e)
-    this.autoUpdate()//检查更新
-    common.register(e) //用户注册
-    common.xmaddata() //小盟ad配置
-    this.scene(e.scene)//传入入口值判断
-    common.shareconfig()//分享配置
+    //this.getUserInfo(e)
+    //this.autoUpdate()//检查更新
+
+    //common.xmaddata() //小盟ad配置
+    //common.shareconfig()//分享配置
 
     // 获取系统状态栏信息
     wx.getSystemInfo({
@@ -27,44 +27,52 @@ App({
     })
   },
 
-  scene: function (scene) {
-    // wx.setStorageSync('scene', scene)
-    if (scene == 1001 || scene == 1129) {
-      //console.log("隐藏")
-      this.globalData.display = false;
+  getUserInfo: function (e) {
+    let that = this;
+    var data = {
+      channel: e.query.channel || 0,
+      crowd_id: e.query.crowd_id || 0,
+      scene :e.scene,
     }
-    else {
-      //console.log("显示")
-      this.globalData.display = true;
-    }
-    if (scene == 1089 || scene == 1001) {
-      this.globalData.addapptips = false;
-    }
-    else {
-      this.globalData.addapptips = true;
-    }
-
-  },
-
-
-  onShow(options) {
-    wx.login({
-      success: function (res) {
-        request({
-          service: 'user/obtainopenid',
-          data: {
-            code: res.code,
-          },
-          success: res => {
-            wx.aldstat.sendOpenid(res.openid) //阿拉丁统计需要
-          },
-          fail: res => {
-            console.log("小程序启动onshow拿到的openid错误信息", res)
-          },
-        })
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success(res) {
+              let userdata = Object.assign(data, res.userInfo);
+              common.authorized(userdata) //用户注册已经授权
+            },
+            fail(res) {
+              common.register(data) //用户注册已经授权但是未获取到信息
+            }
+          })
+        } else {
+          common.register(data) //用户注册未授权
+        }
       }
     })
   },
+
+ 
+  // onShow(options) {
+  //   wx.login({
+  //     success: function (res) {
+  //       request({
+  //         service: 'user/obtainopenid',
+  //         data: {
+  //           code: res.code,
+  //         },
+  //         success: res => {
+  //           wx.aldstat.sendOpenid(res.openid) //阿拉丁统计需要
+  //         },
+  //         fail: res => {
+  //           console.log("小程序启动onshow拿到的openid错误信息", res)
+  //         },
+  //       })
+  //     }
+  //   })
+  // },
 
 
 

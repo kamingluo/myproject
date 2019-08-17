@@ -20,13 +20,13 @@
         <text>ID:{{userdata.id}}</text>
       </view>
     </view>
-    <view class='erweima'  bindtap='qrcode' >
+    <!-- <view class='erweima'  bindtap='qrcode' >
       <image src='../../images/common/erweima.svg'></image>
-    </view>
+    </view> -->
   </view>
 </view>
 
-<view class='score'>
+<!-- <view class='score'>
   <view class='score_text'>
     当前共有：
     <text>{{userdata.score}}</text>
@@ -35,24 +35,24 @@
   <view class='score_button'>
     <button bindtap='exchange' class=' bg-blue'>立即兑换</button>
   </view>
-</view>
+</view> -->
 
 
 
 <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
-  <view class="cu-item arrow" bindtap='userscorerecord'>
+  <!-- <view class="cu-item arrow" bindtap='userscorerecord'>
     <kaming-button>
       <view class="content">
         <text class="cuIcon-coin text-yellow  iconsize"></text>
         <text class="text-grey">收入明细</text>
       </view>
     </kaming-button>
-  </view>
+  </view> -->
   <view class="cu-item arrow" bindtap='userchangelist'>
     <kaming-button>
       <view class="content ">
         <text class="cuIcon-pay text-blue iconsize"></text>
-        <text class="text-grey">兑换记录</text>
+        <text class="text-grey">任务记录</text>
       </view>
     </kaming-button>
   </view>
@@ -69,12 +69,12 @@
       <text class="text-grey">意见反馈</text>
     </button>
   </view>
-  <!-- <view class="cu-item arrow">
+  <view class="cu-item arrow">
     <view class="content" hover-class="none">
       <text class="cuIcon-creativefill text-orange"></text>
       <text class="text-grey">关于我们</text>
     </view>
-  </view> -->
+  </view>
 </view>
 
 

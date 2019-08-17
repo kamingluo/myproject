@@ -30,6 +30,7 @@ const request = (config) => {
           icon: 'none'
         })
       } else {
+        //console.log("接口返回值",res)
         const data = res.data;
         if (data.state == 200) {
           config.success && config.success(data);
