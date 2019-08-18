@@ -54,7 +54,7 @@
 					"id": 0,
 					"name": "分享进入",
 					"pathName": "pages/index/index",
-					"query": "channel=6666&crowd_id=1",
+					"query": "channel=6666&crowd_id=2",
 					"scene": 1047
 				},
 				{

@@ -8,8 +8,8 @@ Page({
     icondata:[],
     usertype:true,
     btns: ["群消息", "群成员"],
-    cons: ["群消息", "群成员"],
     active: 0,//控制当前显示盒子 
+    isCard: false
   },
 
   /**
@@ -32,21 +32,21 @@ Page({
       },
       {
         id: 2,
-        imagesurl: "../../images/common/cash.png",
+        imagesurl: "../../images/common/liwu.png",
         text: "介绍2",
         joumurl: '/pages/index/index',
         type: 2
       },
       {
         id: 3,
-        imagesurl: "../../images/common/cash.png",
+        imagesurl: "../../images/common/wxlogo.png",
         text: "介绍3",
         joumurl: '/pages/index/index',
         type: 0
       },
       {
         id: 4,
-        imagesurl: "../../images/common/cash.png",
+        imagesurl: "../../images/common/loading.svg",
         text: "介绍4",
         joumurl: '/pages/index/index',
         type: 0
@@ -61,16 +61,11 @@ Page({
 
 
   toggle: function (e) {
-
-    //console.log(e.currentTarget.dataset.index)
-
-    this.setData({
-
-      //设置active的值为用户点击按钮的索引值
-
-      active: e.currentTarget.dataset.index,
-
-    })
+   // console.log(e.currentTarget.dataset.index)
+      this.setData({
+        //设置active的值为用户点击按钮的索引值
+        active: e.currentTarget.dataset.index,
+      })
 
   },
 
