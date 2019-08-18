@@ -19,6 +19,7 @@ class User
         $openid=openid($wxcode);
         $scene=$request->param("scene");
         $channel=$request->param("channel");
+        $crowd_id =$request->param("crowd_id");
         $time =date('Y-m-d H:i:s',time());//获取当前时间
         $dbnum =db('user')->where('openid',$openid)->find();//查询用户信息
         //return  $dbnum["channel"];
@@ -26,10 +27,12 @@ class User
                 $dbdata = ['id'=>'','openid' =>$openid,'channel' => $channel,'scene' => $scene,'nickName' => null,'avatarUrl' => null,'gender' => null,'province' => null,'city' => null,'country' => null,'birthday' => null,'create_time' =>$time ,'update_time' =>$time];
                 $userId= db('user')->insertGetId($dbdata);//返回自增ID
 
+                 $userjoingroup= joingroup($crowd_id, $userId, $openid);
+
                 $userdata=['id'=>$userId,'openid' =>$openid,'channel' => $channel,'scene' => $scene,'nickName' => null,'avatarUrl' => null,'gender' => null,'province' => null,'city' => null,'country' => null,'birthday' => null,'create_time' =>$time ,'update_time' =>$time];
 
                 $state=['state'   => '200','message'  => "注册成功" ];
-                $resdata=array_merge($state,array('userdata'=>$userdata));
+                $resdata=array_merge($state,array('userdata'=>$userdata),array('userjoingroup'=>$userjoingroup));
                 return $resdata;
             }
         else{
@@ -37,9 +40,12 @@ class User
                 $dbreturn= db('user')->where('openid',$openid)->update(['update_time' => $time,'scene' => $scene]);
                 if($dbreturn==1){
                      $dbnum =db('user')->where('openid',$openid)->find();//查询用户信息
+                     $userjoingroup= joingroup($crowd_id, $dbnum["id"], $openid);
+
+
                     $state=['state'   => '200','message'  => "用户信息更新成功" ];
                     
-                    $resdata=array_merge($state,array('userdata'=>$dbnum));
+                    $resdata=array_merge($state,array('userdata'=>$dbnum),array('userjoingroup'=>$userjoingroup));
                 // // $dbnum =db('user')->where('openid',$openid)->find();
                     return $resdata;
                 }
@@ -66,6 +72,7 @@ class User
         $province=$request->param("province");
         $city=$request->param("city");
         $country=$request->param("country");
+        $crowd_id =$request->param("crowd_id");
         $time =date('Y-m-d H:i:s',time());
 
 
@@ -74,11 +81,12 @@ class User
         if($dbnum==null){
                 $dbdata = ['id'=>'','openid' =>$openid,'channel' => $channel,'scene' => $scene,'nickName' => $nickName,'avatarUrl' =>$avatarUrl,'gender' =>$gender,'province' => $province,'city' => $city,'country' => $country,'birthday' => null,'create_time' =>$time ,'update_time' =>$time];
                 $userId= db('user')->insertGetId($dbdata);//返回自增ID
+                $userjoingroup= joingroup($crowd_id, $userId, $openid);
 
                 $userdata=['id'=>$userId,'openid' =>$openid,'channel' => $channel,'scene' => $scene,'nickName' => $nickName,'avatarUrl' =>$avatarUrl,'gender' =>$gender,'province' => $province,'city' => $city,'country' => $country,'birthday' => null,'create_time' =>$time ,'update_time' =>$time];
 
                 $state=['state'   => '200','message'  => "授权注册成功" ];
-                $resdata=array_merge($state,array('userdata'=>$userdata));
+                $resdata=array_merge($state,array('userdata'=>$userdata),array('userjoingroup'=>$userjoingroup));
                 return $resdata;
             }
         else{
@@ -86,9 +94,10 @@ class User
                 $dbreturn= db('user')->where('openid',$openid)->update(['update_time' => $time,'scene' => $scene,'nickName' => $nickName,'avatarUrl' =>$avatarUrl,'gender' =>$gender,'province' => $province,'city' => $city,'country' => $country]);
                 if($dbreturn==1){
                      $dbnum =db('user')->where('openid',$openid)->find();//查询用户信息
-                    $state=['state'   => '200','message'  => "用户信息更新成功" ];
+                     $state=['state'   => '200','message'  => "用户信息更新成功" ];
+                     $userjoingroup= joingroup($crowd_id, $dbnum["id"], $openid);
                     
-                    $resdata=array_merge($state,array('userdata'=>$dbnum));
+                    $resdata=array_merge($state,array('userdata'=>$dbnum),array('userjoingroup'=>$userjoingroup));
                     return $resdata;
                 }
                 else{
@@ -130,23 +139,12 @@ class User
        //用户加入群
     public function userjoingroup(Request $request)
     {
+        $crowd_id =$request->param("crowd_id");
         $user_id =$request->param("user_id");
         $user_openid =$request->param("user_openid");
-        $crowd_id =$request->param("crowd_id");
-         $time =date('Y-m-d H:i:s',time());
+        $data= joingroup($crowd_id, $user_id, $user_openid);
+        return $data;
        
-        $dbres =db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->find();//查询用户信息
-        if($dbres){
-            $resdata=['state'   => '200','message'  => "已经加入该群了" ];
-            return $resdata;
-        }else{
-
-            $dbdata = ['id'=>'','user_id' =>$user_id,'user_openid' => $user_openid,'crowd_id' => $crowd_id,'user_type' => 0,'score' =>0,'create_time' =>$time];
-            $user_crowdid= db('user_crowd')->insertGetId($dbdata);//返回自增ID
-            $state=['state'   => '200','message'  => "用户加入群成功" ];
-            $resdata=array_merge($state,array('user_crowdid'=>$user_crowdid));
-            return $resdata;
-        }
     }
 
 

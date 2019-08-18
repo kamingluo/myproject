@@ -1,4 +1,63 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
   <view slot="content">群详情</view>
 </cu-custom>
+
+
+
+<view class='top bg-gradual-blue'>
+  <view class='user'>
+    <view class='userAvatar'>
+      <open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
+    </view>
+    <view class='username'>
+      <view class='userNickName' bindlongpress="testpages">
+        <text>这是群名称啊最多这样</text>
+      </view>
+      <view class='id'>
+        <text>群ID:121</text>
+      </view>
+      <view class='qunchengyuan'>
+        <text>群成员:共123人</text>
+      </view>
+    </view>
+    <view class='erweima' bindtap='qrcode'>
+      <image src='../../images/common/right.svg'></image>
+    </view>
+  </view>
+</view>
+
+<view class="flex padding justify-around  bg-icon ">
+  <view wx:for="{{icondata}}" wx:key="item" class='icon-top'   wx:if="{{item.type == 0? true:usertype }}"  >
+    <view class='icon-body'>
+      <view class="centered">
+        <image src='{{item.imagesurl}}'></image>
+      </view>
+      <view class="centered">
+        <text class='icon-text centered'>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="bg-grey padding-sm margin-xs radius">around</view> -->
+</view>
+
+
+
+
+<view class="tab ">
+
+ <view class="btns">
+
+   <view wx:for="{{btns}}" class="{{index==active?'cur':''}}" data-index="{{index}}" bindtap="toggle">
+   <text class='fontsize' >{{item}}</text>
+   </view>
+
+ </view>
+
+ <view class="cons">
+
+   <view wx:for="{{cons}}" class="{{index==active?'cur':''}}">{{item}}</view>
+
+ </view>
+
+</view>

@@ -140,6 +140,8 @@ height: 200rpx;
 
 .create-group{
   margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  
 }
 .create-group button{
   width: 500rpx;
