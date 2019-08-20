@@ -1,0 +1,122 @@
+//index.js
+//获取应用实例
+const qiniuUploader = require("../../../utils/sdk/qiniu/qiniuUploader");
+const app = getApp();
+
+Page({
+  data: {
+    uploaderList: [],
+    uploaderNum: 0,
+    showUpload: true,
+    tasktext:null
+  },
+  // 删除图片
+  clearImg: function(e) {
+    var nowList = []; //新数据
+    var uploaderList = this.data.uploaderList; //原数据
+
+    for (let i = 0; i < uploaderList.length; i++) {
+      if (i == e.currentTarget.dataset.index) {
+        continue;
+      } else {
+        nowList.push(uploaderList[i])
+      }
+    }
+    this.setData({
+      uploaderNum: this.data.uploaderNum - 1,
+      uploaderList: nowList,
+      showUpload: true
+    })
+  },
+  //展示图片
+  showImg: function(e) {
+    var that = this;
+    wx.previewImage({
+      urls: that.data.uploaderList,
+      current: that.data.uploaderList[e.currentTarget.dataset.index]
+    })
+  },
+  //上传图片
+  upload: function(e) {
+    var that = this;
+    wx.chooseImage({
+      count: 4 - that.data.uploaderNum, // 默认4
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function(res) {
+        console.log("返回选定照片的本地文件路径列表", res)
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        let tempFilePaths = res.tempFilePaths;
+        let uploaderList = that.data.uploaderList.concat(tempFilePaths);
+        if (uploaderList.length == 4) {
+          that.setData({
+            showUpload: false
+          })
+        }
+        that.setData({
+          uploaderList: uploaderList,
+          uploaderNum: uploaderList.length,
+        })
+      }
+    })
+  },
+
+  onLoad: function() {},
+
+
+  tasktext: function (e) {
+   // console.log(e.detail.value)
+    this.setData({
+      tasktext: e.detail.value,
+    })
+  },
+
+  sumittask:function(e){
+    console.log(this.data.tasktext)
+  },
+  
+  lookdata: function() {
+    console.log(this.data.uploaderList)
+  },
+
+  moredata: function() {
+    var that = this;
+    var imgList = []; //多张图片地址，保存到一个数组当中
+    var state = 0; //state记录当前已经上传到第几张图片
+    new Promise(function(resolve, reject) {
+      for (var i = 0; i < that.data.uploaderList.length; i++) {
+        qiniuUploader.upload(that.data.uploaderList[i], (res) => { //that.data.uploaderList逐个取出来去上传
+          state++;
+          imgList.push(res.imageURL);
+          console.log(state) //输出上传到第几个了
+          if (state == that.data.uploaderList.length) {
+            resolve(imgList);
+          }
+        }, (error) => {
+          reject('error');
+          console.log('error: ' + error);
+        }, {
+          region: 'NCN',
+          uploadURL: 'https://up-z1.qiniup.com',
+          domain: 'https://groupqiniu.luojiaming.vip/',
+          uptokenURL: 'https://littlefun.gzywudao.top/php/public/index.php/index/qiniu/qiniu',
+        })
+      }
+    }).then(function(imgList) {
+      console.log("多张图片返回结果上传数据库的", imgList)
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+})

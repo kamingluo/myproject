@@ -23,7 +23,7 @@
       </view>
     </view>
     <view class='erweima' bindtap='qrcode'>
-      <image src='../../images/common/right.svg'></image>
+      <image src='../../../images/common/right.svg'></image>
     </view>
   </view>
 </view>

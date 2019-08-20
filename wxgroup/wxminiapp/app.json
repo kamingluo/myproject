@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/my/my",
     "pages/creategroup/creategroup",
-    "pages/groupdetails/groupdetails",
+    "pages/group/groupdetails/groupdetails",
+    "pages/group/uptask/uptask",
     "pages/my/score_detailed/score_detailed",
     "pages/my/qrcode/qrcode"
   ],

@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -65,9 +65,9 @@
 					"scene": 1011
 				},
 				{
-					"id": 4,
-					"name": "兑换页面",
-					"pathName": "pages/exchange/exchange",
+					"id": 2,
+					"name": "上传任务",
+					"pathName": "pages/group/uptask/uptask",
 					"query": "",
 					"scene": 1011
 				},
@@ -93,9 +93,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "群详情",
-					"pathName": "pages/groupdetails/groupdetails",
+					"pathName": "pages/group/groupdetails/groupdetails",
 					"query": "",
 					"scene": null
 				}
