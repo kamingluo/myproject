@@ -36,7 +36,7 @@ class Handletask
     	$result=$request->param("result");//说明
     	$taskstate=$request->param("taskstate");//任务状态
     	$crowd_id=$request->param("crowd_id");//群id
-    	$user_id=$request->param("user_id");//群id
+    	$user_id=$request->param("user_id");//用户id
         $state=['state'   => '200','message'  => "审核任务完成" ];
         $datareturn =db('task_record')->where('id',$id)->find();
         if($datareturn["state"] != 0)
