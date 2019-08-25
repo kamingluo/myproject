@@ -11,7 +11,8 @@ Page({
     uploaderList: [],
     uploaderNum: 0,
     showUpload: true,
-    tasktext:"用户未填写任务描述",
+    loadModal:false,
+    tasktext:null,
     crowd_id:13,
     crowd_name:"kaming提交任务模拟群"
   },
@@ -87,7 +88,11 @@ Page({
      return;
     }
     else{
+      this.setData({
+        loadModal: true,
+      })
       this.moredata()
+      
     }
   },
 
@@ -118,7 +123,7 @@ Page({
     }).then(function(imgList) {
       console.log("多张图片返回结果上传数据库的", imgList)
 
-      //that.uploadtask(String(imgList))
+      that.uploadtask(imgList)
 
     })
   },
@@ -127,9 +132,13 @@ Page({
   uploadtask: function (imgList){
     var that =this 
     var imgList = imgList
-    var explain = this.data.tasktext
     var crowd_id = this.data.crowd_id
     var crowd_name = this.data.crowd_name
+    if (this.data.tasktext == null) {
+      var explain = "用户未填写任务描述"
+    } else {
+      var explain = this.data.tasktext
+    }
     wx.login({
       success: res => {
         request({
@@ -142,7 +151,17 @@ Page({
             crowd_name: crowd_name,
           },
           success: res => {
-           console.log(res)
+            this.setData({
+              loadModal: false,
+              uploaderList: [],
+              uploaderNum:0,
+              tasktext:null
+            })
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success',
+              duration: 2000,
+            })
           },
         })
       }

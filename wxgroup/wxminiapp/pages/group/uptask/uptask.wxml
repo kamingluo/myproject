@@ -10,7 +10,7 @@
 
   <view class="centered">
     <view class="task_text">
-      <textarea maxlength="250"  bindinput="tasktext"  placeholder="请输入任务描述"></textarea>
+      <textarea maxlength="250"  bindinput="tasktext" value='{{tasktext}}' placeholder="请输入任务描述"></textarea>
     </view>
   </view>
 
@@ -34,3 +34,10 @@
     <button bindtap="sumittask" class="bg-blue">提交</button>
   </view>
 
+
+
+<view class='cu-load load-modal'  wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>提交中...</view>
+</view>
