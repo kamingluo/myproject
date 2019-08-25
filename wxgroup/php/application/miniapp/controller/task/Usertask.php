@@ -25,7 +25,8 @@ class Usertask
     {
 
       // $imagesdata =$request->param("images/a");
-      // return $imagesdata;
+      // $explain =$request->param("explain");
+      // return  json_encode($imagesdata);
        
         $wxcode =$request->param("code");
         $openid=openid($wxcode);
@@ -34,7 +35,8 @@ class Usertask
         $crowd_id =$request->param("crowd_id");
         $crowd_name =$request->param("crowd_name");
         $imagesdata =$request->param("images/a");
-        $images= htmlspecialchars_decode($imagesdata);
+        // $images= htmlspecialchars_decode($imagesdata);
+        $images =  json_encode($imagesdata);
         $time =date('Y-m-d H:i:s',time());//获取当前时间
         $userdata=db('user')->where('openid',$openid)->find();//查询用户信息
   
