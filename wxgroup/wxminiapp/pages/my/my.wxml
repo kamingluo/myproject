@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-blue">
+<cu-custom bgColor="bg-blue">
   <view slot="content">我的页面</view>
 </cu-custom>
 
@@ -7,7 +7,7 @@
 
 </view> -->
 
-<view class='top bg-gradual-blue'>
+<view class='top bg-blue'>
   <view class='user'>
     <view class='userAvatar'>
       <open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
@@ -81,11 +81,11 @@
 
 
 <!-- 广点通banner广告开始-->
-<view class='centered'>
+<!-- <view class='centered'>
   <view class='gdtad'>
     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
   </view>
-</view>
+</view> -->
 <!-- 广点通banner广告结束-->
 
 

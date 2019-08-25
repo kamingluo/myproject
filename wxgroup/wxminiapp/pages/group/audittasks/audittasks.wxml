@@ -1,0 +1,61 @@
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">任务审核</view>
+</cu-custom>
+
+
+<view class="centered">
+  <view class='top'>
+    <view class='user'>
+      <view class='userAvatar'>
+        <open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
+      </view>
+      <view class='username'>
+        <view class='userNickName' bindlongpress="testpages">
+          <text>这是昵称啊</text>
+        </view>
+        <view class='id'>
+          <text>提交时间：2018-09-80 15:21:00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="task-explain">
+  <view class="task-explain-body">
+    <view class="centered task-explain-body-view">
+      <text>这是任务说明啊安居房很骄傲的后果房交会是反过来看按时发货哈抠脚大汉国防科技ad后方可建安费按劳动法干哈接电话国防科技爱德华法国进口安华福建安徽将</text>
+    </view>
+  </view>
+</view>
+
+
+
+<!--审核图片开始 -->
+<view class="task-images">
+  <view class='centered  '>
+    <view class='information '>
+      <block wx:for="{{testdata.taskdetails.images}}" wx:key="item">
+        <view class='information-body '>
+          <image src='{{item}}' bindtap='clickInformation' data-data='{{item}}'></image>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<!-- 审核图片结束 -->
+
+
+
+<view class='share centered'>
+  <view class='sharebody centered'>
+    <view>
+      <button class="bg-red ">不合格</button>
+    </view>
+    <view>
+      <button class="bg-green ">合格</button>
+    </view>
+  </view>
+</view>

@@ -1,66 +1,176 @@
-// pages/creategroup/creategroup.js
+//index.js
+//获取应用实例
+const qiniuUploader = require("../../utils/sdk/qiniu/qiniuUploader");
+const {
+  request
+} = require('./../../utils/request.js');
+const app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    uploaderList: [],
+    uploaderNum: 0,
+    showUpload: true,
+    grouptext: null,
+    groupname:null
+  },
+  // 删除图片
+  clearImg: function (e) {
+    var nowList = []; //新数据
+    var uploaderList = this.data.uploaderList; //原数据
+
+    for (let i = 0; i < uploaderList.length; i++) {
+      if (i == e.currentTarget.dataset.index) {
+        continue;
+      } else {
+        nowList.push(uploaderList[i])
+      }
+    }
+    this.setData({
+      uploaderNum: this.data.uploaderNum - 1,
+      uploaderList: nowList,
+      showUpload: true
+    })
+  },
+  //展示图片
+  showImg: function (e) {
+    var that = this;
+    wx.previewImage({
+      urls: that.data.uploaderList,
+      current: that.data.uploaderList[e.currentTarget.dataset.index]
+    })
+  },
+  //上传图片
+  upload: function (e) {
+    var that = this;
+    wx.chooseImage({
+      count: 1 - that.data.uploaderNum, // 默认1
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log("返回选定照片的本地文件路径列表", res)
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        let tempFilePaths = res.tempFilePaths;
+        let uploaderList = that.data.uploaderList.concat(tempFilePaths);
+        if (uploaderList.length == 1) {
+          that.setData({
+            showUpload: false
+          })
+        }
+        that.setData({
+          uploaderList: uploaderList,
+          uploaderNum: uploaderList.length,
+        })
+      }
+    })
+  },
+
+  onLoad: function () { },
+
+
+  grouptext: function (e) {
+    // console.log(e.detail.value)
+    this.setData({
+      grouptext: e.detail.value,
+    })
+  },
+
+  groupname:function(e){
+    this.setData({
+      groupname: e.detail.value,
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  sumittask: function (e) {
+    console.log(this.data.grouptext)
+    console.log(this.data.groupname)
+    if (this.data.grouptext == null || this.data.groupname ==null){
+      wx.showToast({
+        title: '信息不能为空',
+        icon: 'none',
+        duration: 2500,
+      })
+       return;
+    }
+
+    else if (this.data.uploaderNum == 0){
+      console.log("图片为空")
+       let  logo="https://www.baidu.com"
+       this.creategroup(logo)
+
+    }
+    else{
+      console.log("图片不为空")
+      this.moredata()
+    }
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+
+  creategroup: function(logo) {
+    var that = this
+    var crowd_name = this.data.groupname
+    var introduce = this.data.grouptext
+    var logo = logo
+    wx.login({
+      success: res => {
+        request({
+          service: 'group/usergroup/setupgroup',
+          data: {
+            code:res.code,
+            crowd_name:crowd_name,
+            introduce:introduce,
+            logo:logo
+          },
+          success: res => {
+            console.log("创建群成功",res)
+          },
+        })
+      }
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  moredata: function () {
+    var that = this;
+    var imgList = []; //多张图片地址，保存到一个数组当中
+    var state = 0; //state记录当前已经上传到第几张图片
+    new Promise(function (resolve, reject) {
+      for (var i = 0; i < that.data.uploaderList.length; i++) {
+        qiniuUploader.upload(that.data.uploaderList[i], (res) => { //that.data.uploaderList逐个取出来去上传
+          state++;
+          imgList.push(res.imageURL);
+          console.log(state) //输出上传到第几个了
+          if (state == that.data.uploaderList.length) {
+            resolve(imgList);
+          }
+        }, (error) => {
+          reject('error');
+          console.log('error: ' + error);
+        }, {
+            region: 'ECN',
+            uploadURL: 'https://up-z1.qiniup.com',
+            domain: 'http://material.gzywudao.top/',
+            uptokenURL: 'https://littlefun.gzywudao.top/php/public/index.php/index/qiniu/qiniumaterial',
+          })
+      }
+    }).then(function (imgList) {
+      console.log("多张图片返回结果上传数据库的", imgList[0])
+    })
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 })

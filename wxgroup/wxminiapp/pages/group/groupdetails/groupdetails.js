@@ -25,29 +25,29 @@ Page({
     let icondata=[
       {
         id:1,
-        imagesurl:"../../../images/common/cash.png",
-        text:"介绍",
+        imagesurl:"../../../images/common/erweima.svg",
+        text:"文案1",
         joumurl:'/pages/index/index',
         type:1
       },
       {
         id: 2,
         imagesurl: "../../../images/common/liwu.png",
-        text: "介绍2",
+        text: "文案2",
         joumurl: '/pages/index/index',
         type: 2
       },
       {
         id: 3,
         imagesurl: "../../../images/common/wxlogo.png",
-        text: "介绍3",
+        text: "文案3",
         joumurl: '/pages/index/index',
         type: 0
       },
       {
         id: 4,
         imagesurl: "../../../images/common/loading.svg",
-        text: "介绍4",
+        text: "文案4",
         joumurl: '/pages/index/index',
         type: 0
         
