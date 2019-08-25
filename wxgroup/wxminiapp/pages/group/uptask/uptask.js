@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 const qiniuUploader = require("../../../utils/sdk/qiniu/qiniuUploader");
+const {
+  request
+} = require('./../../../utils/request.js');
 const app = getApp();
 
 Page({
@@ -8,7 +11,9 @@ Page({
     uploaderList: [],
     uploaderNum: 0,
     showUpload: true,
-    tasktext:null
+    tasktext:"用户未填写任务描述",
+    crowd_id:13,
+    crowd_name:"kaming提交任务模拟群"
   },
   // 删除图片
   clearImg: function(e) {
@@ -72,12 +77,20 @@ Page({
   },
 
   sumittask:function(e){
-    console.log(this.data.tasktext)
+    console.log(this.data.uploaderList.length)
+    if (this.data.uploaderList.length == 0){
+      wx:wx.showToast({
+        title: "审核图片不能为空",
+        icon: 'none',
+        duration: 2000,
+      })
+     return;
+    }
+    else{
+      this.moredata()
+    }
   },
-  
-  lookdata: function() {
-    console.log(this.data.uploaderList)
-  },
+
 
   moredata: function() {
     var that = this;
@@ -104,18 +117,37 @@ Page({
       }
     }).then(function(imgList) {
       console.log("多张图片返回结果上传数据库的", imgList)
+
+      //that.uploadtask(String(imgList))
+
     })
-  }
+  },
 
 
-
-
-
-
-
-
-
-
+  uploadtask: function (imgList){
+    var that =this 
+    var imgList = imgList
+    var explain = this.data.tasktext
+    var crowd_id = this.data.crowd_id
+    var crowd_name = this.data.crowd_name
+    wx.login({
+      success: res => {
+        request({
+          service: 'task/usertask/usersubmittask',
+          data: {
+            code: res.code,
+            images: imgList,
+            explain: explain,
+            crowd_id: crowd_id,
+            crowd_name: crowd_name,
+          },
+          success: res => {
+           console.log(res)
+          },
+        })
+      }
+    })
+  },
 
 
 

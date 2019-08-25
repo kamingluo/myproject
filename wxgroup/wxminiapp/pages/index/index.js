@@ -84,9 +84,9 @@ Page({
 
   },
   clickusergrouplist:function(e){
-    console.log("点击群列表",e)
+    console.log("点击群列表", e.currentTarget.dataset.data)
     wx.navigateTo({
-      url: '/pages/creategroup/creategroup'
+      url: '/pages/group/groupdetails/groupdetails?id=' + e.currentTarget.dataset.data.id + '&user_type=' + e.currentTarget.dataset.data.user_type,
     })
   },
 

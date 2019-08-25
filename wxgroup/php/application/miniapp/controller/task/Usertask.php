@@ -23,13 +23,17 @@ class Usertask
      //用户提交任务
     public function usersubmittask(Request $request)
     {
+
+      // $imagesdata =$request->param("images/a");
+      // return $imagesdata;
+       
         $wxcode =$request->param("code");
         $openid=openid($wxcode);
         //$score =$request->param("score");
         $explain =$request->param("explain");
         $crowd_id =$request->param("crowd_id");
         $crowd_name =$request->param("crowd_name");
-        $imagesdata =$request->param("images");
+        $imagesdata =$request->param("images/a");
         $images= htmlspecialchars_decode($imagesdata);
         $time =date('Y-m-d H:i:s',time());//获取当前时间
         $userdata=db('user')->where('openid',$openid)->find();//查询用户信息

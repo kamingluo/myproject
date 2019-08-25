@@ -138,3 +138,43 @@ flex-basis: 400rpx;
   justify-content: center;
   align-items: center;
 }
+
+
+
+
+
+/*主容器*/
+.stepper {
+  width:260rpx;
+  height:100rpx;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/*加号和减号*/
+.stepper text {
+  float: left;
+  width: 75rpx;
+  line-height: 100rpx;
+  font-size: 50rpx;
+  text-align: center;
+}
+/*数值*/
+.stepper input {
+  width: 100rpx;
+  height: 98rpx;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+/*普通样式*/
+.stepper .normal {
+  color:black;
+}
+/*禁用样式*/
+.stepper .disable {
+  color: #ccc;
+}

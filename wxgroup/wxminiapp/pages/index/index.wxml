@@ -43,7 +43,7 @@
     </view>
       <view class='box-body shadow-warp bg-white' bindtap="clickusergrouplist" data-data='{{item}}' >
         <view class=' box-body-image centered '>
-          <image src='http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15601629698733.jpeg'></image>
+          <image src='{{item.logo}}'></image>
         </view>
         <view class=' box-body-name  centered'>
           <view class="box-body-name-body">

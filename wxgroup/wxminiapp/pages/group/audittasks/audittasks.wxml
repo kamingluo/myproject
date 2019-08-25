@@ -4,6 +4,7 @@
 </cu-custom>
 
 
+
 <view class="centered">
   <view class='top'>
     <view class='user'>
@@ -29,6 +30,9 @@
       <text>这是任务说明啊安居房很骄傲的后果房交会是反过来看按时发货哈抠脚大汉国防科技ad后方可建安费按劳动法干哈接电话国防科技爱德华法国进口安华福建安徽将</text>
     </view>
   </view>
+
+
+
 </view>
 
 
@@ -49,13 +53,94 @@
 
 
 
+
+
+
 <view class='share centered'>
   <view class='sharebody centered'>
     <view>
-      <button class="bg-red ">不合格</button>
+      <button class="bg-red"  bindtap="taskerr">不合格</button>
     </view>
     <view>
-      <button class="bg-green ">合格</button>
+      <button class="bg-green" bindtap="tasksuccess">合格</button>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="cu-modal show" wx:if="{{tasksuccessmodel}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">任务合格奖励分数</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red" bindtap="hidetasksuccessmodal"></text>
+      </view>
+    </view>
+    <view class="padding-xl ">
+      <view class="stepper">
+        <!-- 减号 -->
+        <text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
+        <!-- 数值 -->
+        <input type="number" value="{{num}}" disabled="true" />
+        <!-- 加号 -->
+        <text bindtap='bindPlus'>+</text>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hidetasksuccessmodal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="tasksuccesssure">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+<view class="cu-modal show"  wx:if="{{taskerrreasonmodel}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">请选择不通过原因</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red" bindtap="hidetaskerrmodal"></text>
+      </view>
+    </view>
+      <radio-group class="block"   >
+        <view class="cu-form-group "  >
+          <view class="title">多用户上传此图</view>
+          <radio bindtap="radioChange"  data-data="多用户上传此图" ></radio>
+        </view>
+         <view class="cu-form-group "  >
+          <view class="title">未达到要求</view>
+          <radio bindtap="radioChange" data-data="未达到要求"></radio>
+        </view>
+          <view class="cu-form-group "  >
+          <view class="title">其他</view>
+          <radio  checked bindtap="radioChange" data-data="其他"></radio>
+        </view>
+        <view class="cu-form-group "  >
+          <view class="title">上传错图</view>
+          <radio bindtap="radioChange" data-data="上传错图"></radio>
+        </view>
+        <view class="cu-form-group "  >
+          <view class="title">时间不符合</view>
+          <radio bindtap="radioChange" data-data="时间不符合"></radio>
+        </view>
+        <view class="cu-form-group "  >
+          <view class="title">后台无记录</view>
+          <radio bindtap="radioChange" data-data="后台无记录"></radio>
+        </view>
+      </radio-group>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hidetaskerrmodal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="taskerrsure">确定</button>
+      </view>
     </view>
   </view>
 </view>

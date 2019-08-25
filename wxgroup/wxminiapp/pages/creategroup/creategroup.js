@@ -12,10 +12,10 @@ Page({
     uploaderNum: 0,
     showUpload: true,
     grouptext: null,
-    groupname:null
+    groupname: null
   },
   // 删除图片
-  clearImg: function (e) {
+  clearImg: function(e) {
     var nowList = []; //新数据
     var uploaderList = this.data.uploaderList; //原数据
 
@@ -33,7 +33,7 @@ Page({
     })
   },
   //展示图片
-  showImg: function (e) {
+  showImg: function(e) {
     var that = this;
     wx.previewImage({
       urls: that.data.uploaderList,
@@ -41,13 +41,13 @@ Page({
     })
   },
   //上传图片
-  upload: function (e) {
+  upload: function(e) {
     var that = this;
     wx.chooseImage({
       count: 1 - that.data.uploaderNum, // 默认1
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
+      success: function(res) {
         console.log("返回选定照片的本地文件路径列表", res)
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         let tempFilePaths = res.tempFilePaths;
@@ -64,47 +64,39 @@ Page({
       }
     })
   },
+  onLoad: function() {},
 
-  onLoad: function () { },
-
-
-  grouptext: function (e) {
+  grouptext: function(e) {
     // console.log(e.detail.value)
     this.setData({
       grouptext: e.detail.value,
     })
   },
 
-  groupname:function(e){
+  groupname: function(e) {
     this.setData({
       groupname: e.detail.value,
     })
-
   },
 
-  sumittask: function (e) {
-    console.log(this.data.grouptext)
-    console.log(this.data.groupname)
-    if (this.data.grouptext == null || this.data.groupname ==null){
+  sumittask: function(e) {
+    // console.log(this.data.grouptext)
+    // console.log(this.data.groupname)
+    if (this.data.grouptext == null || this.data.groupname == null) {
       wx.showToast({
         title: '信息不能为空',
         icon: 'none',
         duration: 2500,
       })
-       return;
-    }
-
-    else if (this.data.uploaderNum == 0){
+      return;
+    } else if (this.data.uploaderNum == 0) {
       console.log("图片为空")
-       let  logo="https://www.baidu.com"
-       this.creategroup(logo)
-
-    }
-    else{
+      let logo = "http://material.gzywudao.top/morengroup.jpg"
+      this.creategroup(logo)
+    } else {
       console.log("图片不为空")
       this.moredata()
     }
-
   },
 
 
@@ -118,13 +110,22 @@ Page({
         request({
           service: 'group/usergroup/setupgroup',
           data: {
-            code:res.code,
-            crowd_name:crowd_name,
-            introduce:introduce,
-            logo:logo
+            code: res.code,
+            crowd_name: crowd_name,
+            introduce: introduce,
+            logo: logo
           },
           success: res => {
-            console.log("创建群成功",res)
+            wx.showToast({
+              title: '创建群成功',
+              icon: 'none',
+              duration: 2500,
+            })
+            setTimeout(function () {
+              wx.switchTab({
+                url: '/pages/index/index'
+              })
+            }, 2000)
           },
         })
       }
@@ -133,11 +134,11 @@ Page({
   },
 
 
-  moredata: function () {
+  moredata: function() {
     var that = this;
     var imgList = []; //多张图片地址，保存到一个数组当中
     var state = 0; //state记录当前已经上传到第几张图片
-    new Promise(function (resolve, reject) {
+    new Promise(function(resolve, reject) {
       for (var i = 0; i < that.data.uploaderList.length; i++) {
         qiniuUploader.upload(that.data.uploaderList[i], (res) => { //that.data.uploaderList逐个取出来去上传
           state++;
@@ -150,27 +151,17 @@ Page({
           reject('error');
           console.log('error: ' + error);
         }, {
-            region: 'ECN',
-            uploadURL: 'https://up-z1.qiniup.com',
-            domain: 'http://material.gzywudao.top/',
-            uptokenURL: 'https://littlefun.gzywudao.top/php/public/index.php/index/qiniu/qiniumaterial',
-          })
+          region: 'ECN',
+          uploadURL: 'https://up-z0.qiniup.com',
+          domain: 'http://material.gzywudao.top/',
+          uptokenURL: 'https://group.gzywudao.top/php/public/miniapp.php/currency/qiniumaterial',
+        })
       }
-    }).then(function (imgList) {
+    }).then(function(imgList) {
       console.log("多张图片返回结果上传数据库的", imgList[0])
+      let logo = imgList[0]
+      that.creategroup(logo)
     })
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
 })

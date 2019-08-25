@@ -4,6 +4,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    num:1,
+    minusStatus: '',
+    tasksuccessmodel:false,
+    taskerrreasonmodel:false,
+    taskerrtext:"其他",
     testdata:{
     "state": "200",
     "message": "查询群任务成功",
@@ -27,7 +32,9 @@ Page({
         "https://groupqiniu.luojiaming.vip/test.jpg",
         "https://groupqiniu.luojiaming.vip/test.jpg",
       ]
-    }
+    },
+
+   
   }
     
   },
@@ -53,32 +60,85 @@ Page({
     
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * 点击任务合格按钮
    */
-  onUnload: function () {
-    
+  tasksuccess:function(){
+    this.setData({
+      tasksuccessmodel:true
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
+
+ /**
+   * 点击任务不合格按钮
    */
-  onPullDownRefresh: function () {
-    
+  taskerr:function(){
+    this.setData({
+      taskerrreasonmodel: true
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
+  hidetasksuccessmodal:function(){
+    this.setData({
+      tasksuccessmodel: false
+    })
+
+  },
+
+  hidetaskerrmodal: function () {
+    this.setData({
+      taskerrreasonmodel: false
+    })
+
+  },
+
+  //任务合格确定
+  tasksuccesssure:function(){
+    console.log(this.data.num)
+    console.log(this.data.taskerrtext)
+    this.hidetasksuccessmodal()
+  },
+
+
+  //任务不合格确定
+  taskerrsure: function () {
+    console.log(this.data.num)
+    console.log(this.data.taskerrtext)
+    this.hidetaskerrmodal()
+  },
+
+
+  /*点击减号*/
+  bindMinus: function () {
+    var num = this.data.num;
+    if (num >= 1) {
+      num--;
+    }
+    var minusStatus = num >= 1 ? 'normal' : 'disable';
+    this.setData({
+      num: num,
+      minusStatus: minusStatus
+    })
+  },
+  /*点击加号*/
+  bindPlus: function () {
+    var num = this.data.num;
+    num++;
+    var minusStatus = num >= 1 ? 'normal' : 'disable';
+    this.setData({
+      num: num,
+      minusStatus: minusStatus
+    })
+  },
+
+
+  radioChange:function(e){
+    // console.log("点击单选", e.currentTarget.dataset.data)
+    this.setData({
+      taskerrtext: e.currentTarget.dataset.data,
+    })
   },
 
   /**
