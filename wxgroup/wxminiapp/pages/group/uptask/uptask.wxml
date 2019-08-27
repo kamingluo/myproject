@@ -37,7 +37,7 @@
 
 
 <view class='cu-load load-modal'  wx:if="{{loadModal}}">
-  <view class='cuIcon-emojifill text-orange'></view>
+  <view class='cuIcon-loading2 text-orange'></view>
   <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
   <view class='gray-text'>提交中...</view>
 </view>

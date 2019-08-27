@@ -13,8 +13,8 @@ Page({
     showUpload: true,
     loadModal:false,
     tasktext:null,
-    crowd_id:13,
-    crowd_name:"kaming提交任务模拟群"
+    crowd_id:0,
+    crowd_name:"默认群"
   },
   // 删除图片
   clearImg: function(e) {
@@ -67,7 +67,14 @@ Page({
     })
   },
 
-  onLoad: function() {},
+  onLoad: function (options) {
+    console.log("提交任务页面logo", options)
+    this.setData({
+      //设置active的值为用户点击按钮的索引值
+      crowd_id: options.crowd_id,
+      crowd_name: options.crowd_name
+    })
+  },
 
 
   tasktext: function (e) {

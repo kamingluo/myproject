@@ -90,6 +90,12 @@ Page({
     })
   },
 
+  clickgroup:function(){
+    wx.navigateTo({
+      url: '/pages/creategroup/creategroup',
+    })
+  },
+
 
  //判断用户有没有授权
   getUserInfoif:function(){

@@ -48,7 +48,7 @@
       </view>
     </kaming-button>
   </view> -->
-  <view class="cu-item arrow" bindtap='userchangelist'>
+  <view class="cu-item arrow" bindtap='usertasklist'>
     <kaming-button>
       <view class="content ">
         <text class="cuIcon-pay text-blue iconsize"></text>

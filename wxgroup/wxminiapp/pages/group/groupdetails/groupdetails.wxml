@@ -9,17 +9,17 @@
 <view class='top bg-blue'>
   <view class='user'>
     <view class='userAvatar'>
-      <open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
+      <image src='{{crowddata.groupdata.logo}}'  class='userAvatarurl' ></image> 
     </view>
     <view class='username'>
       <view class='userNickName' bindlongpress="testpages">
-        <text>这是群名称啊最多这样</text>
+        <text>{{crowddata.groupdata.crowd_name}}</text>
       </view>
       <view class='id'>
-        <text>群ID:121</text>
+        <text>群ID:{{crowddata.groupdata.id}}</text>
       </view>
       <view class='qunchengyuan'>
-        <text>群成员:共123人</text>
+        <text>群成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>
     <view class='erweima' bindtap='qrcode'>
@@ -30,7 +30,7 @@
 
 <view class="flex padding justify-around  bg-icon ">
   <view wx:for="{{icondata}}" wx:key="item" class='icon-top' wx:if="{{item.type == 0? true:usertype }}">
-    <view class='icon-body'>
+    <view class='icon-body'  bindtap='clickicon'  data-data="{{item}}" >
       <view class="centered">
         <image src='{{item.imagesurl}}'></image>
       </view>

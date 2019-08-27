@@ -1,17 +1,18 @@
+// pages/my/exchange_detailed/exchange_detailed.js
 const app = getApp()
 const {
   request
 } = require('./../../../utils/request.js');
 
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    userscorerecord: [],  //信息流数组
+    usertasklist: null,
     loadModal: true,
-    display: false,
-    gdtaddisplay: false
+
   },
 
   /**
@@ -21,20 +22,28 @@ Page({
     wx.login({
       success: res => {
         request({
-          service: 'score/userscorerecord',
+          service: 'task/usertask/usertasklist',
           data: {
             code: res.code,
           },
           success: res => {
-            //console.log('用户积分', res);
+            //console.log('用户兑换列表页面', res);
             this.setData({
-              userscorerecord: res.userscorerecord,
+              usertasklist: res.usertasklist,
               loadModal: false,
             })
           },
         })
       }
     })
+
+  },
+
+  exchange: function () {
+    wx.navigateTo({
+      url: '/pages/exchange/exchange'
+    })
+
   },
 
   /**
@@ -48,29 +57,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.addisplay()
-
-  },
-
-
-
-  addisplay: function () {
-
-    this.setData({
-      display: app.globalData.display || false
-    })
-
-    let userchannel = wx.getStorageSync('userdata').channel
-    let scene = wx.getStorageSync('userdata').scene
-    if (userchannel == null || userchannel == 0 && scene == 1047) {
-      this.setData({
-        gdtaddisplay: false
-      })
-    } else {
-      this.setData({
-        gdtaddisplay: true
-      })
-    }
 
   },
 

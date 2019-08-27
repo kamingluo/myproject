@@ -10,7 +10,7 @@ App({
   },
   onLaunch: function (e) {
     console.log("onLaunch打印信息", e)
-    //this.getUserInfo(e)
+    this.getUserInfo(e)
     //this.autoUpdate()//检查更新
 
     //common.xmaddata() //小盟ad配置

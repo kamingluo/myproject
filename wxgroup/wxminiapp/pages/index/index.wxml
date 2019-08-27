@@ -88,10 +88,10 @@
 
 <view class="create-group">
   <view wx:if="{{ifauthorized}}">
-    <button class=' bg-gradual-blue' bindtap="todo"> 创建群空间 </button>
+    <button class=' bg-gradual-blue' bindtap="clickgroup"> 创建群空间 </button>
   </view>
   <view wx:else>
-    <button class='bg-gradual-blue' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权获取头像昵称</button>
+    <button class='bg-gradual-blue' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 创建群空间</button>
   </view>
 </view>
 <!-- <view class='cu-tabbar-height'></view> -->
