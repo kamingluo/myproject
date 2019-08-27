@@ -54,7 +54,7 @@ class Handletask
     	}
     	else{
              $dbreturn= db('task_record')->where('id',$id)->update(['state' => $taskstate,'result' => $result]);
-    		 $resdata=array_merge($state,array('taskstate'=>'fail'));
+    		     $resdata=array_merge($state,array('taskstate'=>'fail'));
              return $resdata ;
     	}
         

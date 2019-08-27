@@ -44,3 +44,10 @@
 <view class='sumittask centered'>
   <button bindtap="sumittask" class="bg-blue">创建群</button>
 </view>
+
+
+
+<view class='cu-load load-modal'  wx:if="{{loadModal}}">
+  <view class='cuIcon-loading2 text-orange'></view>
+  <view class='gray-text'>创建中...</view>
+</view>

@@ -38,6 +38,9 @@
         <view class='exchangetime'>
           提交时间:{{item.create_time}}
         </view>
+        <view style='color:red' class='exchangetime' wx:if="{{item.state == 2}}">
+          失败原因:{{item.result}}
+        </view>
       </view>
       <view class='exchangedata exchangstate'>
         <text style='color:#000000' wx:if="{{item.state == 0}}">待发放</text>

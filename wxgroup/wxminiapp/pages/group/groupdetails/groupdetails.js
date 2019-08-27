@@ -15,6 +15,7 @@ Page({
     isCard: false,
     user_type:null,
     crowddata: null,
+    score: 0
   },
 
   /**
@@ -25,11 +26,13 @@ Page({
     if (options.user_type == 1 || options.user_type == 2 ){
       this.setData({
         user_type: options.user_type,
+        score: options.score,
         usertype:true
       })
     }
     else{
       this.setData({
+        score: options.score,
         user_type: options.user_type,
       })
     }

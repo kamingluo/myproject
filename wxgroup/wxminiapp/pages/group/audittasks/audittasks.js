@@ -1,117 +1,161 @@
+const {
+  request
+} = require('./../../../utils/request.js');
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    num:1,
+    num: 1,
     minusStatus: '',
-    tasksuccessmodel:false,
-    taskerrreasonmodel:false,
-    taskerrtext:"其他",
-    testdata:{
-    "state": "200",
-    "message": "查询群任务成功",
-    "taskdetails": {
-      "id": 30917,
-      "openid": "o3XMA0enuFRZsOCOCeqjB70exjr4",
-      "user_id": 8,
-      "channel": 0,
-      "score": 0,
-      "explain": "这是任务说明",
-      "crowd_id": 7,
-      "crowd_name": "群名称",
-      "nickName": "kaming",
-      "avatarUrl": null,
-      "state": 0,
-      "result": null,
-      "create_time": "2019-08-21 16:23:29",
-      "images": [
-        "https://groupqiniu.luojiaming.vip/test.jpg",
-        "https://groupqiniu.luojiaming.vip/adf01127b3d8f4a2392db254a2134a7.png",
-        "https://groupqiniu.luojiaming.vip/test.jpg",
-        "https://groupqiniu.luojiaming.vip/test.jpg",
-      ]
-    },
-
-   
-  }
-    
+    tasksuccessmodel: false,
+    taskerrreasonmodel: false,
+    taskerrtext: "其他",
+    crowd_id: 0,
+    crowd_name: null,
+    taskdata: null,
+    loadModal: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+    //console.log("任务操作页面",options)
+    this.setData({
+      crowd_id: options.crowd_id,
+      crowd_name: options.crowd_name
+    })
+    this.havetaskdata()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
+  /**
+   * 拿任务数据
+   */
+  havetaskdata: function() {
+    var that = this
+    var crowd_id = that.data.crowd_id
+    request({
+      service: 'task/handletask/taskdetails',
+      method: 'GET',
+      data: {
+        crowd_id: crowd_id
+      },
+      success: res => {
+        //console.log("这是拿到的任务数据啊",res)
+        that.setData({
+          taskdata: res,
+          loadModal: false,
+        })
+      },
+    })
+  },
 
   /**
    * 点击任务合格按钮
    */
-  tasksuccess:function(){
+  tasksuccess: function() {
     this.setData({
-      tasksuccessmodel:true
+      tasksuccessmodel: true
     })
   },
 
-
- /**
+  /**
    * 点击任务不合格按钮
    */
-  taskerr:function(){
+  taskerr: function() {
     this.setData({
       taskerrreasonmodel: true
     })
   },
 
-  hidetasksuccessmodal:function(){
+  hidetasksuccessmodal: function() {
     this.setData({
       tasksuccessmodel: false
     })
-
   },
 
-  hidetaskerrmodal: function () {
+  hidetaskerrmodal: function() {
     this.setData({
       taskerrreasonmodel: false
     })
-
   },
 
   //任务合格确定
-  tasksuccesssure:function(){
-    console.log(this.data.num)
-    console.log(this.data.taskerrtext)
+  tasksuccesssure: function() {
     this.hidetasksuccessmodal()
+    this.setData({
+      loadModal: true
+    })
+    var that = this
+    var crowd_id = that.data.crowd_id //群id
+    var score = this.data.num //分数
+    var id = this.data.taskdata.taskdetails.id //任务id
+    var user_id = this.data.taskdata.taskdetails.user_id //提交任务用户id
+    request({
+      service: 'task/handletask/handletask',
+      data: {
+        id: id,
+        crowd_id: crowd_id,
+        score: score,
+        user_id: user_id,
+        result: "任务合格",
+        taskstate: 1,
+      },
+      success: res => {
+        console.log("任务合格返回", res)
+        that.havetaskdata()
+      },
+    })
+
   },
 
 
   //任务不合格确定
-  taskerrsure: function () {
-    console.log(this.data.num)
-    console.log(this.data.taskerrtext)
+  taskerrsure: function() {
     this.hidetaskerrmodal()
+    this.setData({
+      loadModal: true
+    })
+    var that = this
+    var crowd_id = that.data.crowd_id //群id
+    var score = this.data.num //分数
+    var id = this.data.taskdata.taskdetails.id //任务id
+    var user_id = this.data.taskdata.taskdetails.user_id //提交任务用户id
+    var result = this.data.taskerrtext //不合格说明
+    request({
+      service: 'task/handletask/handletask',
+      data: {
+        id: id,
+        crowd_id: crowd_id,
+        score: score,
+        user_id: user_id,
+        taskstate: 2,
+        result: result
+      },
+      success: res => {
+        console.log("任务不合格返回", res)
+        that.havetaskdata()
+      },
+    })
+
   },
 
 
   /*点击减号*/
-  bindMinus: function () {
+  bindMinus: function() {
     var num = this.data.num;
     if (num >= 1) {
       num--;
@@ -123,7 +167,7 @@ Page({
     })
   },
   /*点击加号*/
-  bindPlus: function () {
+  bindPlus: function() {
     var num = this.data.num;
     num++;
     var minusStatus = num >= 1 ? 'normal' : 'disable';
@@ -134,7 +178,7 @@ Page({
   },
 
 
-  radioChange:function(e){
+  radioChange: function(e) {
     // console.log("点击单选", e.currentTarget.dataset.data)
     this.setData({
       taskerrtext: e.currentTarget.dataset.data,
@@ -144,7 +188,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })

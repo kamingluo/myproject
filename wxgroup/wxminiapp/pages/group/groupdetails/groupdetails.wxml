@@ -16,7 +16,8 @@
         <text>{{crowddata.groupdata.crowd_name}}</text>
       </view>
       <view class='id'>
-        <text>群ID:{{crowddata.groupdata.id}}</text>
+        <!-- <text>群ID:{{crowddata.groupdata.id}}</text> -->
+        <text>我的群积分: {{score}}分</text>
       </view>
       <view class='qunchengyuan'>
         <text>群成员:共{{crowddata.groupnumber}}人</text>

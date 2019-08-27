@@ -12,7 +12,8 @@ Page({
     uploaderNum: 0,
     showUpload: true,
     grouptext: null,
-    groupname: null
+    groupname: null,
+    loadModal: false
   },
   // 删除图片
   clearImg: function(e) {
@@ -90,11 +91,17 @@ Page({
       })
       return;
     } else if (this.data.uploaderNum == 0) {
-      console.log("图片为空")
+      this.setData({
+        loadModal: true,
+      })
+      //console.log("图片为空")
       let logo = "http://material.gzywudao.top/morengroup.jpg"
       this.creategroup(logo)
     } else {
-      console.log("图片不为空")
+      this.setData({
+        loadModal: true,
+      })
+      //console.log("图片不为空")
       this.moredata()
     }
   },
@@ -116,16 +123,19 @@ Page({
             logo: logo
           },
           success: res => {
+            this.setData({
+              loadModal: false,
+            })
             wx.showToast({
               title: '创建群成功',
               icon: 'none',
               duration: 2500,
             })
-            setTimeout(function () {
+            setTimeout(function() {
               wx.switchTab({
                 url: '/pages/index/index'
               })
-            }, 2000)
+            }, 1500)
           },
         })
       }
