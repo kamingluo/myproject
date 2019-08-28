@@ -20,6 +20,8 @@ class Groupnews
       
     }
 
+
+
     //发布群消息
      public function pushgroupnews(Request $request)
      {
@@ -29,7 +31,8 @@ class Groupnews
         $userdata=db('user')->where('openid',$openid)->find();
      	 $crowd_id=$request->param("crowd_id");
      	 $content=$request->param("content");
-     	 $images=htmlspecialchars_decode($request->param("images"));//把预定义的 HTML 实体转换为字符。
+         $imagesdata =$request->param("images/a");
+     	  $images =  json_encode($imagesdata);
      	 $titleimage=$request->param("titleimage");
      	 $time =date('Y-m-d H:i:s',time());
 

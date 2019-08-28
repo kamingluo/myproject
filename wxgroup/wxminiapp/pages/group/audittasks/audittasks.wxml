@@ -35,7 +35,7 @@
       <view class='information '>
         <block wx:for="{{taskdata.taskdetails.images}}" wx:key="item">
           <view class='information-body '>
-            <image src='{{item}}' bindtap='clickInformation' data-data='{{item}}'></image>
+            <image src='{{item}}' bindtap='clicktaskimage' data-data='{{item}}'></image>
           </view>
         </block>
       </view>
@@ -149,3 +149,20 @@
   <view class='cuIcon-loading2 text-orange'></view>
   <view class='gray-text'>处理中...</view>
 </view>
+
+
+
+
+
+
+<form bindsubmit="submitForm" wx:if="{{tankuang}}" report-submit>
+  <view class='tankuang'>
+   <view class='tankuangimage' >
+   <image src='{{taskimageurl}}' ></image>
+   </view>
+    <!-- 关闭按钮-->
+    <view bindtap='closetankuang' class='closetankuang'>
+      <image src='../../../images/close.png'></image>
+    </view>
+  </view>
+</form>

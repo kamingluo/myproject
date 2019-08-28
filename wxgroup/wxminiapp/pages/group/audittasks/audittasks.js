@@ -13,6 +13,8 @@ Page({
     crowd_name: null,
     taskdata: null,
     loadModal: false,
+    tankuang:false,
+    taskimageurl:null
   },
 
   /**
@@ -58,6 +60,7 @@ Page({
         that.setData({
           taskdata: res,
           loadModal: false,
+          tankuang: false,
         })
       },
     })
@@ -93,6 +96,12 @@ Page({
     })
   },
 
+  closetankuang:function(){
+    this.setData({
+      tankuang: false
+    })
+  },
+
   //任务合格确定
   tasksuccesssure: function() {
     this.hidetasksuccessmodal()
@@ -116,6 +125,7 @@ Page({
       },
       success: res => {
         console.log("任务合格返回", res)
+        that.audittasks()
         that.havetaskdata()
       },
     })
@@ -147,12 +157,31 @@ Page({
       },
       success: res => {
         console.log("任务不合格返回", res)
+        that.audittasks()
         that.havetaskdata()
       },
     })
 
   },
 
+  audittasks:function(){
+    wx.showToast({
+      title: '审核完成',
+      icon: 'success',
+      duration: 1500,
+    })
+
+  },
+
+
+  clicktaskimage:function(e){
+    console.log(e.currentTarget.dataset.data)
+    this.setData({
+      tankuang: true,
+      taskimageurl: e.currentTarget.dataset.data
+    })
+
+  },
 
   /*点击减号*/
   bindMinus: function() {

@@ -46,7 +46,7 @@ class Handletask
         
     	if($taskstate == 1){ //任务通过
                //修改任务状态
-               $dbreturn= db('task_record')->where('id',$id)->update(['state' => $taskstate,'result' => $result]);
+               $dbreturn= db('task_record')->where('id',$id)->update(['state' => $taskstate,'result' => $result,'score' => $score]);
                //给用户相应的群积分账户加积分
                $addscore= db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->setInc('score',$score);
                $resdata=array_merge($state,array('taskstate'=>'success'));
