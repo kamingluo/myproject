@@ -85,7 +85,7 @@ function shareconfig() {
 
 //跳转内部页面
 function insidejump (e) {
-  //console.log("跳转tab页面")
+  //console.log("跳转页面",e)
   let type = e.type
   if (type == 0) {
     wx.switchTab({
@@ -93,14 +93,18 @@ function insidejump (e) {
     })
   }
   else if (type == 1) {
-    //console.log("关闭其他页面跳转")
-    wx.reLaunch({
+    wx.navigateTo({
       url: e.url
     })
   }
+  else if (type == 2) {
+    wx.navigateToMiniProgram({
+      appId: e.appid,
+      path: e.url,
+    })
+  }
   else {
-    console.log("普通跳转",e)
-    wx.navigateTo({
+    wx.reLaunch({
       url: e.url
     })
   }

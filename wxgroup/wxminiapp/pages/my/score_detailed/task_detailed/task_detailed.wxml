@@ -42,16 +42,6 @@
     </view>
   </view>
   <!-- 审核图片结束 -->
-  <view class='share centered'>
-    <view class='sharebody centered'>
-      <view>
-        <button class="bg-red" bindtap="taskerr">不合格</button>
-      </view>
-      <view>
-        <button class="bg-green" bindtap="tasksuccess">合格</button>
-      </view>
-    </view>
-  </view>
 </view>
 
 

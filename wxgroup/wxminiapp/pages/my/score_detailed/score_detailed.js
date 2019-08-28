@@ -39,9 +39,10 @@ Page({
 
   },
 
-  clicktasklist: function () {
+  clicktasklist: function (e) {
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/my/score_detailed/task_detailed/task_detailed'
+      url: '/pages/my/score_detailed/task_detailed/task_detailed?id=' + e.currentTarget.dataset.id
     })
 
   },

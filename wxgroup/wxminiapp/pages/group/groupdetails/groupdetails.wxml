@@ -9,7 +9,7 @@
 <view class='top bg-blue'>
   <view class='user'>
     <view class='userAvatar'>
-      <image src='{{crowddata.groupdata.logo}}'  class='userAvatarurl' ></image> 
+      <image src='{{crowddata.groupdata.logo}}' class='userAvatarurl'></image>
     </view>
     <view class='username'>
       <view class='userNickName' bindlongpress="testpages">
@@ -31,7 +31,7 @@
 
 <view class="flex padding justify-around  bg-icon ">
   <view wx:for="{{icondata}}" wx:key="item" class='icon-top' wx:if="{{item.type == 0? true:usertype }}">
-    <view class='icon-body'  bindtap='clickicon'  data-data="{{item}}" >
+    <view class='icon-body' bindtap='clickicon' data-data="{{item}}">
       <view class="centered">
         <image src='{{item.imagesurl}}'></image>
       </view>
@@ -53,37 +53,50 @@
     </view>
   </view> -->
 
-  <view wx:if="{{active == 0}}" class='groupnews' >
+  <view wx:if="{{active == 0}}" class='groupnews'>
 
-   <view class="cu-card case">
-  <view class="cu-item shadow">
-    <view class="image">
-      <image  class="titleimg" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFix"></image>
-      <view class="cu-bar bg-shadeBottom">
-        <text class="text-cut-test">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。</text>
-      </view>
-    </view>
-    <view class="cu-list menu-avatar">
-      <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-        <view class="content flex-sub">
-          <view class="text-grey">正义天使 凯尔</view>
-          <view class="text-gray text-sm flex justify-between">
-            2019-08-24 15:58:00
-            <view class="text-gray text-sm">
-              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-              <!-- <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+    <view wx:if="{{groupnewslist.length > 0}}">
+      <view class="cu-card case" wx:for="{{groupnewslist}}" wx:key="item" wx:if="{{groupnewslist.length > 0}}">
+        <view class="cu-item shadow"    bindtap='clicknewslist'   data-data='{{item}}'  >
+          <view class="image">
+            <image class="titleimg" src="{{item.titleimage}}" mode="aspectFix"></image>
+            <view class="cu-bar bg-shadeBottom">
+              <text class="text-cut-test">{{item.content}}</text>
+            </view>
+          </view>
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar round lg" style="background-image:url({{item.headportrait}});"></view>
+              <view class="content flex-sub">
+                <view class="text-grey">{{item.publisher}}</view>
+                <view class="text-gray text-sm flex justify-between">
+                  {{item.create_time}}
+                  <view class="text-gray text-sm">
+                    <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.watchnum}}
+                    <!-- <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
               <text class="cuIcon-messagefill margin-lr-xs"></text> 30 -->
+                  </view>
+                </view>
+              </view>
             </view>
           </view>
         </view>
       </view>
+       <view  class='centered' >
+        <text>----已经到底了---</text>
+      </view>
     </view>
+
+     <view wx:else>
+        <text>为空的默认提示还没做</text>
+      </view>
+
+
   </view>
 
-</view>
 
-  </view>
+
+
 
 
 

@@ -6,6 +6,7 @@
     "pages/group/groupdetails/groupdetails",
     "pages/group/uptask/uptask",
     "pages/group/audittasks/audittasks",
+    "pages/group/pushnews/pushnews",
     "pages/my/score_detailed/score_detailed",
     "pages/my/score_detailed/task_detailed/task_detailed",
     "pages/my/qrcode/qrcode"
@@ -27,7 +28,7 @@
   "wxc6fa3baccd00d0cb",
   "wx18b75705b93bd908",
   "wx1fc44821ba937d67",
-  "wx7f1760e66410e638"
+  "wxf1f0d92f69dd80db"
 ],
   "sitemapLocation": "sitemap.json",
   "tabBar": {

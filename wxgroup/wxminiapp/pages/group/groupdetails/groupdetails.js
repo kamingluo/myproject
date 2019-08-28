@@ -13,8 +13,10 @@ Page({
     btns: ["群消息", "群成员"],
     active: 0,//控制当前显示盒子 
     isCard: false,
+    groupnewslist:null,
     user_type:null,
     crowddata: null,
+    crowd_id:null,
     score: 0
   },
 
@@ -27,17 +29,20 @@ Page({
       this.setData({
         user_type: options.user_type,
         score: options.score,
-        usertype:true
+        usertype:true,
+        crowd_id: options.id
       })
     }
     else{
       this.setData({
         score: options.score,
         user_type: options.user_type,
+        crowd_id: options.id
       })
     }
     this.incondata()
     this.groupdata(options.id)
+    
   },
 
 
@@ -67,8 +72,8 @@ Page({
       {
         id: 4,
         imagesurl: "../../../images/common/loading.svg",
-        text: "文案4",
-        joumurl: '/pages/index/index',
+        text: "发布消息",
+        joumurl: '/pages/group/pushnews/pushnews',
         type: 0
         
       },
@@ -95,6 +100,24 @@ Page({
   },
 
 
+  groupnewslist: function (crowd_id) {
+    request({
+      service: 'group/groupnews/groupnewslist',
+      method: 'GET',
+      data: {
+        crowd_id: crowd_id,
+        pages:1
+      },
+      success: res => {
+        console.log("----------------------")
+        console.log(res)
+        this.setData({
+          groupnewslist: res.data,
+        })
+      }
+    })
+  },
+
 
 
   toggle: function (e) {
@@ -119,6 +142,16 @@ Page({
     })
   },
 
+
+
+  clicknewslist:function(e){
+    wx.showToast({
+      title: '跳转还没做呢',
+      duration: 2000,
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -130,7 +163,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let id = this.data.crowd_id
+    this.groupnewslist(id)
   },
 
   /**
