@@ -69,8 +69,18 @@ class Handletask
         $id =$request->param("id");//任务id
         $dbtaskdetails =db('task_record')->where('id',$id)->find();
         $state=['state'   => '200','message'  => "任务详情查询成功" ];
-        $resdata=array_merge($state,array('taskdetails'=>$dbtaskdetails));
-        return $resdata ;
+         $ifdata=isset($dbtaskdetails);//判断检测变量是否已设置并且非 NULL
+        if( $ifdata){ //不为空
+             $images=json_decode($dbtaskdetails["images"]);//先取出值，反转义一下
+             unset($dbtaskdetails['images']);//去除原来数据里面的值
+             $taskdetails=array_merge($dbtaskdetails,array('images'=>$images));//再把转义后的值增加进去
+             $resdata=array_merge($state,array('taskdetails'=>$taskdetails));
+             return $resdata ;
+        }
+        else{ //数值为空
+             $resdata=array_merge($state,array('taskdetails'=>$dbtaskdetails));
+             return $resdata;
+        }
        
     }
 
