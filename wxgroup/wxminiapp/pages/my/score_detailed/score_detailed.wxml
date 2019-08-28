@@ -29,7 +29,7 @@
 
 <view  wx:else >
   <view class='centered' wx:for="{{usertasklist}}" wx:key="item">
-    <view class='exchangelist  shadow-warp bg-white'>
+    <view class='exchangelist  shadow-warp bg-white' bindtap='clicktasklist'  data-id='{{item.id}}' >
       <view class='exchangedata '>
         <view class='exchangegood'>
           任务群:

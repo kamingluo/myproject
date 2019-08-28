@@ -17,10 +17,10 @@ Page({
    */
   onLoad: function (options) {
     //console.log("任务操作页面",options)
-    this.setData({
-      crowd_id: options.crowd_id,
-      crowd_name: options.crowd_name
-    })
+    // this.setData({
+    //   crowd_id: options.crowd_id,
+    //   crowd_name: options.crowd_name
+    // })
     this.havetaskdata()
   },
 
@@ -45,17 +45,15 @@ Page({
     var that = this
     var crowd_id = that.data.crowd_id
     request({
-      service: 'task/handletask/taskdetails',
+      service: 'task/handletask/querytaskdetails',
       method: 'GET',
       data: {
-        crowd_id: crowd_id
+        id: 30943
       },
       success: res => {
-        //console.log("这是拿到的任务数据啊",res)
+        console.log("这是id拿到的任务数据啊",res)
         that.setData({
           taskdata: res,
-          loadModal: false,
-          tankuang: false,
         })
       },
     })

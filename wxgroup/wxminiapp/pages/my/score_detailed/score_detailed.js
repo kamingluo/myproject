@@ -39,9 +39,9 @@ Page({
 
   },
 
-  exchange: function () {
+  clicktasklist: function () {
     wx.navigateTo({
-      url: '/pages/exchange/exchange'
+      url: '/pages/my/score_detailed/task_detailed/task_detailed'
     })
 
   },

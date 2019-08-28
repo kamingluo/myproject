@@ -66,7 +66,7 @@ class Handletask
      //根据任务id查询任务详情
     public function querytaskdetails(Request $request)
     {
-        $crowd_id =$request->param("crowd_id");//群id
+        $id =$request->param("id");//任务id
         $dbtaskdetails =db('task_record')->where('id',$id)->find();
         $state=['state'   => '200','message'  => "任务详情查询成功" ];
         $resdata=array_merge($state,array('taskdetails'=>$dbtaskdetails));
