@@ -54,11 +54,32 @@ class Handletask
     	}
     	else{
              $dbreturn= db('task_record')->where('id',$id)->update(['state' => $taskstate,'result' => $result]);
-    		     $resdata=array_merge($state,array('taskstate'=>'fail'));
+    		 $resdata=array_merge($state,array('taskstate'=>'fail'));
              return $resdata ;
     	}
         
     }
+
+
+
+
+     //根据任务id查询任务详情
+    public function querytaskdetails(Request $request)
+    {
+        $crowd_id =$request->param("crowd_id");//群id
+        $dbtaskdetails =db('task_record')->where('id',$id)->find();
+        $state=['state'   => '200','message'  => "任务详情查询成功" ];
+        $resdata=array_merge($state,array('taskdetails'=>$dbtaskdetails));
+        return $resdata ;
+       
+    }
+
+
+
+
+
+
+
     
 
 }
