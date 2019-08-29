@@ -29,16 +29,17 @@ class Usergroup
         $introduce =$request->param("introduce");
         $logo=$request->param("logo");
         $openid=openid($wxcode);
-        $groupowner=db('user')->where('openid',$openid)->find(); //群主信息
-        $time =date('Y-m-d H:i:s',time());//获取当前时间
 
-        $groupnumbers= db('user_crowd')->where('user_id',$groupowner["id"])->where('user_type',1)->count();
+        $groupnumbers= db('user_crowd')->where('user_openid',$openid)->where('user_type',1)->count();
 
         if( $groupnumbers >= 3){
             $state=['state'   => '400','message'  => "每个用户只能创建三个群" ];
             return $state;
         }
         else{
+
+         $groupowner=db('user')->where('openid',$openid)->find(); //群主信息
+         $time =date('Y-m-d H:i:s',time());//获取当前时间
              //创建群成功
          $dbdata = ['id'=>'','crowd_name' =>$crowd_name,'crowd_ownerid' => $groupowner["id"],'introduce' => $introduce,'rule' => null,'logo' => $logo,'create_time' =>$time];
          $groupid= db('crowd')->insertGetId($dbdata);//返回自增ID
