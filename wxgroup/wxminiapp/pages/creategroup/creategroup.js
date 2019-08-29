@@ -137,6 +137,13 @@ Page({
               })
             }, 1500)
           },
+          complete: res => {
+            this.setData({
+              loadModal: false,
+            })
+          },
+
+
         })
       }
     })

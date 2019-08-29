@@ -29,6 +29,7 @@ const request = (config) => {
           title: res.data.message || "网络异常",
           icon: 'none'
         })
+        config.fail && config.fail(data);
       } else {
         //console.log("接口返回值",res)
         const data = res.data;
