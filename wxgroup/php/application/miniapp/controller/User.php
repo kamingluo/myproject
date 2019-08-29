@@ -109,10 +109,6 @@ class User
 
 
 
-
-
-
-
      //请求获取openid
     public function obtainopenid(Request $request)
     {
@@ -144,6 +140,20 @@ class User
         $user_openid =$request->param("user_openid");
         $data= joingroup($crowd_id, $user_id, $user_openid);
         return $data;
+       
+    }
+
+
+          //用户加入群
+    public function userbirthday(Request $request)
+    {
+        $wxcode =$request->param("code");//接收所有传过来的值
+        $openid=openid($wxcode);
+        $birthday=$request->param("birthday");
+
+        $dbreturn= db('user')->where('openid',$openid)->update(['birthday' => $birthday]);
+        $state=['state'   => '200','message'  => "用户生日更新成功" ];
+        return $state;
        
     }
 

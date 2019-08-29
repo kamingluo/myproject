@@ -50,28 +50,28 @@ Page({
     let icondata=[
       {
         id:1,
-        imagesurl:"../../../images/common/erweima.svg",
+        imagesurl:"http://qiniu.luojiaming.vip/image/group/icon/useroperation.png",
         text:"群管理",
         joumurl:'/pages/index/index',
         type:1
       },
       {
         id: 2,
-        imagesurl: "../../../images/common/liwu.png",
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/uptask.png",
         text: "提交任务",
         joumurl: '/pages/group/uptask/uptask',
         type: 0
       },
       {
         id: 3,
-        imagesurl: "../../../images/common/wxlogo.png",
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/audittasks.png",
         text: "任务审核",
         joumurl: '/pages/group/audittasks/audittasks',
         type: 1
       },
       {
         id: 4,
-        imagesurl: "../../../images/common/loading.svg",
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/pushnews.png",
         text: "发布消息",
         joumurl: '/pages/group/pushnews/pushnews',
         type: 0

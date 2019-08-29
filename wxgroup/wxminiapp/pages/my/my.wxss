@@ -51,18 +51,31 @@ flex-basis: 400rpx;
   position:relative;
   font-size: 45rpx;
   right:30rpx;  
-  top:25rpx; 
+  top:20rpx; 
   color: #ffffff;
 }
 
 .id{
   display: flex;
   position:relative;
-  font-size: 40rpx;
+  font-size: 35rpx;
   right:30rpx; 
-  bottom: 10rpx;
   color: #ffffff;
+   margin-top: -10rpx;
+}
+.xiugai{
+  margin-left: 10rpx;
+  margin-top: -5rpx;
+  font-size: 40rpx;
+}
 
+.birthday{
+  display: flex;
+  position:relative;
+  font-size: 30rpx;
+  right:30rpx; 
+  color: #ffffff;
+ margin-top: -40rpx;
 }
 
 .erweima{

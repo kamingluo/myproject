@@ -12,6 +12,7 @@ Page({
 
   data: {
     userdata:'',
+    birthday:null,
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -43,7 +44,8 @@ Page({
             code: res.code,
           },
           success: res => {
-           // console.log('我的页面获取用户信息', res);
+            //console.log('我的页面获取用户信息', res.userdata.birthday);
+            this.birthday(res.userdata.birthday)
             this.setData({
               userdata: res.userdata,
             })
@@ -58,6 +60,19 @@ Page({
 
   },
 
+
+  birthday:function(e){
+    // console.log("11111111",e)
+    if(e){
+      var temp = new Date(e);
+      var t = temp.getFullYear() + "-" + (temp.getMonth() + 1) + "-" + temp.getDate(); //去除时分秒
+      this.setData({
+        birthday: t,
+      })
+    }
+   
+
+  },
   exchange:function(){
     wx.navigateTo({
       url: '/pages/exchange/exchange'
@@ -100,6 +115,31 @@ Page({
     app.aldstat.sendEvent('我的页面点击广点通banner广告', data);
   },
 
+  bindDateChange: function (e) {
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    wx.login({
+      success: res => {
+        request({
+          service: 'user/userbirthday',
+          data: {
+            code: res.code,
+            birthday: e.detail.value
+          },
+          success: res => {
+            wx.showToast({
+              title: '设置成功',
+              icon: 'none',
+              duration: 2000,
+            })
+            this.setData({
+              birthday: e.detail.value
+            })
+          },
+        })
+      }
+    })
+
+  },
 
 
   /**

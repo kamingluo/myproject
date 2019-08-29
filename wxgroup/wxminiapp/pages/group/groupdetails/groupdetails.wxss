@@ -92,13 +92,13 @@
 }
 
 .icon-text {
-  margin-top: 5rpx;
-  font-size: 30rpx;
+  margin-top: 10rpx;
+  font-size: 25rpx;
 }
 
 .icon-body image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .tab {
