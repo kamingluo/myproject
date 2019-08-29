@@ -3,6 +3,7 @@
 
   <view class='centered miniappname '>
     <text>一点好玩</text>
+    <!-- <button bindtap='aaaaaaa'>获取地址测试</button> -->
   </view>
 
 

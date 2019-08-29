@@ -26,7 +26,7 @@ const request = (config) => {
       wx.hideNavigationBarLoading();
       if (res.statusCode != 200) {
         wx.showToast({
-          title: '网络异常',
+          title: res.data.message || "网络异常",
           icon: 'none'
         })
       } else {

@@ -15,7 +15,7 @@
 
     <view class='username'>
 
-      <view class='userNickName'  bindlongpress="testpages" >
+      <view class='userNickName' bindlongpress="testpages">
         <open-data type="userNickName"></open-data>
       </view>
 
@@ -23,13 +23,14 @@
         <text>ID:{{userdata.id}}</text>
       </view>
 
-       <view class='birthday'  >
-       <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-       <text>生日:{{birthday}} </text> <text class='cuIcon-post  xiugai '></text>
-  </picker>
-        
+      <view class='birthday'>
+        <picker mode="date" value="{{birthday?birthday:'2000-01-01'}}" start="1940-01-01" end="2012-01-01" bindchange="bindDateChange">
+          <text>生日:{{birthday?birthday:"未设置"}} </text>
+          <text class='cuIcon-post  xiugai '></text>
+        </picker>
+
       </view>
-      
+
 
     </view>
     <!-- <view class='erweima'  bindtap='qrcode' >
@@ -52,14 +53,7 @@
 
 
 <view class="cu-list menu card-menu margin-top margin-bottom shadow-lg radius">
-  <!-- <view class="cu-item arrow" bindtap='userscorerecord'>
-    <kaming-button>
-      <view class="content">
-        <text class="cuIcon-coin text-yellow  iconsize"></text>
-        <text class="text-grey">收入明细</text>
-      </view>
-    </kaming-button>
-  </view> -->
+
   <view class="cu-item arrow" bindtap='usertasklist'>
     <kaming-button>
       <view class="content ">
@@ -68,6 +62,14 @@
       </view>
     </kaming-button>
   </view>
+
+  <view class="cu-item arrow">
+    <view class="content" hover-class="none">
+      <text class="cuIcon-locationfill text-yellow iconsize"></text>
+      <text class="text-grey">收货地址</text>
+    </view>
+  </view>
+
   <view class="cu-item arrow">
     <button class="cu-btn content" open-type="contact" session-from='{"userid":"{{userdata.id}}"}'>
       <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
@@ -75,18 +77,22 @@
       <text class="text-grey">联系我们</text>
     </button>
   </view>
-  <view class="cu-item arrow">
+
+  <!-- <view class="cu-item arrow">
     <button class="cu-btn content" open-type="feedback">
       <text class="cuIcon-edit text-red  iconsize"></text>
       <text class="text-grey">意见反馈</text>
     </button>
-  </view>
+  </view> -->
+
   <view class="cu-item arrow">
     <view class="content" hover-class="none">
-      <text class="cuIcon-creativefill text-orange"></text>
+      <text class="cuIcon-creativefill text-orange iconsize"></text>
       <text class="text-grey">关于我们</text>
     </view>
   </view>
+
+
 </view>
 
 

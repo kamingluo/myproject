@@ -148,6 +148,42 @@ Page({
     
   },
 
+
+  aaaaaaa() {
+    wx.getSetting({
+      success(res) {
+        console.log("vres.authSetting['scope.address']：", res.authSetting['scope.address'])
+        if (res.authSetting['scope.address']) {
+          console.log("11111")
+          wx.chooseAddress({
+            success(res) {
+              console.log(res)
+            }
+          })
+          // 用户已经同意小程序使用功能，后续调用接口不会弹窗询问
+
+        } else {
+          if (res.authSetting['scope.address'] == false) {
+            console.log("22222222")
+            wx.openSetting({
+              success(res) {
+                console.log(res.authSetting)
+              }
+            })
+          } else {
+            console.log("eeeeeee")
+            wx.chooseAddress({
+              success(res) {
+                console.log(res)
+              }
+            })
+          }
+        }
+      }
+    })
+  },
+  
+
   /**
    * 生命周期函数--监听页面卸载
    */

@@ -144,7 +144,7 @@ class User
     }
 
 
-          //用户加入群
+          //用户生日更改
     public function userbirthday(Request $request)
     {
         $wxcode =$request->param("code");//接收所有传过来的值

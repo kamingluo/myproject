@@ -39,6 +39,25 @@ class Handlegroup
 
 
 
+     //查询该群7天之内过生日的人
+    public function querybirthday(Request $request)
+    {
+        $crowd_id=$request->param("crowd_id");//群id
+
+        $sql = "select  user.*,user_crowd.user_type,user_crowd.score,user_crowd.create_time as joincrowd_time from user,user_crowd where (( DATE_FORMAT(birthday,'%m-%d'))-( DATE_FORMAT(curdate(),'%m-%d'))) <= 7 and (( DATE_FORMAT(birthday,'%m-%d'))-( DATE_FORMAT(curdate(),'%m-%d'))) >= 0  and user.id=user_crowd.user_id and user_crowd.crowd_id = " .$crowd_id. " order BY ( DATE_FORMAT(birthday,'%m-%d')) asc;";
+        // return $sql;
+        $querybirthday = Db::query($sql); //拿到数据
+        $state=['state'   => '200','message'  => "查询该群7天之内过生日的人" ];
+        $resdata=array_merge($state,array('querybirthday'=>$querybirthday));
+        return $resdata ;
+
+    }
+
+
+
+
+
+
      //修改用户的群积分账户
     public function updateusergroupscore(Request $request)
     {
