@@ -145,11 +145,10 @@ Page({
 
 
   clicknewslist:function(e){
-    wx.showToast({
-      title: '跳转还没做呢',
-      duration: 2000,
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/group/newsdetailed/newsdetailed' + '?id=' + e.currentTarget.dataset.id,
     })
-
   },
 
   /**

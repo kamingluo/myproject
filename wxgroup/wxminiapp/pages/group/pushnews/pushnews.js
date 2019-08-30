@@ -187,7 +187,7 @@ Page({
     var checkedimg = this.data.checkedimg
     var crowd_id = this.data.crowd_id
     if (this.data.tasktext == null) {
-      var explain = "用户未填写任务描述"
+      var explain = "用户未填写消息描述"
     } else {
       var explain = this.data.tasktext
     }

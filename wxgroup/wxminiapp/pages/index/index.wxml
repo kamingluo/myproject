@@ -25,49 +25,51 @@
 
     <view wx:if="{{usergrouplist.length > 0}}">
 
-    <view>
-      <view class='centered'>
-        <view class='information-name centered '>
-          <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
-          <text>我的群列表</text>
-        </view>
-      </view>
-    </view>
-
-
-
-    <!-- 用户群列表开始 -->
-    <view class='centered' wx:for="{{usergrouplist}}" wx:key="item" >
-
-    <view class="shouquananniu" wx:if="{{!ifauthorized}}">
-    <button style="opacity: 0"  open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
-    </view>
-      <view class='box-body shadow-warp bg-white' bindtap="clickusergrouplist" data-data='{{item}}' >
-        <view class=' box-body-image centered '>
-          <image src='{{item.logo}}'></image>
-        </view>
-        <view class=' box-body-name  centered'>
-          <view class="box-body-name-body">
-            <view class='box-body-name-1'>{{item.crowd_name}}</view>
-            <view class='box-body-name-2 '>
-            <view class="juese centered" > <text>{{item.user_type == 0? "群员" : item.user_type == 1 ? "群主" : "管理员" }}</text></view>
-            </view>
-            <view class='box-body-name-3'>你在该群积分数:
-              <text>{{item.score}}</text> 积分</view>
+      <view>
+        <view class='centered'>
+          <view class='information-name centered '>
+            <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
+            <text>我的群列表</text>
           </view>
         </view>
-        <view class='box-body-anniu centered '>
+      </view>
+
+
+
+      <!-- 用户群列表开始 -->
+      <view class='centered' wx:for="{{usergrouplist}}" wx:key="item">
+
+        <view class="shouquananniu" wx:if="{{!ifauthorized}}">
+          <button style="opacity: 0" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+        </view>
+        <view class='box-body shadow-warp bg-white' bindtap="clickusergrouplist" data-data='{{item}}'>
+          <view class=' box-body-image centered '>
+            <image src='{{item.logo}}'></image>
+          </view>
+          <view class=' box-body-name  centered'>
+            <view class="box-body-name-body">
+              <view class='box-body-name-1'>{{item.crowd_name}}</view>
+              <view class='box-body-name-2 '>
+                <view class="juese centered">
+                  <text>{{item.user_type == 0? "群员" : item.user_type == 1 ? "群主" : "管理员" }}</text>
+                </view>
+              </view>
+              <view class='box-body-name-3'>你在该群积分数:
+                <text>{{item.score}}</text> 积分</view>
+            </view>
+          </view>
+          <view class='box-body-anniu centered '>
             <text class="cuIcon-right  text-gray righticon "></text>
+          </view>
         </view>
       </view>
-    </view>
-    <!-- 用户群列表结束 -->
+      <!-- 用户群列表结束 -->
 
-     </view>
+    </view>
 
 
     <!-- 当用户没有群的时候 -->
-    <view class='centered'  wx:else >
+    <view class='centered' wx:else>
       <view class=' notgrouplist'>
         <view>
           <image src='/images/default.png'></image>

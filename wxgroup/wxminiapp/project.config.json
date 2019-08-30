@@ -108,9 +108,9 @@
 				},
 				{
 					"id": 8,
-					"name": "发布消息",
-					"pathName": "pages/group/pushnews/pushnews",
-					"query": "crowd_id=15&crowd_name=\"发布消息测试\"",
+					"name": "消息详情",
+					"pathName": "pages/group/newsdetailed/newsdetailed",
+					"query": "id=7",
 					"scene": null
 				}
 			]

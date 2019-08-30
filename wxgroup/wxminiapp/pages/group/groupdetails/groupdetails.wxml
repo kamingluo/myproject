@@ -57,7 +57,7 @@
 
     <view wx:if="{{groupnewslist.length > 0}}">
       <view class="cu-card case" wx:for="{{groupnewslist}}" wx:key="item" wx:if="{{groupnewslist.length > 0}}">
-        <view class="cu-item shadow"    bindtap='clicknewslist'   data-data='{{item}}'  >
+        <view class="cu-item shadow"    bindtap='clicknewslist'   data-id='{{item.id}}'  >
           <view class="image">
             <image class="titleimg" src="{{item.titleimage}}" mode="aspectFix"></image>
             <view class="cu-bar bg-shadeBottom">

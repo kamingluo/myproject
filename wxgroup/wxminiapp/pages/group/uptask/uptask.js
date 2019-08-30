@@ -11,10 +11,10 @@ Page({
     uploaderList: [],
     uploaderNum: 0,
     showUpload: true,
-    loadModal:false,
-    tasktext:null,
-    crowd_id:0,
-    crowd_name:"默认群"
+    loadModal: false,
+    tasktext: null,
+    crowd_id: 0,
+    crowd_name: "默认群"
   },
   // 删除图片
   clearImg: function(e) {
@@ -67,7 +67,7 @@ Page({
     })
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log("提交任务页面logo", options)
     this.setData({
       //设置active的值为用户点击按钮的索引值
@@ -77,29 +77,29 @@ Page({
   },
 
 
-  tasktext: function (e) {
-   // console.log(e.detail.value)
+  tasktext: function(e) {
+    // console.log(e.detail.value)
     this.setData({
       tasktext: e.detail.value,
     })
   },
 
-  sumittask:function(e){
+  sumittask: function(e) {
     console.log(this.data.uploaderList.length)
-    if (this.data.uploaderList.length == 0){
-      wx:wx.showToast({
+    if (this.data.uploaderList.length == 0) {
+      wx: wx.showToast({
         title: "审核图片不能为空",
         icon: 'none',
         duration: 2000,
       })
-     return;
+      return;
     }
-    else{
+    else {
       this.setData({
         loadModal: true,
       })
       this.moredata()
-      
+
     }
   },
 
@@ -136,8 +136,8 @@ Page({
   },
 
 
-  uploadtask: function (imgList){
-    var that =this 
+  uploadtask: function(imgList) {
+    var that = this
     var imgList = imgList
     var crowd_id = this.data.crowd_id
     var crowd_name = this.data.crowd_name
@@ -161,8 +161,8 @@ Page({
             this.setData({
               loadModal: false,
               uploaderList: [],
-              uploaderNum:0,
-              tasktext:null
+              uploaderNum: 0,
+              tasktext: null
             })
             wx.showToast({
               title: '提交成功',

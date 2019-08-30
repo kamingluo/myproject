@@ -17,12 +17,12 @@
       <image src='http://littlebox.luojiaming.vip/default.png'></image>
     </view>
     <view>
-      <text>你还没有兑换记录呢</text>
+      <text>你还没有任务记录呢</text>
     </view>
     <view>
-      <kaming-button>
+      <!-- <kaming-button>
             <button class="bg-gradual-blue"  bindtap='exchange' >立即去兑换</button>
-      </kaming-button>
+      </kaming-button> -->
     </view>
   </view>
 </view>
