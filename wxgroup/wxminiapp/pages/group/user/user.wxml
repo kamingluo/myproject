@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">用户管理</view>
+</cu-custom>
+
+
+<view class='ui_searchBox'>
+    <view class='ui_search'>
+        <input class='ui_searchInput' type='text' bindinput='search' placeholder='请输入昵称'></input>
+         <icon size='15' type='search' class='ui_searchIcon'></icon>
+    </view>
+    <view>123333</view>
+</view>

@@ -101,7 +101,7 @@ flex-basis: 400rpx;
   border-radius: 10rpx;
   width: 350rpx;
   height:490rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 15rpx;
 }
 
 .information-body image{

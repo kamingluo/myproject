@@ -35,7 +35,9 @@
       <view class='information '>
         <block wx:for="{{taskdata.taskdetails.images}}" wx:key="item">
           <view class='information-body '>
+          <view>
             <image src='{{item}}' bindtap='clicktaskimage' data-data='{{item}}'></image>
+            </view>
           </view>
         </block>
       </view>

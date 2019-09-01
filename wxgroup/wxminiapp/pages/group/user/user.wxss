@@ -1,0 +1,22 @@
+/* pages/group/user/user.wxss */
+
+.ui_searchInput{
+    width: 80%;
+    height: 100%;
+    padding: 5rpx;
+    box-sizing: border-box;
+}
+
+.ui_searchIcon{
+    padding: 15rpx 30rpx 0 15rpx;
+    box-sizing: border-box;
+}
+
+
+.ui_searchInput{
+    width: 80%;
+    height: 100%;
+    padding: 5rpx;
+    margin-left: 40rpx;
+    box-sizing: border-box;
+}
