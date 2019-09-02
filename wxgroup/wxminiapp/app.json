@@ -7,6 +7,7 @@
     "pages/group/uptask/uptask",
     "pages/group/audittasks/audittasks",
     "pages/group/pushnews/pushnews",
+    "pages/group/qrcode/qrcode",
     "pages/group/user/user",
     "pages/group/newsdetailed/newsdetailed",
     "pages/my/score_detailed/score_detailed",

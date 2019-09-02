@@ -57,7 +57,7 @@
 
     <view wx:if="{{groupnewslist.length > 0}}">
       <view class="cu-card case" wx:for="{{groupnewslist}}" wx:key="item" wx:if="{{groupnewslist.length > 0}}">
-        <view class="cu-item shadow"    bindtap='clicknewslist'   data-id='{{item.id}}'  >
+        <view class="cu-item shadow" bindtap='clicknewslist' data-id='{{item.id}}'>
           <view class="image">
             <image class="titleimg" src="{{item.titleimage}}" mode="aspectFix"></image>
             <view class="cu-bar bg-shadeBottom">
@@ -82,14 +82,25 @@
           </view>
         </view>
       </view>
-       <view  class='centered' >
+      <view class='centered'>
         <text>----已经到底了---</text>
       </view>
     </view>
 
-     <view wx:else>
-        <text>为空的默认提示还没做</text>
+    <view wx:else>
+      <view >
+        <view class='default'>
+          <view>
+            <image src='http://littlebox.luojiaming.vip/default.png'></image>
+          </view>
+          <view>
+            <text>暂时还没有消息哦！</text>
+          </view>
+          <view>
+          </view>
+        </view>
       </view>
+    </view>
 
 
   </view>
@@ -105,4 +116,20 @@
   </view>
 
 
+</view>
+
+
+
+<view class='share centered'>
+  <view class='sharebody centered'>
+    <view>
+      <kaming-button open-type='share'>
+        <image class='wxlogo' src='/images/common/wxlogo.png'></image> 邀好友入群</kaming-button>
+    </view>
+    <view class='xian'>1</view>
+    <view>
+      <kaming-button bindtap='qrcode'>
+        <image class='erweima2' src='/images/common/erweima2.svg'></image> 生成邀请码</kaming-button>
+    </view>
+  </view>
 </view>

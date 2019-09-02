@@ -52,7 +52,7 @@ Page({
         id:1,
         imagesurl:"http://qiniu.luojiaming.vip/image/group/icon/useroperation.png",
         text:"群管理",
-        joumurl:'/pages/index/index',
+        joumurl:'/pages/group/user/user',
         type:1
       },
       {
@@ -147,7 +147,7 @@ Page({
   clicknewslist:function(e){
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/group/newsdetailed/newsdetailed' + '?id=' + e.currentTarget.dataset.id,
+      url: '/pages/group/newsdetailed/newsdetailed' + '?id=' + e.currentTarget.dataset.id ,
     })
   },
 
@@ -164,6 +164,14 @@ Page({
   onShow: function () {
     let id = this.data.crowd_id
     this.groupnewslist(id)
+  },
+
+
+
+  qrcode: function () {
+    wx.navigateTo({
+      url: '/pages/group/qrcode/qrcode' + '?crowd_id=' + this.data.crowd_id + '&crowd_name=' + this.data.crowddata.groupdata.crowd_name,
+    })
   },
 
   /**

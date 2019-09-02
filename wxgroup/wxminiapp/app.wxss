@@ -51,7 +51,7 @@ position: fixed;
 }
 .default text{
   color: #e21717;
-  font-size: 40rpx;
+  font-size: 35rpx;
   font-weight: 600;
 
 }

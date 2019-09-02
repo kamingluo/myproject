@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": 0,
@@ -116,6 +116,13 @@
 				{
 					"id": -1,
 					"name": "群用户管理",
+					"pathName": "pages/group/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "群用户",
 					"pathName": "pages/group/user/user",
 					"query": "",
 					"scene": null

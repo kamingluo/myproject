@@ -95,7 +95,7 @@
 }
 
 .choice{
-  border: 7rpx solid #e54d42;
+  border: 4rpx solid #0081ff;
 }
 
 

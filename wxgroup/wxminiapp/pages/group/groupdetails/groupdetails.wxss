@@ -157,3 +157,53 @@
 .titleimg{
   height: 250rpx;
 }
+
+
+
+
+
+
+
+.share{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  height: 120rpx;
+  margin-bottom: 2rpx;
+  box-shadow: 1px 1px 2px 3px #aaaaaa;
+  
+}
+
+
+
+
+.sharebody{
+   display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 95%;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+.wxlogo{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 10rpx;
+}
+.xian{
+  background-color: #01111675;
+  width: 4rpx;
+  height: 120rxp;
+  font-size: 100rpx;
+  color: #fff;
+
+}
+
+.erweima2{
+ width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
