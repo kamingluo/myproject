@@ -33,7 +33,7 @@ Page({
   query: function(number) {
     var that = this
     wx.request({
-      url: 'https://www.gzywudao.top/api.php/express/express', //服务器地址
+      url: 'https://gzywudao.top/api.php/express/express', //服务器地址
       data: {
         number: number,
       },

@@ -206,6 +206,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let userchannel = wx.getStorageSync('userdata').channel
+    let nickName = wx.getStorageSync('userdata').nickName
+    let crowd_id = this.data.crowd_id
+    let crowd_name = this.data.crowddata.groupdata.crowd_name
+    return {
+      title: nickName + "邀请你加入群" + "《" + crowd_name + "》",
+      desc: nickName + "邀请你加入群" + "《" + crowd_name + "》",
+      imageUrl: 'http://588ku.izihun.com/element_origin_min_pic/18/07/07/f7c2df27ff4d14cd4bb92054ff1dad3e.jpg%21/fw/820/quality/100/unsharp/true/compress/true/format/jpeg',
+      path: '/pages/index/index?channel=' + userchannel + '&crowd_id=' + crowd_id, // 路径，传递参数到指定页面。
+    }
 
   }
 })

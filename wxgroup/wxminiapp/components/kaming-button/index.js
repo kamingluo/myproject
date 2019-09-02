@@ -66,11 +66,13 @@ Component({
         return ;
       }
       let useropenid = wx.getStorageSync('userdata').openid || 0
+      let channel = wx.getStorageSync('userdata').channel || 0
       request({
         service: 'currency/formid',
         data: {
           formid: e.detail.formId,
-          useropenid: useropenid,
+          openid: useropenid,
+          channel: channel
         },
         success: res => {
           //console.log('上传formId成功', res);

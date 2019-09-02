@@ -23,7 +23,7 @@
         <text>群成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>
-    <view class='erweima' bindtap='qrcode'>
+    <view class='crowdright' bindtap='qrcode'>
       <image src='../../../images/common/right.svg'></image>
     </view>
   </view>

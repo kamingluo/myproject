@@ -67,7 +67,7 @@
   top: -20rpx;
 }
 
-.erweima {
+.crowdright {
   position: fixed;
   margin-top: -120rpx;
   margin-left: 320rpx;
