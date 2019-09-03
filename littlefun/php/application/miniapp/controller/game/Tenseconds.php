@@ -18,7 +18,7 @@ class Tenseconds
     {
     	  $wxcode =$request->param("code");
 		  $openid=openid($wxcode);
-    	  $redis = new Redis();  //实例化这个类
+    	  $redis = new \Redis();  //实例化这个类
     	  // $ redis-> hExists（'h'，'NonExistingKey'）; / * FALSE * /
 
     	   return $redis->exists('kaming');
