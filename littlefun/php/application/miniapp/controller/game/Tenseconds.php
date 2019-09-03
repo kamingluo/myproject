@@ -53,6 +53,23 @@ class Tenseconds
     }
 
 
+
+
+    public function jian(Request $request)
+    {
+    	  $wxcode =$request->param("code");
+		  $openid=openid($wxcode);
+    	  $redis = new Redis();  //实例化这个类
+          $gamenum=$redis->get($openid);
+          $newgame =$gamenum - 1 ;
+
+           $redis->set($openid,$newgame); //存入缓存，
+           return  $newgame;
+         
+        
+    }
+
+
    
 
  
