@@ -23,7 +23,7 @@ class Tenseconds
         
           // return $gamenum;
 
-          if( $gamenum == false ){
+          if( $gamenum == false &&  $gamenum != 0 ){
           	echo "不存在";
 
           	 //缓存不存在
