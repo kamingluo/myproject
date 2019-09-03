@@ -18,17 +18,20 @@ class Tenseconds
     {
     	  $wxcode =$request->param("code");
 		  $openid=openid($wxcode);
-    	  $redis = new \Redis();  //实例化这个类
-    	  // $ redis-> hExists（'h'，'NonExistingKey'）; / * FALSE * /
-
-    	   return $redis->exists('kaming');
-
-           $gamenum=$redis->get($openid);
-        
-          // return $gamenum;
+    	  $redis = new Redis();  //实例化这个类
+          $gamenum=$redis->get($openid);
 
           if( $gamenum == false){
-          	echo "不存在或者等于0";
+
+          	if( $gamenum == 0){
+          			echo "等于0";
+
+          	}
+          	else{
+          			echo "不存在";
+
+          	}
+          
 
           	 //缓存不存在
           	// $redis->set($openid, 0); //存入缓存，
