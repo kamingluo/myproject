@@ -51,11 +51,25 @@ class Clear
     public function test( Request $request)
     {
 
-         $redis = new Redis();  //实例化这个类
-          // $redis->select(1);//选择数据库2
-          $redis->set('o59ku5SyR4Z7s8zHPw5zI4UYbk84', "womne");
-         $data=$redis->get('o59ku5SyR4Z7s8zHPw5zI4UYbk84');
-         return $data;
+         // $redis = new Redis();  //实例化这个类
+         //  // $redis->select(1);//选择数据库2
+         //  $redis->set('o59ku5SyR4Z7s8zHPw5zI4UYbk84', "womne");
+         // $data=$redis->get('o59ku5SyR4Z7s8zHPw5zI4UYbk84');
+         // return $data;
+
+
+
+         $redis = new Redis();
+ 
+         $redis->connect('127.0.0.1', 6379); //连接Redis
+ 
+         $redis->auth('a3216953'); //密码验证
+ 
+         $redis->select(2);//选择数据库
+ 
+         $redis->set( "testKey" , "Hello Redis"); //设置测试key
+ 
+          echo $redis->get("testKey");//输出value
 
     }
 
