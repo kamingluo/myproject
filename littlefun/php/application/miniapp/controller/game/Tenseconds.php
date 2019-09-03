@@ -21,13 +21,14 @@ class Tenseconds
     	  $redis = new Redis();  //实例化这个类
           $gamenum=$redis->get($openid);
           if($gamenum){
-          	//缓存不存在
+          	  //缓存存在
+          	  return 	$gamenum;
+          	
+          }else{
+          	  //缓存不存在
           	$redis->set($openid, 0); //存入缓存，
           	echo "1111";
           	$gamenum =0; //下发为0 
-          	
-          }else{
-          	  return 	$gamenum;
 
           }
         
