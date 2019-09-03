@@ -19,12 +19,15 @@ class Tenseconds
     	  $wxcode =$request->param("code");
 		  $openid=openid($wxcode);
     	  $redis = new Redis();  //实例化这个类
+
+    	   return $redis->exists('kaming');
+
            $gamenum=$redis->get($openid);
         
           // return $gamenum;
 
-          if( $gamenum == false &&  $gamenum != 0 ){
-          	echo "不存在";
+          if( $gamenum == false){
+          	echo "不存在或者等于0";
 
           	 //缓存不存在
           	// $redis->set($openid, 0); //存入缓存，
