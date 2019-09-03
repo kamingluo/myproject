@@ -25,13 +25,16 @@ class Tenseconds
           	 //缓存不存在
           	$redis->set($openid, 1); //存入缓存，
           	$gamenum =0; //下发为0 
-          	return 	$gamenum;
-          	 
+          	$state=['state'   => '200','message'  => "查询用户十秒挑战次数" ];
+            $resdata=array_merge($state,array('gamenumber'=>$gamenum));
+            return  $resdata;
           	
           }else{
           	 //缓存存在
-          	  return 	$gamenum;
-
+          	 $newgame= $gamenum+0;
+          	 $state=['state'   => '200','message'  => "查询用户十秒挑战次数" ];
+             $resdata=array_merge($state,array('gamenumber'=>$newgame));
+             return  $resdata;
           }
         
     }
@@ -45,17 +48,18 @@ class Tenseconds
     	  $redis = new Redis();  //实例化这个类
           $gamenum=$redis->get($openid);
           $newgame =$gamenum + 1 ;
+          $redis->set($openid,$newgame); //存入缓存，
 
-           $redis->set($openid,$newgame); //存入缓存，
-           return  $newgame;
-         
-        
+          $state=['state'   => '200','message'  => "增加十秒挑战次数" ];
+
+          $resdata=array_merge($state,array('gamenumber'=>$newgame));
+          return  $resdata;
     }
 
 
 
 
-    public function jian(Request $request)
+    public function reduce(Request $request)
     {
     	  $wxcode =$request->param("code");
 		  $openid=openid($wxcode);
@@ -63,18 +67,14 @@ class Tenseconds
           $gamenum=$redis->get($openid);
           if( $gamenum == false){
           	return  "已经等于0了";
-
           }
           else{
           	 $newgame =$gamenum - 1 ;
-
-           $redis->set($openid,$newgame); //存入缓存，
-           return  $newgame;
-
+             $redis->set($openid,$newgame); //存入缓存，
+             $state=['state'   => '200','message'  => "减少十秒挑战次数" ];
+             $resdata=array_merge($state,array('gamenumber'=>$newgame));
+             return  $resdata;
           }
-
-         
-         
         
     }
 
