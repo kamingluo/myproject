@@ -21,7 +21,7 @@ class Tenseconds
     	  $redis = new Redis();  //实例化这个类
     	  // $ redis-> hExists（'h'，'NonExistingKey'）; / * FALSE * /
 
-    	   return   $redis -> hExists('h','kaming');
+    	   return $redis->exists('kaming');
 
            $gamenum=$redis->get($openid);
         
