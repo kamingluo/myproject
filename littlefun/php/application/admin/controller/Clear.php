@@ -65,7 +65,7 @@ class Clear
  
          $redis->auth('a3216953'); //密码验证
  
-         $redis->select(db2);//选择数据库
+         $redis->select('db2');//选择数据库
  
          $redis->set( "testKey" , "Hello Redis"); //设置测试key
  
