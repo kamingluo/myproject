@@ -22,28 +22,15 @@ class Tenseconds
           $gamenum=$redis->get($openid);
 
           if( $gamenum == false){
-
-          	if( $gamenum == 0){
-          			echo "等于0";
-
-          	}
-          	else{
-          			echo "不存在";
-
-          	}
-          
-
           	 //缓存不存在
-          	// $redis->set($openid, 0); //存入缓存，
-          	// echo "----";
-          	// $gamenum =0; //下发为0 
-          	// return 	$gamenum;
+          	$redis->set($openid, 0); //存入缓存，
+          	$gamenum =0; //下发为0 
+          	return 	$gamenum;
           	 
           	
           }else{
-          	echo "存在";
           	 //缓存存在
-          	  // return 	$gamenum;
+          	  return 	$gamenum;
 
           }
         
