@@ -52,8 +52,9 @@ class Clear
     {
 
          $redis = new Redis();  //实例化这个类
-        // $redis->set('name', 'chenmo');
-         $data=$redis->get('kamingtest');
+          $redis->select(2);//选择数据库2
+          $redis->set('o59ku5SyR4Z7s8zHPw5zI4UYbk84', 0);
+         $data=$redis->get('o59ku5SyR4Z7s8zHPw5zI4UYbk84');
          return $data;
 
     }
