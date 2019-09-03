@@ -23,7 +23,7 @@ class Tenseconds
 
           if( $gamenum == false){
           	 //缓存不存在
-          	$redis->set($openid, 0); //存入缓存，
+          	$redis->set($openid, 1); //存入缓存，
           	$gamenum =0; //下发为0 
           	return 	$gamenum;
           	 
