@@ -61,10 +61,19 @@ class Tenseconds
 		  $openid=openid($wxcode);
     	  $redis = new Redis();  //实例化这个类
           $gamenum=$redis->get($openid);
-          $newgame =$gamenum - 1 ;
+          if( $gamenum == false){
+          	return  "已经等于0了";
+
+          }
+          else{
+          	 $newgame =$gamenum - 1 ;
 
            $redis->set($openid,$newgame); //存入缓存，
            return  $newgame;
+
+          }
+
+         
          
         
     }
