@@ -19,21 +19,29 @@ class Tenseconds
     	  $wxcode =$request->param("code");
 		  $openid=openid($wxcode);
     	  $redis = new Redis();  //实例化这个类
-          $gamenum=$redis->get($openid);
+          
+           $score=$redis->get("tengamescore"); //拿设置的金币缓存
+           if( $score == false){
+
+              $score = 100; //如果没有就100金币
+           }
+
           $todaynum =db('ten_seconds_record')->where('openid',$openid)->whereTime('create_time', 'today')->count();//查询今天观看视频次数
+
+          $gamenum=$redis->get($openid);
           if( $gamenum == false){
           	 //缓存不存在
           	$redis->set($openid, 0); //存入缓存，
           	$gamenum =0; //下发为0 
           	$state=['state'   => '200','message'  => "查询用户十秒挑战次数" ];
-            $resdata=array_merge($state,array('gamenumber'=>$gamenum),array('todaynum'=>$todaynum));
+            $resdata=array_merge($state,array('gamenumber'=>$gamenum),array('todaynum'=>$todaynum),array('score'=>$score));
             return  $resdata;
           	
           }else{
           	 //缓存存在
           	 $newgame= $gamenum+0;
           	 $state=['state'   => '200','message'  => "查询用户十秒挑战次数" ];
-             $resdata=array_merge($state,array('gamenumber'=>$newgame),array('todaynum'=>$todaynum));
+             $resdata=array_merge($state,array('gamenumber'=>$newgame),array('todaynum'=>$todaynum),array('score'=>$score));
              return  $resdata;
           }
         
