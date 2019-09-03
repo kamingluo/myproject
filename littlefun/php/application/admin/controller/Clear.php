@@ -53,7 +53,7 @@ class Clear
 
          $redis = new Redis();  //实例化这个类
         // $redis->set('name', 'chenmo');
-         $data=$redis->get('kaming');
+         $data=$redis->get('name');
          return $data;
 
     }
