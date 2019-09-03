@@ -52,7 +52,7 @@ class Clear
     {
 
          $redis = new Redis();  //实例化这个类
-          $redis->select(1);//选择数据库2
+          // $redis->select(1);//选择数据库2
           $redis->set('o59ku5SyR4Z7s8zHPw5zI4UYbk84', "womne");
          $data=$redis->get('o59ku5SyR4Z7s8zHPw5zI4UYbk84');
          return $data;

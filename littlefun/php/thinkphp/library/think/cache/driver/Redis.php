@@ -26,7 +26,7 @@ class Redis extends Driver
         'host'       => '127.0.0.1',
         'port'       => 6379,
         'password'   => 'a3216953',
-        'select'     => 0,
+        'select'     => 1,
         'timeout'    => 0,
         'expire'     => 0,
         'persistent' => false,
