@@ -4,6 +4,7 @@ namespace app\index\controller;
 use think\Db;
 
 use think\Config;
+use think\cache\driver\Redis;
 
 class Index
 {
@@ -29,7 +30,11 @@ class Index
 
     public function ceshi()
     {
-        return  "index模块下的index控制器ceshi方法" ;
+        
+         $redis = new Redis();  //实例化这个类
+         $redis->set('name', 'chenmo');
+         $data=$redis->get('name');
+         return $data;
     }
      public function test()
     {

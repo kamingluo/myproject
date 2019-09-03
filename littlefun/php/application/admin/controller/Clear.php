@@ -48,14 +48,13 @@ class Clear
     }
 
 
-    public function test()
+    public function test( Request $request)
     {
-        // return 'test';
 
          $redis = new Redis();  //实例化这个类
-        $redis->set('name', 'chenmo');
-         $data=$redis->get('name');
-     return $data;
+        // $redis->set('name', 'chenmo');
+         $data=$redis->get('kaming');
+         return $data;
 
     }
 
