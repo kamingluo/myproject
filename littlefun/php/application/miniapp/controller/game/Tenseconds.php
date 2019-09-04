@@ -78,18 +78,50 @@ class Tenseconds
 
 
 
-    public function reduce(Request $request)
+    public function addscore(Request $request)
     {
     	  $wxcode =$request->param("code");
-		  $openid=openid($wxcode);
+		    $openid=openid($wxcode);
+
+         $todayaddscorenum=db('score_record')->where('openid',$openid)->whereTime('create_time', 'today')->where('explain',"十秒挑战奖励")->count();
+         if($todayaddscorenum > 5 ){
+            return ['state'   => '400','message'  => "刷太多了，歇会吧!" ] ;
+         }
+
     	  $redis = new Redis();  //实例化这个类
-          $gamenum=$redis->get($openid);
+        $score=$redis->get("tengamescore"); //拿设置的金币缓存
+        if( $score == false){
+              $score = 100; //如果没有就100金币
+        }
+        $userdata=db('user')->where('openid',$openid)->find();//查询用户信息
+        $dbadd= db('user')->where('openid',$openid)->setInc('score',$score);
+        if($dbadd == 1){
+           $time =date('Y-m-d H:i:s',time());//获取当前时间
+           $dbdata = ['id'=>'','openid' =>$openid,'score' =>$score,'explain' =>"十秒挑战奖励",'channel' =>$userdata['channel'],'master_id' => $userdata['master_id'],'state' =>0,'create_time' =>$time];
+           $dbreturn=db('score_record')->insert($dbdata);
+           return ['state'   => '200','message'  => "增加十秒挑战奖励成功" ,'score' => $score] ;
+        }
+        else{
+           return ['state'   => '200','message'  => "增加十秒挑战奖励失败" ,'score' => $score] ;
+        }
+    }
+
+
+
+
+
+  public function reduce(Request $request)
+    {
+      $wxcode =$request->param("code");
+      $openid=openid($wxcode);
+      $redis = new Redis();  //实例化这个类
+      $gamenum=$redis->get($openid);
           if( $gamenum == false){
-          	$state=['state'   => '400','message'  => "已经等于0了不能再减了" ];
-          	return $state;
+            $state=['state'   => '400','message'  => "已经等于0了不能再减了" ];
+            return $state;
           }
           else{
-          	 $newgame =$gamenum - 1 ;
+             $newgame =$gamenum - 1 ;
              $redis->set($openid,$newgame); //存入缓存，
              $state=['state'   => '200','message'  => "减少十秒挑战次数" ];
              $resdata=array_merge($state,array('gamenumber'=>$newgame));
