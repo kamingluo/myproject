@@ -102,7 +102,7 @@ class Tenseconds
            return ['state'   => '200','message'  => "增加十秒挑战奖励成功" ,'score' => $score] ;
         }
         else{
-           return ['state'   => '200','message'  => "增加十秒挑战奖励失败" ,'score' => $score] ;
+           return ['state'   => '400','message'  => "增加十秒挑战奖励失败" ,'score' => $score] ;
         }
     }
 
