@@ -66,12 +66,13 @@ Page({
     if(e){
       var temp = new Date(e);
       var t = temp.getFullYear() + "-" + (temp.getMonth() + 1) + "-" + temp.getDate(); //去除时分秒
+      var format = t.replace(/-/g, '/');
+      // var timestamp = Date.parse(new Date(format));
       this.setData({
-        birthday: t,
+        birthday: format,
       })
     }
    
-
   },
   exchange:function(){
     wx.navigateTo({
@@ -131,9 +132,10 @@ Page({
               icon: 'none',
               duration: 2000,
             })
-            this.setData({
-              birthday: e.detail.value
-            })
+             this.birthday(e.detail.value)
+            // this.setData({
+            //   birthday: e.detail.value
+            // })
           },
         })
       }

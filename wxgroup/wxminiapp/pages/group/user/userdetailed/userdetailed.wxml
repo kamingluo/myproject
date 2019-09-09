@@ -1,0 +1,88 @@
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">用户详情</view>
+</cu-custom>
+
+
+
+
+
+<view class='top radius shadow bg-white'>
+  <view class='user'>
+    <view class='userAvatar'>
+      <image class='userAvatarurl' src='https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eq1R7fbxCaZg2pMVtnb3f0qL3zbVdFJ0QOlwpJUFOhPP4ytn6ibhIycM3kWjt0Hxp6f1IteUD6rbWg/132'></image>
+
+    </view>
+
+    <view class='username'>
+      <view class='userNickName' bindlongpress="testpages">
+        <text>这是昵称啊</text>
+      </view>
+      <view class='id'>
+        <text>群积分:111</text>
+      </view>
+      <!-- <view class='birthday'>
+        <text>生日:{{birthday?birthday:"未设置"}} </text>
+      </view> -->
+      <view class='birthday'>
+        <text>性别:男 </text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-list menu  list">
+
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-peoplefill text-orange"></text>
+      <text class="text-grey">群角色</text>
+    </view>
+    <view class="action">
+      <text class="text-grey">管理员</text>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-presentfill text-pink"></text>
+      <text class="text-grey">生日</text>
+    </view>
+    <view class="action">
+      <text class="text-grey">2018-20-15</text>
+    </view>
+  </view>
+
+
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-countdownfill text-cyan"></text>
+      <text class="text-grey">加入时间</text>
+    </view>
+    <view class="action">
+      <text class="text-grey ">2018-20-15 10:48:20</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-locationfill text-blue"></text>
+      <text class="text-grey">地区</text>
+    </view>
+    <view class="action">
+      <text class="text-grey">中国广东梅州</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-timefill text-green"></text>
+      <text class="text-grey">上次登录</text>
+    </view>
+    <view class="action">
+      <text class="text-grey ">2018-20-15 10:48:20</text>
+    </view>
+  </view>
+
+
+
+</view>

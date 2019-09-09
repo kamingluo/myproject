@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -100,9 +100,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "记录",
-					"pathName": "pages/my/score_detailed/score_detailed",
+					"id": 7,
+					"name": "用户详情",
+					"pathName": "pages/group/user/userdetailed/userdetailed",
 					"query": "",
 					"scene": null
 				},
