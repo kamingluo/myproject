@@ -66,7 +66,7 @@
       </view>
     </view>
 
-    <view class='centered  theend '>
+    <view class='centered  theend '   wx:if="{{userexpressdata.length>1}}">
       <text>-------已经到底了-------</text>
     </view>
 
@@ -100,12 +100,28 @@
 </view>
 
 
-<!-- 广点通banner广告 -->
-<view class='centered' wx:if="{{gdtbannerposition.banneradposition1}}">
+<!-- 广点通banner广告刷 -->
+<!-- <view class='centered' wx:if="{{gdtbannerposition.banneradposition1}}">
   <view class='gdtad'>
     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition1}}" unit-id="{{gdtbannerposition.banneradposition1}}"></ad>
   </view>
+</view> -->
+
+<!-- 广点通视频广告 -->
+<view class='centered'>
+  <view class='gdtad'>
+   <ad unit-id="adunit-e7bd99705e3c2129" ad-type="video" ad-theme="white"></ad>
+  </view>
 </view>
+
+
+<!-- 广点通banner广告正常 -->
+<view class='centered'>
+  <view class='gdtad'>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-66cc4c8b4d5f1941" unit-id="adunit-66cc4c8b4d5f1941"></ad>
+  </view>
+</view>
+
 
 
 
@@ -226,7 +242,7 @@
 
 
   <!-- banneradbrush开始 -->
-<view>
+<!-- <view>
   <view class='centered' wx:if="{{gdtbannerposition.banneradposition2 && gdtbanneraddelay1 && !gdtbanneraddelay2}}">
     <view class='gdtad'>
       <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition2}}" unit-id="{{gdtbannerposition.banneradposition2}}"></ad>
@@ -238,7 +254,7 @@
       <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="{{gdtbannerposition.banneradposition3}}" unit-id="{{gdtbannerposition.banneradposition3}}"></ad>
     </view>
   </view>
-</view>
+</view> -->
  <!-- banneradbrush结束 -->
 
 
