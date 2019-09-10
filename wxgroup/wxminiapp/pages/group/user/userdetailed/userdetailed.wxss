@@ -39,7 +39,7 @@ flex-basis: 400rpx;
 .userNickName{
   display: flex;
   position:relative;
-  font-size: 45rpx;
+  font-size: 40rpx;
   right:30rpx;  
   top:20rpx; 
 

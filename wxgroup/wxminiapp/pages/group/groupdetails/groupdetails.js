@@ -48,35 +48,35 @@ Page({
 
   incondata:function(){
     let icondata=[
+      
       {
-        id:1,
-        imagesurl:"http://qiniu.luojiaming.vip/image/group/icon/useroperation.png",
-        text:"群管理",
-        joumurl:'/pages/group/user/user',
-        type:1
-      },
-      {
-        id: 2,
+        id: 1,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/uptask.png",
         text: "提交任务",
         joumurl: '/pages/group/uptask/uptask',
         type: 0
       },
       {
-        id: 3,
+        id: 2,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/audittasks.png",
         text: "任务审核",
         joumurl: '/pages/group/audittasks/audittasks',
         type: 1
       },
       {
-        id: 4,
+        id: 3,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/pushnews.png",
         text: "发布消息",
         joumurl: '/pages/group/pushnews/pushnews',
         type: 0
-        
       },
+      {
+        id: 4,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
+        text: "群用户",
+        joumurl: '/pages/group/user/user',
+        type: 1
+      }
     ];
     this.setData({
       icondata: icondata
@@ -204,6 +204,7 @@ Page({
 
   /**
    * 用户点击右上角分享
+   * pages/index/index?channel=1000&ald_media_id=26447&ald_link_key=6f92ad04b6256d10
    */
   onShareAppMessage: function () {
     let userchannel = wx.getStorageSync('userdata').channel
@@ -214,7 +215,7 @@ Page({
       title: nickName + "邀请你加入群" + "《" + crowd_name + "》",
       desc: nickName + "邀请你加入群" + "《" + crowd_name + "》",
       imageUrl: 'http://588ku.izihun.com/element_origin_min_pic/18/07/07/f7c2df27ff4d14cd4bb92054ff1dad3e.jpg%21/fw/820/quality/100/unsharp/true/compress/true/format/jpeg',
-      path: '/pages/index/index?channel=' + userchannel + '&crowd_id=' + crowd_id, // 路径，传递参数到指定页面。
+      path: '/pages/index/index?channel=1000&ald_media_id=26447&ald_link_key=6f92ad04b6256d10' +  '&crowd_id=' + crowd_id, // 路径，传递参数到指定页面。
     }
 
   }

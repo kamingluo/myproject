@@ -10,22 +10,22 @@
 <view class='top radius shadow bg-white'>
   <view class='user'>
     <view class='userAvatar'>
-      <image class='userAvatarurl' src='https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eq1R7fbxCaZg2pMVtnb3f0qL3zbVdFJ0QOlwpJUFOhPP4ytn6ibhIycM3kWjt0Hxp6f1IteUD6rbWg/132'></image>
+      <image class='userAvatarurl' src='{{userdata.avatarUrl}}'></image>
 
     </view>
 
     <view class='username'>
       <view class='userNickName' bindlongpress="testpages">
-        <text>这是昵称啊</text>
+        <text>{{userdata.nickName}}</text>
       </view>
       <view class='id'>
-        <text>群积分:111</text> <text class='cuIcon-post  xiugai '    bindtap='showmodel' ></text>
+        <text>群积分:{{userscore}}</text> <text class='cuIcon-post xiugai' bindtap='showmodel'  wx:if="{{role == 1 || role == 2 }}" ></text>
       </view>
       <!-- <view class='birthday'>
         <text>生日:{{birthday?birthday:"未设置"}} </text>
       </view> -->
       <view class='birthday'>
-        <text>性别:男 </text>
+        <text>性别:{{userdata.gender == 1? "男" : userdata.gender == 2? "女" : "未知" }} </text>
       </view>
     </view>
   </view>
@@ -40,7 +40,7 @@
       <text class="text-grey">群角色</text>
     </view>
     <view class="action">
-      <text class="text-grey">管理员</text>
+      <text class="text-grey">{{userdata.user_type == 0? "群员" : userdata.user_type == 1 ? "群主" : "管理员" }}</text>
     </view>
   </view>
 
@@ -50,7 +50,7 @@
       <text class="text-grey">生日</text>
     </view>
     <view class="action">
-      <text class="text-grey">2018-20-15</text>
+      <text class="text-grey">{{birthday?birthday:"未设置"}} </text>
     </view>
   </view>
 
@@ -61,7 +61,7 @@
       <text class="text-grey">加入时间</text>
     </view>
     <view class="action">
-      <text class="text-grey ">2018-20-15 10:48:20</text>
+      <text class="text-grey ">{{userdata.joincrowd_time}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -70,7 +70,7 @@
       <text class="text-grey">地区</text>
     </view>
     <view class="action">
-      <text class="text-grey">中国广东梅州</text>
+      <text class="text-grey">{{userdata.country}}{{userdata.province}}{{userdata.city}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -79,29 +79,21 @@
       <text class="text-grey">上次登录</text>
     </view>
     <view class="action">
-      <text class="text-grey ">2018-20-15 10:48:20</text>
+      <text class="text-grey ">{{userdata.update_time}}</text>
     </view>
   </view>
 
 
 </view>
 
-<view   class='centered' >
-  <view  class='operation'>
-    <button  class='bg-green' >设置为管理员身份</button>
+<view   class='centered'  wx:if="{{role == 1}}"  >
+  <view  class='operation'  wx:if="{{userdata.user_type == 0}}"  >
+    <button  class='bg-green'  bindtap='setupadministrators' >设置为管理员身份</button>
   </view>
-  <view  class='operation'>
-    <button  class='bg-red' >取消管理员身份</button>
+  <view  class='operation'   wx:if="{{userdata.user_type == 2}}" >
+    <button  class='bg-red'  bindtap='canceladministrators' >取消管理员身份</button>
   </view>
 </view>
-
-
-
-
-
-
-
-
 
 
 
@@ -128,8 +120,11 @@
     <view class="cu-bar bg-white justify-end">
       <view class="action">
         <button class="cu-btn line-green text-green" bindtap="hidemodal">取消</button>
-        <button class="cu-btn bg-green margin-left" bindtap="tasksuccesssure">确定</button>
+        <button class="cu-btn bg-green margin-left" bindtap="sure">确定</button>
       </view>
     </view>
   </view>
 </view>
+
+
+

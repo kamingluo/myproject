@@ -13,9 +13,9 @@ Page({
    */
   data: {
     groupuserlist:null,
-    
     searchInput:null,
-    crowd_id:15
+    crowd_id:null,
+    user_type: null,
   },
 
   /**
@@ -32,7 +32,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.userlist()
+    console.log(options)
+
+    this.setData({
+      crowd_id: options.crowd_id,
+      user_type: options.user_type
+    })
+
+    
 
   },
 
@@ -97,6 +104,10 @@ Page({
    //点击用户列表
   clickuserlist:function(e){
     console.log("点击用户列表", e.currentTarget.dataset.data)
+    let data = e.currentTarget.dataset.data
+    wx.navigateTo({
+      url: '/pages/group/user/userdetailed/userdetailed' + '?crowd_id=' + this.data.crowd_id + '&user_id=' + data.id + '&role=' + this.data.user_type,
+    })
 
   },
 
@@ -111,7 +122,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.userlist()
   },
 
   /**

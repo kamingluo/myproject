@@ -13,6 +13,7 @@ Page({
   data: {
     userdata:'',
     birthday:null,
+    setbirthday:null,
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -70,6 +71,7 @@ Page({
       // var timestamp = Date.parse(new Date(format));
       this.setData({
         birthday: format,
+        setbirthday:t,
       })
     }
    
