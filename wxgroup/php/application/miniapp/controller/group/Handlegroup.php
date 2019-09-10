@@ -63,7 +63,7 @@ class Handlegroup
 
         $sql = "select  user.*,user_crowd.user_type,user_crowd.score,user_crowd.create_time as joincrowd_time from user,user_crowd where user.id=user_crowd.user_id and user_crowd.crowd_id =" .$crowd_id. " and user_crowd.user_id =" .$user_id. ";";
         // return $sql;
-        $querybirthday = Db::query($sql); //拿到数据
+        $querygroupuserdata = Db::query($sql); //拿到数据
         $state=['state'   => '200','message'  => "查询该群该用户的详细信息" ];
         $resdata=array_merge($state,array('querygroupuserdata'=>$querygroupuserdata));
         return $resdata ;
