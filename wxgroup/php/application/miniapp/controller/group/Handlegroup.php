@@ -59,7 +59,7 @@ class Handlegroup
     public function querygroupuserdata(Request $request)
     {
         $crowd_id=$request->param("crowd_id");//群id
-        $crowd_id=$request->param("user_id");//用户id
+        $user_id=$request->param("user_id");//用户id
 
         $sql = "select  user.*,user_crowd.user_type,user_crowd.score,user_crowd.create_time as joincrowd_time from user,user_crowd where user.id=user_crowd.user_id and user_crowd.crowd_id =" .$crowd_id. " and user_crowd.user_id =" .$user_id. ";";
         // return $sql;
