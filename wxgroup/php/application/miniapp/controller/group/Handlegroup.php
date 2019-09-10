@@ -55,6 +55,22 @@ class Handlegroup
 
 
 
+   //查询该群该用户的详细信息
+    public function querygroupuserdata(Request $request)
+    {
+        $crowd_id=$request->param("crowd_id");//群id
+        $crowd_id=$request->param("user_id");//用户id
+
+        $sql = "select  user.*,user_crowd.user_type,user_crowd.score,user_crowd.create_time as joincrowd_time from user,user_crowd where user.id=user_crowd.user_id and user_crowd.crowd_id =" .$crowd_id. " and user_crowd.user_id =" .$user_id. ";";
+        // return $sql;
+        $querybirthday = Db::query($sql); //拿到数据
+        $state=['state'   => '200','message'  => "查询该群该用户的详细信息" ];
+        $resdata=array_merge($state,array('querygroupuserdata'=>$querygroupuserdata));
+        return $resdata ;
+
+    }
+
+
 
 
 
@@ -63,7 +79,7 @@ class Handlegroup
     {
         $crowd_id=$request->param("crowd_id");//群ID
         $user_id=$request->param("user_id");//用户ID
-        $score=$request->param("score");//用户ID
+        $score=$request->param("score");//积分数
         if(is_numeric($score) && $score > 0){
         	 $updateres= db('user_crowd')->where('crowd_id',$crowd_id)->where('user_id',$user_id)->update(['score' =>$score]);
         	 $state=['state'   => '200','message'  => "修改用户积分成功" ];
