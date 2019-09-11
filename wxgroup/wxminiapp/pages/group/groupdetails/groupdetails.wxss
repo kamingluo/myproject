@@ -168,6 +168,18 @@
 }
 
 
+.clearicon{
+  position:absolute;
+   left: 88%;
+}
+
+.clear{
+   position: relative;
+   z-index: 99999;
+   width: 60rpx;
+   height: 60rpx;
+}
+
 
 
 

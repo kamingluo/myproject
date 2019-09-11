@@ -58,6 +58,9 @@
     <view wx:if="{{groupnewslist.length > 0}}">
       <view class="cu-card case" wx:for="{{groupnewslist}}" wx:key="item" wx:if="{{groupnewslist.length > 0}}">
         <view class="cu-item shadow" bindtap='clicknewslist' data-id='{{item.id}}'>
+        <view  class='clearicon'  catchtap='deletenews'  data-id='{{item.id}}' >
+         <image class="clear" src="/images/common/delete.png" mode="aspectFix"></image>
+         </view>
           <view class="image">
             <image class="titleimg" src="{{item.titleimage}}" mode="aspectFix"></image>
             <view class="cu-bar bg-shadeBottom">
@@ -133,3 +136,10 @@
     </view>
   </view>
 </view>
+
+
+
+
+
+
+
