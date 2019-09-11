@@ -5,6 +5,15 @@ page {
   /* background-color: #1cbbb4; */
 }
 
+.gdtvideoad{
+  z-index: 888;
+  position: fixed;
+  margin-top: 180rpx;
+  
+}
+
+
+
 .important{
   color:#ff9700;
   font-weight: 600;

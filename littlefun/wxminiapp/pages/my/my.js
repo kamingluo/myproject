@@ -12,6 +12,8 @@ Page({
 
   data: {
     userdata:'',
+    display: false, //是否展示
+    gdtaddisplay: false, //视频是否展示展示
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -24,12 +26,35 @@ Page({
   },
 
   onLoad: function (options) {
-    
-
+    this.addisplay()
   },
 
   onShow: function () {
     this.userdata()
+
+  },
+
+
+
+
+
+  addisplay: function () {
+
+    this.setData({
+      display: app.globalData.display || false
+    })
+
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
 
   },
 

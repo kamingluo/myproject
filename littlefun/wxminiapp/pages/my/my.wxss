@@ -1,4 +1,11 @@
 /* pages/my/my.wxss */
+.adanshua{
+   position: fixed;
+   margin-top: 250rpx;
+   margin-left: -100rpx;
+}
+
+
 .addminiapptips{
   position: fixed;
   left: 55%;

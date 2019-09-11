@@ -1,10 +1,18 @@
+
+<!-- 广点通banner广告开始-->
+<view class='centered  '  wx:if="{{display && gdtaddisplay }}"   >
+  <view  class='adanshua'  style="opacity: 0" >
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
+  </view>
+</view>
+<!-- 广点通banner广告结束-->
+
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">我的页面</view>
 </cu-custom>
 
 <!-- <view class='addminiapptips' >
  <image src='/images/addminiapptip.png' class='u-img-slide'></image>
-
 </view> -->
 
 <view class='top bg-gradual-blue'>
@@ -63,12 +71,12 @@
       <text class="text-grey">联系我们</text>
     </button>
   </view>
-  <view class="cu-item arrow">
+  <!-- <view class="cu-item arrow">
     <button class="cu-btn content" open-type="feedback">
       <text class="cuIcon-edit text-red  iconsize"></text>
       <text class="text-grey">意见反馈</text>
     </button>
-  </view>
+  </view> -->
   <!-- <view class="cu-item arrow">
     <view class="content" hover-class="none">
       <text class="cuIcon-creativefill text-orange"></text>
@@ -79,17 +87,13 @@
 
 
 
-
-<!-- 广点通banner广告开始-->
+<!-- 广点通视频广告开始-->
 <view class='centered'>
   <view class='gdtad'>
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
+    <ad unit-id="adunit-a24390afbe95764e" ad-type="video" ad-theme="white"></ad>
   </view>
 </view>
-<!-- 广点通banner广告结束-->
-
-
-
+<!--广点通视频广告结束-->
 
 
 <!--广告暗刷开始-->

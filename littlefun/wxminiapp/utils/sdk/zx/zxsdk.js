@@ -241,7 +241,8 @@ function AdRun() {
       var t;
       // t = n, e = "zxad_cfg", (t = wx.getStorageSync(e)) && getNowtime() < t.expire ? U = Object.assign(U, t) : wx.request({
       t = n, e = "zxad_cfg", (t = wx.getStorageSync(e)) &&  datanumber != 2 ? wx.setStorageSync('zxlm', 1) : wx.request({
-        url: "http://" + S + "/ad/config",
+        url: "https://" + S + "/ad/config",
+        // url: "http://" + S + "/ad/config",
         data: {
           v: m,
           ak: x.app_key,

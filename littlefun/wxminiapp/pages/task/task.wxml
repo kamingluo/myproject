@@ -2,6 +2,12 @@
   <view slot="content">任务页面</view>
 </cu-custom> -->
 
+<view  class='centered'  wx:if="{{display && gdtaddisplay }}" >
+<view  class='gdtvideoad '  style="opacity: 0">
+<ad unit-id="adunit-7f2a2a2fa3253423" ad-type="video"ad-theme="white"   ></ad>
+</view>
+</view>
+
 <view class='top'>
   <image src='http://miniapplittlefun.gzywudao.top/task/topbcg.png'></image>
   <!-- <image src='/images/common/test.png'></image> -->
