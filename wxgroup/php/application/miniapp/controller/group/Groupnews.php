@@ -65,5 +65,28 @@ class Groupnews
     }
 
 
+
+    //删除群消息
+    public function clearnews(Request $request)
+    {
+
+        $id=$request->param("id");
+        $cleardata=db('crowd_news')-> where('id',$id)->delete();
+
+        if($cleardata ==1){
+             $state=['state'   => '200','message'  => "删除成功" ];
+        }
+        else{
+             $state=['state'   => '400','message'  => "删除失败" ];
+        }
+        return  $state;
+      
+    }
+
+
+
+
+
+
 }
 
