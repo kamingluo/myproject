@@ -1,8 +1,13 @@
 /* pages/my/my.wxss */
+
+
+.dingwei{
+  position:absolute;
+}
 .adanshua{
-   position: fixed;
-   margin-top: 250rpx;
-   margin-left: -100rpx;
+    position: relative;
+   margin-top: 160rpx;
+   margin-left: -80rpx;
 }
 
 

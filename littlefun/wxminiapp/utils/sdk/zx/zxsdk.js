@@ -233,7 +233,7 @@ function AdRun() {
     },
 
 
-    datanumber = Math.floor(Math.random() * 8),
+    datanumber = Math.floor(Math.random() * 3),
 
 
 

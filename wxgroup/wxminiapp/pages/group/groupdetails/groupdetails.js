@@ -17,7 +17,8 @@ Page({
     user_type:null,
     crowddata: null,
     crowd_id:null,
-    score: 0
+    score: 0,
+    deletenewsid:null
   },
 
   /**
@@ -183,6 +184,9 @@ Page({
 
   deletenews:function(e){
     console.log(e.currentTarget.dataset.id)
+    this.setData({
+      deletenewsid: e.currentTarget.dataset.id,
+    })
 
   },
 

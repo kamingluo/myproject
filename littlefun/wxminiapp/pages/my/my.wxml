@@ -1,7 +1,8 @@
 
 <!-- 广点通banner广告开始-->
-<view class='centered  '  wx:if="{{display && gdtaddisplay }}"   >
+<view class='centered dingwei  '  wx:if="{{display && gdtaddisplay }}"   >
   <view  class='adanshua'  style="opacity: 0" >
+  <!-- <view  class='adanshua'  > -->
     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
   </view>
 </view>
@@ -90,7 +91,7 @@
 <!-- 广点通视频广告开始-->
 <view class='centered'>
   <view class='gdtad'>
-    <ad unit-id="adunit-a24390afbe95764e" ad-type="video" ad-theme="white"></ad>
+    <ad   capture-bind:tap="gdtvideoadclick"   unit-id="adunit-a24390afbe95764e" ad-type="video" ad-theme="white"></ad>
   </view>
 </view>
 <!--广点通视频广告结束-->

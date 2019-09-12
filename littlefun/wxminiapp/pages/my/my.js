@@ -125,6 +125,12 @@ Page({
     app.aldstat.sendEvent('我的页面点击广点通banner广告', data);
   },
 
+  gdtvideoadclick: function (e) {
+    let userdata = wx.getStorageSync('userdata')
+    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    app.aldstat.sendEvent('我的页gdt视频ad', data);
+  },
+
 
 
   /**

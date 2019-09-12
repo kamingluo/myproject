@@ -5,10 +5,15 @@ page {
   /* background-color: #1cbbb4; */
 }
 
+
+.dingwei{
+  position:absolute;
+}
 .gdtvideoad{
   z-index: 888;
-  position: fixed;
-  margin-top: 180rpx;
+ position: relative;
+  margin-top: -10rpx;
+  margin-left: -90rpx;
   
 }
 
