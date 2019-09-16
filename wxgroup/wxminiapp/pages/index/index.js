@@ -77,12 +77,42 @@ Page({
             that.setData({
               usergrouplist: res.usergrouplist,
             })
+            if (res.usergrouplist.length == 5){
+              setTimeout(function () {
+                that.usergroup2()
+              }, 2000)   
+            }
           },
         })
       }
     })
-
   },
+
+
+  //用户加入群列表2,http://material.gzywudao.top/moren.jpg
+  usergroup2: function () {
+    var that = this
+    wx.login({
+      success: res => {
+        request({
+          service: 'group/usergroup/usergroup',
+          data: {
+            code: res.code,
+          },
+          success: res => {
+            that.setData({
+              usergrouplist: res.usergrouplist,
+            })
+          },
+        })
+      }
+    })
+  },
+
+
+
+
+
   clickusergrouplist:function(e){
     console.log("点击群列表", e.currentTarget.dataset.data)
     wx.navigateTo({

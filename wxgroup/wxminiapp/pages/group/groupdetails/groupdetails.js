@@ -18,7 +18,8 @@ Page({
     crowddata: null,
     crowd_id:null,
     score: 0,
-    deletenewsid:null
+    deletenewsid:null,
+    deletenewsmodel: false,
   },
 
   /**
@@ -69,14 +70,14 @@ Page({
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/pushnews.png",
         text: "发布消息",
         joumurl: '/pages/group/pushnews/pushnews',
-        type: 0
+        type: 1
       },
       {
         id: 4,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
         text: "群用户",
         joumurl: '/pages/group/user/user',
-        type: 1
+        type: 0
       }
     ];
     this.setData({
@@ -186,7 +187,41 @@ Page({
     console.log(e.currentTarget.dataset.id)
     this.setData({
       deletenewsid: e.currentTarget.dataset.id,
+      deletenewsmodel: true,
     })
+
+  },
+
+  hideModal:function(){
+    this.setData({
+      deletenewsmodel: false,
+    })
+  },
+
+  confirmdeletenews:function(){
+    var that=this
+    var deletenewsid = that.data.deletenewsid
+    var crowd_id = that.data.crowd_id
+    request({
+      service: 'group/groupnews/clearnews',
+      method: 'GET',
+      data: {
+        id: deletenewsid,
+      },
+      success: res => {
+        console.log("删除消息成功",res)
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 2000,
+        })
+        that.setData({
+          deletenewsmodel: false,
+        })
+        that.groupnewslist(crowd_id)
+      }
+    })
+
 
   },
 

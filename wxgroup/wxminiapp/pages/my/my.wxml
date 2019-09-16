@@ -24,7 +24,7 @@
       </view>
 
       <view class='birthday'>
-        <picker mode="date" value="{{setbirthday?setbirthday:'2000-01-01'}}" start="1940-01-01" end="2012-01-01" bindchange="bindDateChange">
+        <picker mode="date" value="{{birthday?birthday:'2000-01-01'}}" start="1940-01-01" end="2012-01-01" bindchange="bindDateChange">
           <text>生日:{{birthday?birthday:"未设置"}} </text>
           <text class='cuIcon-post  xiugai '></text>
         </picker>
@@ -84,13 +84,13 @@
       <text class="text-grey">意见反馈</text>
     </button>
   </view>
-
+<!-- 
   <view class="cu-item arrow">
     <view class="content" hover-class="none">
       <text class="cuIcon-creativefill text-orange iconsize"></text>
       <text class="text-grey">关于我们</text>
     </view>
-  </view>
+  </view> -->
 
 
 </view>

@@ -23,9 +23,7 @@
         <text>群成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>
-    <view class='crowdright' bindtap='qrcode'>
-      <image src='../../../images/common/right.svg'></image>
-    </view>
+    <!-- user_typeusertype -->
   </view>
 </view>
 
@@ -58,9 +56,9 @@
     <view wx:if="{{groupnewslist.length > 0}}">
       <view class="cu-card case" wx:for="{{groupnewslist}}" wx:key="item" wx:if="{{groupnewslist.length > 0}}">
         <view class="cu-item shadow" bindtap='clicknewslist' data-id='{{item.id}}'>
-        <view  class='clearicon'  catchtap='deletenews'  data-id='{{item.id}}' >
-         <image class="clear" src="/images/common/delete.png" mode="aspectFix"></image>
-         </view>
+          <view class='clearicon' catchtap='deletenews' data-id='{{item.id}}'   wx:if="{{usertype}}"  >
+            <image class="clear" src="/images/common/delete.png" mode="aspectFix"></image>
+          </view>
           <view class="image">
             <image class="titleimg" src="{{item.titleimage}}" mode="aspectFix"></image>
             <view class="cu-bar bg-shadeBottom">
@@ -91,7 +89,7 @@
     </view>
 
     <view wx:else>
-      <view >
+      <view>
         <view class='default'>
           <view>
             <image src='http://littlebox.luojiaming.vip/default.png'></image>
@@ -123,7 +121,7 @@
 
 
 
-<view class='share centered'>
+<view class='share centered' wx:if="{{usertype}}">
   <view class='sharebody centered'>
     <view>
       <kaming-button open-type='share'>
@@ -141,5 +139,22 @@
 
 
 
-
-
+<view class="cu-modal show" wx:if="{{deletenewsmodel}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">删除消息</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      确定要删除此条消息吗？
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="confirmdeletenews">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

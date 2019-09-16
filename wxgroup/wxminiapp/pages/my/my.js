@@ -13,7 +13,6 @@ Page({
   data: {
     userdata:'',
     birthday:null,
-    setbirthday:null,
     xmad: {//小盟广告
       adData: {},
       ad: {
@@ -63,15 +62,15 @@ Page({
 
 
   birthday:function(e){
-    // console.log("11111111",e)
+    console.log("-----------",e)
     if(e){
-      var temp = new Date(e);
-      var t = temp.getFullYear() + "-" + (temp.getMonth() + 1) + "-" + temp.getDate(); //去除时分秒
-      var format = t.replace(/-/g, '/');
-      // var timestamp = Date.parse(new Date(format));
+      var shijian  = e.replace(/\.|\-/g, '/')
+      var temp = new Date(shijian);
+      var t = temp.getFullYear() + "/" + (temp.getMonth() + 1) + "/" + temp.getDate(); //去除时分秒
+      // var t = t.replace(/\-/g, '/');
+      //  var format = String(t);
       this.setData({
-        birthday: format,
-        setbirthday:t,
+        birthday: t,
       })
     }
    

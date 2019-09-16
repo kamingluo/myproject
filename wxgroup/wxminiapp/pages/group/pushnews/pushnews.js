@@ -16,24 +16,24 @@ Page({
     crowd_id: 0,
     crowd_name: "默认群",
     faceList: [{
-      "image": "http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15601629698733.jpeg",
+      "image": "http://material.gzywudao.top/image/group/news/quntongzhi.jpg",
         "id": 0
       },
       {
-        "image": "http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15625778473347.jpeg",
+        "image": "http://material.gzywudao.top/image/group/news/fangjiatongzhi.jpg",
         "id": 1
       },
       {
-        "image": "http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15574702417361.png",
+        "image": "http://material.gzywudao.top/image/group/news/huodongjuhui.jpg",
         "id": 2
       },
       {
-        "image": "http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15601629698733.jpeg",
+        "image": "http://material.gzywudao.top/image/group/news/huiyitongzhi.jpg",
         "id": 3
       },
     ],
     isChecked: 0,
-    checkedimg:"http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15601629698733.jpeg"
+    checkedimg:"http://material.gzywudao.top/image/group/news/quntongzhi.jpg"
   },
 
 

@@ -5,17 +5,13 @@ const {
 const baseConfig = require('./config.js')
 
 function register(e) {
-  var channel = e.channel
-  var scene = e.scene
+  var data = e
   wx.login({
     success: res => {
+      data.code = res.code
       request({
         service: 'user/register',
-        data: {
-          code: res.code,
-          channel: channel,
-          scene: scene
-        },
+        data: data,
         success: res => {
          // console.log('注册成功', res);
           wx.setStorageSync('userdata', res.userdata)

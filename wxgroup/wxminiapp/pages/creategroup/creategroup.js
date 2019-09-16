@@ -95,7 +95,7 @@ Page({
         loadModal: true,
       })
       //console.log("图片为空")
-      let logo = "http://material.gzywudao.top/morengroup.jpg"
+      let logo = "http://material.gzywudao.top/morencrowd.png"
       this.creategroup(logo)
     } else {
       this.setData({

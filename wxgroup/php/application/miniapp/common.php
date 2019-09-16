@@ -25,7 +25,7 @@ function test(){
 */
 function openid($wxcode){
     if($wxcode == 'kaming'){
-        $openid='o3XMA0enuFRZsOCOCeqjB70exjr4';
+        $openid='o3XMA0eQOt1z2SH8FcoXf2n5ga7Y';
         return $openid;
 
     }

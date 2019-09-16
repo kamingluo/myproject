@@ -175,7 +175,7 @@
 
 .clear{
    position: relative;
-   z-index: 99999;
+   z-index: 99;
    width: 60rpx;
    height: 60rpx;
 }
