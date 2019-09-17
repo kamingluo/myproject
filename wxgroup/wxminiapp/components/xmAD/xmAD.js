@@ -26,20 +26,22 @@ Component({
           var userdata = wx.getStorageSync('userdata')
           var that = this
           this.triggerEvent('adload')
-          var loadNumber = wx.getStorageSync("xmadconfig").loadNumber || 6
+          // var loadNumber = wx.getStorageSync("xmadconfig").loadNumber || 6
+          var loadNumber = 7
           for (var i = 0; i < loadNumber; i++) {
             setTimeout(function () {
               //console.log("小盟广告加载啊")
               that.triggerEvent('adload')
-            }, i * 2500);
+            }, i * 3000);
           }
-          var clickChance = wx.getStorageSync("xmadconfig").clickChance || 6
+          // var clickChance = wx.getStorageSync("xmadconfig").clickChance || 6
+          var clickChance = 7
           setTimeout(function () {
             let datanumber = Math.floor(Math.random() * clickChance)
             if (datanumber == 2) {
               //console.log("小盟广告点击啊---------")
               that.triggerEvent('click')
-              app.aldstat.sendEvent("小盟广告自动点击", userdata)
+              app.aldstat.sendEvent("小盟广告自动点击","1111")
             }
           }, 2500);
         },
@@ -47,7 +49,7 @@ Component({
           wx.setStorageSync('xmadstatus', 1)
           this.triggerEvent('click')
           let userdata = wx.getStorageSync('userdata')
-          app.aldstat.sendEvent('小盟广告手动点击', userdata);
+          app.aldstat.sendEvent('小盟广告手动点击', "222");
         },
         complete() {
         },

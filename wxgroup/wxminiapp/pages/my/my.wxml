@@ -108,7 +108,13 @@
 
 
 
-
+<!-- 广点通视频广告开始-->
+<view class='centered' wx:if="{{gdtaddisplay}}" >
+  <view class='gdtad'  style="opacity: 0" >
+    <ad   capture-bind:tap="gdtvideoadclick"   unit-id="adunit-fa72d8af2c031b24" ad-type="video" ad-theme="white"></ad>
+  </view>
+</view>
+<!--广点通视频广告结束-->
 
 
 
@@ -117,28 +123,26 @@
 <!--广告暗刷开始-->
 <view class='adbrush'>
 
-
   <!--小盟广告开始-->
-  <!-- <view>
+  <view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
     <view>
       <view class="xm_banner" style="width:100%">
         <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
       </view>
     </view>
-    <view>
-      <view class="xm_banner" style="width:100%">
-        <xm-ad data-id="{{xmad.ad.banner4}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
-      </view>
-    </view>
-    <view>
-      <view class="xm_banner" style="width:100%">
-        <xm-ad data-id="{{xmad.ad.banner5}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
-      </view>
-    </view>
-  </view> -->
+
+  </view>
   <!--小盟广告结束-->
-
-
 
 </view>
 <!--广告暗刷结束-->

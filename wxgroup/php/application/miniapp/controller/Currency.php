@@ -132,11 +132,27 @@ public function getqrcode(Request $request)
     }
   }
 
-
-
-
 }
 
+
+
+       function nonceStr() {
+        $time =date('Y-m-d H:i:s',time());//获取当前时间
+        for ($v=0; $v< 10; $v++) { 
+             $seed = array(0,1,2,3,4,5,6,7,8,9);
+            $str = '';
+            for($i=0;$i<8;$i++) {
+                $rand = rand(0,count($seed)-1);
+                $temp = $seed[$rand];
+                $str .= $temp;
+                unset($seed[$rand]);
+                $seed = array_values($seed);
+            }
+             $data = ['id'=>'','code' =>$str,'create_time' =>$time];
+             $dbreturn=db('group_code')->insert($data);
+         }
+         return ['state'   => '200','message'  => "群邀请码生成成功"] ;
+      }
 
 
 }

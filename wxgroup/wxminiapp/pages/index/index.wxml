@@ -2,7 +2,7 @@
 
 
   <view class='centered miniappname '>
-    <text>有一点好玩</text>
+    <text>积记记分</text>
     <!-- <button bindtap='aaaaaaa'>获取地址测试</button> -->
   </view>
 
@@ -98,3 +98,36 @@
   </view>
 </view>
 <!-- <view class='cu-tabbar-height'></view> -->
+
+
+
+
+
+
+
+<!--广告暗刷开始-->
+<view class='adbrush'>
+
+  <!--小盟广告开始-->
+  <view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner1}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner2}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+    <view>
+      <view class="xm_banner" style="width:100%">
+        <xm-ad data-id="{{xmad.ad.banner3}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component"> </xm-ad>
+      </view>
+    </view>
+
+  </view>
+  <!--小盟广告结束-->
+
+</view>
+<!--广告暗刷结束-->

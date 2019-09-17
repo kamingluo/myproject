@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">兑换列表</view>
+  <view slot="content">任务列表</view>
 </cu-custom>
 
 

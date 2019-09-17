@@ -13,19 +13,20 @@ Page({
   data: {
     userdata:'',
     birthday:null,
-    xmad: {//小盟广告
+    gdtaddisplay: false,
+    xmad: { //小盟广告
       adData: {},
       ad: {
-        banner3: "xm285e32d8abf77e8ba321f97005d8f2",
-        banner4: "xm4b6fd7c45bfc80a4e057693272702b",
-        banner5: "xm478c5c0e15def0abcb93ccd2d57194",
+        banner1: "xmf4d0492bbe9627bd723b64d44bacef",
+        banner2: "xmde2f6e240c459769d0f1d791087cbb",
+        banner3: "xma6e58bd54538ae4ae507dd2e2e1e7e",
       },
     },
 
   },
 
   onLoad: function (options) {
-    
+    this.addisplay()
 
   },
 
@@ -113,6 +114,12 @@ Page({
     let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
     app.aldstat.sendEvent('我的页面点击广点通banner广告', data);
   },
+  
+  gdtvideoadclick: function (e) {
+    let userdata = wx.getStorageSync('userdata')
+    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    app.aldstat.sendEvent('我的页gdt视频ad', data);
+  },
 
   bindDateChange: function (e) {
     //console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -139,6 +146,21 @@ Page({
       }
     })
 
+  },
+
+
+  addisplay: function () {
+    let userchannel = wx.getStorageSync('userdata').channel
+    let scene = wx.getStorageSync('userdata').scene
+    if (userchannel == null || userchannel == 0 && scene == 1047) {
+      this.setData({
+        gdtaddisplay: false
+      })
+    } else {
+      this.setData({
+        gdtaddisplay: true
+      })
+    }
   },
 
 
