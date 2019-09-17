@@ -10,13 +10,13 @@
 <view class='top radius shadow bg-white'>
   <view class='user'>
     <view class='userAvatar'>
-      <image class='userAvatarurl' src='{{userdata.avatarUrl}}'></image>
+      <image class='userAvatarurl' src='{{userdata.avatarUrl?userdata.avatarUrl:"http://material.gzywudao.top/morencrowd.png"}}'></image>
 
     </view>
 
     <view class='username'>
       <view class='userNickName' bindlongpress="testpages">
-        <text>{{userdata.nickName}}</text>
+        <text>{{userdata.nickName?userdata.nickName:"用户未授权"}}</text>
       </view>
       <view class='id'>
         <text>群积分:{{userscore}}</text> <text class='cuIcon-post xiugai' bindtap='showmodel'  wx:if="{{role == 1 || role == 2 }}" ></text>
@@ -70,7 +70,8 @@
       <text class="text-grey">地区</text>
     </view>
     <view class="action">
-      <text class="text-grey">{{userdata.country}}{{userdata.province}}{{userdata.city}}</text>
+      <text class="text-grey" wx:if="{{userdata.city}}" >{{userdata.country}}{{userdata.province}}{{userdata.city}}</text>
+      <text class="text-grey"  wx:else > 用户未授权 </text>
     </view>
   </view>
   <view class="cu-item">
@@ -91,10 +92,16 @@
     <button  class='bg-green'  bindtap='setupadministrators' >设置为管理员身份</button>
   </view>
   <view  class='operation'   wx:if="{{userdata.user_type == 2}}" >
-    <button  class='bg-red'  bindtap='canceladministrators' >取消管理员身份</button>
+    <button  class='bg-blue'  bindtap='canceladministrators' >取消管理员身份</button>
   </view>
 </view>
 
+
+<view    class='centered'   wx:if="{{role == 1}}"  >
+ <view  class='operation' wx:if="{{userdata.user_type == 0  ||  userdata.user_type == 2 }}" >
+    <button  class='bg-red'  bindtap='deletegroupuser' >将此用户踢出群</button>
+  </view>
+</view>
 
 
 
@@ -128,3 +135,24 @@
 
 
 
+
+
+<view class="cu-modal show" wx:if="{{deletegroupusermodel}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">踢除用户</view>
+      <view class="action" bindtap="hidemodal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      确定要把此用户踢出群吗？
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hidemodal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="confirmdeleteuser">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -6,6 +6,13 @@
 
 <view class="centered">
   <view class="cu-form-group  shadow shadow-lg bg-white ">
+    <view class="title">邀请码</view>
+    <input placeholder="请输入邀请码"  maxlength="20"  bindinput="groupcode" ></input>
+  </view>
+</view>
+
+<view class="centered">
+  <view class="cu-form-group  shadow shadow-lg bg-white ">
     <view class="title">群名称</view>
     <input placeholder="请输入群名称"  maxlength="10"  bindinput="groupname" ></input>
   </view>

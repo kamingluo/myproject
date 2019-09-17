@@ -33,10 +33,15 @@
 }
 
 
+.groupcode{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 96%;
+}
 
 .cu-form-group{
-  margin-top: 30rpx;
-  margin-bottom: 40rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
   width: 96%;
 }
 

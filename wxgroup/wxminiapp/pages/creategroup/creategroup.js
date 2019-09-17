@@ -13,6 +13,7 @@ Page({
     showUpload: true,
     grouptext: null,
     groupname: null,
+    groupcode: null,
     loadModal: false
   },
   // 删除图片
@@ -80,10 +81,16 @@ Page({
     })
   },
 
+  groupcode: function (e) {
+    this.setData({
+      groupcode: e.detail.value,
+    })
+  },
+
   sumittask: function(e) {
     // console.log(this.data.grouptext)
     // console.log(this.data.groupname)
-    if (this.data.grouptext == null || this.data.groupname == null) {
+    if (this.data.grouptext == null || this.data.groupname == null || this.data.groupcode == null) {
       wx.showToast({
         title: '信息不能为空',
         icon: 'none',
@@ -110,6 +117,7 @@ Page({
   creategroup: function(logo) {
     var that = this
     var crowd_name = this.data.groupname
+    var groupcode = this.data.groupcode
     var introduce = this.data.grouptext
     var logo = logo
     wx.login({
@@ -119,6 +127,7 @@ Page({
           data: {
             code: res.code,
             crowd_name: crowd_name,
+            groupcode: groupcode,
             introduce: introduce,
             logo: logo
           },

@@ -62,13 +62,10 @@ Page({
 
 
   birthday:function(e){
-    console.log("-----------",e)
     if(e){
       var shijian  = e.replace(/\.|\-/g, '/')
       var temp = new Date(shijian);
       var t = temp.getFullYear() + "/" + (temp.getMonth() + 1) + "/" + temp.getDate(); //去除时分秒
-      // var t = t.replace(/\-/g, '/');
-      //  var format = String(t);
       this.setData({
         birthday: t,
       })

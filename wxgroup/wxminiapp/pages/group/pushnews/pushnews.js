@@ -214,6 +214,12 @@ Page({
               icon: 'success',
               duration: 2000,
             })
+
+            setTimeout(function () {
+              wx.navigateBack({
+                delta:1
+              })
+            }, 1500) 
           },
         })
       }

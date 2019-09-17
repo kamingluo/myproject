@@ -16,6 +16,7 @@ Page({
     birthday:'',
     num:'',
     userscore:'',
+    deletegroupusermodel: false,
 
 
   },
@@ -64,11 +65,11 @@ Page({
 
   birthday: function (e) {
     if (e) {
-      var temp = new Date(e);
+      var shijian = e.replace(/\.|\-/g, '/')
+      var temp = new Date(shijian);
       var t = temp.getFullYear() + "-" + (temp.getMonth() + 1) + "-" + temp.getDate(); //去除时分秒
-      var format = t.replace(/-/g, '/');
       this.setData({
-        birthday: format,
+        birthday: t,
       })
     }
 
@@ -115,7 +116,8 @@ Page({
   /*点击取消*/
   hidemodal: function () {
     this.setData({
-      model: false
+      model: false,
+      deletegroupusermodel: false,
     })
   },
 
@@ -195,6 +197,42 @@ Page({
         that.userdata()
       },
     })
+  },
+
+/**
+   * 删除群成员
+   */
+  deletegroupuser:function(){
+    this.setData({
+      deletegroupusermodel: true,
+    })
+  },
+
+
+  confirmdeleteuser:function(){
+    var that = this
+    var crowd_id = this.data.crowd_id
+    var user_id = this.data.user_id
+    request({
+      service: 'group/handlegroup/deletegroupuser',
+      data: {
+        crowd_id: crowd_id,
+        user_id: user_id,
+      },
+      success: res => {
+        wx.showToast({
+          title: '踢除成功',
+          icon: 'success',
+          duration: 2000,
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1500) 
+      },
+    })
+
   },
 
 
