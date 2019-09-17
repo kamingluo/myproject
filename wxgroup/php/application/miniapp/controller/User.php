@@ -80,6 +80,7 @@ class User
         //return  $dbnum["channel"];
         if($dbnum==null){
                 $dbdata = ['id'=>'','openid' =>$openid,'channel' => $channel,'scene' => $scene,'nickName' => $nickName,'avatarUrl' =>$avatarUrl,'gender' =>$gender,'province' => $province,'city' => $city,'country' => $country,'birthday' => null,'create_time' =>$time ,'update_time' =>$time];
+                
                 $userId= db('user')->insertGetId($dbdata);//返回自增ID
                 $userjoingroup= joingroup($crowd_id, $userId, $openid);
 
@@ -95,6 +96,7 @@ class User
                 if($dbreturn==1){
                      $dbnum =db('user')->where('openid',$openid)->find();//查询用户信息
                      $state=['state'   => '200','message'  => "用户信息更新成功" ];
+
                      $userjoingroup= joingroup($crowd_id, $dbnum["id"], $openid);
                     
                     $resdata=array_merge($state,array('userdata'=>$dbnum),array('userjoingroup'=>$userjoingroup));

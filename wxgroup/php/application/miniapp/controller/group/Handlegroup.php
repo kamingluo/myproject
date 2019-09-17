@@ -123,8 +123,23 @@ class Handlegroup
    }
 
 
+   
+   //删除群成员
+   public function deletegroupuser(Request $request) 
+   {
 
-    
+        $crowd_id=$request->param("crowd_id");//群ID
+        $user_id=$request->param("user_id");//用户ID
+        $deleteuser=db('user_crowd')-> where('crowd_id',$crowd_id)-> where('user_id',$user_id)->delete();
+        if($deleteuser == 1 ){
+              $state=['state'   => '200','message'  => "删除群员成功" ];
+              return $state ;
+        }else{
+            $state=['state'   => '400','message'  => "删除群员失败" ];
+            return $state ;
+        }
+   }
+
 
 }
 
