@@ -17,6 +17,8 @@ Page({
     num:'',
     userscore:'',
     deletegroupusermodel: false,
+    remarksmodal:false,
+    remarksValue:null,
 
 
   },
@@ -118,6 +120,7 @@ Page({
     this.setData({
       model: false,
       deletegroupusermodel: false,
+      remarksmodal: false,
     })
   },
 
@@ -234,6 +237,63 @@ Page({
     })
 
   },
+
+ //设置备注弹框
+  showremarksmodel: function () {
+    this.setData({
+      remarksmodal: true,
+      remarksValue: this.data.userdata.remarks
+    })
+  },
+
+  remarksInput: function (e) {
+    this.setData({
+     remarksValue: e.detail.value
+    })
+  },
+
+  confirmremarks:function(){
+    //console.log("备注啊",this.data.remarksValue)
+    if (this.data.remarksValue){
+      this.reviseremarks()
+    }else{
+      wx.showToast({
+        title: '不能为空',
+        icon:'none',
+        duration: 2000,
+      })
+      return;
+    }
+  },
+
+
+  reviseremarks: function () {
+    var that = this
+    var crowd_id = this.data.crowd_id
+    var user_id = this.data.user_id
+    var remarks = this.data.remarksValue
+    request({
+      service: 'group/handlegroup/remarks',
+      data: {
+        crowd_id: crowd_id,
+        user_id: user_id,
+        remarks: remarks,
+      },
+      success: res => {
+        wx.showToast({
+          title: '设置成功',
+          icon: 'success',
+          duration: 2000,
+        })
+        that.hidemodal()
+        that.userdata()
+      },
+    })
+
+  },
+
+
+
 
 
 
