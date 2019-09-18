@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">创建群</view>
+  <view slot="content">创建空间</view>
 </cu-custom>
 
 
@@ -13,13 +13,13 @@
 
 <view class="centered">
   <view class="cu-form-group  shadow shadow-lg bg-white ">
-    <view class="title">群名称</view>
-    <input placeholder="请输入群名称"  maxlength="10"  bindinput="groupname" ></input>
+    <view class="title">空间名称</view>
+    <input placeholder="请输入空间名称"  maxlength="10"  bindinput="groupname" ></input>
   </view>
 </view>
 
 <view class='ui_cell'>
-  <view class='ui_cell_bd'>群图标上传</view>
+  <view class='ui_cell_bd'>图标上传</view>
   <view class='ui_cell_ft'>不上传则默认分配</view>
 </view>
 <view class="centered">
@@ -37,10 +37,10 @@
 
 
 <!-- 文件上传 -->
-<view class='domes_title_1' bindtap='moredata'>群简介</view>
+<view class='domes_title_1' bindtap='moredata'>空间简介</view>
 <view class="centered">
   <view class="task_text">
-    <textarea maxlength="250" bindinput="grouptext" placeholder="请输入群简介描述"></textarea>
+    <textarea maxlength="250" bindinput="grouptext" placeholder="请输入空间简介描述"></textarea>
   </view>
 </view>
 
@@ -49,7 +49,7 @@
 
 
 <view class='sumittask centered'>
-  <button bindtap="sumittask" class="bg-blue">创建群</button>
+  <button bindtap="sumittask" class="bg-blue">创建空间</button>
 </view>
 
 

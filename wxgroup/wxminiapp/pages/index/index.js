@@ -85,7 +85,7 @@ Page({
             that.setData({
               usergrouplist: res.usergrouplist,
             })
-            if (res.usergrouplist.length == 5){
+            if (res.usergrouplist.length < 2){
               setTimeout(function () {
                 that.usergroup2()
               }, 3500)   
@@ -99,6 +99,7 @@ Page({
 
   //用户加入群列表2,http://material.gzywudao.top/moren.jpg
   usergroup2: function () {
+    //console.log("再拿一次用户的群组数据")
     var that = this
     wx.login({
       success: res => {

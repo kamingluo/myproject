@@ -29,7 +29,7 @@
         <view class='centered'>
           <view class='information-name centered '>
             <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
-            <text>我的群列表</text>
+            <text>空间列表</text>
           </view>
         </view>
       </view>
@@ -75,7 +75,7 @@
           <image src='/images/default.png'></image>
         </view>
         <view class='centered'>
-          <text>您还没有任何群哦！</text>
+          <text>您还没有任何空间哦！</text>
         </view>
       </view>
     </view>
@@ -91,10 +91,10 @@
 
 <view class="create-group">
   <view wx:if="{{ifauthorized}}">
-    <button class=' bg-gradual-blue' bindtap="clickgroup"> 创建群空间 </button>
+    <button class=' bg-gradual-blue' bindtap="clickgroup"> 创建空间 </button>
   </view>
   <view wx:else>
-    <button class='bg-gradual-blue' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 创建群空间</button>
+    <button class='bg-gradual-blue' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 创建空间</button>
   </view>
 </view>
 <!-- <view class='cu-tabbar-height'></view> -->

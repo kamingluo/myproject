@@ -134,7 +134,7 @@ class User
 
 
 
-       //用户加入群
+    //用户加入群
     public function userjoingroup(Request $request)
     {
         $crowd_id =$request->param("crowd_id");
@@ -146,7 +146,7 @@ class User
     }
 
 
-          //用户生日更改
+    //用户生日更改
     public function userbirthday(Request $request)
     {
         $wxcode =$request->param("code");//接收所有传过来的值
@@ -156,6 +156,54 @@ class User
         $dbreturn= db('user')->where('openid',$openid)->update(['birthday' => $birthday]);
         $state=['state'   => '200','message'  => "用户生日更新成功" ];
         return $state;
+       
+    }
+
+
+
+
+    //获取用户的收货地址
+    public function useraddress(Request $request)
+    {
+        $user_id =$request->param("user_id");//接收所有传过来的值
+        $addressdata =db('user_address')->where('user_id',$user_id)->find();//查询用户信息
+        $state=['state'   => '200','message'  => "获取用户的收货地址成功" ];
+        $resdata=array_merge($state,array('addressdata'=>$addressdata));
+        return $resdata;
+       
+    }
+
+
+     //修改收货地址
+    public function usersetaddress(Request $request)
+    {
+          $wxcode =$request->param("code");
+          $user_id =$request->param("user_id");
+          $userName =$request->param("userName");
+          $postalCode =$request->param("postalCode");
+          $provinceName =$request->param("provinceName");
+          $cityName =$request->param("cityName");
+          $countyName =$request->param("countyName");
+          $detailInfo =$request->param("detailInfo");
+          $nationalCode =$request->param("nationalCode");
+          $telNumber =$request->param("telNumber");
+
+        $openid=openid($wxcode);
+        $dbnum=db('user_address')->where('openid',$openid)->count();//查询用户信息
+        if($dbnum == 1){
+            //修改地址
+            $dbreturn= db('user_address')->where('openid',$openid)->update(['userName' => $userName,'postalCode' => $postalCode,'provinceName' =>$provinceName,'cityName' =>$cityName,'countyName' => $countyName,'detailInfo' => $detailInfo,'nationalCode' => $nationalCode,'telNumber' => $telNumber]);
+            $state=['state'   => '200','message'  => "地址信息更新成功" ];
+            return $state;
+        }else{
+
+             $dbdata = ['id'=>'','user_id' =>$user_id,'openid' => $openid,'userName' => $userName,'postalCode' => $postalCode,'provinceName' =>$provinceName,'cityName' =>$cityName,'countyName' => $countyName,'detailInfo' => $detailInfo,'nationalCode' => $nationalCode,'telNumber' => $telNumber];
+                $address_id= db('user_address')->insertGetId($dbdata);//返回自增ID
+                 $state=['state'   => '200','message'  => "新增地址成功" ];
+                $resdata=array_merge($state,array('address_id'=>$address_id));
+                return $resdata;
+        }
+
        
     }
 

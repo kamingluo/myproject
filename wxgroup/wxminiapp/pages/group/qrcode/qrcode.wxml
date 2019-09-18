@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">群二维码</view>
+  <view slot="content">空间二维码</view>
 </cu-custom>
 
 
