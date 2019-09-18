@@ -67,7 +67,7 @@ function joingroup($crowd_id, $user_id, $user_openid){
             return $resdata;
         }else{
 
-            $dbdata = ['id'=>'','user_id' =>$user_id,'user_openid' => $user_openid,'crowd_id' => $crowd_id,'user_type' => 0,'score' =>0,'create_time' =>$time];
+            $dbdata = ['id'=>'','user_id' =>$user_id,'user_openid' => $user_openid,'crowd_id' => $crowd_id,'user_type' => 0,'score' =>0,'remarks' =>null,'create_time' =>$time];
             $user_crowdid= db('user_crowd')->insertGetId($dbdata);//返回自增ID
             $state=['state'   => '200','message'  => "用户加入群成功" ];
             $resdata=array_merge($state,array('user_crowdid'=>$user_crowdid));
