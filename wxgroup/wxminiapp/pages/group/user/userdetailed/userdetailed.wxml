@@ -44,6 +44,18 @@
     </view>
   </view>
 
+
+   <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-peoplefill text-orange"></text>
+      <text class="text-grey">备注</text>
+    </view>
+    <view class="action">
+      <text class="text-grey">{{userdata.remarks? userdata.remarks : "设置备注" }}</text>
+      <text class='cuIcon-post xiugai' bindtap='showmodel'  wx:if="{{role == 1 || role == 2 }}" ></text>
+    </view>
+  </view>
+
   <view class="cu-item">
     <view class="content">
       <text class="cuIcon-presentfill text-pink"></text>
