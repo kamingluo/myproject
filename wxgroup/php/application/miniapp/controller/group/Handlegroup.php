@@ -141,5 +141,19 @@ class Handlegroup
    }
 
 
+   //给群成员设置备注
+   public function remarks(Request $request) 
+   {
+
+        $crowd_id=$request->param("crowd_id");//群ID
+        $user_id=$request->param("user_id");//用户ID
+        $remarks=$request->param("remarks");//备注
+        $updateres= db('user_crowd')->where('crowd_id',$crowd_id)->where('user_id',$user_id)->update(['remarks' => $remarks ]);
+        $state=['state'   => '200','message'  => "给群成员设置备注成功" ];
+        $resdata=array_merge($state,array('updateres'=>$updateres));
+        return $resdata ;
+   }
+
+
 }
 
