@@ -15,19 +15,19 @@ return [
     // 服务器地址
     'hostname'        => '47.106.253.110',
     // 数据库名
-    'database'        => 'group',
+    'database'        => 'crowd',
     // 用户名
-    'username'        => 'group',
+    'username'        => 'crowd',
     // 密码
-    'password'        => 'group',
+    'password'        => 'crowd',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
     'params'          => [],
-    // 数据库编码默认采用utf8
-    'charset'         => 'utf8',
+    // 数据库编码默认采用utf8mb4
+    'charset'         => 'utf8mb4',
     // 数据库表前缀
     'prefix'          => '',
     // 数据库调试模式

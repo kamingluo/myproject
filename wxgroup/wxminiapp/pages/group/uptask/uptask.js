@@ -13,8 +13,8 @@ Page({
     showUpload: true,
     loadModal: false,
     tasktext: null,
-    crowd_id: 0,
-    crowd_name: "默认群"
+    crowd_id: null,
+    crowd_name: null,
   },
   // 删除图片
   clearImg: function(e) {

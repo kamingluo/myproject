@@ -47,8 +47,20 @@ class Handletask
     	if($taskstate == 1){ //任务通过
                //修改任务状态
                $dbreturn= db('task_record')->where('id',$id)->update(['state' => $taskstate,'result' => $result,'score' => $score]);
+
                //给用户相应的群积分账户加积分
                $addscore= db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->setInc('score',$score);
+
+               //给用户增加积分记录
+               //
+               //增加用户积分消耗记录
+             $time =date('Y-m-d H:i:s',time());//获取当前时间
+             $user_data=db('user')->where('id',$user_id)->find(); //拿到用户信息
+
+             $score_record_data = ['id'=>'','openid' =>$user_data["openid"],'user_id' =>$user_id,'crowd_id' =>$crowd_id,'score' =>$score,'explain' => "群任务奖励",'state' =>0,'create_time' =>$time];
+             $score_record_id=db('score_record')->insert($score_record_data);
+
+
                $resdata=array_merge($state,array('taskstate'=>'success'));
                return $resdata ;
     	}

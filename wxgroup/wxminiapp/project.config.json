@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -101,8 +101,8 @@
 				},
 				{
 					"id": 7,
-					"name": "用户详情",
-					"pathName": "pages/group/user/userdetailed/userdetailed",
+					"name": "发布消息",
+					"pathName": "pages/group/pushnews/pushnews",
 					"query": "",
 					"scene": null
 				},

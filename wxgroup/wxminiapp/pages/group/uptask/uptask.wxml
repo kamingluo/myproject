@@ -1,3 +1,7 @@
+
+
+<view  wx:if="{{crowd_id}}" >
+
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
   <view slot="content">任务上传</view>
@@ -40,4 +44,19 @@
   <view class='cuIcon-loading2 text-orange'></view>
   <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
   <view class='gray-text'>提交中...</view>
+</view>
+
+
+
+  </view>
+  <!-- 全部结束 -->
+
+
+
+  <view wx:else>
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">积记记分</view>
+</cu-custom>
+
 </view>

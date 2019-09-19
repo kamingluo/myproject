@@ -13,7 +13,7 @@ Page({
     showUpload: true,
     loadModal: false,
     tasktext: null,
-    crowd_id: 0,
+    crowd_id: null,
     crowd_name: "默认群",
     faceList: [{
       "image": "http://material.gzywudao.top/image/group/news/quntongzhi.jpg",
