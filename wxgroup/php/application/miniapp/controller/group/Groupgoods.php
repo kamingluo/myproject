@@ -67,7 +67,7 @@ class Groupgoods
          $reduce_score= db('user_crowd')->where('user_openid',$openid)->where('crowd_id',$crowd_id)->setDec('score', $goods_data["price"]);
 
          //增加用户积分消耗记录
-         $score_record_data = ['id'=>'','openid' =>$openid,'user_id' =>$user_data["id"],'crowd_id' =>$crowd_id,'score' =>$goods_data["price"],'explain' => "兑换商品",'state' =>0,'create_time' =>$time];
+         $score_record_data = ['id'=>'','openid' =>$openid,'user_id' =>$user_data["id"],'crowd_id' =>$crowd_id,'score' =>$goods_data["price"],'explain' => "兑换商品",'state' =>1,'create_time' =>$time];
          $score_record_id=db('score_record')->insert($score_record_data);
 
          $state=['state'   => '200','message'  => "兑换成功" ];
