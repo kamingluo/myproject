@@ -28,7 +28,7 @@ class Groupgoods
          $price=$request->param("price");
          $introduce=$request->param("introduce");
          $time =date('Y-m-d H:i:s',time());//获取当前时间
-         $data = ['id'=>'','goodsname' =>$goodsname,'introduce' =>$introduce,'images' => $images,'price' => $price,'crowd_id' => $crowd_id,'create_time' =>$time];
+         $data = ['id'=>'','goodsname' =>$goodsname,'images' => $images,'price' => $price,'crowd_id' => $crowd_id,'create_time' =>$time];
          $goods_id= db('crowd_goods')->insertGetId($data);//返回自增ID
          $state=['state'   => '200','message'  => "发布群商品成功" ];
          $resdata=array_merge($state,array('goods_id'=>$goods_id));
@@ -36,8 +36,25 @@ class Groupgoods
     }
 
 
+       //删除群商品
+    public function deletegoods(Request $request)
+    {
+         $goods_id=$request->param("goods_id");
+         $cleardata=db('crowd_goods')-> where('id',$goods_id)->delete();
 
-    //用户商品
+        if($cleardata ==1){
+             $state=['state'   => '200','message'  => "删除商品成功" ];
+        }
+        else{
+             $state=['state'   => '400','message'  => "删除商品失败" ];
+        }
+        return  $state;
+        
+    }
+
+
+
+    //用户兑换商品
     public function exchangegoods(Request $request)
     {
         $wxcode =$request->param("code");

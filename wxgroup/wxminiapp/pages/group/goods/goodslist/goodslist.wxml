@@ -1,0 +1,41 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">商品兑换</view>
+</cu-custom>
+
+
+<view>
+  <view class='centered'>
+    <view class='box'>
+      <block wx:for="{{goodslist}}" wx:key="item">
+    
+        <view class='goods radius shadow bg-white  '>
+           <view class='clearicon' catchtap='deletenews' data-id='{{item.id}}'>
+            <image class="clear" src="/images/common/delete.png" mode="aspectFix"></image>
+          </view>
+          <view class='goods-image'>
+            <image src='{{item.images}}'></image>
+          </view>
+          <view class='goods-introduce'>
+            <text>{{item.goodsname}}</text>
+          </view>
+          <view class='goods-price  centered'>
+            <text> {{item.price}}</text>积分
+          </view>
+          <view class='line'></view>
+          <view class='exchange centered' bindtap='clickgoods' data-goodsdata="{{item}}">
+            <kaming-button>
+              <text> 立即兑换</text>
+            </kaming-button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+
+
+<view class='sumittask centered'>
+  <button bindtap="pushgoods" class="bg-blue">发布商品</button>
+</view>
