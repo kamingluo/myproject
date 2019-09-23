@@ -73,16 +73,16 @@ Page({
     }
    
   },
-  exchange:function(){
-    wx.navigateTo({
-      url: '/pages/exchange/exchange'
-    })
+  // exchange:function(){
+  //   wx.navigateTo({
+  //     url: '/pages/exchange/exchange'
+  //   })
 
-  },
+  // },
  
-  qrcode:function(){
+  myaddress:function(){
     wx.navigateTo({
-      url: '/pages/my/qrcode/qrcode'
+      url: '/pages/my/my_address/my_address'
     })
 
   },

@@ -144,10 +144,10 @@ Page({
               duration: 2500,
             })
             setTimeout(function () {
-              wx.switchTab({
-                url: '/pages/index/index'
+              wx.navigateBack({
+                delta: 1
               })
-            }, 1500)
+            }, 1500) 
           },
           complete: res => {
             this.setData({

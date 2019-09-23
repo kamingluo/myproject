@@ -96,7 +96,6 @@
     </view>
   </view>
 
-
 </view>
 
 <view   class='centered'  wx:if="{{role == 1}}"  >
