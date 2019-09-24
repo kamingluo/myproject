@@ -51,14 +51,14 @@
   <view class="padding-xl radius shadow bg-white  body">
     <view class="goodsdetailed">
       <view class="goodsimg">
-        <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIajpVHJLBmpBlCC6icYuc6XtmvGj5uRuLZFL7OBoHTSr4afUHFh9jYwpZnibAK87VgJiafQ527zhagw/132"> </image>
+        <image src="{{goodsdata.images}}"> </image>
       </view>
       <view class="goodsname">
         <view class="name">
-          <text>这是商品名称啊这是商品名称啊</text>
+          <text>{{goodsdata.goodsname}}</text>
         </view>
         <view class="score">
-          <text>所需积分：40积分</text>
+          <text>所需积分：{{goodsdata.price}}积分</text>
         </view>
       </view>
     </view>
