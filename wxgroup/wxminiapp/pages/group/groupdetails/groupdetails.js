@@ -221,8 +221,6 @@ Page({
         that.groupnewslist(crowd_id)
       }
     })
-
-
   },
 
   /**

@@ -4,15 +4,17 @@
   display: flex;
   /*row 横向  column 列表  */
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  width: 96%;
+  width: 98%;
   margin-top: 10rpx;
   margin-bottom: 130rpx;
+ 
+  
 }
 
 .goods {
-  width: 48%;
+  width: 49%;
   height: 520rpx;
   margin-bottom: 20rpx;
   display: flex;

@@ -10,57 +10,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    userdata:null,
     crowd_id:null,
-    goodslist:null
-
+    goodslist:null,
+    deletegoodsid: null,
+    deletegoodsmodel: false,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.setData({
       crowd_id: 5
     })
     this.goodsdata()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-    //this.userdata()
-
+    this.userdata()
   },
 
 
-  //获取用户信息
+
+
+
+  //查询该群该用户的详细信息
   userdata: function () {
-    wx.login({
-      success: res => {
+   var  user_id = wx.getStorageSync('userdata').id
+    var crowd_id = this.data.crowd_id
         request({
-          service: 'user/userdata',
+          service: 'group/handlegroup/querygroupuserdata',
+          method: 'GET',
           data: {
-            code: res.code,
+            crowd_id: crowd_id,
+            user_id: user_id
           },
           success: res => {
-            //console.log('获取用户信息', res);
+            console.log('获取用户信息', res.querygroupuserdata[0]);
             this.setData({
-              coin: res.userdata.score,
+              userdata: res.querygroupuserdata[0],
             })
-            wx.setStorageSync('userdata', res.userdata)
           },
         })
-      }
-    })
   },
 
 
@@ -77,11 +65,87 @@ Page({
         this.setData({
           goodslist: res.data
         })
-       
       }
     })
+  },
+
+  hideModal: function () {
+    this.setData({
+      deletegoodsmodel: false,
+    })
+  },
+
+
+  deletegoods:function(e){
+      console.log(e.currentTarget.dataset.id)
+      this.setData({
+        deletegoodsid: e.currentTarget.dataset.id,
+        deletegoodsmodel: true,
+      })
+  },
+
+  confirmdeletegoods: function () {
+    var that = this
+    var deletegoodsid = that.data.deletegoodsid
+    request({
+      service: 'group/groupgoods/deletegoods',
+      method: 'GET',
+      data: {
+        goods_id: deletegoodsid,
+      },
+      success: res => {
+        console.log("删除商品成功", res)
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 2000,
+        })
+        that.setData({
+          deletegoodsmodel: false,
+        })
+        that.goodsdata()
+      }
+    })
+  },
+
+  clickgoods:function(e){
+   // console.log(this.data.userdata.score)
+    let price = e.currentTarget.dataset.goodsdata.price
+    let user_score = this.data.userdata.score
+    let good_id = e.currentTarget.dataset.goodsdata.id
+    if (user_score < price ){
+      wx.showToast({
+        title: '积分不够兑换',
+        icon: 'none',
+        duration: 2000,
+      })
+      return ;
+    }else{
+      //积分足够,跳转确认兑换页面
+      wx.navigateTo({
+        url: '/pages/group/goods/exchange/exchange?goods_id=' + good_id
+      })
+    }
 
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /**

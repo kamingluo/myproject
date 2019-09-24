@@ -1,0 +1,72 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">确认</view>
+</cu-custom>
+
+
+<view class="address  centered"  wx:if="{{useraddress}}"  bindtap="modifyaddress">
+  <view class="padding-xl radius shadow bg-white  body ">
+    <view class="box">
+      <view class="dizhi">
+        <view class="name">
+          <text>{{useraddress.userName}} {{useraddress.telNumber}}</text>
+        </view>
+        <view class="city">
+          <text>{{useraddress.provinceName}}{{useraddress.cityName}}{{useraddress.countyName}}</text>
+        </view>
+        <view class="detailed">
+          <text>{{useraddress.detailInfo}}</text>
+        </view>
+        <view class="youbian">
+          <text>邮编：{{useraddress.postalCode}}</text>
+        </view>
+      </view>
+      <view class="xiugaidizhi centered">
+        <text class="cuIcon-right text-blue iconsize"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="address  centered"  wx:else    bindtap="modifyaddress" >
+  <view class="padding-xl radius shadow bg-white  body ">
+    <view class="box">
+      <view class="dizhi">
+        <view class="detailed">
+          <text>添加收货地址</text>
+        </view>
+      </view>
+      <view class="xiugaidizhi centered">
+        <text class="cuIcon-right text-blue iconsize"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="goods">
+  <view class="padding-xl radius shadow bg-white  body">
+    <view class="goodsdetailed">
+      <view class="goodsimg">
+        <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIajpVHJLBmpBlCC6icYuc6XtmvGj5uRuLZFL7OBoHTSr4afUHFh9jYwpZnibAK87VgJiafQ527zhagw/132"> </image>
+      </view>
+      <view class="goodsname">
+        <view class="name">
+          <text>这是商品名称啊这是商品名称啊</text>
+        </view>
+        <view class="score">
+          <text>所需积分：40积分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view  class="exchange-button" >
+
+<button> 立即兑换</button>
+
+</view>

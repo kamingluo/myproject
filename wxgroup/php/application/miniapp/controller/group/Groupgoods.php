@@ -18,6 +18,19 @@ class Groupgoods
         
     }
 
+      //查询商品详情
+    public function goodsdetails(Request $request)
+    {
+         $goods_id=$request->param("goods_id");
+         $data=db('crowd_goods')->where('id',$goods_id)->find();
+         $state=['state'   => '200','message'  => "商品详情查询成功" ];
+         $resdata=array_merge($state,array('data'=>$data));
+         return $resdata ;
+        
+    }
+
+
+
 
        //发布群商品
     public function pushgoods(Request $request)

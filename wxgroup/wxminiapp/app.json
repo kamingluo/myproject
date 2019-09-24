@@ -11,6 +11,7 @@
     "pages/group/user/user",
     "pages/group/goods/goodslist/goodslist",
     "pages/group/goods/pushgoods/pushgoods",
+    "pages/group/goods/exchange/exchange",
     "pages/group/user/userdetailed/userdetailed",
     "pages/group/newsdetailed/newsdetailed",
     "pages/my/score_detailed/score_detailed",
