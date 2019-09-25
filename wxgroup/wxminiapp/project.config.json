@@ -96,7 +96,7 @@
 					"id": 6,
 					"name": "兑换确认",
 					"pathName": "pages/group/goods/exchange/exchange",
-					"query": "",
+					"query": "goods_id=1&crowd_id=5&crowd_name=测试兑换",
 					"scene": null
 				},
 				{

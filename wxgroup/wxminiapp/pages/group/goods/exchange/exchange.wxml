@@ -65,8 +65,23 @@
   </view>
 </view>
 
+
+  <view>
+    <view class="centered">
+      <view class="remarks">
+        <textarea maxlength="250" bindinput="remarks"  placeholder="请输入兑换备注"></textarea>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
 <view  class="exchange-button" >
 
-<button> 立即兑换</button>
+<button   bindtap="clickexchange"   > 立即兑换</button>
 
 </view>
