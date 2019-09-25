@@ -59,7 +59,7 @@ Page({
       },
       {
         id: 2,
-        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangegoods.png",
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangegoods2.png",
         text: "兑换商品",
         joumurl: '/pages/group/goods/goodslist/goodslist'
       },
