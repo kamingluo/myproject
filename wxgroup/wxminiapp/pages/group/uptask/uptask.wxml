@@ -4,7 +4,7 @@
 
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">任务上传</view>
+  <view slot="content">提交任务</view>
 </cu-custom>
 
 
