@@ -12,6 +12,8 @@ Page({
   data: {
     userdata:null,
     crowd_id:null,
+    crowd_name:null,
+    user_type:0,
     goodslist:null,
     deletegoodsid: null,
     deletegoodsmodel: false,
@@ -19,12 +21,32 @@ Page({
 
   onLoad: function (options) {
     this.setData({
-      crowd_id: 5
+      crowd_id: options.crowd_id,
+      crowd_name: options.crowd_name,
+      user_type: options.user_type
     })
-    this.goodsdata()
   },
   onShow: function () {
     this.userdata()
+    this.goodsdata()
+  },
+
+
+  //跳转兑换记录页面
+  exchangelist:function(){
+    wx.navigateTo({
+      url: '/pages/group/goods/exchangelist/exchangelist' + '?crowd_id=' + this.data.crowd_id
+    })
+
+  },
+
+
+//跳转发布商品页面
+  pushgoods:function(){
+    wx.navigateTo({
+      url: '/pages/group/goods/pushgoods/pushgoods' + '?crowd_id=' + this.data.crowd_id
+    })
+
   },
 
 
@@ -123,7 +145,7 @@ Page({
     }else{
       //积分足够,跳转确认兑换页面
       wx.navigateTo({
-        url: '/pages/group/goods/exchange/exchange?goods_id=' + good_id
+        url: '/pages/group/goods/exchange/exchange?goods_id=' + good_id + '&crowd_id=' + this.data.crowd_id + '&crowd_name=' + this.data.crowd_name
       })
     }
 

@@ -1,0 +1,42 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">兑换记录</view>
+</cu-custom>
+
+
+
+
+<view class="cu-list menu-avatar" wx:if="{{exchangelist.length > 0}}">
+  <view class="cu-item " wx:for="{{exchangelist}}" wx:key="item" data-data="{{item}}" bindtap="clicklist"  >
+    <view class="cu-avatar radius lg" style="background-image:url({{item.images}});"></view>
+    <view class="content">
+      <view class="text-orange">
+        <text class="text-cut">{{item.goodsname}}</text>
+      </view>
+      <view class="text-gray text-sm flex">
+        <text class="text-cut">状态：{{item.state== 0? "未发货" : item.state == 1 ? "已发货" : "审核不过，不发货" }}</text>
+      </view>
+      <view class="text-gray text-sm flex">
+        <text class="text-cut">兑换时间：{{item.create_time}}</text>
+      </view>
+    </view>
+    <view class="action">
+      <text class="cuIcon-right  text-gray righticon "></text>
+    </view>
+  </view>
+</view>
+
+
+
+<view wx:else>
+  <view class='default'>
+    <view>
+      <image src='http://littlebox.luojiaming.vip/default.png'></image>
+    </view>
+    <view>
+      <text>暂无兑换记录呢</text>
+    </view>
+    <view>
+    </view>
+  </view>
+</view>

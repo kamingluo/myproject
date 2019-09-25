@@ -18,6 +18,20 @@ class Usertask
         return $resdata ;
       
     }
+
+
+    //查询用户对应群任务列表
+    public function usergrouptasklist(Request $request)
+    {
+        $crowd_id =$request->param("crowd_id");
+        $user_id =$request->param("user_id");
+        $openid=openid($wxcode);
+        $usertasklist =db('task_record')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->order('id desc')->select();
+        $state=['state'   => '200','message'  => "查询用户对应群任务列表" ];
+        $resdata=array_merge($state,array('usertasklist'=>$usertasklist));
+        return $resdata ;
+      
+    }
     
 
      //用户提交任务

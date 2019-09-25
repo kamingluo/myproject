@@ -67,9 +67,9 @@ Page({
       }
     })
   },
-  onLoad: function () { 
+  onLoad: function (e) { 
     this.setData({
-      crowd_id: 5
+      crowd_id: e.crowd_id
     })
 
   },

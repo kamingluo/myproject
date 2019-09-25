@@ -9,6 +9,7 @@ Page({
    */
   data: {
     icondata:[],
+    adminicon:[],
     usertype:false,
     btns: ["群消息", "群成员"],
     active: 0,//控制当前显示盒子 
@@ -50,38 +51,63 @@ Page({
 
   incondata:function(){
     let icondata=[
-      
       {
         id: 1,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/uptask.png",
         text: "提交任务",
-        joumurl: '/pages/group/uptask/uptask',
-        type: 0
+        joumurl: '/pages/group/uptask/uptask'
+      },
+      {
+        id: 2,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangegoods.png",
+        text: "兑换商品",
+        joumurl: '/pages/group/goods/goodslist/goodslist'
+      },
+      {
+        id: 3,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/tasklist.png",
+        text: "任务记录",
+        joumurl: '/pages/group/groupdetails/tasklist/tasklist'
+      },
+      {
+        id: 4,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangelist.png",
+        text: "积分记录",
+        joumurl: '/pages/group/groupdetails/scorelist/scorelist'
+      }
+    ];
+
+    let adminicon = [
+      {
+        id: 1,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/scorelist.png",
+        text: "处理兑换",
+        joumurl: '/pages/group/groupdetails/exchangelist/exchangelist'
       },
       {
         id: 2,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/audittasks.png",
         text: "任务审核",
-        joumurl: '/pages/group/audittasks/audittasks',
-        type: 1
+        joumurl: '/pages/group/audittasks/audittasks'
       },
       {
         id: 3,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/pushnews.png",
         text: "发布消息",
-        joumurl: '/pages/group/pushnews/pushnews',
-        type: 1
+        joumurl: '/pages/group/pushnews/pushnews'
       },
       {
         id: 4,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
         text: "群用户",
-        joumurl: '/pages/group/user/user',
-        type: 0
-      }
+        joumurl: '/pages/group/user/user'
+      },
     ];
+
+
     this.setData({
-      icondata: icondata
+      icondata: icondata,
+      adminicon: adminicon
     })
 
   },

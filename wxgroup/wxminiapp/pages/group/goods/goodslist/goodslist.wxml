@@ -4,13 +4,26 @@
 </cu-custom>
 
 
-<view>
+
+<view class='score'>
+  <view class='score_text'>
+    当前积分为:
+    <text>{{userdata.score}} </text> 积分
+  </view>
+  <view class='score_button'>
+    <button bindtap='exchangelist' class=' bg-blue'>兑换记录</button>
+  </view>
+</view>
+
+
+
+<view   wx:if="{{goodslist.length > 0}}" >
   <view class='centered'>
     <view class='box'>
       <block wx:for="{{goodslist}}" wx:key="item">
-    
+
         <view class='goods radius shadow bg-white  '>
-           <view class='clearicon' catchtap='deletegoods' data-id='{{item.id}}'>
+          <view class='clearicon' catchtap='deletegoods' data-id='{{item.id}}'  wx:if="{{user_type==1}}" >
             <image class="clear" src="/images/common/delete.png" mode="aspectFix"></image>
           </view>
           <view class='goods-image'>
@@ -35,8 +48,25 @@
 </view>
 
 
+<view   wx:else>
+  <view class='default'>
+    <view>
+      <image src='http://littlebox.luojiaming.vip/default.png'></image>
+    </view>
+    <view>
+      <text>暂无可兑换商品！</text>
+    </view>
+    <view>
+    </view>
+  </view>
+</view>
 
-<view class='sumittask centered'>
+
+
+
+
+
+<view class='sumittask centered' wx:if="{{user_type==1}}">
   <button bindtap="pushgoods" class="bg-blue">发布商品</button>
 </view>
 

@@ -21,7 +21,7 @@ Page({
   },
 
   onLoad: function(options) {
-    console.log(options.goods_id)
+    console.log(options)
     this.setData({
       goods_id: options.goods_id,
       crowd_id: options.crowd_id,
@@ -29,14 +29,7 @@ Page({
     })
     this.address()
     this.goodsdata()
-
   },
-
-  onShow: function() {
-    // this.address()
-    // this.goodsdata()
-  },
-
   address: function() {
     var user_id = wx.getStorageSync('userdata').id
     request({
@@ -138,7 +131,17 @@ Page({
             crowd_name: crowd_name
           },
           success: res => {
-            console.log("兑换结果",res)
+            //console.log("兑换结果",res)
+            wx.showToast({
+              title: '兑换成功',
+              icon: 'none',
+              duration: 2000,
+            })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1500) 
           },
         })
       }
