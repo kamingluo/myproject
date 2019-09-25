@@ -73,7 +73,7 @@ class Groupgoods
         $wxcode =$request->param("code");
         $openid=openid($wxcode);
         $goods_id=$request->param("goods_id");//商品id
-        $address_id=$request->param("address_id");//地址id
+        // $address_id=$request->param("address_id");//地址id
         $remarks=$request->param("remarks");//兑换备注
         $crowd_id=$request->param("crowd_id");//群id
         $crowd_name=$request->param("crowd_name");//群名称
@@ -81,7 +81,7 @@ class Groupgoods
 
 
         $goods_data=db('crowd_goods')->where('id',$goods_id)->find(); //拿到商品信息
-        $address_data=db('user_address')->where('id',$address_id)->find(); //拿到地址信息
+        $address_data=db('user_address')->where('openid',$openid)->find(); //拿到地址信息
         $user_crowd_data=db('user_crowd')->where('user_openid',$openid)->where('crowd_id',$crowd_id)->find(); //用户的群信息
         $user_data=db('user')->where('openid',$openid)->find(); //拿到用户信息
 
