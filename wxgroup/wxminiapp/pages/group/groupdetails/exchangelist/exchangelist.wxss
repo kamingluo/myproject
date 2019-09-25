@@ -7,3 +7,15 @@
 .righticon{
   font-size: 40rpx;
 }
+
+.tips{
+  text-align: center;
+}
+.tips text{
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  color:#aaaaaa;
+  
+}

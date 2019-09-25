@@ -82,7 +82,7 @@
       <text class="text-grey">地区</text>
     </view>
     <view class="action">
-      <text class="text-grey" wx:if="{{userdata.city}}" >{{userdata.country}}{{userdata.province}}{{userdata.city}}</text>
+      <text class="text-grey" wx:if="{{userdata.country ||userdata.province||userdata.city }}" >{{userdata.country}}{{userdata.province}}{{userdata.city}}</text>
       <text class="text-grey"  wx:else > 用户未授权 </text>
     </view>
   </view>

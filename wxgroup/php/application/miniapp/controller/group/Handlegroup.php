@@ -3,6 +3,7 @@ namespace app\miniapp\controller\group;
 use think\Db;
 use think\Request;
 use think\Config;
+use think\log;
 
 class Handlegroup
 {
@@ -82,6 +83,10 @@ class Handlegroup
         $score=$request->param("score");//积分数
         if(is_numeric($score) && $score > 0){
         	 $updateres= db('user_crowd')->where('crowd_id',$crowd_id)->where('user_id',$user_id)->update(['score' =>$score]);
+
+           $logdata="修改用户积分，用户id：" .$user_id. ",群id：" .$crowd_id. ",积分数:" .$score. "。"; //增加日志，有问题方便查找
+           Log::record($logdata);
+
         	 $state=['state'   => '200','message'  => "修改用户积分成功" ];
         	 $resdata=array_merge($state,array('updateres'=>$updateres));
         	 return $resdata ;

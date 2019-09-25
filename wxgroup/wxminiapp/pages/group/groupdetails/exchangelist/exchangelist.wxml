@@ -24,6 +24,9 @@
       <text class="cuIcon-right  text-gray righticon "></text>
     </view>
   </view>
+   <view class='tips'>
+      <text>-----已经到底了-----</text>
+    </view>
 </view>
 
 

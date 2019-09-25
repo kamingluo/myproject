@@ -22,7 +22,7 @@ Page({
     var user_id = wx.getStorageSync('userdata').id
 
         request({
-          service: 'task/usertask/usergrouptasklist',
+          service: 'group/userdata/usergrouptasklist',
           data: {
             user_id: user_id,
             crowd_id: options.crowd_id

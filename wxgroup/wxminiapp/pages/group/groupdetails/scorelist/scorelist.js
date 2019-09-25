@@ -1,13 +1,16 @@
 // pages/group/groupdetails/scorelist/scorelist.js
+const app = getApp()
+const {
+  request
+} = require('./../../../../utils/request.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    crowd_id: null,
-    crowd_name: null,
-    user_type: 0,
+    userscorerecord: [],  //信息流数组
+    loadModal: true,
 
   },
 
@@ -15,10 +18,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      crowd_id: options.crowd_id,
-      crowd_name: options.crowd_name,
-      user_type: options.user_type
+    var user_id = wx.getStorageSync('userdata').id
+    request({
+      service: 'group/userdata/usergroupscorelist',
+      data: {
+        user_id: user_id,
+        crowd_id: options.crowd_id
+      },
+      success: res => {
+        //console.log('用户兑换列表页面', res);
+        this.setData({
+          userscorerecord: res.userscorelist,
+          loadModal: false,
+        })
+      },
     })
 
   },

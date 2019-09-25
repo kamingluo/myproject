@@ -136,7 +136,7 @@ public function getqrcode(Request $request)
 
 
 
-       function nonceStr() {
+    function nonceStr() {
         $time =date('Y-m-d H:i:s',time());//获取当前时间
         for ($v=0; $v< 10; $v++) { 
              $seed = array(0,1,2,3,4,5,6,7,8,9);
