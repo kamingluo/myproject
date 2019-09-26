@@ -99,7 +99,7 @@ Page({
       {
         id: 4,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
-        text: "群用户",
+        text: "用户管理",
         joumurl: '/pages/group/user/user'
       },
     ];

@@ -19,3 +19,11 @@
   color:#aaaaaa;
   
 }
+.text-color{
+  color: black;
+}
+
+.text-gray{
+   margin-top: -10rpx;
+   /* color: black; */
+}

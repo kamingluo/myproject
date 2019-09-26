@@ -24,10 +24,15 @@ Page({
       crowd_name: options.crowd_name,
       user_type: options.user_type
     })
-    this.userexchangelist()
+   
   },
 
-  //查询该群该用户的兑换列表
+  onShow:function(){
+    this.userexchangelist()
+
+  },
+
+  //查询该群兑换列表
   userexchangelist: function () {
     var crowd_id = this.data.crowd_id
     request({
@@ -47,12 +52,12 @@ Page({
 
 
   clicklist: function (e) {
-    console.log(e)
-    wx.showToast({
-      title: '跳转还没做呢',
-      icon: 'none',
-      duration: 2500,
+    //console.log(e.currentTarget.dataset.data.id)
+    let changeid = e.currentTarget.dataset.data.id
+    wx.navigateTo({
+      url: '/pages/group/groupdetails/exchangelist/exchangedetails/exchangedetails?changeid=' + changeid,
     })
+   
 
   },
 

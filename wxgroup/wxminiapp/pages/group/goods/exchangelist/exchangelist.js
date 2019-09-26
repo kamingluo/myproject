@@ -39,16 +39,17 @@ Page({
     })
   },
 
+  queryexpress:function(e){
+    console.log(e.currentTarget.dataset.expressid)
+    let expressid = e.currentTarget.dataset.expressid
 
-  clicklist:function(e){
-    console.log(e)
-    wx.showToast({
-      title: '跳转还没做呢',
-      icon: 'none',
-      duration: 2500,
+    wx.navigateToMiniProgram({
+      appId: 'wxf1f0d92f69dd80db',
+      path: '/pages/index/index?channel=1006' + '&expressNumber=' + expressid,
     })
 
   },
+
 
 
 })

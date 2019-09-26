@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 12,
 			"list": [
 				{
 					"id": 0,
@@ -74,8 +74,8 @@
 				{
 					"id": 3,
 					"name": "群兑换记录",
-					"pathName": "pages/group/goods/exchangelist/exchangelist",
-					"query": "crowd_id=5",
+					"pathName": "pages/group/groupdetails/exchangelist/exchangelist",
+					"query": "crowd_id=2&crowd_name=测试&user_type=1",
 					"scene": null
 				},
 				{
@@ -101,9 +101,9 @@
 				},
 				{
 					"id": 7,
-					"name": "发布消息",
-					"pathName": "pages/group/pushnews/pushnews",
-					"query": "",
+					"name": "用户兑换记录",
+					"pathName": "pages/group/goods/exchangelist/exchangelist",
+					"query": "crowd_id=2",
 					"scene": null
 				},
 				{
@@ -125,6 +125,20 @@
 					"name": "群用户",
 					"pathName": "pages/group/user/user",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认兑换",
+					"pathName": "pages/group/groupdetails/exchangelist/exchangedetails/exchangedetails",
+					"query": "exchangeid=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换发货",
+					"pathName": "pages/group/groupdetails/exchangelist/exchangedetails/exchangedetails",
+					"query": "changeid=7",
 					"scene": null
 				}
 			]
