@@ -46,7 +46,7 @@ class Usergroup
          $groupid= db('crowd')->insertGetId($dbdata);//返回自增ID
 
          //添加群主信息到群表
-         $joingroup = ['id'=>'','user_id' => $groupowner["id"],'user_openid' =>  $groupowner["openid"],'crowd_id' => $groupid,'user_type' => 1,'score' =>0,'create_time' =>$time];
+         $joingroup = ['id'=>'','user_id' => $groupowner["id"],'user_openid' =>  $groupowner["openid"],'crowd_id' => $groupid,'user_type' => 0,'score' =>0,'create_time' =>$time];
          $userjoingroup= db('user_crowd')->insertGetId($joingroup);//返回自增ID
         
          $state=['state'   => '200','message'  => "创建群成功" ];
