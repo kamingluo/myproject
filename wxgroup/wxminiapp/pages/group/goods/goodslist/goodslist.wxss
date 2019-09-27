@@ -30,7 +30,7 @@
   display: flex;
   align-items:center;
   height: 70rpx;
-  width: 190rpx;
+  width: 270rpx;
   font-size: 30rpx;
   margin-left: 80rpx;
 

@@ -35,7 +35,9 @@
 
 
   <view class='sumittask centered'>
+    <kaming-button>
     <button bindtap="sumittask" class="bg-blue">提交</button>
+    </kaming-button>
   </view>
 
 

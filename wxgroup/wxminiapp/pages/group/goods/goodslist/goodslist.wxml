@@ -11,7 +11,9 @@
     <text>{{userdata.score}} </text> 积分
   </view>
   <view class='score_button'>
+  <kaming-button >
     <button bindtap='exchangelist' class=' bg-blue'>兑换记录</button>
+    </kaming-button>
   </view>
 </view>
 

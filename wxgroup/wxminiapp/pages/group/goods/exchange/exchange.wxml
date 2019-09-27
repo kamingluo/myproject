@@ -82,6 +82,6 @@
 
 <view  class="exchange-button" >
 
-<button   bindtap="clickexchange"   > 立即兑换</button>
+<button   bindtap="clickexchange"   > <kaming-button >立即兑换</kaming-button ></button>
 
 </view>

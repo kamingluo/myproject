@@ -115,6 +115,19 @@ Page({
 
   clickexchange: function() {
     console.log("点击兑换")
+
+    if(!this.data.useraddress){
+        wx.showToast({
+              title: '请先添加地址',
+              icon: 'none',
+              duration: 2000,
+         })
+        return;
+
+    }
+
+
+
     var goods_id = this.data.goods_id
     var remarks = this.data.remarks
     var crowd_id = this.data.crowd_id

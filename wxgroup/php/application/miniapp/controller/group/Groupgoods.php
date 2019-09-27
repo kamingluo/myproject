@@ -99,6 +99,9 @@ class Groupgoods
          $score_record_data = ['id'=>'','openid' =>$openid,'user_id' =>$user_data["id"],'crowd_id' =>$crowd_id,'score' =>$goods_data["price"],'explain' => "兑换商品",'state' =>1,'create_time' =>$time];
          $score_record_id=db('score_record')->insert($score_record_data);
 
+        //兑换成功给群主发消息
+         $temmsg=userexchange($user_data["nickName"],$goods_data["goodsname"],$goods_data["price"],$crowd_id);
+
          $state=['state'   => '200','message'  => "兑换成功" ];
          return $state;
         }

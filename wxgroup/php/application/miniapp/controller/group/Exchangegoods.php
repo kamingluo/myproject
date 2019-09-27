@@ -56,6 +56,8 @@ class Exchangegoods
     		$dbdata= db('exchange_record')->where('id',$id)->update(['expressnumber' => $expressnumber,'state' => 1]);
     		$state=['state'   => '200','message'  => "发货成功" ];
             $resdata=array_merge($state,array('dbdata'=>$dbdata));
+           
+            $temdata=delivergoods($id,$expressnumber);//推送消息给兑换的用户
             return $resdata ;
     	}
     	else{

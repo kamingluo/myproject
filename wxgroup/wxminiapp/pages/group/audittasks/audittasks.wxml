@@ -47,10 +47,14 @@
   <view class='share centered'>
     <view class='sharebody centered'>
       <view>
+       <kaming-button >
         <button class="bg-red" bindtap="taskerr">不合格</button>
+         </kaming-button >
       </view>
       <view>
+       <kaming-button >
         <button class="bg-green" bindtap="tasksuccess">合格</button>
+         </kaming-button >
       </view>
     </view>
   </view>
