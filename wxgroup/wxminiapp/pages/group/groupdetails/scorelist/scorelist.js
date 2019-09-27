@@ -11,6 +11,7 @@ Page({
   data: {
     userscorerecord: [],  //信息流数组
     loadModal: true,
+    crowd_id:null,
 
   },
 
@@ -18,6 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    this.setData({
+      crowd_id: options.crowd_id,
+    })
     var user_id = wx.getStorageSync('userdata').id
     request({
       service: 'group/userdata/usergroupscorelist',

@@ -15,11 +15,11 @@
       <view class='userNickName' bindlongpress="testpages">
         <text>{{crowddata.groupdata.crowd_name}}</text>
       </view>
-      <view class='id'>
+      <view class='id'  wx:if="{{user_type != 3}}" >
         <!-- <text>群ID:{{crowddata.groupdata.id}}</text> -->
         <text>我的群积分: {{score}}分</text>
       </view>
-      <view class='qunchengyuan'>
+      <view class='qunchengyuan'  wx:if="{{user_type != 3}}"  >
         <text>群成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>
@@ -27,7 +27,7 @@
   </view>
 </view>
 
-<view class="flex padding justify-around  bg-icon ">
+<view class="flex padding justify-around  bg-icon "   wx:if="{{user_type != 3}}">
   <view wx:for="{{icondata}}" wx:key="item" class='icon-top'>
     <view class='icon-body' bindtap='clickicon' data-data="{{item}}">
       <view class="centered">
@@ -107,7 +107,7 @@
             <image src='http://littlebox.luojiaming.vip/default.png'></image>
           </view>
           <view>
-            <text>暂时还没有消息哦！</text>
+            <text>空空如也！</text>
           </view>
           <view>
           </view>

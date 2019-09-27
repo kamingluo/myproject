@@ -10,7 +10,7 @@ Page({
     role:0,//角色
     model:false,
     minusStatus: '',
-    crowd_id:'',
+    crowd_id:null,
     user_id:'',
     userdata:null,
     birthday:'',

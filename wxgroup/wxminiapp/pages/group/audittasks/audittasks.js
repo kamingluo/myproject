@@ -9,7 +9,7 @@ Page({
     tasksuccessmodel: false,
     taskerrreasonmodel: false,
     taskerrtext: "其他",
-    crowd_id: 0,
+    crowd_id: null,
     crowd_name: null,
     taskdata: null,
     loadModal: false,

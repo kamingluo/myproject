@@ -6,8 +6,8 @@
 
 <view class="centered">
   <view class="cu-form-group  shadow shadow-lg bg-white ">
-    <view class="title">邀请码</view>
-    <input placeholder="请输入邀请码"  maxlength="20"  bindinput="groupcode" ></input>
+    <view class="title">创建码</view>
+    <input placeholder="请输入创建码"  maxlength="20"  bindinput="groupcode" ></input>
   </view>
 </view>
 

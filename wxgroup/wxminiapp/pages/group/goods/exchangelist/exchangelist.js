@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    exchangelist: null
+    exchangelist: null,
+    crowd_id:null
   },
   onLoad: function (options) {
     this.setData({

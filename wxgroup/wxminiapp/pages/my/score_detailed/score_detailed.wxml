@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">任务列表</view>
+  <view slot="content">任务记录</view>
 </cu-custom>
 
 
@@ -17,7 +17,7 @@
       <image src='http://littlebox.luojiaming.vip/default.png'></image>
     </view>
     <view>
-      <text>你还没有任务记录呢</text>
+      <text>空空如也!</text>
     </view>
     <view>
       <!-- <kaming-button>

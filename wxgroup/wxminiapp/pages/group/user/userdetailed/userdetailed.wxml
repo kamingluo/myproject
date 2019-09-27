@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-blue" isBack="{{true}}"  wx:if="{{crowd_id}}" >
   <view slot="backText">返回</view>
   <view slot="content">用户详情</view>
 </cu-custom>

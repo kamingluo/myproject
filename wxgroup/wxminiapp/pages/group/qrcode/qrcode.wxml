@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"  wx:if="{{crowd_name}}" >
   <view slot="backText">返回</view>
   <view slot="content">空间二维码</view>
 </cu-custom>

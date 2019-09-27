@@ -12,6 +12,7 @@ Page({
   data: {
     usertasklist: null,
     loadModal: true,
+    crowd_id: null,
 
   },
 
@@ -19,6 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      crowd_id: options.crowd_id,
+    })
+
+
     var user_id = wx.getStorageSync('userdata').id
 
         request({
