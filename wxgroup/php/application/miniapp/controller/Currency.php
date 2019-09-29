@@ -136,7 +136,7 @@ public function getqrcode(Request $request)
 
 
 
-    function nonceStr() {
+  public  function nonceStr() {
         $time =date('Y-m-d H:i:s',time());//获取当前时间
         for ($v=0; $v< 10; $v++) { 
              $seed = array(0,1,2,3,4,5,6,7,8,9);
@@ -153,6 +153,30 @@ public function getqrcode(Request $request)
          }
          return ['state'   => '200','message'  => "群邀请码生成成功"] ;
       }
+
+
+
+
+
+
+  public  function havecode() {
+        $dbdata=db('group_code')->order('id asc')->select();
+        $state=['state'   => '200','message'  => "群邀请码列表查询成功" ];
+        $resdata=array_merge($state,array('groupcode'=>$dbdata));
+        return $resdata ;
+       
+      }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
