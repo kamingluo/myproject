@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 13,
 			"list": [
 				{
 					"id": 0,
@@ -140,6 +140,13 @@
 					"pathName": "pages/group/groupdetails/exchangelist/exchangedetails/exchangedetails",
 					"query": "changeid=7",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "非shenhe进入",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": 1011
 				}
 			]
 		}

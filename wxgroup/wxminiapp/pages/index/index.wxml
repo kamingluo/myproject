@@ -60,7 +60,7 @@
                 <text>{{item.score}}</text> 积分</view>
             </view>
           </view>
-          <view class='box-body-anniu centered '>
+          <view class='box-body-anniu centered ' wx:if="{{item.user_type != 3}}">
             <text class="cuIcon-right  text-gray righticon "></text>
           </view>
         </view>
@@ -102,7 +102,11 @@
 <!-- <view class='cu-tabbar-height'></view> -->
 
 
-
+<view class="create-group" wx:else >
+  <view>
+    <button class=' bg-gradual-blue' open-type="contact"> 联系管理人员 </button>
+  </view>
+</view>
 
 
 
