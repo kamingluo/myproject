@@ -8,6 +8,7 @@ const app = getApp();
 
 Page({
   data: {
+    display:false,
     uploaderList: [],
     uploaderNum: 0,
     showUpload: true,
@@ -66,7 +67,11 @@ Page({
       }
     })
   },
-  onLoad: function() {},
+  onLoad: function() {
+    this.setData({
+      display: app.globalData.display || false
+    })
+  },
 
   grouptext: function(e) {
     // console.log(e.detail.value)

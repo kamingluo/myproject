@@ -29,7 +29,9 @@
         <view class='centered'>
           <view class='information-name centered '>
             <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
-            <text>空间列表</text>
+            <text wx:if="{{display}}">空间列表</text>
+            <text wx:else>我的列表</text>
+
           </view>
         </view>
       </view>
@@ -75,7 +77,7 @@
           <image src='/images/default.png'></image>
         </view>
         <view class='centered'>
-          <text>您还没有任何空间哦！</text>
+          <text>这里空空如也！</text>
         </view>
       </view>
     </view>
@@ -89,7 +91,7 @@
 </view>
 
 
-<view class="create-group">
+<view class="create-group" wx:if="{{display}}" >
   <view wx:if="{{ifauthorized}}">
     <button class=' bg-gradual-blue' bindtap="clickgroup"> 创建空间 </button>
   </view>

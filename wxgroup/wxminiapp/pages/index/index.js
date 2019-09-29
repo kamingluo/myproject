@@ -14,6 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    display:false,
     swiperdata:[],//首页轮播图数据
     usergrouplist:[],//用户加入群列表
     ifauthorized:false,
@@ -33,6 +34,10 @@ Page({
   onLoad: function (options) {
     this.indexData() //拿到首页轮播图数据
     this.getUserInfoif() //判断用户有没有授权
+
+    this.setData({
+      display: app.globalData.display || false
+    })
     
   },
 

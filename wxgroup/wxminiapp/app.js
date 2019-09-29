@@ -11,6 +11,7 @@ App({
   onLaunch: function (e) {
     console.log("onLaunch打印信息", e)
     this.getUserInfo(e)
+    this.scene(e)//传入入口值判断
     //this.autoUpdate()//检查更新
 
     //common.xmaddata() //小盟ad配置
@@ -73,6 +74,25 @@ App({
   //     }
   //   })
   // },
+
+
+  scene: function (e) {
+    let scene = e.scene
+    let channel = e.query.channel || 0
+    if (channel == 0 && scene == 1001 || scene == 1129 ) {
+      console.log("11111111")
+      this.globalData.display = false;
+    }
+    else {
+      this.globalData.display = true;
+    }
+    if (channel == 0 && scene == 1089 || scene == 1001 ) {
+      this.globalData.addapptips = false;
+    }
+    else {
+      this.globalData.addapptips = true;
+    }
+  },
 
 
 
