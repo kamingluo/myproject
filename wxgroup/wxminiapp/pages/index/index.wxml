@@ -29,9 +29,7 @@
         <view class='centered'>
           <view class='information-name centered '>
             <image src='http://miniapplittlefun.gzywudao.top/task/a1777e52d1144d8b2448108cb18aab3.png' class='u-img-slide'></image>
-            <text wx:if="{{display}}">空间列表</text>
-            <text wx:else>我的列表</text>
-
+            <text>空间列表</text>
           </view>
         </view>
       </view>
@@ -56,11 +54,11 @@
                   <text>{{item.user_type == 1? "群主" : item.user_type == 2 ? "管理员" : "成员" }}</text>
                 </view>
               </view>
-              <view class='box-body-name-3' wx:if="{{item.user_type != 3}}">你在该群积分数:
+              <view class='box-body-name-3' wx:if="{{item.user_type != 3}}" >你在该群积分数:
                 <text>{{item.score}}</text> 积分</view>
             </view>
           </view>
-          <view class='box-body-anniu centered ' wx:if="{{item.user_type != 3}}">
+          <view class='box-body-anniu centered ' >
             <text class="cuIcon-right  text-gray righticon "></text>
           </view>
         </view>
@@ -91,7 +89,7 @@
 </view>
 
 
-<view class="create-group" wx:if="{{display}}" >
+<view class="create-group" >
   <view wx:if="{{ifauthorized}}">
     <button class=' bg-gradual-blue' bindtap="clickgroup"> 创建空间 </button>
   </view>
@@ -101,12 +99,6 @@
 </view>
 <!-- <view class='cu-tabbar-height'></view> -->
 
-
-<view class="create-group" wx:else >
-  <view>
-    <button class=' bg-gradual-blue' open-type="contact"> 联系管理人员 </button>
-  </view>
-</view>
 
 
 

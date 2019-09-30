@@ -140,6 +140,7 @@ Page({
   },
 
   clickgroup:function(){
+    console.log("我们")
     wx.navigateTo({
       url: '/pages/creategroup/creategroup',
     })
@@ -148,6 +149,7 @@ Page({
 
  //判断用户有没有授权
   getUserInfoif:function(){
+    console.log("222222222")
     var that = this
     wx.getSetting({
       success(res) {

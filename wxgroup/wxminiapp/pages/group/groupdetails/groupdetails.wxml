@@ -20,14 +20,14 @@
         <text>我的群积分: {{score}}分</text>
       </view>
       <view class='qunchengyuan'  wx:if="{{user_type != 3}}"  >
-        <text>群成员:共{{crowddata.groupnumber}}人</text>
+        <text>成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>
     <!-- user_typeusertype -->
   </view>
 </view>
 
-<view class="flex padding justify-around  bg-icon "   wx:if="{{user_type != 3}}">
+<view class="flex padding justify-around  bg-icon " >
   <view wx:for="{{icondata}}" wx:key="item" class='icon-top'>
     <view class='icon-body' bindtap='clickicon' data-data="{{item}}">
       <view class="centered">
