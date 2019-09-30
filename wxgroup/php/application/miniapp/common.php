@@ -96,7 +96,10 @@ function userexchange($nickName,$goodsname,$price,$crowd_id){
       $temid = '7VM82TEd8RZL7cSVe5uViuBaJcsRZqCJqLsV2_rCRGI';
       $page = 'pages/index/index';
       $openid =$crowd_owner_id;
-     // if(!$formid)die('failed!');//openid有出现等于0的情况，所以不判断了
+      if(!$formid){
+        return "formid没有!";
+          // die('failed!');
+       }//openid有出现等于0的情况，所以不判断了
      $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
      $data = array(//这里一定要按照微信给的格式
         "touser"=>$openid,
@@ -167,7 +170,10 @@ function delivergoods($exchange_id,$expressnumber){
       $temid = 'sI1QE53GeoBxyqveS3VqVs-5vm3e1MnWTrO1wQg7crI';
       $page = 'pages/index/index';
       $openid =$temmsg_openid;
-     // if(!$formid)die('failed!');//openid有出现等于0的情况，所以不判断了
+       if(!$formid){
+        return "formid没有!";
+          // die('failed!');
+       }//openid有出现等于0的情况，所以不判断了
      $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
      $data = array(//这里一定要按照微信给的格式
         "touser"=>$openid,
