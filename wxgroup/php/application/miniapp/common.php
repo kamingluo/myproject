@@ -139,7 +139,7 @@ function userexchange($nickName,$goodsname,$price,$crowd_id){
 
 
 
-//用户兑换给群主通知
+//群主发货给用户通知
 function delivergoods($exchange_id,$expressnumber){
     
         $exchange_id=$exchange_id;//兑换记录id
@@ -164,7 +164,7 @@ function delivergoods($exchange_id,$expressnumber){
       $access_token=$token['access_token'];//拿到token
 
       $formid = $temmsg_formid;
-      $temid = 'IiKYY4XjBYpE6vNGvSRkOqzuW1yDrx87XYwo_4FeDLo';
+      $temid = 'sI1QE53GeoBxyqveS3VqVs-5vm3e1MnWTrO1wQg7crI';
       $page = 'pages/index/index';
       $openid =$temmsg_openid;
      if(!$formid)die('failed!');//openid有出现等于0的情况，所以不判断了
