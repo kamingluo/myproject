@@ -93,7 +93,7 @@ function userexchange($nickName,$goodsname,$price,$crowd_id){
       $access_token=$token['access_token'];//拿到token
 
       $formid = $temmsg_formid;
-      $temid = '7VM82TEd8RZL7cSVe5uViuBaJcsRZqCJqLsV2_rCRGI';
+      $temid = 'sI1QE53GeoBxyqveS3VqVs-5vm3e1MnWTrO1wQg7crI';
       $page = 'pages/index/index';
       $openid =$crowd_owner_id;
       if(!$formid){
@@ -167,7 +167,7 @@ function delivergoods($exchange_id,$expressnumber){
       $access_token=$token['access_token'];//拿到token
 
       $formid = $temmsg_formid;
-      $temid = 'sI1QE53GeoBxyqveS3VqVs-5vm3e1MnWTrO1wQg7crI';
+      $temid = 'v0X5cTnOoZQuCBEWrcZoIS3qyW7owMNnkhQGIv4CV80';
       $page = 'pages/index/index';
       $openid =$temmsg_openid;
        if(!$formid){
