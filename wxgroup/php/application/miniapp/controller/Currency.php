@@ -101,7 +101,7 @@ public function getqrcode(Request $request)
     $access_token=$token['access_token'];//拿到token
     $url = "https://api.weixin.qq.com/wxa/getwxacode?access_token=$access_token";
      //阿拉丁统计链接pages/index/index?channel=1000&ald_media_id=26447&ald_link_key=6f92ad04b6256d10
-    $data = json_encode(array("path"=>"pages/index/index?crowd_id=$crowd_id&channel=1000&ald_media_id=26447&ald_link_key=6f92ad04b6256d10","width"=> 150));
+    $data = json_encode(array("path"=>"pages/index/index?crowd_id=$crowd_id&channel=1000&ald_media_id=33542&ald_link_key=c99244f0802f9f06","width"=> 150));
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_HEADER, 'image/gif');

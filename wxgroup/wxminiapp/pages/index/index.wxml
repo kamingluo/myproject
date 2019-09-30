@@ -2,7 +2,7 @@
 
 
   <view class='centered miniappname '>
-    <text>积记记分</text>
+    <text>群记分</text>
     <!-- <button bindtap='aaaaaaa'>获取地址测试</button> -->
   </view>
 

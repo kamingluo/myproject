@@ -33,7 +33,7 @@
         <view class="exchange-list-goodsname-body">
           <view class="exchange-list-goods-body ">
             <view class="exchange-list-goods-body-img ">
-              <image src="http://material.gzywudao.top/tmp/wxd53f125c7e4c7d44.o6zAJs6kBpnfV_LfXO0eEK-hJfzI.qoacdpt2oGlo6bc6cce7630d0f0cbae3e435494d0661.png"></image>
+              <image src="{{item.images}}"></image>
             </view>
             <view class="exchange-list-goods-body-name  centered">
             <view>
