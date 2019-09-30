@@ -109,11 +109,11 @@
 
 
 <!-- 广点通视频广告开始-->
-<view class='centered' wx:if="{{gdtaddisplay}}" >
+<!-- <view class='centered' wx:if="{{gdtaddisplay}}" >
   <view class='gdtad'  style="opacity: 0" >
     <ad   capture-bind:tap="gdtvideoadclick"   unit-id="adunit-fa72d8af2c031b24" ad-type="video" ad-theme="white"></ad>
   </view>
-</view>
+</view> -->
 <!--广点通视频广告结束-->
 
 

@@ -19,7 +19,7 @@
         <!-- <text>群ID:{{crowddata.groupdata.id}}</text> -->
         <text>我的群积分: {{score}}分</text>
       </view>
-      <view class='qunchengyuan'  wx:if="{{user_type != 3}}"  >
+      <view class='qunchengyuan'  >
         <text>成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>

@@ -128,12 +128,7 @@ Page({
 
 
   clickusergrouplist:function(e){
-    if (e.currentTarget.dataset.data.user_type==3){
-      // console.log("不跳转")
-      return;
-    }
-
-    console.log("点击群列表", e.currentTarget.dataset.data)
+   // console.log("点击群列表", e.currentTarget.dataset.data)
     wx.navigateTo({
       url: '/pages/group/groupdetails/groupdetails?id=' + e.currentTarget.dataset.data.id + '&user_type=' + e.currentTarget.dataset.data.user_type + '&score=' + e.currentTarget.dataset.data.score,
     })
