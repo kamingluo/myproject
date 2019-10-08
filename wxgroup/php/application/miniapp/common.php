@@ -34,7 +34,7 @@ function openid($wxcode){
     $rest=array_key_exists("errcode",$openiddata);//判断返回值存在errcode证明code有误
         if($rest){ 
              Log::record('code错误或者过期了！传入微信code-->'.$wxcode,'error');
-            echo  json_encode(['state'   => '400','message'  => "code错误或者过期了！" ] ) ;
+            echo  json_encode(['state'   => '200','message'  => "code错误或者过期了！" ] ) ;
             die ();
         }
         else{
