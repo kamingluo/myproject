@@ -69,10 +69,13 @@
 
 .crowdright {
   position: fixed;
-  margin-top: -120rpx;
-  margin-left: 320rpx;
-  width: 60rpx;
-  height: 60rpx;
+  margin-top: 80rpx;
+  margin-left: 270rpx;
+  
+}
+.crowdright image{
+  width: 80rpx;
+  height: 80rpx;
 }
 
 .icon-top {

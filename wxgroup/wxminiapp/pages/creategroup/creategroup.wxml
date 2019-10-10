@@ -1,4 +1,4 @@
-<view  >
+<view>
 
   <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
     <view slot="backText">返回</view>
@@ -39,12 +39,13 @@
 
 
   <!-- 文件上传 -->
-  <view class='domes_title_1' bindtap='moredata'>空间简介</view>
+  <view class='domes_title_1' bindtap='moredata'>空间说明</view>
   <view class="centered">
     <view class="task_text">
-      <textarea maxlength="250" bindinput="grouptext" placeholder="请输入空间简介描述"></textarea>
+      <textarea maxlength="250" bindinput="grouptext" placeholder="请输入空间说明"></textarea>
     </view>
   </view>
+
 
 
   <view class='sumittask centered'>

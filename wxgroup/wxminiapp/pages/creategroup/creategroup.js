@@ -15,7 +15,7 @@ Page({
     grouptext: null,
     groupname: null,
     groupcode: null,
-    loadModal: false
+    loadModal: false,
   },
   // 删除图片
   clearImg: function(e) {
@@ -163,6 +163,8 @@ Page({
     })
 
   },
+
+  
 
 
   moredata: function() {

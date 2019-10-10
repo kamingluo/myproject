@@ -21,6 +21,7 @@ Page({
     score: 0,
     deletenewsid:null,
     deletenewsmodel: false,
+    introducemodel: false,
   },
 
   /**
@@ -221,6 +222,13 @@ Page({
   hideModal:function(){
     this.setData({
       deletenewsmodel: false,
+      introducemodel:false,
+    })
+  },
+
+  showintroducemodel:function(){
+    this.setData({
+      introducemodel: true,
     })
   },
 

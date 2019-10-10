@@ -8,26 +8,32 @@
 <!-- <view class='top bg-gradual-blue'> -->
 <view class='top bg-blue'>
   <view class='user'>
+
     <view class='userAvatar'>
       <image src='{{crowddata.groupdata.logo}}' class='userAvatarurl'></image>
     </view>
+
     <view class='username'>
       <view class='userNickName' bindlongpress="testpages">
         <text>{{crowddata.groupdata.crowd_name}}</text>
       </view>
-      <view class='id'  wx:if="{{user_type != 3}}" >
+      <view class='id' wx:if="{{user_type != 3}}">
         <!-- <text>群ID:{{crowddata.groupdata.id}}</text> -->
         <text>我的群积分: {{score}}分</text>
       </view>
-      <view class='qunchengyuan'  >
+      <view class='qunchengyuan'>
         <text>成员:共{{crowddata.groupnumber}}人</text>
       </view>
     </view>
-    <!-- user_typeusertype -->
+
+    <view class='crowdright'  bindtap="showintroducemodel" >
+     <image src="http://qiniu.luojiaming.vip/grouptips5.png" ></image>
+    </view>
+
   </view>
 </view>
 
-<view class="flex padding justify-around  bg-icon " >
+<view class="flex padding justify-around  bg-icon ">
   <view wx:for="{{icondata}}" wx:key="item" class='icon-top'>
     <view class='icon-body' bindtap='clickicon' data-data="{{item}}">
       <view class="centered">
@@ -41,7 +47,7 @@
 </view>
 
 
-<view class="flex padding justify-around  bg-icon "  wx:if="{{user_type == 1 ||user_type == 2 ? true:false }}">
+<view class="flex padding justify-around  bg-icon " wx:if="{{user_type == 1 ||user_type == 2 ? true:false }}">
   <view wx:for="{{adminicon}}" wx:key="item" class='icon-top'>
     <view class='icon-body' bindtap='clickicon' data-data="{{item}}">
       <view class="centered">
@@ -68,7 +74,7 @@
     <view wx:if="{{groupnewslist.length > 0}}">
       <view class="cu-card case" wx:for="{{groupnewslist}}" wx:key="item" wx:if="{{groupnewslist.length > 0}}">
         <view class="cu-item shadow" bindtap='clicknewslist' data-id='{{item.id}}'>
-          <view class='clearicon' catchtap='deletenews' data-id='{{item.id}}'   wx:if="{{usertype}}"  >
+          <view class='clearicon' catchtap='deletenews' data-id='{{item.id}}' wx:if="{{usertype}}">
             <image class="clear" src="/images/common/delete.png" mode="aspectFix"></image>
           </view>
           <view class="image">
@@ -167,6 +173,26 @@
         <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
         <button class="cu-btn bg-green margin-left" bindtap="confirmdeletenews">确定</button>
       </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+
+<view class="cu-modal show"  wx:if="{{introducemodel}}" >
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">群说明</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{crowddata.groupdata.introduce? crowddata.groupdata.introduce : "暂无说明"  }}
     </view>
   </view>
 </view>
