@@ -22,50 +22,86 @@ class Usergroup
     }
 
 
-     //创建群
+    //  //创建群需要邀请码
+    // public function setupgroup(Request $request)
+    // {
+    //     $wxcode =$request->param("code");
+    //     $crowd_name =$request->param("crowd_name");
+    //     $introduce =$request->param("introduce");
+    //     $logo=$request->param("logo");
+    //     $groupcode=$request->param("groupcode");
+
+    //     $openid=openid($wxcode);
+
+
+    //     $cleargroupcode=db('group_code')-> where('code',$groupcode)->delete();
+
+    //     // $groupnumbers= db('user_crowd')->where('user_openid',$openid)->where('user_type',1)->count();
+
+    //     if( $cleargroupcode == 1 || $groupcode== "987654" ){
+         
+    //      $groupowner=db('user')->where('openid',$openid)->find(); //群主信息
+    //      $time =date('Y-m-d H:i:s',time());//获取当前时间
+    //          //创建群成功
+    //      $dbdata = ['id'=>'','crowd_name' =>$crowd_name,'crowd_ownerid' => $groupowner["id"],'introduce' => $introduce,'rule' => null,'logo' => $logo,'create_time' =>$time];
+    //      $groupid= db('crowd')->insertGetId($dbdata);//返回自增ID
+
+    //     if($groupcode== "987654"){
+    //       //添加群主信息到群表
+    //      $joingroup = ['id'=>'','user_id' => $groupowner["id"],'user_openid' =>  $groupowner["openid"],'crowd_id' => $groupid,'user_type' => 3,'score' =>0,'create_time' =>$time];
+    //      $userjoingroup= db('user_crowd')->insertGetId($joingroup);//返回自增ID
+    //       }
+    //       else{
+    //         //添加群主信息到群表
+    //       $joingroup = ['id'=>'','user_id' => $groupowner["id"],'user_openid' =>  $groupowner["openid"],'crowd_id' => $groupid,'user_type' => 1,'score' =>0,'create_time' =>$time];
+    //       $userjoingroup= db('user_crowd')->insertGetId($joingroup);//返回自增ID
+    //     }
+    //      $state=['state'   => '200','message'  => "创建群成功" ];
+    //      $resdata=array_merge($state,array('groupid'=>$groupid));
+    //      return $resdata;
+    //     }
+    //     else{
+    //         $state=['state'   => '400','message'  => "邀请码错误或者不存在！" ];
+    //         return $state;
+    //     }
+
+    //  }
+
+
+      //创建群不需要邀请码
     public function setupgroup(Request $request)
     {
         $wxcode =$request->param("code");
         $crowd_name =$request->param("crowd_name");
         $introduce =$request->param("introduce");
         $logo=$request->param("logo");
-        $groupcode=$request->param("groupcode");
+      
 
         $openid=openid($wxcode);
 
-
-        $cleargroupcode=db('group_code')-> where('code',$groupcode)->delete();
-
-        // $groupnumbers= db('user_crowd')->where('user_openid',$openid)->where('user_type',1)->count();
-
-        if( $cleargroupcode == 1 || $groupcode== "987654" ){
          
          $groupowner=db('user')->where('openid',$openid)->find(); //群主信息
          $time =date('Y-m-d H:i:s',time());//获取当前时间
              //创建群成功
          $dbdata = ['id'=>'','crowd_name' =>$crowd_name,'crowd_ownerid' => $groupowner["id"],'introduce' => $introduce,'rule' => null,'logo' => $logo,'create_time' =>$time];
          $groupid= db('crowd')->insertGetId($dbdata);//返回自增ID
-
-        if($groupcode== "987654"){
-          //添加群主信息到群表
-         $joingroup = ['id'=>'','user_id' => $groupowner["id"],'user_openid' =>  $groupowner["openid"],'crowd_id' => $groupid,'user_type' => 3,'score' =>0,'create_time' =>$time];
-         $userjoingroup= db('user_crowd')->insertGetId($joingroup);//返回自增ID
-          }
-          else{
-            //添加群主信息到群表
+      
           $joingroup = ['id'=>'','user_id' => $groupowner["id"],'user_openid' =>  $groupowner["openid"],'crowd_id' => $groupid,'user_type' => 1,'score' =>0,'create_time' =>$time];
           $userjoingroup= db('user_crowd')->insertGetId($joingroup);//返回自增ID
-        }
+        
          $state=['state'   => '200','message'  => "创建群成功" ];
          $resdata=array_merge($state,array('groupid'=>$groupid));
          return $resdata;
-        }
-        else{
-            $state=['state'   => '400','message'  => "邀请码错误或者不存在！" ];
-            return $state;
-        }
 
      }
+
+
+
+
+
+
+
+
 
 
 }
