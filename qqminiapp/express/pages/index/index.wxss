@@ -139,7 +139,7 @@
 }
 
 .gdtad{
-  width: 94%;
+  width: 98%;
   border-radius: 15rpx;
   margin-top: 10rpx;
 }

@@ -73,6 +73,7 @@
   </view>
 
 
+
   <!-- 当用户没有快递信息的时候 -->
   <view wx:else class='centered '>
     <view class=' notexpress'>
@@ -87,6 +88,18 @@
 
 </view>
 <!-- 全局页面结束 -->
+
+
+
+
+
+<!-- 广点通banner广告开始-->
+<view class='centered'>
+  <view class='gdtad'>
+   <ad unit-id="49a6ff00914757e7a94f93c275538fb2" type="card"></ad>
+  </view>
+</view>
+<!-- 广点通banner广告结束-->
 
 
 
