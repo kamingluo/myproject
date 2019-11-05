@@ -170,6 +170,20 @@ public function getqrcode(Request $request)
 
 
 
+ public  function havetoken() {
+         $data['appid']=Config('appid');
+        $data['secret']= Config('secret');
+        $data['grant_type']= 'client_credential';
+        $api = "https://api.weixin.qq.com/cgi-bin/token";//拿token接口
+        $str = http($api, $data,'GET');
+        $token = json_decode($str,true);
+        $access_token=$token['access_token'];//拿到token
+        return $access_token;
+       
+      }
+
+
+
 
 
 
