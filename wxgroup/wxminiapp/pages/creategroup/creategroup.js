@@ -95,7 +95,8 @@ Page({
   sumittask: function(e) {
     // console.log(this.data.grouptext)
     // console.log(this.data.groupname)
-    if (this.data.grouptext == null || this.data.groupname == null || this.data.groupcode == null) {
+    // if (this.data.grouptext == null || this.data.groupname == null || this.data.groupcode == null) {
+    if (this.data.groupname == null ) {
       wx.showToast({
         title: '信息不能为空',
         icon: 'none',
