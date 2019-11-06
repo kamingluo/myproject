@@ -17,7 +17,6 @@
 
 
 
-
   <view class="cu-form-group input  ">
     <view class="title">快递单号</view>
     <input bindinput="expressnumber" focus="{{inputShowed}}" maxlength='20' placeholder="请输入快递单号"></input>
@@ -71,7 +70,6 @@
     </view>
 
   </view>
-
 
 
   <!-- 当用户没有快递信息的时候 -->
