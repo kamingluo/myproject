@@ -72,11 +72,6 @@
 
   </view>
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> deab2d9e88359c22022b566a0017919813900a65
   <!-- 当用户没有快递信息的时候 -->
   <view wx:else class='centered '>
     <view class=' notexpress'>
