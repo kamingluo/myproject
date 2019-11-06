@@ -69,7 +69,7 @@
       <image src='http://littlebox.luojiaming.vip/default.png'></image>
     </view>
     <view>
-      <text>暂无可以审核的任务哦</text>
+      <text>全部搞定了哦！</text>
     </view>
   </view>
 </view>
