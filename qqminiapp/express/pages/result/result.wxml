@@ -53,7 +53,7 @@
         </view>
       </view>
 
-       <!-- 广点通banner广告 -->
+    <!-- 广点通banner广告 -->
    <view  class='centered' >
       <view class="gdtad" >
         <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="805ce5e622e0e4d8084e4a1d55a10e82" unit-id="805ce5e622e0e4d8084e4a1d55a10e82"></ad>
