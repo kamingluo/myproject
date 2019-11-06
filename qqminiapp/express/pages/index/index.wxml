@@ -94,13 +94,13 @@
 
 
 
-<!-- 广点通卡片广告开始111111-->
+<!-- 广点通卡片广告开始-->
 <view class='centered'>
   <view class='gdtad'>
    <ad unit-id="49a6ff00914757e7a94f93c275538fb2" type="card"></ad>
   </view>
 </view>
-<!-- 广点通卡片广告结束2222222222-->
+<!-- 广点通卡片广告结束-->
 
 
 
