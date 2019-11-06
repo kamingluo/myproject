@@ -53,12 +53,12 @@
         </view>
       </view>
 
-       <!-- 广点通banner广告 -->
-   <!-- <view  class='centered' >
+    <!-- 广点通banner广告 -->
+   <view  class='centered' >
       <view class="gdtad" >
-        <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-3e034905c95ce64a" unit-id="adunit-3e034905c95ce64a"></ad>
+        <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="805ce5e622e0e4d8084e4a1d55a10e82" unit-id="805ce5e622e0e4d8084e4a1d55a10e82"></ad>
       </view>
-    </view> -->
+    </view>
     
     </view>
 
