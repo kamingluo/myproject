@@ -4,13 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"remoteDebugLogEnable": false,
+		"uploadWithSourceMap": true,
+		"nodeModules": true,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
@@ -22,6 +26,13 @@
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"qqappid": "1109683196",
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"qqLibVersion": "1.8.5",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,88 +47,17 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
-					"id": 0,
-					"name": "分享进入",
+					"id": -1,
+					"name": "分享",
 					"pathName": "pages/index/index",
-					"query": "channel=6666&master_id=18001",
-					"scene": 1047
-				},
-				{
-					"id": 1,
-					"name": "我的页面",
-					"pathName": "pages/my/my",
 					"query": "",
-					"scene": 1011
-				},
-				{
-					"id": 2,
-					"name": "测试页面",
-					"pathName": "pages/test/test",
-					"query": "",
-					"scene": 1001
-				},
-				{
-					"id": 3,
-					"name": "任务页面",
-					"pathName": "pages/task/task",
-					"query": "channel=1001",
-					"scene": 1001
-				},
-				{
-					"id": 4,
-					"name": "兑换页面",
-					"pathName": "pages/exchange/exchange",
-					"query": "",
-					"scene": 1011
-				},
-				{
-					"id": 5,
-					"name": "我的二维码",
-					"pathName": "pages/my/qrcode/qrcode",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 6,
-					"name": "我的好友",
-					"pathName": "pages/friends/friends",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "骰子页面",
-					"pathName": "pages/game/dice/dice",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "兑换列表",
-					"pathName": "pages/my/exchange_detailed/exchange_detailed",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 9,
-					"name": "单个推广页",
-					"pathName": "pages/task/extension/extension",
-					"query": "state=0",
-					"scene": 1011
-				},
-				{
-					"id": -1,
-					"name": "二维码",
-					"pathName": "pages/my/qrcode/qrcode",
-					"query": "",
-					"scene": null
+					"scene": "1008"
 				}
 			]
 		}

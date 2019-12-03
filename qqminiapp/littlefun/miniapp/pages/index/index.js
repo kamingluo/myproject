@@ -44,6 +44,15 @@ Page({
     this.playtask()
   },
 
+  haveopenid:function(){
+     wx.login({
+      success: function (res) {
+       console.log("openid",res)
+      }
+    })
+
+  },
+
 
   addisplay: function() {
     let userchannel = wx.getStorageSync('userdata').channel
@@ -287,22 +296,22 @@ Page({
     let number = Math.floor(Math.random() * 3)
     if (number == 1) {
       var gdtbannerposition = {
-        banneradposition1: 'adunit-fde1086480d42cdc',
-        banneradposition2: 'adunit-67a9b0ba2506718f',
-        banneradposition3: 'adunit-146df4b99bbc1595',
+        banneradposition1: 'af3e5324003dae12463d604a56d274aa',
+        banneradposition2: '1d13a490ba6924bccb7e0c22fce5500b',
+        banneradposition3: 'dbf56f485ae32fea7fd4f424ff055a54',
       }
 
     } else if (number == 2) {
       var gdtbannerposition = {
-        banneradposition1: 'adunit-67a9b0ba2506718f',
-        banneradposition2: 'adunit-146df4b99bbc1595',
-        banneradposition3: 'adunit-fde1086480d42cdc',
+        banneradposition1: '1d13a490ba6924bccb7e0c22fce5500b',
+        banneradposition2: 'dbf56f485ae32fea7fd4f424ff055a54',
+        banneradposition3: 'af3e5324003dae12463d604a56d274aa',
       }
     } else {
       var gdtbannerposition = {
-        banneradposition1: 'adunit-146df4b99bbc1595',
-        banneradposition2: 'adunit-fde1086480d42cdc',
-        banneradposition3: 'adunit-67a9b0ba2506718f',
+        banneradposition1: 'dbf56f485ae32fea7fd4f424ff055a54',
+        banneradposition2: 'af3e5324003dae12463d604a56d274aa',
+        banneradposition3: '1d13a490ba6924bccb7e0c22fce5500b',
       }
     }
 

@@ -59,7 +59,7 @@ Component({
     },
     //获取formid
     formSubmit(e) {
-      //console.log("点击组件获得formId", e.detail)
+      console.log("点击组件获得formId", e.detail)
       if (e.detail.formId == "the formId is a mock one"){
         //console.log("开发点击不上传")
         return ;

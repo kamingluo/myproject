@@ -3,7 +3,7 @@
 <view class='centered dingwei  '  wx:if="{{display && gdtaddisplay }}"   >
   <view  class='adanshua'  style="opacity: 0" >
   <!-- <view  class='adanshua'  > -->
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-e890f62be8c8507b" unit-id="adunit-e890f62be8c8507b"></ad>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="1e1ba94239f4f133c774b8529df0fd8d" unit-id="1e1ba94239f4f133c774b8529df0fd8d"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->
@@ -29,9 +29,9 @@
         <text>ID:{{userdata.id}}</text>
       </view>
     </view>
-    <view class='erweima'  bindtap='qrcode' >
+    <!-- <view class='erweima'  bindtap='qrcode' >
       <image src='../../images/common/erweima.svg'></image>
-    </view>
+    </view> -->
   </view>
 </view>
 
@@ -65,19 +65,18 @@
       </view>
     </kaming-button>
   </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="contact" session-from='{"userid":"{{userdata.id}}"}'>
-      <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
+  <!-- <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="contact">
       <text class="cuIcon-service text-cyan  iconsize"></text>
       <text class="text-grey">联系我们</text>
     </button>
-  </view>
-  <!-- <view class="cu-item arrow">
+  </view> -->
+  <view class="cu-item arrow">
     <button class="cu-btn content" open-type="feedback">
       <text class="cuIcon-edit text-red  iconsize"></text>
       <text class="text-grey">意见反馈</text>
     </button>
-  </view> -->
+  </view>
   <!-- <view class="cu-item arrow">
     <view class="content" hover-class="none">
       <text class="cuIcon-creativefill text-orange"></text>
@@ -91,7 +90,7 @@
 <!-- 广点通视频广告开始-->
 <view class='centered'>
   <view class='gdtad'>
-    <ad   capture-bind:tap="gdtvideoadclick"   unit-id="adunit-a24390afbe95764e" ad-type="video" ad-theme="white"></ad>
+    <ad   capture-bind:tap="gdtbanneradclick"   unit-id="8aff5fb3482997ff79db0b70c6f99b7b" ></ad>
   </view>
 </view>
 <!--广点通视频广告结束-->

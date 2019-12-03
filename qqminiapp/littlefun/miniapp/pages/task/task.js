@@ -11,7 +11,7 @@ let interstitialAd = null //插屏广告
 
 Page({
   data: {
-    usertodaytask: "",
+    usertodaytask: {},
     taskconfig: null,
     adid: '',
     setInter: '',
@@ -31,16 +31,20 @@ Page({
     this.addweixin()
   },
 
-  onReady: function () { },
+  onReady: function () {
+  },
 
   onShow: function () {
     this.todaytask()
     this.playtask()
     this.gdtinsertad()
 
+
   },
 
-  onHide: function () { },
+  onHide: function () {
+    console.log("开始隐藏了")
+  },
 
 
 
@@ -71,12 +75,12 @@ Page({
     console.log(number)
     if (number == 1) {
       that.setData({
-        gdtbannerposition: 'adunit - 9d16e8380e901760'
+        gdtbannerposition: '874dd1f18c4bc25d007d4ed892071881'
       })
     }
     else {
       that.setData({
-        gdtbannerposition: 'adunit-4c19107c204f1900'
+        gdtbannerposition: '1e1ba94239f4f133c774b8529df0fd8d'
       })
     }
 
@@ -115,7 +119,7 @@ Page({
     // 在页面onLoad回调事件中创建激励视频广告实例
     if (wx.createRewardedVideoAd) {
       videoAd = wx.createRewardedVideoAd({
-        adUnitId: 'adunit-0560e4c071403ecd'
+        adUnitId: '1e826ecd53d044cb47d0594613a8a571'
       })
       videoAd.onLoad(() => {
         //console.log("onLoad")
@@ -126,7 +130,7 @@ Page({
       videoAd.onClose((res) => {
         //console.log("点击关闭视频广告", res)
         if (res && res.isEnded || res === undefined) {
-          that.lookvideoad('adunit-0560e4c071403ecd')
+          that.lookvideoad('1e826ecd53d044cb47d0594613a8a571')
           //console.log("正常播放结束，可以下发游戏奖励")
         } else {
           that.wxshowToast("观看完成才能获得奖励哦！")
@@ -226,19 +230,34 @@ Page({
       return;
     }
 
-    if (wx.createInterstitialAd) {
-      interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-d9dab7b33fc7dd29' })
-      interstitialAd.onLoad(() => {
-        //console.log('插屏广告加载onLoad event emit')
-      })
-      interstitialAd.onError((err) => {
-        console.log('插屏广告错误onError event emit', err)
-      })
-      interstitialAd.onClose((res) => {
-        console.log('插屏广告被关闭onClose event emit', res)
-      })
-    }
+    // console.log("加载插屏广告")
+    //基础库要2.6以上
+
+    /* 建议放在onReady里执行，提前加载广告 */
+    // let InterstitialAd = qq.createInterstitialAd({
+    //   adUnitId: '2a5b8e4a66a067cd1c55c47a3c815074'
+    // });
+    // InterstitialAd.load().catch((err) => {
+    //   console.error('load', err)
+    // })
+    // InterstitialAd.onLoad(() => {
+    //   console.log('onLoad event emit')
+    // })
+    // InterstitialAd.onClose(() => {
+    //   console.log('close event emit')
+    // })
+    // InterstitialAd.onError((e) => {
+    //   console.log('error', e)
+    // })
+
   },
+
+
+
+
+
+
+
 
 
 
@@ -253,10 +272,11 @@ Page({
       console.log("广告错误")
       return;
     }
-    interstitialAd.show(
-    ).catch((err) => {
-      console.error("插屏广告错误啦", err)
-    })
+    /* 建议放在需要展示插屏广告的时机执行 */
+    // console.log("开启插屏广告") 基础库要2.6以上
+    // InterstitialAd.show().catch((err) => {
+    //   console.error('show', err)
+    // })
     let userdata = wx.getStorageSync('userdata')
     app.aldstat.sendEvent('任务页插屏次数', userdata);
 
@@ -264,6 +284,7 @@ Page({
 
   //查看用户今天任务完成情况
   todaytask: function () {
+    var that = this
     wx.login({
       success: res => {
         request({
@@ -272,8 +293,8 @@ Page({
             code: res.code,
           },
           success: res => {
-            //console.log('用户今日任务完成状态', res);
-            this.setData({
+            console.log('用户今日任务完成状态', res);
+            that.setData({
               usertodaytask: res,
             })
           },
@@ -333,14 +354,14 @@ Page({
     that.data.setInter = setInterval(
       function () {
         if (that.data.num > 40) {
-          //console.log('大于40啦');
+          console.log('大于40啦');
           clearInterval(that.data.setInter)
         }
         var numVal = that.data.num + 1;
         that.setData({
           num: numVal
         });
-        //console.log('当前计时时间==' + that.data.num);
+        console.log('当前计时时间==' + that.data.num);
       }, 1000);
   },
   endSetInter: function () {
@@ -351,6 +372,7 @@ Page({
 
 
   playtask: function () {
+    console.log("任务开始计算")
     var that = this
     clearInterval(that.data.setInter)
     //console.log("onshow展示任务id", that.data.taskid)
@@ -374,11 +396,11 @@ Page({
         that.clickbannerad()
 
       } else {
-        that.wxshowToast("体验满15秒才能获得奖励哦！")
+        that.qqshowToast("体验满15秒才能获得奖励哦！")
       }
     }
 
-    //console.log("将时间恢复0")
+    console.log("将时间恢复0")
     this.setData({
       num: 0,
       taskid: "",

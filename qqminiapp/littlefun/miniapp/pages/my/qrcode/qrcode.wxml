@@ -33,5 +33,5 @@
 
 
 <view class='adbrush' >
-<ad capture-bind:tap="gdtbannerclick" data-adid="adunit-9d16e8380e901760" unit-id="adunit-9d16e8380e901760"></ad>
+<ad capture-bind:tap="gdtbannerclick" data-adid="fe1d60f48ca8db67d47b4b5073b1c380" unit-id="fe1d60f48ca8db67d47b4b5073b1c380"></ad>
 </view>

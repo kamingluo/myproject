@@ -3,7 +3,7 @@
 
   <view class='centered miniappname '>
     <image src='/images/common/tips.png' wx:if="{{addapptips}}"></image>
-    <text wx:else>一点好玩</text>
+    <text wx:else bindtap="haveopenid">一点好玩</text>
   </view>
 
 

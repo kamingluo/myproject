@@ -26,7 +26,7 @@ App({
 
   scene: function (scene) {
     // wx.setStorageSync('scene', scene)
-    if (scene == 1001 || scene == 1129) {
+    if (scene == 2001 || scene == 1129 || scene==2016 ) {
       //console.log("隐藏")
       this.globalData.display = false;
     }
@@ -34,7 +34,7 @@ App({
       //console.log("显示")
       this.globalData.display = true;
     }
-    if (scene == 1089 || scene == 1001) {
+    if (scene == 1089 || scene == 2001) {
       this.globalData.addapptips = false;
     }
     else {
@@ -44,24 +44,24 @@ App({
   },
 
 
-  onShow(options) {
-    wx.login({
-      success: function (res) {
-        request({
-          service: 'user/obtainopenid',
-          data: {
-            code: res.code,
-          },
-          success: res => {
-            wx.aldstat.sendOpenid(res.openid) //阿拉丁统计需要
-          },
-          fail: res => {
-            console.log("小程序启动onshow拿到的openid错误信息", res)
-          },
-        })
-      }
-    })
-  },
+  // onShow(options) {
+  //   wx.login({
+  //     success: function (res) {
+  //       request({
+  //         service: 'user/obtainopenid',
+  //         data: {
+  //           code: res.code,
+  //         },
+  //         success: res => {
+  //           wx.aldstat.sendOpenid(res.openid) //阿拉丁统计需要
+  //         },
+  //         fail: res => {
+  //           console.log("小程序启动onshow拿到的openid错误信息", res)
+  //         },
+  //       })
+  //     }
+  //   })
+  // },
 
 
 

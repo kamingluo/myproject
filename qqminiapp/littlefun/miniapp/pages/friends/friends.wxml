@@ -15,7 +15,7 @@
    <!-- 广点通banner广告开始-->
 <view class='centered'  wx:if="gdtaddisplay" >
   <view class='gdtad2' style="opacity: 0">
-    <ad capture-bind:tap="gdtbanneradclick"  data-adid="adunit-4c19107c204f1900" unit-id="adunit-4c19107c204f1900"></ad>
+    <ad capture-bind:tap="gdtbanneradclick"  data-adid="98672cdbdbc5e20bf4b94661f951e4ea" unit-id="98672cdbdbc5e20bf4b94661f951e4ea"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->
@@ -114,13 +114,14 @@
     <view class='sharebody centered'>
       <view>
         <kaming-button open-type='share'>
-          <image class='wxlogo' src='/images/common/wxlogo.png'></image> 立即邀请</kaming-button>
+          <!-- <image class='wxlogo' src='/images/common/wxlogo.png'></image> 立即邀请</kaming-button> -->
+           立即邀请</kaming-button>
       </view>
-      <view class='xian'>1</view>
+      <!-- <view class='xian'>1</view>
       <view>
         <kaming-button bindtap='qrcode'>
           <image class='erweima' src='/images/common/erweima2.svg'></image> 生成邀请码</kaming-button>
-      </view>
+      </view> -->
     </view>
   </view>
 
@@ -143,7 +144,7 @@
   <!-- 广点通banner广告开始-->
 <view class='centered'  >
   <view class='gdtad'>
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="adunit-4c19107c204f1900" unit-id="adunit-4c19107c204f1900"></ad>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="98672cdbdbc5e20bf4b94661f951e4ea" unit-id="98672cdbdbc5e20bf4b94661f951e4ea"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->
