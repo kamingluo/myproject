@@ -50,11 +50,11 @@ class Currency
     $data['appid']=Config('appid');
     $data['secret']= Config('secret');
     $data['grant_type']= 'client_credential';
-    $api = "https://api.weixin.qq.com/cgi-bin/token";//拿token接口
+    $api = "https://api.q.qq.com/api/getToken";//拿token接口
     $str = http($api, $data,'GET');
     $token = json_decode($str,true);
     $access_token=$token['access_token'];//拿到token
-    $url = "https://api.weixin.qq.com/wxa/getwxacode?access_token=$access_token";
+    $url = "https://api.q.qq.com/wxa/getwxacode?access_token=$access_token";
 
     $data = json_encode(array("path"=>"pages/index/index?master_id=$userid&channel=$channel","width"=> 150));
     $ch = curl_init();
