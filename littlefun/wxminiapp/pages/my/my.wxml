@@ -78,12 +78,12 @@
       <text class="text-grey">意见反馈</text>
     </button>
   </view> -->
-  <!-- <view class="cu-item arrow">
+  <view class="cu-item arrow" bindtap='tenmiao'>
     <view class="content" hover-class="none">
       <text class="cuIcon-creativefill text-orange"></text>
-      <text class="text-grey">关于我们</text>
+      <text class="text-grey">测试十秒</text>
     </view>
-  </view> -->
+  </view>
 </view>
 
 

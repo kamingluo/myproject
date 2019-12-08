@@ -11,6 +11,7 @@
     "pages/my/qrcode/qrcode",
     "pages/game/caiquan/caiquan",
     "pages/game/dice/dice",
+    "pages/game/tenseconds/tenseconds",
     "pages/test/test"
   ],
   "window": {

@@ -83,6 +83,12 @@ Page({
 
   },
 
+
+  tenmiao:function(){
+    wx.navigateTo({
+      url: '/pages/game/tenseconds/tenseconds'
+    })
+  },
   exchange:function(){
     wx.navigateTo({
       url: '/pages/exchange/exchange'

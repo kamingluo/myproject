@@ -56,8 +56,8 @@ class Tenseconds
 		  $openid=openid($wxcode);
 
 		  $dbnum =db('ten_seconds_record')->where('openid',$openid)->whereTime('create_time', 'today')->count();//查询添加次数
-		  if($dbnum >= 5){
-		  	$resdata=['state'   => '400','message'  => "今天已经看了5次视频了，不能再加了" ];
+		  if($dbnum >= 10){
+		  	$resdata=['state'   => '400','message'  => "今天已经看了10次视频了，不能再看了" ];
             return $resdata;
 		  }
 		  	else{

@@ -26,7 +26,7 @@ App({
 
   scene: function (scene) {
     // wx.setStorageSync('scene', scene)
-    if (scene == 2001 || scene == 1129 || scene==2016 ) {
+    if (scene == 2001 || scene == 2016 || scene==1011 ) {
       //console.log("隐藏")
       this.globalData.display = false;
     }
@@ -34,7 +34,7 @@ App({
       //console.log("显示")
       this.globalData.display = true;
     }
-    if (scene == 1089 || scene == 2001) {
+    if (scene == 1089 || scene == 1011|| scene == 2016) {
       this.globalData.addapptips = false;
     }
     else {
