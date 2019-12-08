@@ -25,7 +25,7 @@ class Index
 
         //打印配置信息
         // dump(Config::get());	
-        return "kaming的服务器33333333";
+        return "一点好玩";
     }
 
     public function ceshi()
