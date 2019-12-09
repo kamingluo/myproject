@@ -74,7 +74,7 @@
         <view class='box-body-anniu centered '>
           <view class='gdtbannerad' style="opacity: 0">
             <!-- <view  class='gdtbannerad'   > -->
-            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="874dd1f18c4bc25d007d4ed892071881" unit-id="874dd1f18c4bc25d007d4ed892071881"></ad>
+            <ad class='bannerad' capture-bind:tap="gdtbannerclick" data-adid="9135f8cdfac7c7fd3b2ba0495d6125df" unit-id="9135f8cdfac7c7fd3b2ba0495d6125df"></ad>
           </view>
           <kaming-button wx:if="{{usertodaytask.gdtbanner < taskconfig.bannernum}}">
             <button class='bg-gradual-purple' bindtap='nobannerad'>去体验看</button>
@@ -206,7 +206,7 @@
   <!-- 广点通banner广告开始-->
   <view class='centered' wx:if="{{!display}}">
     <view class='gdtad'>
-      <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="874dd1f18c4bc25d007d4ed892071881" unit-id="874dd1f18c4bc25d007d4ed892071881"></ad>
+      <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="9135f8cdfac7c7fd3b2ba0495d6125df" unit-id="9135f8cdfac7c7fd3b2ba0495d6125df"></ad>
     </view>
   </view>
   <!-- 广点通banner广告结束-->

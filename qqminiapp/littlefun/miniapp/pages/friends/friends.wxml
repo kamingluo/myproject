@@ -15,7 +15,7 @@
    <!-- 广点通banner广告开始-->
 <view class='centered'  wx:if="gdtaddisplay" >
   <view class='gdtad2' style="opacity: 0">
-    <ad capture-bind:tap="gdtbanneradclick"  data-adid="98672cdbdbc5e20bf4b94661f951e4ea" unit-id="98672cdbdbc5e20bf4b94661f951e4ea"></ad>
+    <ad capture-bind:tap="gdtbanneradclick"  data-adid="c88c25eb77fbdac5039932142f325dfa" unit-id="c88c25eb77fbdac5039932142f325dfa"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->
@@ -144,7 +144,7 @@
   <!-- 广点通banner广告开始-->
 <view class='centered'  >
   <view class='gdtad'>
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="98672cdbdbc5e20bf4b94661f951e4ea" unit-id="98672cdbdbc5e20bf4b94661f951e4ea"></ad>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="c88c25eb77fbdac5039932142f325dfa" unit-id="c88c25eb77fbdac5039932142f325dfa"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->

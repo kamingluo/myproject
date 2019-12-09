@@ -75,12 +75,12 @@ Page({
     console.log(number)
     if (number == 1) {
       that.setData({
-        gdtbannerposition: '874dd1f18c4bc25d007d4ed892071881'
+        gdtbannerposition: '9135f8cdfac7c7fd3b2ba0495d6125df'
       })
     }
     else {
       that.setData({
-        gdtbannerposition: '1e1ba94239f4f133c774b8529df0fd8d'
+        gdtbannerposition: '4f5eb56dfb9f9dce256b65b622c17dd6'
       })
     }
 
@@ -119,7 +119,7 @@ Page({
     // 在页面onLoad回调事件中创建激励视频广告实例
     if (wx.createRewardedVideoAd) {
       videoAd = wx.createRewardedVideoAd({
-        adUnitId: '1e826ecd53d044cb47d0594613a8a571'
+        adUnitId: 'f1ec40b82a9fc3bc91779b0cf2066e67'
       })
       videoAd.onLoad(() => {
         //console.log("onLoad")
@@ -130,7 +130,7 @@ Page({
       videoAd.onClose((res) => {
         //console.log("点击关闭视频广告", res)
         if (res && res.isEnded || res === undefined) {
-          that.lookvideoad('1e826ecd53d044cb47d0594613a8a571')
+          that.lookvideoad('f1ec40b82a9fc3bc91779b0cf2066e67')
           //console.log("正常播放结束，可以下发游戏奖励")
         } else {
           that.wxshowToast("观看完成才能获得奖励哦！")

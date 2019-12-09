@@ -3,7 +3,7 @@
 <view class='centered dingwei  '  wx:if="{{display && gdtaddisplay }}"   >
   <view  class='adanshua'  style="opacity: 0" >
   <!-- <view  class='adanshua'  > -->
-    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="1e1ba94239f4f133c774b8529df0fd8d" unit-id="1e1ba94239f4f133c774b8529df0fd8d"></ad>
+    <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="5edd10a78d02d369781b2d6b0d02d5a2" unit-id="5edd10a78d02d369781b2d6b0d02d5a2"></ad>
   </view>
 </view>
 <!-- 广点通banner广告结束-->
@@ -90,7 +90,7 @@
 <!-- 广点通视频广告开始-->
 <view class='centered'>
   <view class='gdtad'>
-    <ad   capture-bind:tap="gdtbanneradclick"   unit-id="8aff5fb3482997ff79db0b70c6f99b7b" ></ad>
+  <ad  capture-bind:tap="gdtbanneradclick"  unit-id="10cc806bf9102caca4bb6280c19832c5" type="card"></ad>
   </view>
 </view>
 <!--广点通视频广告结束-->

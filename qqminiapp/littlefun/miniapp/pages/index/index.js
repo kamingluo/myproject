@@ -296,22 +296,22 @@ Page({
     let number = Math.floor(Math.random() * 3)
     if (number == 1) {
       var gdtbannerposition = {
-        banneradposition1: 'af3e5324003dae12463d604a56d274aa',
-        banneradposition2: '1d13a490ba6924bccb7e0c22fce5500b',
-        banneradposition3: 'dbf56f485ae32fea7fd4f424ff055a54',
+        banneradposition1: '8ab9b12d99256f887fad480fadb11a82',
+        banneradposition2: '5882445b3ac559926a17a27be2a38041',
+        banneradposition3: 'a9adea61f75a1dc217bb62de20a917c2',
       }
 
     } else if (number == 2) {
       var gdtbannerposition = {
-        banneradposition1: '1d13a490ba6924bccb7e0c22fce5500b',
-        banneradposition2: 'dbf56f485ae32fea7fd4f424ff055a54',
-        banneradposition3: 'af3e5324003dae12463d604a56d274aa',
+        banneradposition1: '5882445b3ac559926a17a27be2a38041',
+        banneradposition2: 'a9adea61f75a1dc217bb62de20a917c2',
+        banneradposition3: '8ab9b12d99256f887fad480fadb11a82',
       }
     } else {
       var gdtbannerposition = {
-        banneradposition1: 'dbf56f485ae32fea7fd4f424ff055a54',
-        banneradposition2: 'af3e5324003dae12463d604a56d274aa',
-        banneradposition3: '1d13a490ba6924bccb7e0c22fce5500b',
+        banneradposition1: 'a9adea61f75a1dc217bb62de20a917c2',
+        banneradposition2: '8ab9b12d99256f887fad480fadb11a82',
+        banneradposition3: '5882445b3ac559926a17a27be2a38041',
       }
     }
 

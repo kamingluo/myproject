@@ -49,7 +49,7 @@
 <view class='centered'  wx:if="{{extensiondata != null}}" >
   <view class='gdtad'>
    
-     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="fe1d60f48ca8db67d47b4b5073b1c380" unit-id="fe1d60f48ca8db67d47b4b5073b1c380"></ad>  <!-- 任务页面广告id-->
+     <ad capture-bind:tap="gdtbanneradclick" class="gdtad" data-adid="5edd10a78d02d369781b2d6b0d02d5a2" unit-id="5edd10a78d02d369781b2d6b0d02d5a2"></ad>  <!-- 任务页面广告id-->
   </view>
 </view>
 <!-- 广点通banner广告结束-->
