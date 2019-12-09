@@ -19,14 +19,14 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
 	"appid": "wxc335c3cf09a7a39c",
-	"projectname": "littlefun",
+	"projectname": "%E6%9C%89%E7%82%B9%E5%A5%BD%E7%8E%A9",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
-	"qqappid": "1109683196",
+	"qqappid": "1109683464",
 	"scripts": {
 		"beforeCompile": "",
 		"beforePreview": "",
