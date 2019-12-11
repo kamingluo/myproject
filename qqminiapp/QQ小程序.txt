@@ -6,7 +6,6 @@ APPID：1109605951
 AppSecert:2H0AFWeLfVmosgIK
 
 
-
 名称：一点好玩
 账号：3538187083@qq.com
 密码：a3216953
@@ -25,11 +24,18 @@ APPID：1109683464
 AppSecert:STVADrGOrpHyUZ28
 
 
-
-
-
 名称：2020年姓名关键字
 账号：kaming_002@163.com
 密码：a3216953
 APPID：1110034567
 AppSecert:0zaRvGl6xn3DOF16
+
+
+名称：我要圣诞帽
+账号：kaming_003@163.com
+密码：a3216953
+APPID：1110042553
+AppSecert:70uwEzCEmR52A8KG
+
+
+
