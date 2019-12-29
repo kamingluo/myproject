@@ -1,6 +1,7 @@
 /* pages/fortune-result.wxss */
 .result-page{
   height: 100%;
+  background-image: linear-gradient(-180deg, #0E128D 1%, #0B1068 55%);
 }
 .wrap {
   height: auto;
@@ -11,11 +12,8 @@
   padding-bottom: 80px;
 }
 .footer{
-  height:80px;
-  margin-top: -80px;
+  margin-top: -170px;
   display: flex;
-  /* background-image: linear-gradient(-180deg, #080E3A 98%, #080E3A 100%); */
-  background-color: #080E3A;
 }
 
 .btn-layout{
@@ -27,11 +25,9 @@
 
 
 .gdtad{
-  margin-top: -10rpx;
- width: 98%;
+ width: 95%;
  border-radius: 10rpx;
  margin-bottom: 1rpx;
- background-color: #0E128D;
 }
 
 .centered{
@@ -39,4 +35,10 @@
   justify-content: center;
   align-items: center;
   background-color: #0E128D;
+}
+
+
+.adfooter{
+  display: flex;
+margin-top:20rpx;
 }

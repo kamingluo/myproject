@@ -16,6 +16,7 @@
 .index-head-slogan-img{
   width: 620rpx;
   height: 386rpx;
+  margin-top:-20px;
 }
 .index-head-input-img{
   width: 662rpx;
@@ -23,6 +24,7 @@
 }
 .index-head-input-wrap{
   position: relative;
+  margin-top:-50px;
 }
 .index-head-text{
   color: #F7F7FA;
@@ -53,23 +55,12 @@
   height:88rpx;
 }
 
-.index-logo-img{
-  display: block;
-  margin-top:40rpx;
-  width: 174rpx;
-  height: 48rpx;
-}
-
-.adback{
-  background-color: #0E128D;
-}
 
 .gdtad{
-  margin-top: -10rpx;
- width: 98%;
+  margin-top: 20rpx;
+ width: 95%;
  border-radius: 10rpx;
- margin-bottom: 1rpx;
- background-color: #0E128D;
+ margin-bottom: 10rpx;
 }
 
 .centered{
@@ -78,3 +69,8 @@
   align-items: center;
   background-color: #0E128D;
 }
+
+/* .kong{
+  margin-top: 20rpx;
+  height:20rpx;
+} */

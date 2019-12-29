@@ -18,16 +18,19 @@
     </view>
   </view>
 
-  <!-- <view>
-    <image class='index-logo-img' src='{{indexLogoSrc}}'></image>
+    <!-- 广点通banner广告开始-->
+
+  <view class='gdtad'>
+    <ad  data-adid="d8bdb63c791f296d30a9284c43f41f65" unit-id="d8bdb63c791f296d30a9284c43f41f65"></ad>
+  </view>
+
+<!-- 广点通banner广告结束-->
+
+<!--  
+   <view class='kong'>
+   
   </view> -->
   
 </view>
 
-  <!-- 广点通banner广告开始-->
-<view class='centered '  >
-  <view class='gdtad'>
-    <ad  data-adid="d8bdb63c791f296d30a9284c43f41f65" unit-id="d8bdb63c791f296d30a9284c43f41f65"></ad>
-  </view>
-</view>
-<!-- 广点通banner广告结束-->
+
