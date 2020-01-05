@@ -1,0 +1,87 @@
+<!-- 卡片1 -->
+
+<view s-for="item, index in adlist">
+
+    <!-- 抽奖卡片 -->
+	<view s-if="{{item.type == 1}}">
+		<view class="cu-card case no-card shadow shadow-lg bg-white card-width" bindtap="clickcard" data-data="{{item}}">
+			<view class="cu-item shadow">
+				<view class="image">
+					<image src="{{item.goodsImage}}"
+						mode="widthFix">
+					</image>
+					<view class="cu-tag bg-red">进行中</view>
+					<view class="cu-bar bg-shadeBottom">
+						<text class="text-cut-test">{{item.goodsName}}</text>
+					</view>
+				</view>
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="body-neirong">
+							<view class="neirong"><text
+									class="text-cut-test2">本期奖品：{{item.goodsName}}</text>
+							</view>
+							<view class="text-gray  flex neirong2 ">
+								<view class="text-gray score  ">
+									<text class="cuIcon-messagefill ">已有{{item.people}}人参与</text>
+								</view>
+								<view class="text-gray  time">
+									<text class="cuIcon-messagefill"></text>开奖时间:{{item.time}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+	 <!-- 信息流广告 -->
+	<view s-elif="{{item.type == 2}}">
+		<body>
+			<view class='centered'>
+				<view class="ad">
+					<ad appid="{{appid}}" apid="{{item.apid}}" class="ad" type="feed"></ad>
+				</view>
+			</view>
+		</body>
+	</view>
+
+   <!-- banner广告 -->
+	<view s-else="{{item.type == 3}}">
+		<view class='centered'>
+			<view class="ad">
+				<ad appid="{{appid}}" apid="{{item.apid}}" class="ad" type="banner"></ad>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+
+
+<!-- 信息流广告列表 -->
+
+<body>
+    <view  s-for="item, index in feed" class="shadow shadow-lg">
+	<view class='centered'>
+		<view class="ad">
+			<ad appid="{{appid}}" apid="{{item}}" class="ad" type="feed"></ad>
+		</view>
+	</view>
+    </view>
+</body>
+
+
+
+<!-- banner广告列表 -->
+<view>
+    <view  s-for="item, index in banner" class="shadow shadow-lg">
+	<view class='centered'>
+		<view class="ad">
+			<ad  appid="{{appid}}" apid="{{item}}"  class="ad" type="banner" ></ad>
+		</view>
+	</view>
+    </view>
+</view> 

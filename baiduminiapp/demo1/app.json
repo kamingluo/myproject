@@ -1,0 +1,45 @@
+{
+    "pages": [
+        "pages/index/index",
+         "pages/my/my",
+          "pages/join/join"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#0081ff",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "智能小程序",
+        "backgroundTextStyle": "light",
+        "navigationStyle": "default",
+        "backgroundColor": "#ffffff",
+        "enablePullDownRefresh": "true",
+        "onReachBottomDistance":"50"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "活动列表",
+                "iconPath":"/images/index.png",
+                "selectedIconPath":"/images/sindex.png"
+	        },
+            {
+                "pagePath": "pages/my/my",
+                "text": "个人中心",
+                "iconPath":"/images/my.png",
+                "selectedIconPath":"/images/smy.png"
+            }
+        ],
+        "backgroundColor" : "#ffffff",
+        "borderStyle": "black",
+        "color": "#000",
+        "selectedColor": "#6495ED"
+    },
+    "requiredBackgroundModes": ["audio"],
+    "prefetches": ["https://m.baidu.com", "https://m.baidu.com?query=${query}"],
+    "networkTimeout": {
+        "request": 30000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    }
+}

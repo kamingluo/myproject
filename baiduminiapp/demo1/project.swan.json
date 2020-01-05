@@ -1,0 +1,49 @@
+{
+    "appid": "17790017",
+    "compilation-args": {
+        "common": {
+            "enhance": true
+        },
+        "options": [
+            {
+                "extra": {
+                    "compileArgs": "--module cmd",
+                    "ext": {},
+                    "index": "pages/my/my",
+                    "query": "",
+                    "scene": {}
+                },
+                "id": 0,
+                "text": "我的页面"
+            },
+            {
+                "extra": {
+                    "compileArgs": "--module cmd",
+                    "ext": {},
+                    "index": "pages/join/join",
+                    "query": "",
+                    "scene": {}
+                },
+                "id": 1,
+                "text": "参与页面"
+            }
+        ],
+        "selected": -1
+    },
+    "host": "baiduboxapp",
+    "preview": {
+        "packageId": 543338
+    },
+    "publish": {
+        "version": "1.0.2.0"
+    },
+    "setting": {
+        "urlCheck": false
+    },
+    "swan": {
+        "baiduboxapp": {
+            "extensionJsVersion": "1.9.1",
+            "swanJsVersion": "3.140.9"
+        }
+    }
+}

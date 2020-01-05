@@ -1,0 +1,73 @@
+<view class='top bg-blue'>
+	<view class='user'>
+		<view class='userAvatar'>
+			<open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
+		</view>
+		<view class='username'>
+			<view class='userNickName' bindlongpress="testpages">
+				<open-data type="userNickName"></open-data>
+			</view>
+			<view class='id'>
+				<text>身份:游客</text>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class='score'>
+	<view class='score_text'>
+		当前积分：
+		<text>{{score}}</text>
+	</view>
+	<view class='score_button'>
+		<button bindtap='sign' class=' bg-blue' s-if="{{sign}}">立即签到</button>
+        <button class=' bg-gray' s-else><text style="color:black">已经签到</text></button>
+	</view>
+</view>
+
+
+
+
+
+<view class="swiper-tab">
+	<view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">参与抽奖活动</view>
+	<view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">中奖活动</view>
+</view>
+
+
+<view class="centered default">
+	<view >
+		<view class="centered">
+			<image src='http://littlebox.luojiaming.vip/default.png'></image>
+		</view>
+		<view class="tips centered">
+			<text>你还没有参与记录呢</text>
+		</view>
+	</view>
+</view>
+
+
+
+<!-- 信息流广告列表 -->
+<body>
+    <view  s-for="item, index in feed" class="shadow shadow-lg">
+	<view class='centered'>
+		<view class="ad">
+			<ad appid="{{appid}}" apid="{{item}}" class="ad" type="feed"></ad>
+		</view>
+	</view>
+    </view>
+</body>
+
+
+<!-- banner广告列表 -->
+
+<view>
+    <view  s-for="item, index in banner" class="shadow shadow-lg">
+	<view class='centered'>
+		<view class="ad">
+			<ad  appid="{{appid}}" apid="{{item}}"  class="ad" type="banner" ></ad>
+		</view>
+	</view>
+    </view>
+</view>

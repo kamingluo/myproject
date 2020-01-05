@@ -1,0 +1,27 @@
+/**
+ * @file app.css
+ * @author swan
+ */
+ @import "colorui/main.css";
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+    
+}
+
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ad{
+  width: 96%;
+  border-radius: 15px;
+  margin-top: 1px;
+  margin-bottom: 3px;
+}

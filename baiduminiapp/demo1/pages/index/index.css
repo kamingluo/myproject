@@ -1,0 +1,53 @@
+.text-cut-test{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.text-cut-test2{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+.body-neirong{
+    margin-top: -1px;
+}
+
+.card-width{
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.neirong{
+    width: 92%;
+    margin-left: 4%;
+    font-size: 17px;
+  
+}
+.neirong text{
+    color: black;
+    font-weight: 600;
+}
+.neirong2{
+      width: 92%;
+    margin-left: 4%;
+    margin-top: 10px;
+}
+.score{
+    font-size: 13px;
+}
+
+.time{
+    margin-top: 15px;
+    margin-left: 40px;
+}
