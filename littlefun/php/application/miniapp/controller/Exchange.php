@@ -15,9 +15,11 @@ class Exchange
     //商品兑换列表
     public function goodslist()
     {
+        $request = Request::instance();
+        $userip=$request->ip();
         $dbdata1=db('exchange_goods')->order('id asc')->where('goodsType','0')->select();
         $dbdata2=db('exchange_goods')->order('id asc')->where('goodsType','1')->select();
-        $state=['state'   => '200','message'  => "商品兑换列表查询成功" ];
+        $state=['state'   => '200','message'  => "商品兑换列表查询成功" ,'userip'  => $userip];
         $resdata=array_merge($state,array('goodslist1'=>$dbdata1),array('goodslist2'=>$dbdata2));
         return $resdata ;
     }
