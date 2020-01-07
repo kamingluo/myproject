@@ -23,7 +23,7 @@ function haveone(arr){
 
 
 //从数组随机取多个值(count表示取几个值）
-function havesome( arr) {
+function havesome(arr) {
     var arr = arr;
     var num =arr.length;
     if(num < 3){
@@ -52,6 +52,25 @@ function havesome( arr) {
     console.log(shuffled.slice(min)) 
 }
 
+//修改数组里面某个key值
+function updated(){
+  //获得到n的随机数
+  var rand=Math.floor(Math.random()*(n))+1
+  for(var i=0;i<dataType.length;i++){
+    if(dataType[i].type=="add"){
+      dataType[i].state=true;
+    }
+    else if(dataType[i].type=="update"){
+      dataType[i].state=true;
+    }
+    else if(dataType[i].type=="del"){
+      dataType[i].state=true;
+    }
+    else(dataType[i].type=="onlyLeaf"){
+      dataType[i].state=true;
+    }
+}
+
 
 
 
@@ -59,4 +78,5 @@ module.exports = {
   randomdata: randomdata,
   haveone: haveone,
   havesome:havesome,
+  updated:updated,
 }
