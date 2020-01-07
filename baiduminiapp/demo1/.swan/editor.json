@@ -1,30 +1,30 @@
 {
     "editor": {
         "curPath": "",
-        "expands": [
-            "F:\\百度抽奖小程序\\pages\\index"
-        ],
+        "expands": [],
         "markdownUploadTimeMap": {},
         "paths": [],
         "recentlyFiles": [
-            "F:\\百度抽奖小程序\\pages\\index\\index.json",
-            "F:\\百度抽奖小程序\\pages\\join\\join.json",
-            "F:\\百度抽奖小程序\\pages\\join\\join.js",
-            "F:\\百度抽奖小程序\\pages\\my\\my.json",
-            "F:\\百度抽奖小程序\\app.js",
-            "F:\\百度抽奖小程序\\README.md",
-            "F:\\百度抽奖小程序\\project.swan.json",
-            "F:\\百度抽奖小程序\\pkginfo.json",
-            "F:\\百度抽奖小程序\\app.json",
-            "F:\\百度抽奖小程序\\pages\\my\\my.css",
-            "F:\\百度抽奖小程序\\pages\\join\\join.swan",
-            "F:\\百度抽奖小程序\\pages\\join\\join.css",
-            "F:\\百度抽奖小程序\\pages\\index\\index.swan",
-            "F:\\百度抽奖小程序\\pages\\index\\index.css",
-            "F:\\百度抽奖小程序\\utils\\config.js",
-            "F:\\百度抽奖小程序\\pages\\index\\index.js",
-            "F:\\百度抽奖小程序\\utils\\data.js",
-            "F:\\百度抽奖小程序\\pages\\my\\my.js"
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils\\data.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils\\config.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils\\common.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join\\join.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join2\\join2.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join3\\join3.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\my\\my.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\index\\index.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\app.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\project.swan.json",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\index\\index.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join3\\join3.swan",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join2\\join2.swan",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\index\\index.swan",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join\\join.swan",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join3\\join3.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join2\\join2.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join\\join.js",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join3\\join3.css",
+            "E:\\install\\phpstudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join2\\join2.css"
         ]
     }
 }

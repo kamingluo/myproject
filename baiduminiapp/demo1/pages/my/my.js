@@ -1,4 +1,5 @@
 const baseConfig = require('./../../utils/config.js')
+const common = require('./../../utils/common.js')
 Page({
     data: {
         currentTab: 0,
@@ -10,8 +11,8 @@ Page({
     },
     onLoad: function () {
         let appid = baseConfig.adappid
-        let feed = baseConfig.my.feed
-        let banner = baseConfig.my.banner
+       let feed=common.havefeedsome()
+        let banner=common.havebannersome()
         this.setData({
             appid: appid,
             feed: feed,

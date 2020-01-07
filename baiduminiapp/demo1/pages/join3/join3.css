@@ -1,0 +1,30 @@
+.joinbutton {
+    margin-top: -20px;
+}
+.explain {
+    font-weight: bold;
+    margin-bottom: 10rpx;
+    display: flex;
+    align-items: center;
+    height: 200rpx;
+    background-color: #fff;
+    justify-content: center;
+    flex-direction: column;
+    width: 92%;
+}
+.explain_top_text {
+    color: #ff8c00;
+}
+.explain_shuoming {
+    margin-top: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 140rpx;
+    background-color: #fff;
+    border-radius: 30rpx;
+}
+.explain_shuoming2 {
+    font-size: 28rpx;
+}
