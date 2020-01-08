@@ -5,12 +5,54 @@ Page({
         goods: {},
         appid: "",
         feed: [],
-        banner: []
+        banner: [],
+        setInter: '',
+        time: 0,
     },
-    onLoad: function (e) {
+    onShow: function (e) {
+        this.startSetInter()
+        this.setData({
+            time: 0
+        });
+    },
 
-        let feed=common.havefeedsome()
-        let banner=common.havebannersome()
+    startSetInter() {
+        var that = this;
+        //将计时器赋值给setInter
+        that.data.setInter = setInterval(
+            function () {
+                if (that.data.time > 20) {
+                    that.endSetInter()
+                }
+                else {
+                    var timeVal = that.data.time + 1;
+                }
+                that.setData({
+                    time: timeVal
+                });
+            }
+            , 1000);
+    },
+
+    endSetInter() {
+        var that = this;
+        clearInterval(that.data.setInter)
+        swan.navigateBack({//返回
+            delta: 1
+        })
+    },
+    onHide: function () {
+        var that = this;
+        clearInterval(that.data.setInter)
+    },
+    onUnload: function () {
+        var that = this;
+        clearInterval(that.data.setInter)
+    },
+
+    onLoad: function (e) {
+        let feed = common.havefeedsome()
+        let banner = common.havebannersome()
         let appid = baseConfig.adappid
         this.setData({
             appid: appid,
