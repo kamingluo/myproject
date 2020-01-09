@@ -1,5 +1,5 @@
 {
-    "appid": "18220932",
+    "appid": "18222082",
     "compilation-args": {
         "common": {
             "enhance": true
@@ -35,7 +35,7 @@
         "packageId": 543338
     },
     "publish": {
-        "version": "1.0.5.0"
+        "version": "1.0.25.0"
     },
     "setting": {
         "urlCheck": false
