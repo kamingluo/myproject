@@ -8,7 +8,7 @@ App({
             swan.setStorageSync("score", 0);
             swan.setStorageSync("sign", true);
         }
-        this.getLocation()
+        // this.getLocation()
     },
    getLocation(e) {
         swan.getLocation({
