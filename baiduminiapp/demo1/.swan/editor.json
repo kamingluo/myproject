@@ -2,23 +2,15 @@
     "editor": {
         "curPath": "",
         "expands": [
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join2",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join3"
+            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils"
         ],
         "markdownUploadTimeMap": {},
         "paths": [],
         "recentlyFiles": [
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join\\join.js",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join2\\join2.js",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\join3\\join3.js",
             "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils\\data.js",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils\\common.js",
             "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\utils\\config.js",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\app.json",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pkginfo.json",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\pages\\index\\index.js",
-            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\app.js"
+            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\project.swan.json",
+            "E:\\install\\phpshudy\\PHPTutorial\\WWW\\myproject\\baiduminiapp\\demo1\\app.json"
         ]
     }
 }
