@@ -96,8 +96,11 @@ Page({
 
 
   gdtbanneradclick: function (e) {
-    let userdata = wx.getStorageSync('userdata')
-    let data = Object.assign(userdata, e.currentTarget.dataset); //将addata合并
+    addata= e.currentTarget.dataset;//这里就能触发点击事件并且能拿到广告id
+    let userdata = wx.getStorageSync('userdata')//拿到用户信息
+    let data = Object.assign(userdata, addata); //将用户信息和广告数据合并
+
+    //我这里下面是上传阿拉丁统计，你也可以通过接口上传到你的统计
     app.aldstat.sendEvent('单页推广点击广点通banner广告', data);
   },
 
