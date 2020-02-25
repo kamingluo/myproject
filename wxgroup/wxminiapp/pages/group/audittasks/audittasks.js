@@ -27,6 +27,27 @@ Page({
       crowd_name: options.crowd_name
     })
     this.havetaskdata()
+    this.operationscore()
+  },
+
+  operationscore:function(){
+    console.log("获取历史操作积分数值")
+    let score = wx.getStorageSync('operationscore')
+    if (score){
+      console.log("存在")
+      this.setData({
+        num: score,
+      })
+    }
+    else{
+      console.log("不存在")
+      wx.setStorageSync('operationscore', 1)
+      this.setData({
+        num: 1,
+      })
+      
+    }
+
   },
 
   /**
@@ -104,15 +125,18 @@ Page({
 
   //任务合格确定
   tasksuccesssure: function() {
-    this.hidetasksuccessmodal()
-    this.setData({
-      loadModal: true
-    })
+
     var that = this
     var crowd_id = that.data.crowd_id //群id
     var score = this.data.num //分数
     var id = this.data.taskdata.taskdetails.id //任务id
     var user_id = this.data.taskdata.taskdetails.user_id //提交任务用户id
+    that.hidetasksuccessmodal()
+    wx.setStorageSync('operationscore', score)
+    that.setData({
+      loadModal: true,
+      num: score,
+    })
     request({
       service: 'task/handletask/handletask',
       data: {

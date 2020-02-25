@@ -77,7 +77,12 @@ Page({
 
   },
 
+  querytasklist:function(){
+    wx.navigateTo({
+      url: '/pages/group/user/userdetailed/usertasklist/usertasklist?crowd_id=' + this.data.crowd_id + '&user_id=' + this.data.user_id,
+    })
 
+  },
 
 
 

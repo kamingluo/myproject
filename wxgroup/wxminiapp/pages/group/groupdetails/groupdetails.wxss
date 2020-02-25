@@ -68,7 +68,7 @@
 }
 
 .crowdright {
-  position: fixed;
+  position:absolute;
   margin-top: 80rpx;
   margin-left: 270rpx;
   

@@ -26,9 +26,9 @@
       </view>
     </view>
 
-    <view class='crowdright'  bindtap="showintroducemodel" >
+    <!-- <view class='crowdright'  bindtap="showintroducemodel" >
      <image src="http://qiniu.luojiaming.vip/grouptips5.png" ></image>
-    </view>
+    </view> -->
 
   </view>
 </view>

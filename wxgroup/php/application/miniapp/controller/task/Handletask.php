@@ -26,7 +26,18 @@ class Handletask
              return $resdata;
         }
     }
-    
+
+
+     //查询该群的全部任务，审核和未审核都任务
+     public function alltasklists(Request $request)
+     {
+         $crowd_id =$request->param("crowd_id");//群id
+         $dballtasklists =db('task_record')->where('crowd_id',$crowd_id)->order('id desc')->select();
+         $state=['state'   => '200','message'  => "查询该群的全部任务" ];
+         $resdata=array_merge($state,array('alltasklists'=>$dballtasklists));
+         return $resdata ;
+     }
+
 
      //处理任务，分通过还是不通过
     public function handletask(Request $request)

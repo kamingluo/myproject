@@ -75,6 +75,12 @@ Page({
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangelist.png",
         text: "积分记录",
         joumurl: '/pages/group/groupdetails/scorelist/scorelist'
+      },
+      {
+        id: 5,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangelist.png",
+        text: "群说明",
+        joumurl: 666
       }
     ];
 
@@ -93,12 +99,18 @@ Page({
       },
       {
         id: 3,
+        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
+        text: "全部任务",
+        joumurl: '/pages/group/alltasklists/alltasklists'
+      },
+      {
+        id: 4,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/pushnews.png",
         text: "发布消息",
         joumurl: '/pages/group/pushnews/pushnews'
       },
       {
-        id: 4,
+        id: 5,
         imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
         text: "用户管理",
         joumurl: '/pages/group/user/user'
@@ -161,8 +173,19 @@ Page({
 
 
   clickicon:function(e){
+    
     console.log("点击icon", e.currentTarget.dataset.data.joumurl)
     let joumurl = e.currentTarget.dataset.data.joumurl
+
+    if (joumurl ==666){
+      //多加一个，展示群说明
+      this.setData({
+        introducemodel: true,
+      })
+      return;
+    }
+
+
     let crowd_id = this.data.crowddata.groupdata.id
     let crowd_name = this.data.crowddata.groupdata.crowd_name
     let user_type = this.data.user_type
