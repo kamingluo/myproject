@@ -35,7 +35,7 @@
     </view>
     <view class="content">
       <view class="text-grey">
-        <text class="text-cut name ">{{item.nickName?item.nickName:"用户未授权"  }}</text>
+        <text class="text-cut name ">{{item.nickName?item.nickName:"用户未授权"  }} <text wx:if="{{item.remarks}}">({{item.remarks}}）</text> </text>
         <view class="cu-tag round bg-orange sm">{{item.user_type == 0? "群员" : item.user_type == 1 ? "群主" : "管理员" }}</view>
       </view>
       <view class="text-gray text-sm flex">

@@ -78,7 +78,7 @@ Page({
       },
       {
         id: 5,
-        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/exchangelist.png",
+        imagesurl: "https://groupqiniu.luojiaming.vip/%2Fimage%2Fgroup%2Ficon%2Fnewshuoming.png",
         text: "群说明",
         joumurl: 666
       }
@@ -99,7 +99,7 @@ Page({
       },
       {
         id: 3,
-        imagesurl: "http://qiniu.luojiaming.vip/image/group/icon/useroperation1.png",
+        imagesurl: "https://groupqiniu.luojiaming.vip/%2Fimage%2Fgroup%2Ficon%2Falltasklists.png",
         text: "全部任务",
         joumurl: '/pages/group/alltasklists/alltasklists'
       },
