@@ -85,16 +85,24 @@ Page({
   },
 
   sumittask: function(e) {
+    // this.uploadtask()
+    // this.setData({
+    //   loadModal: true,
+    // })
+    // return;
     console.log(this.data.uploaderList.length)
     if (this.data.uploaderList.length == 0) {
-      wx: wx.showToast({
-        title: "审核图片不能为空",
-        icon: 'none',
-        duration: 2000,
+      // wx: wx.showToast({
+      //   title: "审核图片不能为空",
+      //   icon: 'none',
+      //   duration: 2000,
+      // })
+      this.uploadtask()
+      this.setData({
+        loadModal: true,
       })
       return;
-    }
-    else {
+    } else {
       this.setData({
         loadModal: true,
       })
@@ -169,11 +177,11 @@ Page({
               icon: 'success',
               duration: 2000,
             })
-            setTimeout(function () {
+            setTimeout(function() {
               wx.navigateBack({
                 delta: 1
               })
-            }, 1500) 
+            }, 1500)
           },
         })
       }

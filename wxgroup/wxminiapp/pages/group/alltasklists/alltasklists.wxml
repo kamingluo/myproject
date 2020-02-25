@@ -11,7 +11,7 @@
 </view>
 
 
-<view wx:if="{{taskdetails.length <= 0}}">
+<view wx:if="{{alltasklists.length <= 0}}">
   <view class='default'>
     <view>
       <image src='http://littlebox.luojiaming.vip/default.png'></image>
@@ -28,7 +28,7 @@
 </view>
 
 <view  wx:else >
-  <view class='centered' wx:for="{{taskdetails}}" wx:key="item">
+  <view class='centered' wx:for="{{alltasklists}}" wx:key="item">
     <view class='exchangelist  shadow-warp bg-white' bindtap='clicktasklist'  data-id='{{item.id}}' >
       <view class='exchangedata '>
         <view class='exchangegood'>
