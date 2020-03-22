@@ -13,7 +13,8 @@ class Handlegroup
     {
     	$crowd_id=$request->param("crowd_id");//群id
     	$pages=$request->param("pages");
-    	$endnumber=$pages*10 ; //结束查询条数
+      // $endnumber=$pages*10 ; //结束查询条数
+      $endnumber=$pages*1000 ; //结束查询条数，暂时设置为1000，因为没做分页
     	$startnumber=$endnumber -10;//开始查询条数
         $sql = "select user.*,user_crowd.user_type,user_crowd.score,user_crowd.remarks,user_crowd.create_time as joincrowd_time from user,user_crowd where user.id=user_crowd.user_id and user_crowd.crowd_id = ".$crowd_id." order BY user_crowd.score desc LIMIT ".$startnumber.",".$endnumber.";";
         $groupuserlist = Db::query($sql); //拿到数据
