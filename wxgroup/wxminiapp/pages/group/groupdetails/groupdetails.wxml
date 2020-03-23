@@ -9,7 +9,7 @@
 <view class='top bg-blue'>
   <view class='user'>
 
-    <view class='userAvatar'>
+    <view class='userAvatar' bindlongpress='showcrowdid' >
       <image src='{{crowddata.groupdata.logo}}' class='userAvatarurl'></image>
     </view>
 

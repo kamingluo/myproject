@@ -74,9 +74,6 @@ class Handlegroup
     }
 
 
-
-
-
      //修改用户的群积分账户
     public function updateusergroupscore(Request $request)
     {
@@ -101,6 +98,45 @@ class Handlegroup
         }
       
     }
+
+    public function operationusergroupscore(Request $request)
+    {
+        $crowd_id=$request->param("crowd_id");//群ID
+        $user_id=$request->param("user_id");//用户ID
+        $score=$request->param("score");//积分数
+        $state=$request->param("state");//加还是减积分
+        $explain=$request->param("explain");//备注
+        $time =date('Y-m-d H:i:s',time());//获取当前时间
+        $user_data =db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->find();
+        $openid=$user_data["user_openid"];
+
+        if($state == 0){
+        //给用户相应的群积分账户加积分
+        $addscore= db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->setInc('score',$score);
+        //给用户增加积分记录
+        //增加用户积分消耗记录
+        $score_record_data = ['id'=>'','openid' =>$openid,'user_id' =>$user_id,'crowd_id' =>$crowd_id,'score' =>$score,'explain' => $explain,'state' =>0,'create_time' =>$time];
+        $score_record_id=db('score_record')->insert($score_record_data);
+        }
+        else{
+        //减少用户积分
+         $reduce_score= db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->setDec('score', $score);
+
+         //增加用户积分消耗记录
+         $score_record_data = ['id'=>'','openid' =>$openid,'user_id' =>$user_id,'crowd_id' =>$crowd_id,'score' =>$score,'explain' =>$explain,'state' =>1,'create_time' =>$time];
+         $score_record_id=db('score_record')->insert($score_record_data);
+
+        }
+
+        $state=['state'   => '200','message'  => "操作用户积分成功" ];
+        return $state;
+    }
+
+
+
+
+
+
 
    //设置群管理员
    public function setupadministrators(Request $request) 

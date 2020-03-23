@@ -96,6 +96,32 @@ class Usergroup
      }
 
 
+        //删除群
+    public function deletegroup(Request $request)
+    {
+         $crowd_id =$request->param("crowd_id");
+         $crowd_data =db('crowd')->where('id',$crowd_id)->find();
+         if($crowd_data == null ){
+            $state=['state'   => '200','message'  => "不存在的群" ];
+            return $state;
+         }
+         else{
+            $crowd=db('crowd')-> where('id',$crowd_id)->delete();
+            $crowd_goods=db('crowd_goods')-> where('crowd_id',$crowd_id)->delete();
+            $crowd_news=db('crowd_news')-> where('crowd_id',$crowd_id)->delete();
+            $exchange_record=db('exchange_record')-> where('crowd_id',$crowd_id)->delete();
+            $score_record=db('score_record')-> where('crowd_id',$crowd_id)->delete();
+            $task_record=db('task_record')-> where('crowd_id',$crowd_id)->delete();
+            $user_crowd=db('user_crowd')-> where('crowd_id',$crowd_id)->delete();
+
+            $state=['state'   => '200','message'  => "删除群成功" ];
+            return $state;
+             
+         }
+
+     }
+
+
 
 
 

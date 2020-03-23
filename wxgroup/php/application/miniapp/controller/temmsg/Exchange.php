@@ -22,6 +22,8 @@ class Exchange
 	 //用户兑换给群主通知
     public function exchangesuccess(Request $request)
     {
+
+      //return "发送报告";
     	//找出该群该群主最远的推送id;
     	//根据群id找到群主的openid
     	// $crowd_id=2;
@@ -29,10 +31,10 @@ class Exchange
     	// // return $crowd_owner_id;
     	// $temmsg_formid=db('formid')->where('openid',$crowd_owner_id)->value('formid');//拿到推送id
     	// return $temmsg_formid;
-        $nickName="兑换昵称";
-        $goodsname="商品名称";
+        $nickName="kaming";
+        $goodsname="商品名称传过去的";
         $price=100;
-        $crowd_id=2;
+        $crowd_id= 14 ;
     	  $temmsg=userexchange($nickName,$goodsname,$price,$crowd_id);
     	  return   $temmsg;
      

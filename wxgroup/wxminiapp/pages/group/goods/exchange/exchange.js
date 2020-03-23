@@ -115,19 +115,29 @@ Page({
 
   clickexchange: function() {
     console.log("点击兑换")
-
-    if(!this.data.useraddress){
+    var that =this
+    if (!that.data.useraddress){
         wx.showToast({
               title: '请先添加地址',
               icon: 'none',
               duration: 2000,
          })
         return;
-
     }
+    wx.requestSubscribeMessage({
+      tmplIds: ['SknRZZeUTqjuuOKPqxANRoZMl2jhUBJbwvd5P8JgjN8'],
+      success(res) { 
+        console.log("兑换成功授权",res)
+      },
+      complete(res){
+        console.log("兑换成功不成功都可以",res)
+        that.confirmexchange()
 
+      }
+    })
+  },
 
-
+  confirmexchange:function(){
     var goods_id = this.data.goods_id
     var remarks = this.data.remarks
     var crowd_id = this.data.crowd_id
@@ -154,13 +164,13 @@ Page({
               wx.navigateBack({
                 delta: 1
               })
-            }, 1500) 
+            }, 1500)
           },
         })
       }
     })
 
-  },
+  }
 
 
 

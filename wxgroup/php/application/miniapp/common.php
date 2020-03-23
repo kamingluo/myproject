@@ -73,17 +73,16 @@ function joingroup($crowd_id, $user_id, $user_openid){
 
 
 
-
-
-
-//用户兑换给群主通知
+//用户兑换给群主通知新的
 function userexchange($nickName,$goodsname,$price,$crowd_id){
     //根据群id找到群主的openid
+
+    // $user_data["nickName"],$goods_data["goodsname"],$goods_data["price"],$crowd_id
+
+    //根据群id找到群主的openid
+      $crowd_owner_id=db('user_crowd')->where('crowd_id',$crowd_id)->where('user_type',1)->value('user_openid'); //拿到群主的openid
    
-    $crowd_owner_id=db('user_crowd')->where('crowd_id',$crowd_id)->where('user_type',1)->value('user_openid'); //拿到群主的openid
-    $temmsg_formid=db('formid')->where('openid',$crowd_owner_id)->value('formid');//拿到推送id
-
-
+      $senopenid=$crowd_owner_id;
       $data['appid']=Config('appid');
       $data['secret']= Config('secret');
       $data['grant_type']= 'client_credential';
@@ -92,45 +91,45 @@ function userexchange($nickName,$goodsname,$price,$crowd_id){
       $token = json_decode($str,true);
       $access_token=$token['access_token'];//拿到token
 
-      $formid = $temmsg_formid;
-      $temid = 'sI1QE53GeoBxyqveS3VqVs-5vm3e1MnWTrO1wQg7crI';
+      $temid = 'zhWe1Om6o3IK-A7ruaJoGvrtshuD-H5Fg0UpMQrzseU';
       $page = 'pages/index/index';
-      $openid =$crowd_owner_id;
-      if(!$formid){
-        return "formid没有!";
-          // die('failed!');
-       }//openid有出现等于0的情况，所以不判断了
-     $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
-     $data = array(//这里一定要按照微信给的格式
-        "touser"=>$openid,
+      $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token='.$access_token;
+      Log::record("这里是开始啦");
+      $explan="用户:".$nickName.",兑换商品";
+      $time =date('Y-m-d H:i:s',time());//获取当前时间
+      
+      $data = array(//这里一定要按照微信给的格式
+        "touser"=>$senopenid,
         "template_id"=>$temid,
         "page"=>$page,
-        "form_id"=>$formid,
+        "miniprogram_state"=>"formal",
+        "lang"=>"zh_CN",
         "data"=>array(
-            "keyword1"=>array(
-                "value"=>$nickName,
-                "color"=>"#173177"
+            "date1"=>array(
+                "value"=>$time
             ),
-            "keyword2"=>array(
-                "value"=>$goodsname,
-                "color"=>"#173177"
+            "thing4"=>array(
+                "value"=>$goodsname
             ),
-            "keyword3"=>array(
-                "value"=>$price,
-                "color"=>"#173177"
+            "number5"=>array(
+                "value"=>$price
+            ),
+            "thing2"=>array(
+                "value"=>$explan
             )
-        ),
-        "emphasis_keyword"=>"keyword5.DATA",//需要进行加大的消息
-    );
-     $res = postCurl($url,$data,'json');//将data数组转换为json数据
+         )
+      );
+    $res = postCurl($url,$data,'json');//将data数组转换为json数据
+    Log::record("这里是结束啦");
     if($res){
         //推送完要把值删除
-         $cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
-       return "推送成功";
+         //$cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
+       Log::record($res);
+       return "用户兑换成功推送成功";
        // echo json_encode(array('state'=>4,'msg'=>$res));
     }else{
-         $cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
-        return "推送失败";
+         //$cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
+        return "用户兑换成功推送失败";
         // echo json_encode(array('state'=>5,'msg'=>$res));
     }
 }
@@ -139,25 +138,20 @@ function userexchange($nickName,$goodsname,$price,$crowd_id){
 
 
 
-
-
-
-//群主发货给用户通知
+//群主发货给用户通知，
 function delivergoods($exchange_id,$expressnumber){
-    
         $exchange_id=$exchange_id;//兑换记录id
         $expressnumber=$expressnumber;//快递单号
         $exchangedata=db('exchange_record')->where('id',$exchange_id)->find(); //根据id找到兑换详情
-        $temmsg_openid=$exchangedata["openid"];
-        $temmsg_formid=db('formid')->where('openid',$temmsg_openid)->value('formid');//拿到推送id
-        $crowd_name=$exchangedata["crowd_name"];
-        $goodsname=$exchangedata["goodsname"];
+        $temmsg_openid=$exchangedata["openid"]; //推送openid
+        $crowd_name=$exchangedata["crowd_name"];//群名称
+        $goodsname=$exchangedata["goodsname"];//商品名称
+        $price=$exchangedata["price"];//商品价格
         if(!$expressnumber){
-            $expressnumber="无快递单号";
+            $expressnumber="无快递单号";//先埋起来
         }
-       $time =date('Y-m-d H:i:s',time());//获取当前时间
-
-
+   
+      $senopenid=$temmsg_openid;
       $data['appid']=Config('appid');
       $data['secret']= Config('secret');
       $data['grant_type']= 'client_credential';
@@ -166,49 +160,44 @@ function delivergoods($exchange_id,$expressnumber){
       $token = json_decode($str,true);
       $access_token=$token['access_token'];//拿到token
 
-      $formid = $temmsg_formid;
-      $temid = 'v0X5cTnOoZQuCBEWrcZoIS3qyW7owMNnkhQGIv4CV80';
+      $temid = 'SknRZZeUTqjuuOKPqxANRoZMl2jhUBJbwvd5P8JgjN8';
       $page = 'pages/index/index';
-      $openid =$temmsg_openid;
-       if(!$formid){
-        return "formid没有!";
-          // die('failed!');
-       }//openid有出现等于0的情况，所以不判断了
-     $url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='.$access_token;
-     $data = array(//这里一定要按照微信给的格式
-        "touser"=>$openid,
+      $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token='.$access_token;
+      Log::record("这里是开始啦");
+      $explan="群:".$crowd_name.";";
+      Log::record($explan);
+      $time =date('Y-m-d H:i:s',time());//获取当前时间
+      
+      $data = array(//这里一定要按照微信给的格式
+        "touser"=>$senopenid,
         "template_id"=>$temid,
         "page"=>$page,
-        "form_id"=>$formid,
-         "data"=>array(
-            "keyword1"=>array(
-                "value"=>$crowd_name,
-                "color"=>"#173177"
+        "miniprogram_state"=>"formal",
+        "lang"=>"zh_CN",
+        "data"=>array(
+            "thing1"=>array(
+                "value"=>"商品兑换结果"
             ),
-            "keyword2"=>array(
-                "value"=>$goodsname,
-                "color"=>"#173177"
+            "thing2"=>array(
+                "value"=>"奖励已经下发,请进入查看"
             ),
-            "keyword3"=>array(
-                "value"=>$expressnumber,
-                "color"=>"#173177"
-            ),
-            "keyword4"=>array(
-                "value"=>$time,
-                "color"=>"#930000"
+            "thing3"=>array(
+                "value"=>$explan
             )
-        ),
-        "emphasis_keyword"=>"keyword5.DATA",//需要进行加大的消息
-    );
-     $res = postCurl($url,$data,'json');//将data数组转换为json数据
+          )
+        );
+    $res = postCurl($url,$data,'json');//将data数组转换为json数据
     if($res){
         //推送完要把值删除
-         $cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
-       return $res;
+         //$cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
+         Log::record($res);
+       return "群主发货推送成功";
        // echo json_encode(array('state'=>4,'msg'=>$res));
     }else{
-         $cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
-        return  $res;
+         //$cleardata=db('formid')-> where('formid',$temmsg_formid)->delete();
+        return "群主发货推送失败";
         // echo json_encode(array('state'=>5,'msg'=>$res));
     }
 }
+
+

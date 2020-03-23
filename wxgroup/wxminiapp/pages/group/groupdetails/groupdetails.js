@@ -49,6 +49,15 @@ Page({
     
   },
 
+  showcrowdid:function(){
+    let crowd_id=this.data.crowd_id
+    wx.showToast({
+      title:"群Id:" + crowd_id,
+      icon: 'none',
+      duration: 2500,
+    })
+
+  },
 
   incondata:function(){
     let icondata=[

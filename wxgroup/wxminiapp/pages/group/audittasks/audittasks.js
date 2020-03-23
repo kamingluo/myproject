@@ -17,6 +17,8 @@ Page({
     taskimageurl:null
   },
 
+ 
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -91,9 +93,20 @@ Page({
    * 点击任务合格按钮
    */
   tasksuccess: function() {
-    this.setData({
-      tasksuccessmodel: true
-    })
+  var that =this
+   wx.requestSubscribeMessage({
+     tmplIds: ['zhWe1Om6o3IK-A7ruaJoGvrtshuD-H5Fg0UpMQrzseU'],
+    success(res) {
+    },
+    complete() {
+      console.log("兑换成功不成功都可以")
+      that.setData({
+        tasksuccessmodel: true
+      })
+    }
+  })
+
+  
   },
 
   /**
