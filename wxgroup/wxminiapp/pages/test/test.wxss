@@ -13,6 +13,9 @@
   height: 150rpx;
 
 }
+.titlecolor{
+  color: white;
+}
 .backcolor{
   background-color: #1cbbb4;
 }

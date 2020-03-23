@@ -5,19 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    radioId: "",
-    loves: [
-      { id: 0, name: "增加", checked: 'true' },
-      { id: 1, name: "减少" }
-    ]
+    zengjia: true,
+    jianshao: false,
+    state:0,
+    tasktext:""
   },
 
 
-updataRadio: function (e) {
-  console.log("点击按钮",e)
-  var Id = e.target.dataset.id
+  add: function (e) {
     this.setData({
-      radioId: Id
+      zengjia: true,
+      jianshao:false,
+      state:0
+    })
+  },
+  jian:function(){
+    this.setData({
+      zengjia: false,
+      jianshao: true,
+      state: 1
+    })
+  },
+  tasktext:function(e){
+    this.setData({
+      tasktext: e.detail.value,
     })
   },
 

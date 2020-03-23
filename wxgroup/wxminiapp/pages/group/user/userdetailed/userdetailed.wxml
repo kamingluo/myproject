@@ -128,22 +128,43 @@
 
 
 
-<view class="cu-modal show" wx:if="{{model}}">
+<view class="cu-modal show"   wx:if="{{model}}">
   <view class="cu-dialog">
-    <view class="cu-bar bg-white justify-end">
-      <view class="content">修改用户的积分数</view>
+    <view class="cu-bar bg-white justify-end backcolor">
+      <view class="content">
+        <text class="titlecolor">积分修改</text>
+      </view>
       <view class="action" bindtap="hideModal">
         <text class="cuIcon-close text-red" bindtap="hidemodal"></text>
       </view>
     </view>
-    <view class="padding-xl ">
-      <view class="stepper">
-        <!-- 减号 -->
-        <text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
-        <!-- 数值 -->
-        <input type="number" value="{{num}}" disabled="true" />
-        <!-- 加号 -->
-        <text bindtap='bindPlus'>+</text>
+    <view class="body">
+      <view class="cu-form-group">
+        <view class="title">成员昵称</view>
+        <text>{{userdata.nickName?userdata.nickName:"用户未授权"}}</text>
+      </view>
+      <view class="cu-form-group ">
+        <view class="title">当前积分</view>
+        <text>{{userscore}}</text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">积分操作</view>
+        <view>
+          <radio class="greenmargin-left-sm" bindtap="add" checked="{{zengjia}}"></radio> 增加
+          <radio class="green margin-left-sm" bindtap="jian" checked="{{jianshao}}"></radio> 减少
+        </view>
+      </view>
+
+      <view class="cu-form-group">
+        <view class="title">积分数量</view>
+        <input  placeholder="积分数量要大于0"  focus="true" type="number"  maxlength="4"  value="{{operationscore}}"  bindinput="bindKeyInput"></input>
+      </view>
+      <view>
+        <view class="centered">
+          <view class="task_text">
+            <textarea maxlength="250" bindinput="remarktext" value='{{tasktext}}' placeholder="请输入备注"></textarea>
+          </view>
+        </view>
       </view>
     </view>
     <view class="cu-bar bg-white justify-end">
@@ -154,6 +175,31 @@
     </view>
   </view>
 </view>
+
+
+<!-- <view class="cu-modal show" wx:if="{{model}}">   //旧的加减积分
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">修改用户的积分数</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red" bindtap="hidemodal"></text>
+      </view>
+    </view>
+    <view class="padding-xl ">
+      <view class="stepper">
+        <text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
+        <input type="number" value="{{num}}" disabled="true" />
+        <text bindtap='bindPlus'>+</text>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hidemodal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="sure">确定</button>
+      </view>
+    </view>
+  </view>
+</view> -->
 
 
 

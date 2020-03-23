@@ -47,6 +47,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 14,
 			"list": [
@@ -147,6 +151,13 @@
 					"pathName": "pages/index/index",
 					"query": "",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "测试页面",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,

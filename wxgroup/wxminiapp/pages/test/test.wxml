@@ -6,7 +6,9 @@
 <view class="cu-modal show">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end backcolor">
-      <view class="content">积分修改</view>
+      <view class="content">
+        <text class="titlecolor">积分修改</text>
+      </view>
       <view class="action" bindtap="hideModal">
         <text class="cuIcon-close text-red" bindtap="hidemodal"></text>
       </view>
@@ -20,12 +22,11 @@
         <view class="title">当前积分</view>
         <text>23</text>
       </view>
-
       <view class="cu-form-group">
-        <view class="title">定义颜色</view>
+        <view class="title">积分操作</view>
         <view>
-          <radio class="greenmargin-left-sm"></radio> 增加
-          <radio class="green margin-left-sm"></radio> 减少
+          <radio class="greenmargin-left-sm" bindtap="add" checked="{{zengjia}}"></radio> 增加
+          <radio class="green margin-left-sm" bindtap="jian" checked="{{jianshao}}"></radio> 减少
         </view>
       </view>
 
@@ -33,17 +34,13 @@
         <view class="title">积分数量</view>
         <input placeholder="积分数量要大于0"></input>
       </view>
-
-
       <view>
-    <view class="centered">
-      <view class="task_text">
-        <textarea maxlength="250" bindinput="tasktext" value='{{tasktext}}' placeholder="请输入备注"></textarea>
+        <view class="centered">
+          <view class="task_text">
+            <textarea maxlength="250" bindinput="tasktext" value='{{tasktext}}' placeholder="请输入备注"></textarea>
+          </view>
+        </view>
       </view>
-    </view>
-  </view>
-
-
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">

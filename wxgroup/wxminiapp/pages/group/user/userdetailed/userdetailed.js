@@ -19,6 +19,11 @@ Page({
     deletegroupusermodel: false,
     remarksmodal:false,
     remarksValue:null,
+    zengjia: true,
+    jianshao: false,
+    state: 0,
+    remarktext: "",
+    operationscore:1
 
 
   },
@@ -115,7 +120,8 @@ Page({
 /*点击修改分数*/
   showmodel:function(){
     this.setData({
-      model: true
+      model: true,
+      remarktext: ""
     })
 
   },
@@ -129,24 +135,92 @@ Page({
     })
   },
 
- /*点击确定*/
-  sure:function(){
+ /*点击确定，旧的代码*/
+  // sure:function(){
+  //   var that = this
+  //   var crowd_id = this.data.crowd_id
+  //   var user_id = this.data.user_id
+  //   var score = this.data.num
+  //   request({
+  //     service: 'group/handlegroup/updateusergroupscore',
+  //     data: {
+  //       crowd_id: crowd_id,
+  //       user_id: user_id,
+  //       score: score
+  //     },
+  //     success: res => {
+  //       that.setData({
+  //         model: false,
+  //         userscore: score
+  //       })
+  //       wx.showToast({
+  //         title: '修改成功',
+  //         icon: 'success',
+  //         duration: 2000,
+  //       })
+  //     },
+  //   })
+  // },
+
+
+  bindKeyInput:function(e){
+    console.log(e.detail.value)
+    this.setData({
+      operationscore: e.detail.value,
+    })
+
+  },
+
+  add: function (e) {
+    this.setData({
+      zengjia: true,
+      jianshao: false,
+      state: 0
+    })
+  },
+  jian: function () {
+    this.setData({
+      zengjia: false,
+      jianshao: true,
+      state: 1
+    })
+  },
+  remarktext: function (e) {
+    this.setData({
+      remarktext: e.detail.value,
+    })
+  },
+
+  /*点击确定*/
+  sure: function () {
     var that = this
-    var crowd_id = this.data.crowd_id
-    var user_id = this.data.user_id
-    var score = this.data.num
+    var score = this.data.operationscore;
+    if (score <= 0){
+      wx.showToast({
+        title: '积分数量要大于0',
+        icon: 'none',
+        duration: 2500,
+      })
+      return;
+    }
+    var crowd_id = this.data.crowd_id;
+    var user_id = this.data.user_id;
+    var state = this.data.state;
+    var explain = this.data.remarktext || "群管理操作";
     request({
-      service: 'group/handlegroup/updateusergroupscore',
+      service: 'group/handlegroup/operationusergroupscore',
       data: {
         crowd_id: crowd_id,
         user_id: user_id,
-        score: score
+        score: score,
+        state: state,
+        explain: explain
       },
       success: res => {
         that.setData({
           model: false,
-          userscore: score
         })
+        that.userdata()
         wx.showToast({
           title: '修改成功',
           icon: 'success',
