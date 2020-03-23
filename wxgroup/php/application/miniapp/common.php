@@ -1,17 +1,10 @@
 <?php
-// +----------------------------------------------------------------------
-// | wxcarminiapp公共方法
-// +----------------------------------------------------------------------
 
 use think\Log;
 use think\Db;
 use think\Request;
 use think\Controller;
 use think\Config;
-
-
-
-
 
 /**
    * 调取微信接口获取openid
@@ -22,7 +15,6 @@ function openid($wxcode){
     if($wxcode == 'kaming'){
         $openid='o3XMA0eQOt1z2SH8FcoXf2n5ga7Y';
         return $openid;
-
     }
     $url = 'https://api.weixin.qq.com/sns/jscode2session';
     $data['appid']=Config('appid');
@@ -50,18 +42,15 @@ function openid($wxcode){
    * @return string
 */
 function joingroup($crowd_id, $user_id, $user_openid){
-
         if($crowd_id == 0 || $crowd_id == null){
             return  "不执行加群，直接返回";
         }
         $time =date('Y-m-d H:i:s',time());
-       
         $dbres =db('user_crowd')->where('user_id',$user_id)->where('crowd_id',$crowd_id)->find();//查询用户有没有加入群
         if($dbres){
             $resdata=['state'   => '200','message'  => "已经加入该群了" ];
             return $resdata;
         }else{
-
             $dbdata = ['id'=>'','user_id' =>$user_id,'user_openid' => $user_openid,'crowd_id' => $crowd_id,'user_type' => 0,'score' =>0,'remarks' =>null,'create_time' =>$time];
             $user_crowdid= db('user_crowd')->insertGetId($dbdata);//返回自增ID
             $state=['state'   => '200','message'  => "用户加入群成功" ];
@@ -76,12 +65,8 @@ function joingroup($crowd_id, $user_id, $user_openid){
 //用户兑换给群主通知新的
 function userexchange($nickName,$goodsname,$price,$crowd_id){
     //根据群id找到群主的openid
-
-    // $user_data["nickName"],$goods_data["goodsname"],$goods_data["price"],$crowd_id
-
-    //根据群id找到群主的openid
       $crowd_owner_id=db('user_crowd')->where('crowd_id',$crowd_id)->where('user_type',1)->value('user_openid'); //拿到群主的openid
-   
+
       $senopenid=$crowd_owner_id;
       $data['appid']=Config('appid');
       $data['secret']= Config('secret');
