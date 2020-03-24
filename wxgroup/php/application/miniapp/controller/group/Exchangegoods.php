@@ -19,6 +19,20 @@ class Exchangegoods
     }
 
 
+      //用户的全部兑换列表
+      public function userallchangelist(Request $request)
+      {
+        $openid=$request->param("openid");//用户的openid
+        $data=db('exchange_record')->where('openid',$openid)->order('id desc')->select();
+        $state=['state'   => '200','message'  => "用户的所有兑换列表" ];
+        $resdata=array_merge($state,array('data'=>$data));
+        return $resdata ;
+      }
+  
+
+
+
+
     //兑换记录详情
     public function exchangedetails(Request $request)
     {

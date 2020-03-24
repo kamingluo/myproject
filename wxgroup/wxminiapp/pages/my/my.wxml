@@ -62,6 +62,14 @@
       </view>
     </kaming-button>
   </view>
+  <view class="cu-item arrow" bindtap='exchangelist'>
+    <kaming-button>
+      <view class="content ">
+        <text class="cuIcon-present text-red iconsize"></text>
+        <text class="text-grey">兑换记录</text>
+      </view>
+    </kaming-button>
+  </view>
 
   <view class="cu-item arrow"  bindtap='myaddress' >
     <view class="content" hover-class="none">
@@ -78,12 +86,12 @@
     </button>
   </view>
 
-  <view class="cu-item arrow">
+  <!-- <view class="cu-item arrow">
     <button class="cu-btn content" open-type="feedback">
       <text class="cuIcon-edit text-red  iconsize"></text>
       <text class="text-grey">意见反馈</text>
     </button>
-  </view>
+  </view> -->
 <!-- 
   <view class="cu-item arrow">
     <view class="content" hover-class="none">

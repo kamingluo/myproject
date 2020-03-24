@@ -100,6 +100,13 @@ Page({
 
   },
 
+  exchangelist:function(){
+    wx.navigateTo({
+      url: '/pages/my/exchangelist/exchangelist'
+    })
+
+  },
+
   testpages: function () {
     console.log("long tap")
     wx.navigateTo({

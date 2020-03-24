@@ -107,6 +107,35 @@ function insidejump (e) {
 }
 
 
+ function haveopenid(){
+
+
+   return new Promise(function (resolve, reject) {
+     wx.login({
+       success: function (res) {
+         request({
+           service: 'user/obtainopenid',
+           data: {
+             code: res.code,
+           },
+           success: res => {
+             console.log("fanfaopenid", res.openid)
+             resolve(res.openid);
+           },
+           fail: res => {
+             console.log(res)
+           },
+         })
+       }
+     });
+   })
+
+
+
+   
+ }
+
+
 
 
 
@@ -116,4 +145,5 @@ module.exports = {
   insidejump: insidejump,
   xmaddata:xmaddata,
   shareconfig: shareconfig,
+  haveopenid: haveopenid
 }
