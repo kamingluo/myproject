@@ -146,7 +146,7 @@ function delivergoods($exchange_id,$expressnumber){
       $access_token=$token['access_token'];//拿到token
 
       $temid = 'SknRZZeUTqjuuOKPqxANRoZMl2jhUBJbwvd5P8JgjN8';
-      $page = 'pages/index/index';
+      $page = 'pages/index/index?exchangelist=true';
       $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token='.$access_token;
       Log::record("这里是开始啦");
       $explan="群:".$crowd_name.";";

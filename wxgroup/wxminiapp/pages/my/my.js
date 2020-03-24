@@ -9,7 +9,6 @@ const {
 var Page = require('../../utils/sdk/xmad/xmadx_sdk.min.js').xmad(Page).xmPage; //小盟广告
 
 Page({
-
   data: {
     userdata:'',
     birthday:null,
@@ -22,12 +21,14 @@ Page({
         banner3: "xma6e58bd54538ae4ae507dd2e2e1e7e",
       },
     },
-
   },
 
-  onLoad: function (options) {
+  onLoad: function (e) {
+    if (e.exchangelist){
+      console.log("直接跳转到兑换记录页面")
+      this.exchangelist()
+    }
     this.addisplay()
-
   },
 
   onShow: function () {
