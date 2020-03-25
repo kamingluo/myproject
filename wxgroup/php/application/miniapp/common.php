@@ -126,7 +126,7 @@ function delivergoods($exchange_id,$expressnumber){
       $senopenid=$temmsg_openid;
       $access_token=wxtoken();//拿到token
       $temid = 'SknRZZeUTqjuuOKPqxANRoZMl2jhUBJbwvd5P8JgjN8';
-      $page = 'pages/index/index?exchangelist=true';
+      $page = 'pages/my/my?exchangelist=true';
       $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token='.$access_token;
       $explan="群:".$crowd_name.";";
       $time =date('Y-m-d H:i:s',time());//获取当前时间
