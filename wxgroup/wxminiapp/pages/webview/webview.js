@@ -1,43 +1,11 @@
-// pages/test/test.js
+// pages/webview/webview.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    zengjia: true,
-    jianshao: false,
-    state:0,
-    tasktext:""
-  },
-
-
-  add: function (e) {
-    this.setData({
-      zengjia: true,
-      jianshao:false,
-      state:0
-    })
-  },
-  jian:function(){
-    this.setData({
-      zengjia: false,
-      jianshao: true,
-      state: 1
-    })
-  },
-  tasktext:function(e){
-    this.setData({
-      tasktext: e.detail.value,
-    })
-  },
-
-
-  webview: function () {
-    console.log("1111111")
-    wx.navigateTo({
-      url: '/pages/webview/webview'
-    })
+    url:null
 
   },
 
@@ -45,8 +13,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      url: options.url,
+    })
 
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

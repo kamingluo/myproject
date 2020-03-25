@@ -3,7 +3,16 @@
   <view slot="content">测试页面</view>
 </cu-custom>
 
-<view class="cu-modal show">
+
+
+
+<view>
+
+<button bindtap="webview" >跳转webv</button>
+
+</view>
+
+<!-- <view class="cu-modal show">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end backcolor">
       <view class="content">
@@ -49,4 +58,4 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->

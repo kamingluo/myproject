@@ -14,6 +14,7 @@
     "pages/group/pushnews/pushnews",
     "pages/group/qrcode/qrcode",
     "pages/group/user/user",
+    "pages/webview/webview",
     "pages/group/alltasklists/alltasklists",
     "pages/group/goods/goodslist/goodslist",
     "pages/group/goods/pushgoods/pushgoods",
