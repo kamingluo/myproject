@@ -62,6 +62,15 @@ class Exchange
     }
 
 
+    public function textecheck(Request $request)
+    {
+       //return $request->param("text");
+      $content=$request->param("content");
+      $data=wxmsgSecCheck($content);
+      return $data;
+    }
+
+
 
 
 

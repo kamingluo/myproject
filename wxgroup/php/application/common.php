@@ -99,8 +99,6 @@ function sendEmail($data = []) {
 
 
 
-
-
   function postCurl($url,$data,$type)
      {
     if($type == 'json'){
@@ -125,5 +123,7 @@ function sendEmail($data = []) {
     return $res;
     
    }
+
+
 
 

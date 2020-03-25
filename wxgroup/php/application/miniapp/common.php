@@ -182,3 +182,23 @@ function wxtoken(){
     return $access_token;
 
 }
+
+
+//文案审核
+function wxmsgSecCheck($content){
+        $access_token=wxtoken();//拿到token
+        //return $access_token;
+        $url = 'https://api.weixin.qq.com/wxa/msg_sec_check?access_token='.$access_token;//文案审核URL
+        // $data = json_encode(['content'=>$text]);
+        $data=array("content"=>$content);
+        //return $data;
+        $respon = postCurl($url,$data,'json');
+        $respon = json_decode($respon,true);
+        return $respon;
+        if($respon['errcode'] == 87014){
+        return 1;//效验失败，内容含有违法违规内容
+        }
+        else{
+            return 0;
+        }
+}
