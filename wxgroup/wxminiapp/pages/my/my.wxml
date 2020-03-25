@@ -79,7 +79,8 @@
   </view>
 
   <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="contact"   session-from='{"nickName":"{{userdata.nickName}}{{userdata.id}}"},"avatarUrl":"{{userdata.avatarUrl}}"}'>
+    <!-- <button class="cu-btn content" open-type="contact"   session-from='{"nickName":"{{userdata.nickName}}{{userdata.id}}"},"avatarUrl":"{{userdata.avatarUrl}}"}'> -->
+      <button class="cu-btn content" open-type="contact"   session-from='{"nickName":"{{userdata.nickName}}{{userdata.id}}","avatarUrl":"{{userdata.avatarUrl}}"}'>
       <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
       <text class="cuIcon-service text-cyan  iconsize"></text>
       <text class="text-grey">联系我们</text>

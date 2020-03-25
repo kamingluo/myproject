@@ -13,11 +13,11 @@ Page({
     crowd_name: null,
     taskdata: null,
     loadModal: false,
-    tankuang:false,
-    taskimageurl:null
+    tankuang: false,
+    taskimageurl: null
   },
 
- 
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -32,22 +32,21 @@ Page({
     this.operationscore()
   },
 
-  operationscore:function(){
+  operationscore: function() {
     console.log("获取历史操作积分数值")
     let score = wx.getStorageSync('operationscore')
-    if (score){
+    if (score) {
       console.log("存在")
       this.setData({
         num: score,
       })
-    }
-    else{
+    } else {
       console.log("不存在")
       wx.setStorageSync('operationscore', 1)
       this.setData({
         num: 1,
       })
-      
+
     }
 
   },
@@ -93,20 +92,16 @@ Page({
    * 点击任务合格按钮
    */
   tasksuccess: function() {
-  var that =this
-   wx.requestSubscribeMessage({
-     tmplIds: ['zhWe1Om6o3IK-A7ruaJoGvrtshuD-H5Fg0UpMQrzseU'],
-    success(res) {
-    },
-    complete() {
-      console.log("兑换成功不成功都可以")
-      that.setData({
-        tasksuccessmodel: true
-      })
-    }
-  })
-
-  
+    var that = this
+    wx.requestSubscribeMessage({
+      tmplIds: ['zhWe1Om6o3IK-A7ruaJoGvrtshuD-H5Fg0UpMQrzseU'],
+      success(res) {},
+      complete() {
+        that.setData({
+          tasksuccessmodel: true
+        })
+      }
+    })
   },
 
   /**
@@ -130,7 +125,7 @@ Page({
     })
   },
 
-  closetankuang:function(){
+  closetankuang: function() {
     this.setData({
       tankuang: false
     })
@@ -201,7 +196,7 @@ Page({
 
   },
 
-  audittasks:function(){
+  audittasks: function() {
     wx.showToast({
       title: '审核完成',
       icon: 'success',
@@ -211,7 +206,7 @@ Page({
   },
 
 
-  clicktaskimage:function(e){
+  clicktaskimage: function(e) {
     console.log(e.currentTarget.dataset.data)
     this.setData({
       tankuang: true,

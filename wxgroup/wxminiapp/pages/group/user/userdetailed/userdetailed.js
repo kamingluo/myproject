@@ -191,8 +191,21 @@ Page({
     })
   },
 
-  /*点击确定*/
+
   sure: function () {
+    //获取群主的通知授权
+    var that = this
+    wx.requestSubscribeMessage({
+      tmplIds: ['zhWe1Om6o3IK-A7ruaJoGvrtshuD-H5Fg0UpMQrzseU'],
+      success(res) { },
+      complete() {
+        that.newsure()
+      }
+    })
+  },
+
+  /*点击确定*/
+  newsure: function () {
     var that = this
     var score = this.data.operationscore;
     if (score <= 0){
