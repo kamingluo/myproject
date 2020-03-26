@@ -68,7 +68,7 @@ class Currency
       $channel=$request->param("channel");
       $formid=$request->param("formid");
 
-      $dbnum =db('formid')->where('openid',$openid)->whereTime('create_time', 'today')->count();//查询今日点广告数
+      $dbnum =db('formid')->where('openid',$openid)->whereTime('create_time', 'today')->count();
       if($dbnum > 50 ){
         return ['state'   => '200','message'  => "今天大于3啦不用加了!"] ;
       }

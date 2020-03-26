@@ -4,6 +4,7 @@ const qiniuUploader = require("../../../utils/sdk/qiniu/qiniuUploader");
 const {
   request
 } = require('./../../../utils/request.js');
+const common = require('./../../../utils/common.js');
 const app = getApp();
 
 Page({
@@ -84,7 +85,35 @@ Page({
     })
   },
 
-  sumittask: function(e) {
+
+  sumittask: function() {
+    var that = this
+    wx.requestSubscribeMessage({
+      tmplIds: ['fIbB90FHxqlRURZGGo0PmcdAKWaUoxziV_loz90ftVs'],
+      success(res) {
+        console.log("同意了请求，统计一下")
+        //先写死一个推送id
+        let tmpid = 'fIbB90FHxqlRURZGGo0PmcdAKWaUoxziV_loz90ftVs';
+        let openid = wx.getStorageSync('userdata').openid
+        let crowd_id = that.data.crowd_id
+        let crowd_name = that.data.crowd_name
+        let sendata = {
+          openid: openid,
+          tmpid: tmpid,
+          crowd_id: crowd_id,
+          crowd_name: crowd_name
+        }
+        common.recordmsg(sendata)
+      },
+      complete() {
+        that.newsumittask() //成功不成功都执行下一步
+      }
+    })
+  },
+
+
+
+  newsumittask: function(e) {
     // this.uploadtask()
     // this.setData({
     //   loadModal: true,

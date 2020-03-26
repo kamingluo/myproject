@@ -158,7 +158,7 @@ function delivergoods($exchange_id,$expressnumber){
 
 
 
-//群主发货给用户通知，
+//微信token获取
 function wxtoken(){
     $dbres =db('wxtoken')->where('id',1)->find();//查询用户有没有加入群
     $token_time=$dbres["update_time"];
@@ -180,6 +180,44 @@ function wxtoken(){
         $access_token=$dbres["access_token"];//直接拿到数据库存储的token
     }
     return $access_token;
+
+}
+
+
+
+//群主发信息，给群员推送
+function msgpushnew($openid,$access_token,$crowd_name){
+      $senopenid=$openid;//用户id
+      $access_token=$access_token;
+      $temid = 'fIbB90FHxqlRURZGGo0PmcdAKWaUoxziV_loz90ftVs';
+      $page = 'pages/my/my?exchangelist=true';
+      $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token='.$access_token;
+      $explan="你加入的群:".$crowd_name."新发布了一条消息;";
+      $time =date('Y-m-d H:i:s',time());//获取当前时间
+      $data = array(//这里一定要按照微信给的格式
+        "touser"=>$senopenid,
+        "template_id"=>$temid,
+        "page"=>$page,
+        "miniprogram_state"=>"formal",
+        "lang"=>"zh_CN",
+        "data"=>array(
+            "thing1"=>array(
+                "value"=>$explan
+            ),
+            "thing3"=>array(
+                "value"=>"点击查看>>>"
+            ),
+            "time2"=>array(
+                "value"=>$time
+            )
+          )
+        );
+    $res = postCurl($url,$data,'json');//将data数组转换为json数据
+    if($res){
+       return "发送成功";
+    }else{
+        return "发送失败";
+    }
 
 }
 

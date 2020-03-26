@@ -203,17 +203,21 @@ Page({
             titleimage: checkedimg,
           },
           success: res => {
-            this.setData({
+            that.setData({
               loadModal: false,
               uploaderList: [],
               uploaderNum: 0,
               tasktext: null
             })
+
+            that.senmsg()//开始推送
+
             wx.showToast({
               title: '发布成功',
               icon: 'success',
               duration: 2000,
             })
+
 
             setTimeout(function () {
               wx.navigateBack({
@@ -224,6 +228,24 @@ Page({
         })
       }
     })
+  },
+
+
+  senmsg:function(){
+    let crowd_id = this.data.crowd_id
+    let crowd_name = this.data.crowd_name
+    request({
+      service: 'temmsg/Sendmsg/pushnewmsg',
+      data: {
+        crowd_id: crowd_id,
+        crowd_name:crowd_name
+      },
+      success: res => {
+        console.log('消息推送成功');
+      },
+    })
+
+
   },
 
 

@@ -13,7 +13,7 @@ function register(e) {
         service: 'user/register',
         data: data,
         success: res => {
-         // console.log('注册成功', res);
+          // console.log('注册成功', res);
           wx.setStorageSync('userdata', res.userdata)
         },
         fail: res => {
@@ -33,7 +33,7 @@ function authorized(e) {
   var data = e
   wx.login({
     success: res => {
-      data.code=res.code
+      data.code = res.code
       request({
         service: 'user/authorized',
         data: data,
@@ -52,7 +52,7 @@ function authorized(e) {
   })
 }
 
-function xmaddata(){
+function xmaddata() {
   request({
     service: 'ad/xmad/xmadconfig',
     method: 'GET',
@@ -80,26 +80,23 @@ function shareconfig() {
 
 
 //跳转内部页面
-function insidejump (e) {
+function insidejump(e) {
   //console.log("跳转页面",e)
   let type = e.type
   if (type == 0) {
     wx.switchTab({
       url: e.url
     })
-  }
-  else if (type == 1) {
+  } else if (type == 1) {
     wx.navigateTo({
       url: e.url
     })
-  }
-  else if (type == 2) {
+  } else if (type == 2) {
     wx.navigateToMiniProgram({
       appId: e.appid,
       path: e.url,
     })
-  }
-  else {
+  } else {
     wx.reLaunch({
       url: e.url
     })
@@ -107,34 +104,43 @@ function insidejump (e) {
 }
 
 
- function haveopenid(){
+function haveopenid() {
+  return new Promise(function(resolve, reject) {
+    wx.login({
+      success: function(res) {
+        request({
+          service: 'user/obtainopenid',
+          data: {
+            code: res.code,
+          },
+          success: res => {
+            console.log("fanfaopenid", res.openid)
+            resolve(res.openid);
+          },
+          fail: res => {
+            console.log(res)
+          },
+        })
+      }
+    });
+  })
+}
 
 
-   return new Promise(function (resolve, reject) {
-     wx.login({
-       success: function (res) {
-         request({
-           service: 'user/obtainopenid',
-           data: {
-             code: res.code,
-           },
-           success: res => {
-             console.log("fanfaopenid", res.openid)
-             resolve(res.openid);
-           },
-           fail: res => {
-             console.log(res)
-           },
-         })
-       }
-     });
-   })
 
-
-
-   
- }
-
+function recordmsg(e){
+  console.log("传过来的推送信息",e)
+  request({
+    service: 'temmsg/sendmsg/collectmsg',
+    data: e,
+    success: res => {
+      console.log("记录推送", res)
+    },
+    fail: res => {
+      console.log(res)
+    },
+  })
+}
 
 
 
@@ -143,7 +149,8 @@ module.exports = {
   register: register,
   authorized: authorized,
   insidejump: insidejump,
-  xmaddata:xmaddata,
+  xmaddata: xmaddata,
   shareconfig: shareconfig,
-  haveopenid: haveopenid
+  haveopenid: haveopenid,
+  recordmsg: recordmsg
 }
