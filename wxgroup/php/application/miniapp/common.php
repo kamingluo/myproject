@@ -187,7 +187,7 @@ function wxtoken(){
 
 //群主发信息，给群员推送
 function msgpushnew($openid,$access_token,$crowd_name){
-      Log::record('给群员发推送信息',$openid,,$access_token,$crowd_name);
+      Log::record('给群员发推送信息',$openid,$access_token,$crowd_name);
       $senopenid=$openid;//用户id
       $access_token=$access_token;
       $temid = 'fIbB90FHxqlRURZGGo0PmcdAKWaUoxziV_loz90ftVs';
