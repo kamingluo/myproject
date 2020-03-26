@@ -214,8 +214,10 @@ function msgpushnew($openid,$access_token,$crowd_name){
         );
     $res = postCurl($url,$data,'json');//将data数组转换为json数据
     if($res){
+        Log::record('群主发信息，给群员推送成功-->',$res);
        return "发送成功";
     }else{
+        Log::record('群主发信息，给群员推送失败',$res);
         return "发送失败";
     }
 

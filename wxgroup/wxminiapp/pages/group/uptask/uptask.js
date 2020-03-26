@@ -96,12 +96,12 @@ Page({
         let tmpid = 'fIbB90FHxqlRURZGGo0PmcdAKWaUoxziV_loz90ftVs';
         let openid = wx.getStorageSync('userdata').openid
         let crowd_id = that.data.crowd_id
-        let crowd_name = that.data.crowd_name
+        let user_id = wx.getStorageSync('userdata').id
         let sendata = {
           openid: openid,
-          tmpid: tmpid,
+          temmsg_id: tmpid,
           crowd_id: crowd_id,
-          crowd_name: crowd_name
+          user_id: user_id
         }
         common.recordmsg(sendata)
       },

@@ -235,7 +235,7 @@ Page({
     let crowd_id = this.data.crowd_id
     let crowd_name = this.data.crowd_name
     request({
-      service: 'temmsg/Sendmsg/pushnewmsg',
+      service: 'temmsg/sendmsg/pushnewmsg',
       data: {
         crowd_id: crowd_id,
         crowd_name:crowd_name
