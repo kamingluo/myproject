@@ -99,8 +99,7 @@ function sendEmail($data = []) {
 
 
 
-  function postCurl($url,$data,$type)
-     {
+function postCurl($url,$data,$type){
     if($type == 'json'){
         $data = json_encode($data);//对数组进行json编码
         $header= array("Content-type: application/json;charset=UTF-8","Accept: application/json","Cache-Control: no-cache", "Pragma: no-cache");
@@ -122,7 +121,7 @@ function sendEmail($data = []) {
     curl_close($curl);
     return $res;
     
-   }
+}
 
 
 

@@ -183,6 +183,16 @@ public function getqrcode(Request $request)
       }
 
 
+  
+  //文案审核，内容安全返回0，不安全返回1
+  public function echecktext(Request $request)
+      {
+        $content=$request->param("content");
+        $data=wxmsgSecCheck($content);
+        $state=['state'   => '200','message'  => "内容审核结果",'data' =>$data];
+        return $state;
+      }
+
 
 
 
