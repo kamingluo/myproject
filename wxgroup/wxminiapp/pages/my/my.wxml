@@ -9,7 +9,7 @@
 
 <view class='top bg-blue'>
   <view class='user'>
-    <view class='userAvatar'>
+    <view class='userAvatar' bindtap="ceshikaming">
       <open-data class='userAvatarurl' type="userAvatarUrl"></open-data>
     </view>
 

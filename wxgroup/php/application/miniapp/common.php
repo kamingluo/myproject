@@ -187,16 +187,15 @@ function wxtoken(){
 
 //群主发信息，给群员推送
 function msgpushnew($openid,$access_token,$crowd_name){
-      Log::record('给群员发推送信息');
-      $senopenid=$openid;//用户id
+      $senopenid=$openid;//用户openid
       $access_token=$access_token;
-     // $access_token=wxtoken();//拿到token
+      // $access_token=wxtoken();//拿到token
       $temid = 'fIbB90FHxqlRURZGGo0PmcdAKWaUoxziV_loz90ftVs';
       $page = 'pages/my/my?exchangelist=true';
       $url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token='.$access_token;
       $explan="群:".$crowd_name."有新消息;";
       $time =date('Y-m-d H:i:s',time());//获取当前时间
-      $data = array(//这里一定要按照微信给的格式
+      $data = array(
         "touser"=>$senopenid,
         "template_id"=>$temid,
         "page"=>$page,
@@ -204,6 +203,7 @@ function msgpushnew($openid,$access_token,$crowd_name){
         "lang"=>"zh_CN",
         "data"=>array(
             "thing1"=>array(
+                //这里贼坑，字符串过长不能发送成功，但是回调信息没提示
                 "value"=>$explan
             ),
             "thing3"=>array(
@@ -214,7 +214,7 @@ function msgpushnew($openid,$access_token,$crowd_name){
             )
           )
         );
-    $res = postCurl($url,$data,'json');//将data数组转换为json数据
+    $res = postCurl($url,$data,'json');
     if($res){
        return "发送成功";
     }else{

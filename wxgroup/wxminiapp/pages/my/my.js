@@ -36,6 +36,14 @@ Page({
 
   },
 
+  ceshikaming:function(){
+    var str = "这里是习近平啊啊啊的内容测试啊";
+    var newstr="这里是正常啊";
+
+    console.log(newstr.indexOf("习近平") != -1);  // true
+
+  },
+
  //获取用户信息
   userdata:function(){
     wx.login({
