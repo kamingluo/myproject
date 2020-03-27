@@ -94,18 +94,6 @@ Page({
 
 
   sumittask: function(e) {
-    let groupname = this.data.groupname
-    let introduce = this.data.grouptext
-    let one = groupname.indexOf("习近平") != -1;
-    let two = introduce.indexOf("习近平") != -1;
-    if (one || two) {
-      wx.showToast({
-        title: '内容不安全，请重新输入',
-        icon: 'none',
-        duration: 2500,
-      })
-      return;
-    }
     // console.log(this.data.grouptext)
     // console.log(this.data.groupname)
     // if (this.data.grouptext == null || this.data.groupname == null || this.data.groupcode == null) {

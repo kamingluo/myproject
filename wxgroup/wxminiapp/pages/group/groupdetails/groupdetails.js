@@ -50,13 +50,16 @@ Page({
   },
 
   showcrowdid:function(){
-    let crowd_id=this.data.crowd_id
-    wx.showToast({
-      title:"群Id:" + crowd_id,
-      icon: 'none',
-      duration: 2500,
-    })
-
+    let user_type=this.data.user_type;
+    let crowd_id = this.data.crowd_id
+    if (user_type == 1){
+      wx.showToast({
+        title: "群Id:" + crowd_id,
+        icon: 'none',
+        duration: 2500,
+      })
+    }
+   return;
   },
 
   incondata:function(){

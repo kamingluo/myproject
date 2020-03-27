@@ -13,7 +13,7 @@ class Desgroup
         if($id){
            //根据id查询的
            $data=db('crowd')->where('id',$id)->select();
-           $countnumber=1;
+           $countnumber=db('crowd')->where('id',$id)->count();
            $state=['state'   => '200','message'  => "群查询成功" ];
            $resdata=array_merge($state,array('countnumber'=>$countnumber),array('data'=>$data));
            return $resdata ;
