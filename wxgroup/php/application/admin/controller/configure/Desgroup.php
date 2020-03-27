@@ -9,21 +9,35 @@ class Desgroup
    
     //群列表
     public function groupslist(Request $request){
+        $id=$request->param("id");
+        if($id){
+           //根据id查询的
+           $data=db('crowd')->where('id',$id)->select();
+           $countnumber=1;
+           $state=['state'   => '200','message'  => "群查询成功" ];
+           $resdata=array_merge($state,array('countnumber'=>$countnumber),array('data'=>$data));
+           return $resdata ;
+        }
         $pages=$request->param("pages");
-        $countnumber=db('crowd')->count();
+        $crowd_name=$request->param("crowd_name");
         if($pages == 1 || $pages==null  ){
-        $data=db('crowd')->order('id desc')->limit(0,10)->select();
-        $state=['state'   => '200','message'  => "群列表查询成功" ];
-        $resdata=array_merge($state,array('countnumber'=>$countnumber),array('data'=>$data));
-        return $resdata ;
+          $number=0;
         }
         else{
-        $number=($pages - 1)*10 ;
-        $data=db('crowd')->order('id desc')->limit($number,10)->select();
+          $number=($pages - 1)*10 ;
+        }
+        if($crowd_name){
+           //名称不为空
+           $countnumber=db('crowd')->where('crowd_name','like',"%$crowd_name%")->count();
+           $data=db('crowd')->where('crowd_name','like',"%$crowd_name%")->order('id desc')->limit($number,10)->select();
+        }
+        else{
+         $countnumber=db('crowd')->count();
+         $data=db('crowd')->order('id desc')->limit($number,10)->select();
+        }
         $state=['state'   => '200','message'  => "群列表查询成功" ];
         $resdata=array_merge($state,array('countnumber'=>$countnumber),array('data'=>$data));
         return $resdata ;
-        }
     }
 
    //删除一个群
